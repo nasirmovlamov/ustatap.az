@@ -1,0 +1,67 @@
+.mastersCont {
+  width: 280px;
+  height: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mastersCont .masterImg {
+  width: 47%;
+  height: 100%;
+}
+
+.mastersCont .aboutText {
+  padding-left: 20px;
+  padding-top: 30px;
+  height: 130px;
+  width: 143px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: url(../../images/component/background/masterAboutBg.svg);
+}
+
+.mastersCont .aboutText .name {
+  font-size: 16px;
+  font-family: "ComfortaaRegular";
+}
+
+.mastersCont .aboutText .job {
+  font-size: 12px;
+  font-family: "ComfortaaRegular";
+  color: #F97922;
+  margin-top: -10%;
+  margin-left: 5px;
+}
+
+.mastersCont .aboutText .location {
+  font-size: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mastersCont .aboutText .location img {
+  margin-right: 5px;
+}
+
+.mastersCont .aboutText .stars img {
+  margin-left: -5px;
+}
+
+.mastersCont .aboutText .heart {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=ad2.css.map */

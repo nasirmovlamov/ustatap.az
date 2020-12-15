@@ -1,0 +1,83 @@
+.navbar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 31px;
+}
+
+.navbar .text {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "FuturicaRegular";
+}
+
+.navbar .text p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-size: 18px;
+}
+
+.navbar .text .login {
+  background-color: transparent;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.navbar .text .login img {
+  margin-right: 14.5px;
+}
+
+.navbar .text .login:focus {
+  outline: none;
+}
+
+.navbar .text .putAd {
+  width: 132px;
+  height: 41px;
+  background-color: #5ABA42;
+  color: white;
+  font-size: 11px;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 121px;
+  font-family: "ComfortaaBold";
+}
+
+.navbar .text .putAd span {
+  margin-right: 5px;
+  font-size: 24px;
+}
+
+.navbar .text .putAd:focus {
+  outline: none;
+}
+/*# sourceMappingURL=header.css.map */

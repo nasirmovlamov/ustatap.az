@@ -1,0 +1,60 @@
+.navbar
+{
+    width: 100%; 
+    display:flex;
+    justify-content:space-around; 
+    align-items:center;
+    margin-top: 31px;
+    .text
+    {
+        width: 60%;
+        display:flex;
+        justify-content:space-between; 
+        align-items:center;
+        font-family: "FuturicaRegular";
+        p
+        {
+            display:flex;
+            align-items:center;
+            color: white;
+            font-size: 18px;
+        }
+        .login {
+            img 
+            {
+                margin-right: 14.5px;
+            }
+            background-color: transparent;
+            border: none;
+            padding-left:10px ;
+            padding-right: 10px;
+            cursor: pointer;
+            &:focus {
+                outline:none;
+            }
+        }
+        .putAd
+        {
+            width: 132px;
+            height: 41px;
+            background-color: #5ABA42;
+            color:white;
+            font-size: 11px;
+            border:none;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            border-radius: 121px;
+            font-family: "ComfortaaBold";
+            span
+            {
+                margin-right: 5px;
+                font-size: 24px;
+            }
+            &:focus {
+                outline:none;
+            }
+        }
+    }
+
+}

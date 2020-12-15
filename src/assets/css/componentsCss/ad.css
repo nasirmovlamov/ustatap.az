@@ -1,0 +1,100 @@
+.ad {
+  width: 281px;
+  height: 331px;
+  -webkit-box-shadow: 0px 4px 52px 9px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 52px 9px rgba(0, 0, 0, 0.25);
+}
+
+.ad .mainImg {
+  width: 100%;
+  height: 196px;
+}
+
+.ad .lineAd {
+  width: 100%;
+  height: 3px;
+  background-color: #59BA44;
+  margin-top: -4px;
+}
+
+.ad .subCont {
+  background-color: #FFFFFF;
+  height: 133.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ad .subCont .flexCont1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "FuturicaRegular";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 17px;
+}
+
+.ad .subCont .nameCostumer {
+  font-family: Futurica;
+  color: rgba(150, 150, 150, 0.83);
+  font-size: 8px;
+  height: auto;
+  margin-left: 3px;
+  margin-top: -20%;
+}
+
+.ad .subCont .flexCont2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: Futurica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.ad .subCont .flexCont2 p {
+  font-family: Futurica;
+  font-style: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: normal;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ad .subCont .flexCont2 p img {
+  margin-right: 3px;
+}
+/*# sourceMappingURL=ad.css.map */
