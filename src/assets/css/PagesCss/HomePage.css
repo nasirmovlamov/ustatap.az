@@ -9,7 +9,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 150px;
+  overflow-x: hidden;
 }
 
 .topContainer {
@@ -48,6 +48,7 @@
   margin-top: 80px;
   -ms-flex-item-align: start;
       align-self: flex-start;
+  margin-bottom: 150px;
 }
 
 .main .aside {
@@ -100,6 +101,7 @@
   line-height: 41px;
   -ms-flex-item-align: start;
       align-self: flex-start;
+  color: black;
 }
 
 .main .allAdsContainer .line1 {

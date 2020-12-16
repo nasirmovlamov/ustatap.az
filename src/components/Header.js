@@ -6,7 +6,7 @@ import "../assets/css/componentsCss/header.css"
 function Header() {
     return (
         <navbar className="navbar">
-            <img src={mainLogo} alt=""/>
+            <img src={mainLogo}  alt=""/>
             <div className="text"> 
                 <p>Əsas Səhifə</p>  
                 <p>Elanlar</p>  

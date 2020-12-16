@@ -7,7 +7,7 @@
     margin-top: 31px;
     .text
     {
-        width: 60%;
+        width: 75%;
         display:flex;
         justify-content:space-between; 
         align-items:center;
@@ -32,6 +32,7 @@
             &:focus {
                 outline:none;
             }
+            font-family: "FuturicaRegular";
         }
         .putAd
         {
@@ -39,6 +40,7 @@
             height: 41px;
             background-color: #5ABA42;
             color:white;
+            letter-spacing: 1px;
             font-size: 11px;
             border:none;
             display:flex;

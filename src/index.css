@@ -6,7 +6,31 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@font-face {
+  font-family: 'FuturicaRegular';
+  src: url(./assets/fonts/Futurica.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'FuturicaBold';
+  src: url(./assets/fonts/FuturicaB.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'FuturicaLight';
+  src: url(./assets/fonts/FuturicaL.ttf) format('truetype');
+}
 
+@font-face {
+  font-family: 'ComfortaaRegular';
+  src: url(./assets/fonts/Comfortaa-Regular.otf) format('truetype');
+}
+@font-face {
+  font-family: 'ComfortaaBold';
+  src: url(./assets/fonts/Comfortaa-Bold.otf) format('truetype');
+}
+@font-face {
+  font-family: 'ComfortaaLight';
+  src: url(./assets/fonts/Comfortaa-Light.otf) format('truetype');
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

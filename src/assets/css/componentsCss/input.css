@@ -1,0 +1,28 @@
+.inputComponent {
+  width: 95px;
+  height: 13px;
+  font-size: 5px;
+  color: black;
+  border: none;
+}
+
+.inputComponent::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.11);
+}
+
+.inputComponent:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.11);
+}
+
+.inputComponent::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.11);
+}
+
+.inputComponent::placeholder {
+  color: rgba(0, 0, 0, 0.11);
+}
+
+.inputComponent:focus {
+  outline: none;
+}
+/*# sourceMappingURL=input.css.map */

@@ -1,0 +1,234 @@
+.footer {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #313131;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.socialImgs {
+  margin-top: 29px;
+  margin-right: -5px;
+}
+
+.socialImgs img {
+  margin-right: 8.5px;
+}
+
+.mailSubs {
+  background: url("../../images/component/background/footerBG.jpg") no-repeat;
+  width: 291px;
+  height: 185px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "ComfortaaRegular";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+}
+
+.mailSubs .aboutPart {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 75.5px;
+  margin-right: 10%;
+}
+
+.mailSubs .aboutPart p {
+  margin: 0;
+}
+
+.mailSubs .aboutPart .button {
+  width: 71px;
+  height: 16px;
+  background: -webkit-gradient(linear, left top, right top, from(#68A735), to(#58BC40));
+  background: linear-gradient(90deg, #68A735 0%, #58BC40 100%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  padding: 0.5px;
+}
+
+.mailSubs .aboutPart .button .text {
+  border: 1px solid white;
+  width: 66px !important;
+  height: 80%;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-size: 7px;
+  font-family: "FuturicaRegular";
+}
+
+.mailSubs .aboutPart .button .text .img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 2px;
+}
+
+.mailSubs .aboutPart .button .text .img:nth-child(1) {
+  margin-left: 5px;
+}
+
+.mailSubs .aboutPart .button:focus {
+  outline: none;
+}
+
+.upSide {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: auto;
+  padding-top: 71px;
+  padding-bottom: 62px;
+}
+
+.upSide .number p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-family: "FuturicaRegular";
+  width: 210px;
+  font-size: 16px;
+  margin-top: 24px;
+}
+
+.upSide .number p:nth-child(1) {
+  margin: 0;
+}
+
+.upSide .number p img {
+  margin-right: 8px;
+}
+
+.upSide .elements1 {
+  font-size: 19px;
+  color: white;
+  font-family: "ComfortaaRegular";
+}
+
+.upSide .elements1 p {
+  margin: 0;
+  margin-top: 24px;
+  letter-spacing: 4.5px;
+}
+
+.upSide .elements1 p:nth-child(1) {
+  margin: 0;
+}
+
+.upSide .elements2 {
+  font-size: 19px;
+  color: white;
+  font-family: "ComfortaaRegular";
+}
+
+.upSide .elements2 p {
+  margin: 0;
+  letter-spacing: 4.5px;
+  margin-top: 27px;
+}
+
+.upSide .elements2 p:nth-child(1) {
+  margin: 0;
+}
+
+.downSide {
+  height: 51px;
+  width: 100%;
+}
+
+.downSide hr {
+  width: 99.9%;
+}
+
+.downSide p {
+  margin: 0;
+  margin-top: 12px;
+}
+
+.downSide .text {
+  font-size: 17px;
+  color: rgba(229, 229, 229, 0.5);
+  font-family: "ComfortaaRegular";
+  margin-left: 10%;
+}
+/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,180 @@
+.searchbox
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top:131px;
+    p 
+    {
+        margin: 0;
+    }
+}
+.title
+{
+    font-size: 51px;
+    font-family: "ComfortaaRegular";
+    color: white;
+}
+.subTitle 
+{
+    font-size: 21px;
+    font-family: "FuturicaRegular";
+    color: white;
+    margin-top:15px
+}
+
+.searchCont
+{
+  margin-top:55px;
+  width: 744px;
+  height: 52px;
+  background: white;
+  display: flex;
+  border-radius:50px;
+  align-items: center;
+  justify-content:space-between;
+}
+.dropdownCont
+{
+  display: flex;
+  align-items: center;
+}
+
+.searchButton 
+{
+    width: 151px;
+    height:51.46px;
+    border-radius: 47px;
+    border: none;
+    background: #F27B29;
+    display: flex;
+    justify-content:center;
+    font-size: 22px;
+    font-family: "FuturicaRegular";
+    color: white;
+    align-items:center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    img 
+    {
+      margin-right: 5px;
+    }
+    &:focus {
+      outline: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    padding-right: 19.5px;
+    background-color: transparent;
+    color: #969696;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    
+    border-right: 2px solid rgba(150,150,150,0.5);
+    height:35px;
+    &:focus
+    {
+      outline: none;
+    }
+    img 
+    {
+      margin-right: 10px;
+    }
+  }
+  .dropbtn1
+  {
+    margin-left:30px;
+  }
+  .dropbtn3 , .dropbtn2
+  {
+    margin-left:13px;
+
+  }
+  .dropbtn3 
+  {
+    border: none;
+  }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    &:focus
+    {
+      outline: none;
+    }
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 70%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 30px;
+    border-radius: 5px;
+    &:nth-child(1)
+    {
+      background-color: red;
+    }
+
+  }
+  .dropdown1
+  {
+    width: 160px;
+    margin-left: 25px;
+  }
+  .dropdown2
+  {
+    width: 135px;
+    margin-left: 5px;
+  }
+  .dropdown3
+  {
+    width: 155px;
+    margin-left: 4px;
+  }
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    padding:   12px 16px 15px 0;
+    text-decoration: none;
+    display: block;
+    margin-left: 10px;
+    color: gray;
+    font-family: "FuturicaRegular";
+    border-bottom: 1px dashed rgba(242, 123, 41, 0.5);
+    &:nth-child(3)
+    {
+      border: none;
+    }
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    color: black;
+  }
+  /* Show the dropdown menu on hover */
+  
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */

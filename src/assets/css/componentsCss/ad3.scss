@@ -21,7 +21,10 @@
     padding-right:18px;
     overflow: hidden;
     display:flex;
+    justify-content:space-between;
+    height:65.5px;
     flex-direction: column;
+
     .name 
     {
         font-size: 15px;
@@ -37,7 +40,7 @@
     .bottomImgCont
     {
         display:flex;
-        align-items:center;
+        align-items:flex-end;
         justify-content:space-between;
         .stars
         {

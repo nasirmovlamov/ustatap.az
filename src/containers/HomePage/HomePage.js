@@ -1,5 +1,4 @@
 import React from 'react'
-import "../../assets/css/PagesCss/HomePage.css"
 import Ad from '../../components/Ad'
 import Button from '../../components/Button'
 import Footer from '../../components/Footer'
@@ -11,11 +10,15 @@ import Ad2 from '../../components/Ad2'
 import Ad3 from '../../components/Ad3'
 import master from "../../assets/images/component/element/master.png"
 import companyLogo from "../../assets/images/component/element/companyLogo.png"
+import SearchBox from '../../components/SearchBox'
+import "../../assets/css/PagesCss/HomePage.css"
+
 function HomePage() {
     return (
         <div className="homePage">
             <div className="topContainer">
                 <Header/>
+                <SearchBox/>
             </div>
 
 
@@ -64,21 +67,21 @@ function HomePage() {
                             <p className="title">Ustalar</p>
                             <div className="line2"></div>
                             <div className="adsContainer">
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={3}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={4}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={5}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={0.5}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1.5}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2.5}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={3.5}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={4.5}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={5}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={3}/>
+                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={4}/>
                             </div>  
                             <Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
                         </div>
@@ -91,7 +94,12 @@ function HomePage() {
                             <p className="title">Şirkətlər</p>
                             <div className="line3"></div>
                             <div className="adsContainer">
-                                <Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} description={"Description"}/>
+                                <Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                <Ad3 numberStar={3} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                <Ad3 numberStar={3.5} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                <Ad3 numberStar={2.5} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                
+
                             </div>     
                             <Button name="Bütün şirkətlərə bax"/>
                         </div>

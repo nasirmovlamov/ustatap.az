@@ -1,10 +1,36 @@
 import React from 'react'
 import "../assets/css/componentsCss/ad2.css"
-import star from "../assets/images/component/element/star.svg"
+import emptyStar from "../assets/images/component/element/emptyStar.svg"
+import fullStar from "../assets/images/component/element/fullStar.svg"
+import halfStar from "../assets/images/component/element/halfStar.svg"
+
 import location from "../assets/images/component/element/location.svg"
 import heart from "../assets/images/component/element/heart.svg"
 
 function Ad2(props) {
+    const stars = []
+    if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
+        
+        for (var i=0;i<props.numberStar;i++) {
+            stars.push(<img src={fullStar} alt="ulduz" /> )
+          }
+        for (var j=(props.numberStar);j<5;j++) {
+            stars.push(<img src={emptyStar} alt="ulduz" /> )
+        }
+
+    }
+    else 
+    {
+        for (var i=0;i<Math.floor(props.numberStar);i++) {
+            stars.push(<img src={fullStar} alt="ulduz" /> )
+          }
+        stars.push(<img src={halfStar} alt="ulduz" />)
+
+        for (var i=Math.floor(props.numberStar) + 1;i<5;i++) {
+            stars.push(<img src={emptyStar} alt="ulduz" /> )
+          }
+    }
+    
     return (
         <div className="mastersCont">
              <img src={props.image} alt="Usta" className="masterImg"/>
@@ -12,7 +38,7 @@ function Ad2(props) {
                 <p className="name">{props.name}</p>
                 <p className="job">{props.job}</p>
                 <p className="location"><img src={location} alt="location"/> {props.address}</p>
-                <div className="stars"><img src={star} alt="ulduz"/> <img src={star} alt="ulduz"/> <img src={star} alt="ulduz"/> <img src={star} alt="ulduz"/> <img src={star} alt="ulduz"/></div>
+                <div className="stars">{stars}</div>
                 <img className="heart" src={heart} alt="ürək"/>
             </div> 
         </div>

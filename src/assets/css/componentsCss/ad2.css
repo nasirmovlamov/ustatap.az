@@ -31,6 +31,7 @@
 .mastersCont .aboutText .name {
   font-size: 16px;
   font-family: "ComfortaaRegular";
+  color: black;
 }
 
 .mastersCont .aboutText .job {

@@ -3,7 +3,7 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom:150px;
+    overflow-x: hidden;
 }
 
 .topContainer
@@ -28,6 +28,7 @@
     font-size: 72px;
     font-family: "ComfortaaRegular";
     color: white;
+
 }
 
 
@@ -38,6 +39,8 @@
     margin-left: 29px;
     margin-top: 80px;
     align-self: flex-start;
+    margin-bottom: 150px;
+
     .aside 
     {
         width: 314px;
@@ -54,6 +57,8 @@
         display:flex;
         flex-direction: column;
         align-items:center;
+    
+
         .typeAddContainer
         {
             display:flex;
@@ -72,6 +77,7 @@
             font-size: 37px;
             line-height: 41px;
             align-self: flex-start;
+            color: black;
         }
         .line1
         {

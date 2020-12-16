@@ -1,0 +1,16 @@
+.inputComponent
+{
+    width: 95px;
+    height: 13px;
+    font-size: 5px;
+    color: rgba(0,0,0,1);
+    border: none;
+    &::placeholder
+    {
+        color: rgba(0,0,0,0.11);
+    }
+    &:focus 
+    {
+        outline: none;
+    }
+}
