@@ -4,16 +4,35 @@ import Button from '../../components/Button'
 import Footer from '../../components/Footer'
 import SubBanner from '../../components/SubBanner'
 import Header from '../../components/Header'
+import SearchBox from '../../components/SearchBox'
 
 import adImage from "../../assets/images/component/element/adImage.png"
 import Ad2 from '../../components/Ad2'
 import Ad3 from '../../components/Ad3'
 import master from "../../assets/images/component/element/master.png"
 import companyLogo from "../../assets/images/component/element/companyLogo.png"
-import SearchBox from '../../components/SearchBox'
+import plumber from "../../assets/images/component/element/plumber.svg"
+import electric from "../../assets/images/component/element/electric.svg"
+import wallpaper from "../../assets/images/component/element/wallpaper.svg"
+import windowDoor from "../../assets/images/component/element/windowDoor.svg"
+import welder from "../../assets/images/component/element/welder.svg"
+import plasterer from "../../assets/images/component/element/plasterer.svg"
+import metlag from "../../assets/images/component/element/metlaq.svg"
+import roof from "../../assets/images/component/element/roof.svg"
+import stonemaster from "../../assets/images/component/element/stonemaster.svg"
+import painter from "../../assets/images/component/element/painter.svg"
+import floor from "../../assets/images/component/element/floor.svg"
+import window from "../../assets/images/component/element/window.svg"
+import carpenter from "../../assets/images/component/element/carpenter.svg"
+import threeDots from "../../assets/images/component/element/threeDots.svg"
+import arrDown from "../../assets/images/component/element/arrDown.svg"
+
 import "../../assets/css/PagesCss/HomePage.css"
 
 function HomePage() {
+    const focusHandler = (number) => {
+        
+    }
     return (
         <div className="homePage">
             <div className="topContainer">
@@ -27,7 +46,202 @@ function HomePage() {
             
             
             <main className="main"> 
-                <aside className="aside"></aside>
+                <aside className="aside">
+                    {/* 1 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={plumber} alt="santexnik"/>
+                            <p>Santexnik</p>
+                            <button onFocus={() => focusHandler(1)}><img  src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont" >
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+                    
+                    {/* 2 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={electric} alt=""/>
+                            <p>Elektirik</p>
+                            <button onFocus={() => focusHandler(2)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 3 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={wallpaper} alt=""/>
+                            <p>Divar Kağızı</p>
+                            <button onFocus={() => focusHandler(3)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 4 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={windowDoor} alt=""/>
+                            <p>Qapı-Pəncərə</p>
+                            <button onFocus={() => focusHandler(4)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 5 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={welder} alt=""/>
+                            <p>Qaynaqçı</p>
+                            <button onFocus={() => focusHandler(5)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 6 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={plasterer} alt=""/>
+                            <p>Suvaqçı</p>
+                            <button onFocus={() => focusHandler(6)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 7 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={metlag} alt=""/>
+                            <p>Metlaq</p>
+                            <button onFocus={() => focusHandler(7)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 8 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={roof} alt=""/>
+                            <p>Dam Örtüyü</p>
+                            <button onFocus={() => focusHandler(8)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 9 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={stonemaster} alt=""/>
+                            <p>Bənna</p>
+                            <button onFocus={() => focusHandler(9)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 10 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={painter} alt=""/>
+                            <p>Malyar</p>
+                            <button onFocus={() => focusHandler(10)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 11 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={floor} alt=""/>
+                            <p>Döşəmə</p>
+                            <button onFocus={() => focusHandler(11)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 12 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={window} alt=""/>
+                            <p>Şüşə-Güzgü</p>
+                            <button onFocus={() => focusHandler(12)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 13 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <img src={carpenter} alt=""/>
+                            <p>Dülgər</p>
+                            <button onFocus={() => focusHandler(13)}><img src={arrDown} alt=""/></button>
+                        </div>
+                        <div className="workDescCont">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+
+                    {/* 14 */}
+                    <div className="contForAside">
+                        <div className="workTypeCont">
+                            <button onFocus={() => focusHandler(14)} className="threeDots"><img src={threeDots} alt=""/></button>
+                            <p className="differP">Digər</p>
+                        </div>
+                        <div className="workDescCont ">
+                            <p>Ustalar ()</p>
+                            <p>Elanlar ()</p>
+                            <p>Şirkətlər ()</p>
+                        </div>
+                    </div>
+                </aside>
 
 
 

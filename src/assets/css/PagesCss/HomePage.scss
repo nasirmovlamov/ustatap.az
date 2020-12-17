@@ -3,7 +3,6 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden;
 }
 
 .topContainer
@@ -44,11 +43,83 @@
     .aside 
     {
         width: 314px;
-        height:1355px;
+        height:96vh;
         background-color: red;
         margin-top:67.5px;
         background: #F6F7FB;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 1vh;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 2%;
         box-shadow: 0px 4px 65px 19px rgba(0, 0, 0, 0.25);
+        img 
+        {
+            width: 25px;
+        }
+        .contForAside
+        {
+            margin-top: 24.5px;
+        }
+        .workTypeCont
+        {
+            display: flex;
+            justify-content: space-between;
+            
+            p 
+            {
+                width: 65%;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                font-family: "ComfortaaRegular";
+            }
+            
+            button 
+            {
+                background: none;
+                border: none;
+                transform: scale(0.5);
+                &:focus 
+                {
+                    outline: none;
+                }
+            }
+            .threeDots
+            {
+                width: 30px;
+                height: 30px;
+                transform: scale(1);
+                padding: 0 0 0 0 !important;
+                img 
+                {
+                    width: 30px;
+                    height: 30px;
+                }
+
+            }
+            .differP
+            {
+                width: 85%;
+            }
+            img 
+            {
+                width: 30px;
+            }
+        }
+        .workDescCont 
+        {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            display: none;
+
+            p 
+            {
+                margin: 0;
+            }
+        }
     } 
     .allAdsContainer
     {
