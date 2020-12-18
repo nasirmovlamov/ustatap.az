@@ -65,6 +65,6 @@
 .mastersCont .aboutText .heart {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-right: 10px;
+  margin-right: -10px;
 }
 /*# sourceMappingURL=ad2.css.map */

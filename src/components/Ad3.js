@@ -6,7 +6,9 @@ import halfStar from "../assets/images/component/element/halfStar.svg"
 
 
 import location from "../assets/images/component/element/location.svg"
-import heart from "../assets/images/component/element/heart.svg"
+import whiteHeart from "../assets/images/component/element/whiteHeart.svg"
+import whiteLocation from "../assets/images/component/element/whiteLocation.svg"
+
 
 function Ad3(props) {
     const stars = []
@@ -39,9 +41,9 @@ function Ad3(props) {
                 <p className="name">{props.name}</p>
                 <p className="description">{props.description}</p>
                 <div className="bottomImgCont"> 
-                    <p><img src={location} alt="Adres" /> {props.address}</p>  
+                    <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
                     <div className="stars">{stars}</div>
-                    <img src={heart} alt="ürək" />
+                    <img src={whiteHeart} alt="ürək" />
                 </div>
             </div>
         </div>

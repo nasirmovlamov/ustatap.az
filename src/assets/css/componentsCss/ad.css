@@ -57,7 +57,7 @@
   font-size: 8px;
   height: auto;
   margin-left: 3px;
-  margin-top: -20%;
+  margin-top: -15%;
 }
 
 .ad .subCont .flexCont2 {
@@ -92,6 +92,10 @@
   font-weight: normal;
   font-size: 10px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.ad .subCont .flexCont2 p:nth-child(2) {
+  margin-left: 55px;
 }
 
 .ad .subCont .flexCont2 p img {

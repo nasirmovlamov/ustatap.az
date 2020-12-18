@@ -40,14 +40,25 @@
     .bottomImgCont
     {
         display:flex;
-        align-items:flex-end;
+        align-items:center;
         justify-content:space-between;
+        margin-top: 10px;
+        .address
+        {
+            font-family: "ComfortaaRegular";
+            font-size: 6px;
+            color: white;
+            img 
+            {
+                margin-right: 3px;
+            }
+        }
         .stars
         {
             display: flex;
             justify-content:center;
             align-items:center;
-            margin-bottom:-5px;
+            margin-bottom: -5px;
         }
         p 
         {

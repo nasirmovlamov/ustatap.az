@@ -28,11 +28,17 @@ import threeDots from "../../assets/images/component/element/threeDots.svg"
 import arrDown from "../../assets/images/component/element/arrDown.svg"
 
 import "../../assets/css/PagesCss/HomePage.css"
-
 function HomePage() {
     const focusHandler = (number) => {
-        
+            document.getElementById("wD" + number).setAttribute("style" , "display:block")
+            document.getElementById("aside").setAttribute("style" , "height:95vh")
+            
     }
+    const blurHandler = (number) => {
+            document.getElementById("wD" + number).setAttribute("style" , "display:none")
+            document.getElementById("aside").setAttribute("style" , "height:83vh")
+    } 
+    
     return (
         <div className="homePage">
             <div className="topContainer">
@@ -46,201 +52,201 @@ function HomePage() {
             
             
             <main className="main"> 
-                <aside className="aside">
+                <aside className="aside" id="aside">
                     {/* 1 */}
-                    <div className="contForAside">
+                    <button className="contForAside" onFocus={() => focusHandler(1)}  onBlur={() => blurHandler(1)}>
                         <div className="workTypeCont">
                             <img src={plumber} alt="santexnik"/>
                             <p>Santexnik</p>
-                            <button onFocus={() => focusHandler(1)}><img  src={arrDown} alt=""/></button>
+                            <button ><img  src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" >
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD1">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({22})</span></p>
+                            <p>Şirkətlər <span>({11})</span></p>
                         </div>
-                    </div>
+                    </button>
                     
                     {/* 2 */}
-                    <div className="contForAside">
+                    <button className="contForAside" onFocus={() => focusHandler(2)} onBlur={() => blurHandler(2)}>
                         <div className="workTypeCont">
                             <img src={electric} alt=""/>
                             <p>Elektirik</p>
-                            <button onFocus={() => focusHandler(2)}><img src={arrDown} alt=""/></button>
+                            <button ><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD2">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 3 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(3)} onBlur={() => blurHandler(3)}>
                         <div className="workTypeCont">
                             <img src={wallpaper} alt=""/>
                             <p>Divar Kağızı</p>
-                            <button onFocus={() => focusHandler(3)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD3">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 4 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(4)} onBlur={() => blurHandler(4)}>
                         <div className="workTypeCont">
                             <img src={windowDoor} alt=""/>
                             <p>Qapı-Pəncərə</p>
-                            <button onFocus={() => focusHandler(4)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD4">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 5 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(5)} onBlur={() => blurHandler(5)}>
                         <div className="workTypeCont">
                             <img src={welder} alt=""/>
                             <p>Qaynaqçı</p>
-                            <button onFocus={() => focusHandler(5)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD5">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 6 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(6)} onBlur={() => blurHandler(6)}>
                         <div className="workTypeCont">
                             <img src={plasterer} alt=""/>
                             <p>Suvaqçı</p>
-                            <button onFocus={() => focusHandler(6)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD6">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 7 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(7)} onBlur={() => blurHandler(7)}>
                         <div className="workTypeCont">
                             <img src={metlag} alt=""/>
                             <p>Metlaq</p>
-                            <button onFocus={() => focusHandler(7)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD7">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 8 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(8)} onBlur={() => blurHandler(8)}>
                         <div className="workTypeCont">
                             <img src={roof} alt=""/>
                             <p>Dam Örtüyü</p>
-                            <button onFocus={() => focusHandler(8)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD8">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 9 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(9)} onBlur={() => blurHandler(9)}>
                         <div className="workTypeCont">
                             <img src={stonemaster} alt=""/>
                             <p>Bənna</p>
-                            <button onFocus={() => focusHandler(9)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD9">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 10 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(10)} onBlur={() => blurHandler(10)}>
                         <div className="workTypeCont">
                             <img src={painter} alt=""/>
                             <p>Malyar</p>
-                            <button onFocus={() => focusHandler(10)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD10">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 11 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(11)} onBlur={() => blurHandler(11)}>
                         <div className="workTypeCont">
                             <img src={floor} alt=""/>
                             <p>Döşəmə</p>
-                            <button onFocus={() => focusHandler(11)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD11">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 12 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(12)} onBlur={() => blurHandler(12)}>
                         <div className="workTypeCont">
                             <img src={window} alt=""/>
                             <p>Şüşə-Güzgü</p>
-                            <button onFocus={() => focusHandler(12)}><img src={arrDown} alt=""/></button>
+                            <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD12">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 13 */}
-                    <div className="contForAside">
+                    <button className="contForAside" onFocus={() => focusHandler(13)} onBlur={() => blurHandler(13)}>
                         <div className="workTypeCont">
                             <img src={carpenter} alt=""/>
                             <p>Dülgər</p>
-                            <button onFocus={() => focusHandler(13)}><img src={arrDown} alt=""/></button>
+                            <button ><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont" id="wD13">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
 
                     {/* 14 */}
-                    <div className="contForAside">
+                    <button className="contForAside"  onFocus={() => focusHandler(14)}  onBlur={() => blurHandler(14)}>
                         <div className="workTypeCont">
-                            <button onFocus={() => focusHandler(14)} className="threeDots"><img src={threeDots} alt=""/></button>
+                            <button><img src={threeDots} alt=""/></button>
                             <p className="differP">Digər</p>
                         </div>
-                        <div className="workDescCont ">
-                            <p>Ustalar ()</p>
-                            <p>Elanlar ()</p>
-                            <p>Şirkətlər ()</p>
+                        <div className="workDescCont " id="wD14">
+                            <p>Ustalar <span>({23})</span></p>
+                            <p>Elanlar <span>({23})</span></p>
+                            <p>Şirkətlər <span>({23})</span></p>
                         </div>
-                    </div>
+                    </button>
                 </aside>
 
 
@@ -253,7 +259,7 @@ function HomePage() {
                             <p className="title">Son Elanlar</p>
                             <div className="line1"></div>
                             <div className="adsContainer">
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>  
+                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage}/>  
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>  
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>  
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>  
@@ -308,10 +314,10 @@ function HomePage() {
                             <p className="title">Şirkətlər</p>
                             <div className="line3"></div>
                             <div className="adsContainer">
-                                <Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
-                                <Ad3 numberStar={3} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
-                                <Ad3 numberStar={3.5} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
-                                <Ad3 numberStar={2.5} image={companyLogo} name={"Şirkət Adı"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                <Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                <Ad3 numberStar={3} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                <Ad3 numberStar={3.5} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
+                                <Ad3 numberStar={2.5} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
                                 
 
                             </div>     
