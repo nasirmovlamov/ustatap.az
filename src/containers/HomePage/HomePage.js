@@ -38,7 +38,8 @@ function HomePage() {
             document.getElementById("wD" + number).setAttribute("style" , "display:none")
             document.getElementById("aside").setAttribute("style" , "height:83vh")
     } 
-    
+    const clickHandler = () => {
+    }
     return (
         <div className="homePage">
             <div className="topContainer">
@@ -54,13 +55,13 @@ function HomePage() {
             <main className="main"> 
                 <aside className="aside" id="aside">
                     {/* 1 */}
-                    <button className="contForAside" onFocus={() => focusHandler(1)}  onBlur={() => blurHandler(1)}>
+                    <button className="contForAside" onClick={() => clickHandler(1)} onFocus={() => focusHandler(1)}  onBlur={() => blurHandler(1)} >
                         <div className="workTypeCont">
                             <img src={plumber} alt="santexnik"/>
                             <p>Santexnik</p>
                             <button ><img  src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD1">
+                        <div className="workDescCont" id="wD1" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({22})</span></p>
                             <p>Şirkətlər <span>({11})</span></p>
@@ -74,7 +75,7 @@ function HomePage() {
                             <p>Elektirik</p>
                             <button ><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD2">
+                        <div className="workDescCont" id="wD2" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -88,7 +89,7 @@ function HomePage() {
                             <p>Divar Kağızı</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD3">
+                        <div className="workDescCont" id="wD3" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -102,7 +103,7 @@ function HomePage() {
                             <p>Qapı-Pəncərə</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD4">
+                        <div className="workDescCont" id="wD4" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -116,7 +117,7 @@ function HomePage() {
                             <p>Qaynaqçı</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD5">
+                        <div className="workDescCont" id="wD5" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -130,7 +131,7 @@ function HomePage() {
                             <p>Suvaqçı</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD6">
+                        <div className="workDescCont" id="wD6" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -144,7 +145,7 @@ function HomePage() {
                             <p>Metlaq</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD7">
+                        <div className="workDescCont" id="wD7" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -158,7 +159,7 @@ function HomePage() {
                             <p>Dam Örtüyü</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD8">
+                        <div className="workDescCont" id="wD8" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -172,7 +173,7 @@ function HomePage() {
                             <p>Bənna</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD9">
+                        <div className="workDescCont" id="wD9" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -186,7 +187,7 @@ function HomePage() {
                             <p>Malyar</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD10">
+                        <div className="workDescCont" id="wD10" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -200,7 +201,7 @@ function HomePage() {
                             <p>Döşəmə</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD11">
+                        <div className="workDescCont" id="wD11" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -214,7 +215,7 @@ function HomePage() {
                             <p>Şüşə-Güzgü</p>
                             <button><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD12">
+                        <div className="workDescCont" id="wD12" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -228,7 +229,7 @@ function HomePage() {
                             <p>Dülgər</p>
                             <button ><img src={arrDown} alt=""/></button>
                         </div>
-                        <div className="workDescCont" id="wD13">
+                        <div className="workDescCont" id="wD13" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -241,7 +242,7 @@ function HomePage() {
                             <button><img src={threeDots} alt=""/></button>
                             <p className="differP">Digər</p>
                         </div>
-                        <div className="workDescCont " id="wD14">
+                        <div className="workDescCont " id="wD14" >
                             <p>Ustalar <span>({23})</span></p>
                             <p>Elanlar <span>({23})</span></p>
                             <p>Şirkətlər <span>({23})</span></p>
@@ -259,7 +260,8 @@ function HomePage() {
                             <p className="title">Son Elanlar</p>
                             <div className="line1"></div>
                             <div className="adsContainer">
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage}/>  
+                                
+                                <Ad name={"Görüləcək İşin Adı"} costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage}/>  
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>  
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>  
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>  
