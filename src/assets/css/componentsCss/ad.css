@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .ad {
   width: 281px;
   height: 331px;
@@ -49,6 +53,10 @@
   font-weight: normal;
   font-size: 14px;
   margin-top: 17px;
+}
+
+.ad .subCont .flexCont1 p {
+  color: black;
 }
 
 .ad .subCont .nameCostumer {

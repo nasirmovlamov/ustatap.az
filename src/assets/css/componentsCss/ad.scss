@@ -1,5 +1,10 @@
+a 
+{
+    text-decoration: none;
+}
 .ad
 {
+    
     width: 281px;
     height:331px;
     box-shadow: 0px 4px 52px 9px rgba(0, 0, 0, 0.25);
@@ -33,13 +38,16 @@
             font-style: normal;
             font-weight: normal;
             font-size: 14px;
-            margin-top:17px
-            
+            margin-top:17px;
+            p 
+            {
+                color: black;
+            }
         }
         .nameCostumer
         {
             font-family: Futurica;
-            color: rgba(150,150,150,0.83);
+            color: rgba(150,150,150,0.83) ;
             font-size: 8px;
             height: auto;
             margin-left: 3px;
@@ -65,6 +73,7 @@
                 font-weight: normal;
                 font-size: 10px;
                 color: rgba(0,0,0,0.5); 
+                
                 &:nth-child(2)
                 {
                     margin-left: 55px;

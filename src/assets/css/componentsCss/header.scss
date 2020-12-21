@@ -1,10 +1,16 @@
+.topContainer
+{
+    width: 100%;
+    height: 730px;   
+    background: url(../../images/page/background/HomePageBG.png) no-repeat;
+    background-size: 100%;
+}
 .navbar
 {
     width: 100%; 
     display:flex;
     justify-content:space-around; 
     align-items:center;
-    margin-top: 31px;
     .text
     {
         width: 75%;
@@ -12,12 +18,18 @@
         justify-content:space-between; 
         align-items:center;
         font-family: "FuturicaRegular";
+        a {
+            text-decoration: none;
+            color: white;
+        }
         p
         {
             display:flex;
             align-items:center;
             color: white;
             font-size: 18px;
+            text-decoration: none !important;
+            color: white;
         }
         .login {
             img 

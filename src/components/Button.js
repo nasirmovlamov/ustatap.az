@@ -14,7 +14,7 @@ function Button(props) {
     return (
         
         <button style={styleButton} className="button">
-            <p className="text" style={styleP}> {props.name}  { props.only ===undefined && (<img src={arrowRight}  className="img"/>)}<img src={arrowRight} className="img"/></p> 
+            <p className="text" style={styleP}> {props.name}  { props.only ===1 && (<img src={arrowRight}  className="img"/>)} {props.only2 ===2 && (<img src={arrowRight} className="img"/>)}</p> 
         </button>
     )
 }

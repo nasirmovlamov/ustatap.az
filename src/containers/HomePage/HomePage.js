@@ -42,10 +42,7 @@ function HomePage() {
     }
     return (
         <div className="homePage">
-            <div className="topContainer">
-                <Header/>
-                <SearchBox/>
-            </div>
+            
 
 
             <div className="mainBanner">Banner</div>

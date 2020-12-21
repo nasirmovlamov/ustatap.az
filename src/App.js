@@ -1,13 +1,15 @@
 import './App.css';
-import Button from './components/Button';
-import SubBanner from './components/SubBanner';
-import HomePage from "./containers/HomePage/HomePage"
+
+import React from "react"
+import Header from './components/Header'
+import SearchBox from './components/SearchBox'
 
 function App() {
   return (
-    <div className="App">
-      
-      <HomePage/>
+    <div>
+        <div className="topContainer">
+              <Header/>
+        </div>
     </div>
   );
 }

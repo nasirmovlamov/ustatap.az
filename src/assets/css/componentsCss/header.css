@@ -1,3 +1,10 @@
+.topContainer {
+  width: 100%;
+  height: 730px;
+  background: url(../../images/page/background/HomePageBG.png) no-repeat;
+  background-size: 100%;
+}
+
 .navbar {
   width: 100%;
   display: -webkit-box;
@@ -8,7 +15,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 31px;
 }
 
 .navbar .text {
@@ -25,6 +31,11 @@
   font-family: "FuturicaRegular";
 }
 
+.navbar .text a {
+  text-decoration: none;
+  color: white;
+}
+
 .navbar .text p {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,6 +45,8 @@
           align-items: center;
   color: white;
   font-size: 18px;
+  text-decoration: none !important;
+  color: white;
 }
 
 .navbar .text .login {

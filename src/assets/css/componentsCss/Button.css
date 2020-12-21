@@ -1,4 +1,5 @@
 .button {
+  cursor: pointer;
   width: 163px;
   height: 36px;
   background: -webkit-gradient(linear, left top, right top, from(#68A735), to(#58BC40));
