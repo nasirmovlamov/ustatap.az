@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import human from "../assets/images/component/element/human.svg"
 import mainLogo from "../assets/images/component/element/mainLogo.svg"
 import {
@@ -12,6 +12,13 @@ import HomePage from './../containers/HomePage/HomePage';
 import SearchBox from './SearchBox';
 import SelectedAd from './../containers/HomePage/SelectedAd';
 function Header() {
+    const [Ad, setAd] = useState([15,15,15])
+    function SelectedLatestAd(id) {
+      for (let i = 0; i < Ad[0]; i++) {
+
+      }
+    }
+    
     return (
         
         <Router>
@@ -35,11 +42,11 @@ function Header() {
 
 
           <Switch>
-            <Route path="/elanlar/secilmish-elan">
-              <SelectedAd/>
+            <Route path={`/elanlar/secilmish-son-elan-:id`}>
+              <SelectedAd />
             </Route>
             <Route path="/">
-              <HomePage/>
+              <HomePage numberOfLatestAd={Ad[0]}/>
             </Route>
             <Route path="/elanlar">
             </Route>

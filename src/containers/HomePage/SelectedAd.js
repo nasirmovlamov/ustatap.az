@@ -16,8 +16,9 @@ import humanSelectedAd from '../../assets/images/component/element/humanSelected
 import selectedAdEye from '../../assets/images/component/element/selectedAdEye.svg';
 import Button from './../../components/Button';
 import mainLogo from "../../assets/images/component/element/mainLogo.svg"
+import Comments from '../../components/Comments';
 
-function SelectedAd() {
+function SelectedAd(props) {
     const [image, setimage] = useState([selectedAd1,selectedAd2,selectedAd3,selectedAd4,selectedAd5 ])
     return (
         <div className="selectedAd">
@@ -38,7 +39,7 @@ function SelectedAd() {
                 <div className="frameAndText">
                     <Frame image={image} />
                     <div className="aboutAd">
-                        <p className="title">Görüləcək İşin Adı</p>
+                        <p className="title">Görüləcək İşin Adı {props.id}</p>
                         <div className="subTitle">
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                             <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
@@ -58,6 +59,8 @@ function SelectedAd() {
                     </div>
                 </div>
             </div>
+
+            <Comments/>
         </div>
     )
 }
