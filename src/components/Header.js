@@ -18,7 +18,6 @@ function Header() {
 
       }
     }
-    
     return (
         
         <Router>
@@ -42,8 +41,8 @@ function Header() {
 
 
           <Switch>
-            <Route path={`/elanlar/secilmish-son-elan-:id`}>
-              <SelectedAd />
+            <Route path={`/elanlar/secilmish-son-elan/:id`}>
+              <SelectedAd idAd={Ad[0]} />
             </Route>
             <Route path="/">
               <HomePage numberOfLatestAd={Ad[0]}/>

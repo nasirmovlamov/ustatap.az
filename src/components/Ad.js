@@ -12,7 +12,7 @@ function Ad(props) {
 
        
         
-        <Link to={"/elanlar/secilmish-son-elan-" + props.id}>
+        <Link to={"/elanlar/secilmish-son-elan/" + props.id}>
             <div className="ad">
                 <img src={props.image} alt="" className="mainImg"/>
                 <div className="lineAd"></div>
