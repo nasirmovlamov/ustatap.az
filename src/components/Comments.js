@@ -3,24 +3,15 @@ import ReplyComment from './ReplyComment'
 import SingleComment from './SingleComment'
 
 function Comments() {
-    const singleComment = ["Bruce", "Clark", "Nasir"]
-    const subComments = {comment1Reply:["salam1" , "necesen1" , "nevarneyox1"],comment2Reply:["salam2", "nevarneyox2"],comment3Reply:["salam3"]}
-    console.log(subComments.comment1Reply)
-    const comments = []
-    for(let i=1;i<=2;i++)
-    {
-        comments.push(
-        <div>
-            <SingleComment/>
-            <ReplyComment/>
-        </div>
-        )
-    }
+    const mainComment = ["mainComment1", "mainComment2", "mainComment3"]
+    const nameMainComment = ["Nasir", "Vusal", "Davud"]
+    const namesubComment = [["NasirSub1" ,"Vusalsub1" ,"Davudsub1"] , ["Nasirsub2" ,"Vusalsub2"] , ["Davudsub3"]]
+    const subComments = [["sub1" , "sub12" , "sub13"]  ,   ["sub21", "sub22"]   ,   ["sub31"]]
     return (
         <div>
 
             <p>Rəylər</p>
-            {comments}
+            {nameMainComment.map(( name,index )=> <SingleComment  nameMainComment={name} mainComment={mainComment[index]} namesubComment={[namesubComment[index]]}/>)}
             
         </div>
     )

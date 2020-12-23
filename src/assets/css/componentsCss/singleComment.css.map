@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAClB;EACI,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "singleComment.scss"
+    ],
+    "names": [],
+    "file": "singleComment.css"
+}

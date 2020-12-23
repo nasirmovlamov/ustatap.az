@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CACjB;EACI,WAAW,EAAE,KAAK;EAClB,gBAAgB,EAAE,KAAK;CAC1B",
+    "sources": [
+        "replyComment.scss"
+    ],
+    "names": [],
+    "file": "replyComment.css"
+}
