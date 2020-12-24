@@ -1,21 +1,28 @@
-import React from 'react'
+import React,{useRef} from 'react'
+import Button from '../components/Button'
+
 import ReplyComment from './ReplyComment'
 import "../assets/css/componentsCss/singleComment.css"
+import mainCommentImage from "../assets/images/component/element/commentMainHuman.svg"
+import calendar from "../assets/images/component/element/calendarForComment.svg"
 function SingleComment(props) {
+    const inputRef = useRef(null)
+    
+    const clickHandler = () => {
+        document.getElementById("inputMain").className = "inputClick";
+    }
     return (
         <div className="singleCommentCont">
-            <div>
-                <img src="" alt="" /> 
-                <div> 
-                        <p>{props.nameMainComment} <img src="" alt="" /> 13.03.2020</p>  
-                        <hr/> 
-                        <p></p>
-                        <div>{props.mainComment}</div>
-                        <button></button>
+            <div className="mainCommentCont"> 
+                <img src={mainCommentImage} alt="" className="profileMainImg" /> 
+                <div className="singleCommentAbout">
+                    <p className="name">{props.nameMainComment} <span><img src={calendar} alt="" /> 13.03.2020</span> </p>  
+                    <hr className="lineForMain"/> 
+                    <div className="mainComment"><p>{props.mainComment} </p></div>
+                    <div className="replyForm"><form><input ref={inputRef} id="inputMain" className="input"/></form> <button onClick={() => clickHandler()}>Cavabla</button></div>
                 </div>
             </div>
-            {props.namesubComment.map(name=><ReplyComment  namesubComment={name}/>)}
-
+            {props.subComment.map((comment,index) => <ReplyComment  namesubComment={props.namesubComment.map(name => name)} subComment={comment}/>)}
         </div>
     )
 }

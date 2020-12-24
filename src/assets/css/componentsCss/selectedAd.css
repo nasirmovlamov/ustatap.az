@@ -1,14 +1,7 @@
 .selectedAd {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
@@ -26,8 +19,6 @@
 }
 
 .frameAndText {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -50,23 +41,15 @@
 }
 
 .frameAndText .aboutAd .aboutLinks {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-top: 29px;
 }
 
 .frameAndText .aboutAd .aboutLinks a {
   border-right: 1px solid rgba(150, 150, 150, 0.28);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 35px;
   margin-left: 15px;
   padding-right: 15px;
@@ -86,26 +69,16 @@
 }
 
 .frameAndText .aboutAd .aboutButtons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   font-size: 10px;
   margin-top: 36px;
 }
 
 .frameAndText .aboutAd .aboutButtons p {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   color: #000000;
   opacity: 0.5;
 }
@@ -120,15 +93,9 @@
 }
 
 .frameAndText .aboutAd .bottomLines {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 120px;
 }
 
@@ -142,4 +109,3 @@
   width: 35%;
   background-color: #59B93F;
 }
-/*# sourceMappingURL=selectedAd.css.map */

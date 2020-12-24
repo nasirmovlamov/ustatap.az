@@ -17,6 +17,7 @@ import selectedAdEye from '../../assets/images/component/element/selectedAdEye.s
 import Button from './../../components/Button';
 import mainLogo from "../../assets/images/component/element/mainLogo.svg"
 import Comments from '../../components/Comments';
+import Slider from '../../components/Slider';
 
 function SelectedAd(props) {
     const [image, setimage] = useState([selectedAd1,selectedAd2,selectedAd3,selectedAd4,selectedAd5 ])
@@ -31,11 +32,11 @@ function SelectedAd(props) {
                     <Link to="/">
                         <a href=""> ustaTap.net</a> 
                     </Link>
-                        -> 
+                        -&gt;
                     <Link to="/elanlar">
                         <a href="">elanlar</a> 
                     </Link>
-                        -> 
+                        -&gt;
                         <a href="">santexnika</a> 
                     </p>
                 </div>
@@ -61,9 +62,11 @@ function SelectedAd(props) {
                         <div className="bottomLines"><hr/> <img src={mainLogo} alt="" /> <hr/></div>
                     </div>
                 </div>
+                <Comments id={id}/>
+
+                <Slider/>
             </div>
 
-            <Comments/>
         </div>
     )
 }

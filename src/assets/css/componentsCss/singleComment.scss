@@ -1,5 +1,100 @@
+
 .singleCommentCont
 {
-    background-color: crimson;
-    width: 90%;
+    height: auto;
+    .singleCommentAbout
+    {
+        font-family: "ComfortaaRegular";
+        width: 85%;
+        margin-top: 20px;
+        
+        .name 
+        {
+            font-size: 21px;
+            img 
+            {
+                margin-left: 23px;
+                margin-bottom: -1px;
+            }
+            margin-bottom: 10px;
+            margin-top: 0px;
+        }
+        .lineForMain
+        {
+            border: none;
+            background-color: #58BC40;
+            height: 1px;
+            opacity: 0.49;
+            margin: 0;
+            
+            
+        }
+        .mainComment
+        {
+            color:#616161;
+            opacity: 0.83;
+            p 
+            {
+            margin-bottom: 0px;
+
+            }
+        }
+        .replyForm
+        {
+            display: flex;
+            width: 100%;
+            margin-top: 10px;
+            form 
+            {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                .input 
+                {
+                    width: 86%;
+                    height: 0px;
+                    pointer-events: none;
+                    border: none;
+
+                 }
+                .inputClick 
+                {
+                    height: 150px;
+                    border: 1px solid gray;
+                    width: 96%;
+                    border: 1px solid gray;
+                    pointerEvents: all;
+                    text-align: center;
+                }
+            }
+        }
+        button 
+            {
+                float: right;
+                width: 91px;
+                height: 25px;
+                color: black ;
+                background: none;
+                border: none;
+                &:focus
+                {
+                    outline: none;
+                }
+            }
+    }
+}
+
+.mainCommentCont
+{
+    display: flex;
+    height: auto;
+    align-items: center;
+    margin-bottom: 5px;
+    .profileMainImg 
+    {
+        align-self: flex-start;
+        margin-right: 25px;
+        width: 98.73px;
+        height: 98.73px;
+    }
 }

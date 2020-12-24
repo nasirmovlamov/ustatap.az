@@ -1,0 +1,12 @@
+.commentsCont {
+  width: 1073px;
+  align-self: flex-start;
+  margin-top: 109px;
+}
+
+.titleComments {
+  color: black;
+  text-align: center;
+  font-family: "ComfortaaRegular";
+  font-size: 37px;
+}
