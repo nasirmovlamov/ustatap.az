@@ -42,7 +42,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 2;
-  height: 327px;
+  height: auto;
 }
 
 .bullets {

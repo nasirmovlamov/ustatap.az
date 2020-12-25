@@ -11,8 +11,12 @@ import "../assets/css/componentsCss/header.css"
 import HomePage from './../containers/HomePage/HomePage';
 import SearchBox from './SearchBox';
 import SelectedAd from './../containers/HomePage/SelectedAd';
+import SelectedMaster from '../containers/HomePage/SelectedMaster';
+import SelectedCompany from '../containers/HomePage/SelectedCompany';
 function Header() {
-    const [Ad, setAd] = useState([15,15,15])
+    const [Ad, setAd] = useState([12,12])
+    const [Master, setMaster] = useState([12,12])
+    const [Company, setCompany] = useState([12,12])
     function SelectedLatestAd(id) {
       for (let i = 0; i < Ad[0]; i++) {
 
@@ -44,8 +48,14 @@ function Header() {
             <Route path={`/elanlar/secilmish-son-elan/:id`}>
               <SelectedAd/>
             </Route>
+            <Route path={`/masters/:id`}>
+              <SelectedMaster/>
+            </Route>
+            <Route path={`/companies/:id`}>
+              <SelectedCompany/>
+            </Route>
             <Route path="/">
-              <HomePage numberOfLatestAd={Ad[0]}/>
+              <HomePage numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
             </Route>
             <Route path="/elanlar">
             </Route>

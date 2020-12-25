@@ -1,4 +1,4 @@
-.selectedAd
+.selectedMaster
 {
     display: flex;
     flex-direction: column;
@@ -44,10 +44,39 @@
             }
 
         }
+        .stars 
+        {
+            display: flex;
+            align-items: center;
+        }
+        .phoneOfMaster
+        {
+            display: flex;
+            height: 46px;
+            align-items: center;
+            p
+            {
+                display: flex;
+                align-items: center;
+                margin-top: 0px;
+                margin-bottom: 0;
+            }
+            .numbers 
+            {
+                display: flex;
+                flex-direction: column;
+                margin-left: 5px;
+                font-size: 7px;
+                color: #969696;
+                opacity: 0.83;
+            }
+        }
         .aboutLinks
         {
             display: flex;  
             margin-top: 29px;
+            border-bottom: 1px solid rgba(150,150,150,0.28);
+            
             a
             {
                 border-right: 1px solid rgba(150,150,150,0.28);
@@ -58,6 +87,12 @@
                 margin-left: 15px;
                 padding-right: 15px;
                 color: #7B7C7E;
+                font-size: 12px;
+                p 
+                {
+                    display: flex;
+                    align-items: center;
+                }
                 img 
                 {
                     margin-right: 5px;
@@ -72,12 +107,13 @@
                 }
             }
         }
+        
         .aboutButtons
         {
             display: flex;
-            justify-content: space-between;
             font-size: 10px;
             margin-top: 36px;
+            width: 100%;
             p 
             {
                 display: flex;
@@ -97,6 +133,7 @@
                 {
                     color: white ;
                     opacity: 1;
+                    font-family: "FuturicaRegular";
                 }
             }
         }

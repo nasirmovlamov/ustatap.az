@@ -1,4 +1,6 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
+import axios from "axios"
+
 import Ad from '../../components/Ad'
 import Button from '../../components/Button'
 import Footer from '../../components/Footer'
@@ -26,16 +28,17 @@ import window from "../../assets/images/component/element/window.svg"
 import carpenter from "../../assets/images/component/element/carpenter.svg"
 import threeDots from "../../assets/images/component/element/threeDots.svg"
 import arrDown from "../../assets/images/component/element/arrDown.svg"
-import axios from "axios"
 import "../../assets/css/PagesCss/HomePage.css"
 function HomePage(props) {
+    const [latestAdApi, setlatestAdApi] = useState([])
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/items") 
-            .then((res) =>  console.log(res))
+        axios.get("http://ustatap.testjed.me/ad") 
+             .then((res) =>  (setlatestAdApi(res.data[0]) , console.log(latestAdApi[0])))
     } )
-        
-    
+
+
+
     const focusHandler = (number) => {
             document.getElementById("wD" + number).setAttribute("style" , "display:block")
             document.getElementById("aside").setAttribute("style" , "height:95vh")
@@ -48,8 +51,16 @@ function HomePage(props) {
     const clickHandler = () => {
     }
     const latestAd = []
+    const masters = []
+    const companies = []
     for (let i = 1; i <= props.numberOfLatestAd; i++) {
-        latestAd.push(<Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  )
+        latestAd.push(<Ad name={ latestAdApi[0]} costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  )
+    }
+    for (let i = 1; i <= props.numberOfMasters; i++) {
+        masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1} id={i}/>  )
+    }
+    for (let i = 1; i <= props.numberOfCompanies; i++) {
+        masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1} id={i}/>  )
     }
     return (
         <div className="homePage">
@@ -282,18 +293,8 @@ function HomePage(props) {
                             <p className="title">Ustalar</p>
                             <div className="line2"></div>
                             <div className="adsContainer">
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={3}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={4}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={5}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={0.5}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1.5}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2.5}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={3.5}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={4.5}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={5}/>
-                                <Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1}/>
+                                
+                                {masters}
                                 
                             </div>  
                             <Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>

@@ -1,6 +1,7 @@
 .commentsCont {
   width: 1073px;
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   margin-top: 109px;
 }
 
@@ -10,3 +11,4 @@
   font-family: "ComfortaaRegular";
   font-size: 37px;
 }
+/*# sourceMappingURL=comments.css.map */

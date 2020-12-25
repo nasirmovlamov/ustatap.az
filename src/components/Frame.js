@@ -11,28 +11,40 @@ function Frame(props) {
         }
       document.getElementById("mainImg").src = (props.image[nmb-1])
     }
+    const styleOverlay = {
+        width: props.width,
+        height: props.height,
+        background: props.color,
+    }
+    const overlayForİmage = {
+        backgroundColor: "white",
+        height:"282px",
+        width:"458px",
+        background:props.overlayImg,
+    }
     return (
         <div className="FrameCont">
-            <div className="frame">
-                <div className="overlay"></div>
+            <img  alt=""/>
+            <div className="frame" >
+                <div className="overlay" style={styleOverlay}></div>
                 <div className="imgAndBullet">
-                    <img  alt="" className="imgCont" src={props.image[0]} id="mainImg"/>
-                    <div className="bullets">
+                    <div  className="imgCont"  style={overlayForİmage}><img  alt="" src={props.mainImg} id="mainImg"/></div>
+                    {props.image !== 0 && ( <div className="bullets">
                         <button  id="btn1"  onClick={() => subButtonHandler(1)}></button>  
                         <button  id="btn2"  onClick={() => subButtonHandler(2)}></button>  
                         <button  id="btn3"  onClick={() => subButtonHandler(3)}></button>  
                         <button  id="btn4"  onClick={() => subButtonHandler(4)}></button>  
                         <button  id="btn5"  onClick={() => subButtonHandler(5)}></button>
-                    </div>
+                    </div>)}
                 </div>
             </div>
-            <div className="subImgCont">
+            {props.image !== 0 && (<div className="subImgCont">
                 <button id="subBtn1"  onClick={() => subButtonHandler(1)}><img src={props.image[0]} alt="" className="imgCont"/></button>
                 <button id="subBtn2"  onClick={() => subButtonHandler(2)}><img src={props.image[1]} alt="" className="imgCont"/></button>
                 <button id="subBtn3"  onClick={() => subButtonHandler(3)}><img src={props.image[2]} alt="" className="imgCont"/></button>
                 <button id="subBtn4"  onClick={() => subButtonHandler(4)}><img src={props.image[3]} alt="" className="imgCont"/></button>
                 <button id="subBtn5"  onClick={() => subButtonHandler(5)}><img src={props.image[4]} alt="" className="imgCont"/></button>
-            </div>
+            </div>)}
         </div>
     )
 }

@@ -37,15 +37,21 @@
 }
 
 .singleCommentCont .singleCommentAbout .replyForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   margin-top: 10px;
 }
 
 .singleCommentCont .singleCommentAbout .replyForm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .singleCommentCont .singleCommentAbout .replyForm form .input {
@@ -78,15 +84,21 @@
 }
 
 .mainCommentCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: auto;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 5px;
 }
 
 .mainCommentCont .profileMainImg {
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   margin-right: 25px;
   width: 98.73px;
   height: 98.73px;
 }
+/*# sourceMappingURL=singleComment.css.map */

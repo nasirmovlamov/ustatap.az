@@ -1,0 +1,247 @@
+.selectedCompany
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    video 
+    {
+        
+    }
+    .generalCont
+    {
+        width: 90%;
+    }
+    .link
+    {
+        margin-top: 52.5px;
+        margin-bottom: 52.5px;
+        p 
+        {
+            margin: 0;
+        }
+    }
+}
+
+
+.frameAndText
+{
+    display: flex;
+    .aboutAd   
+    {
+        margin-left: 55px;
+        width: 732px;
+        .title
+        {
+            font-size: 28px;
+            color: black;
+            font-family: "ComfortaaRegular";
+        }
+        .subTitle
+        {
+            p 
+            {
+                font-family: "FuturicaRegular";
+                font-size: 14px;
+                color: #616161;
+                opacity: 0.63;
+            }
+
+        }
+        .stars 
+        {
+            display: flex;
+            align-items: center;
+        }
+        .phoneOfMaster
+        {
+            display: flex;
+            height: 46px;
+            align-items: center;
+            p
+            {
+                display: flex;
+                align-items: center;
+                margin-top: 0px;
+                margin-bottom: 0;
+            }
+            .numbers 
+            {
+                display: flex;
+                flex-direction: column;
+                margin-left: 5px;
+                font-size: 7px;
+                color: #969696;
+                opacity: 0.83;
+            }
+        }
+        
+        .aboutLinks
+        {
+            display: flex;  
+            margin-top: 29px;
+            width: 632px;
+            .worksCanDo
+            {
+                width: 345px;
+            }
+            a
+            {
+                border-right: 1px solid rgba(150,150,150,0.28);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 35px;
+                margin-left: 15px;
+                padding-right: 15px;
+                color: #7B7C7E;
+                font-size: 12px;
+                
+                .district
+                {
+                    font-size: 6px;
+                }
+                &:nth-child(1)
+                {
+                    width: 86px;
+                }
+                p 
+                {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    justify-content: center;
+                }
+                img 
+                {
+                    margin-right: 5px;
+                }
+                &:nth-child(1)
+                {
+                    margin-left: 0px;
+                }
+                &:nth-child(3)
+                {
+                    border: none;
+                }
+                &:nth-child(2)
+                {
+                    padding: 0px;
+                    margin: 0px;
+                    width: 175px;
+                    justify-content: center;
+                    span 
+                    {
+                        width: 80px;
+                    }
+                }
+            }
+        }
+        
+        .aboutButtons
+        {
+            display: flex;
+            font-size: 10px;
+            margin-top: 36px;
+            width: 100%;
+            p 
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #000000;
+                opacity: 0.5;
+
+                img 
+                {
+                    margin-right: 5px;
+                }
+            }
+            button 
+            {
+                p 
+                {
+                    color: white ;
+                    opacity: 1;
+                    font-family: "FuturicaRegular";
+                }
+            }
+        }
+        .bottomPart
+        {
+            display: flex;
+            width: 732px;
+            .phoneOfMaster
+            {
+                border-right: 1px solid rgba(150,150,150,0.28);
+                p 
+                {
+                    margin: 0px;
+                }
+                width: 87px;
+            }
+            .mailOfMaster
+            {
+                display: flex;
+                height: 46px;
+                align-items: center;
+                width: 145px;
+                justify-content: center;
+                border-right: 1px solid rgba(150,150,150,0.28);
+                p
+                {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 0px;
+                    margin-bottom: 0;
+                }
+                img 
+                {
+                    width: 17px;
+                }
+                .mail 
+                {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 5px;
+                    font-size: 11px;
+                    color: #969696;
+                    opacity: 0.83;
+                }
+            }
+            .social
+            {
+                height: 46px;
+                width: 100px;
+                margin-left: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row;
+                p 
+                {
+                    margin: 0px;
+                }
+
+            }
+        }   
+        .bottomLines
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 120px;
+            img 
+            {
+                width: 86px;
+                height: auto;
+            }
+            hr 
+            {
+                margin: 0;
+                width: 35%;
+                background-color: #59B93F;
+            }
+        }
+    } 
+}

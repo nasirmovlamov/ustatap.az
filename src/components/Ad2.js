@@ -1,4 +1,7 @@
 import React from 'react'
+import {
+    Link
+  } from "react-router-dom";
 import "../assets/css/componentsCss/ad2.css"
 import emptyStar from "../assets/images/component/element/emptyStar.svg"
 import fullStar from "../assets/images/component/element/fullStar.svg"
@@ -30,18 +33,20 @@ function Ad2(props) {
             stars.push(<img src={emptyStar} alt="ulduz" /> )
           }
     }
-    
     return (
-        <div className="mastersCont">
-             <img src={props.image} alt="Usta" className="masterImg"/>
-            <div className="aboutText">
-                <p className="name">{props.name}</p>
-                <p className="job">{props.job}</p>
-                <p className="location"><img src={location} alt="location"/> {props.address}</p>
-                <div className="stars">{stars}</div>
-                <img className="heart" src={heart} alt="ürək"/>
-            </div> 
-        </div>
+        <Link to={"/masters/" + props.id}>
+            <div className="mastersCont">
+                <img src={props.image} alt="Usta" className="masterImg"/>
+                <div className="aboutText">
+                    <p className="name">{props.name}</p>
+                    <p className="job">{props.job}</p>
+                    <p className="location"><img src={location} alt="location"/> {props.address}</p>
+                    <div className="stars">{stars}</div>
+                    <img className="heart" src={heart} alt="ürək"/>
+                </div> 
+            </div>
+        </Link>
+
     )
 }
 

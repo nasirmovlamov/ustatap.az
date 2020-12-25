@@ -1,4 +1,4 @@
-.selectedAd {
+.selectedMaster {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,16 +12,16 @@
   width: 100%;
 }
 
-.selectedAd .generalCont {
+.selectedMaster .generalCont {
   width: 90%;
 }
 
-.selectedAd .link {
+.selectedMaster .link {
   margin-top: 52.5px;
   margin-bottom: 52.5px;
 }
 
-.selectedAd .link p {
+.selectedMaster .link p {
   margin: 0;
 }
 
@@ -49,11 +49,56 @@
   opacity: 0.63;
 }
 
+.frameAndText .aboutAd .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.frameAndText .aboutAd .phoneOfMaster {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 46px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.frameAndText .aboutAd .phoneOfMaster p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0;
+}
+
+.frameAndText .aboutAd .phoneOfMaster .numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 5px;
+  font-size: 7px;
+  color: #969696;
+  opacity: 0.83;
+}
+
 .frameAndText .aboutAd .aboutLinks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 29px;
+  border-bottom: 1px solid rgba(150, 150, 150, 0.28);
 }
 
 .frameAndText .aboutAd .aboutLinks a {
@@ -71,6 +116,16 @@
   margin-left: 15px;
   padding-right: 15px;
   color: #7B7C7E;
+  font-size: 12px;
+}
+
+.frameAndText .aboutAd .aboutLinks a p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .frameAndText .aboutAd .aboutLinks a img {
@@ -89,11 +144,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   font-size: 10px;
   margin-top: 36px;
+  width: 100%;
 }
 
 .frameAndText .aboutAd .aboutButtons p {
@@ -117,6 +170,7 @@
 .frameAndText .aboutAd .aboutButtons button p {
   color: white;
   opacity: 1;
+  font-family: "FuturicaRegular";
 }
 
 .frameAndText .aboutAd .bottomLines {
@@ -142,4 +196,4 @@
   width: 35%;
   background-color: #59B93F;
 }
-/*# sourceMappingURL=selectedAd.css.map */
+/*# sourceMappingURL=selectedMaster.css.map */

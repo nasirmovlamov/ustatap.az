@@ -3,7 +3,9 @@ import "../assets/css/componentsCss/ad3.css"
 import emptyStar from "../assets/images/component/element/emptyStar.svg"
 import fullStar from "../assets/images/component/element/fullStar.svg"
 import halfStar from "../assets/images/component/element/halfStar.svg"
-
+import {
+    Link
+  } from "react-router-dom";
 
 import location from "../assets/images/component/element/location.svg"
 import whiteHeart from "../assets/images/component/element/whiteHeart.svg"
@@ -35,18 +37,23 @@ function Ad3(props) {
     }
     
     return (
-        <div className="companies">
-            <div className="logoCont"><img src={props.image} alt="şirkət logo"/></div>
-            <div className="aboutText"> 
-                <p className="name">{props.name}</p>
-                <p className="description">{props.description}</p>
-                <div className="bottomImgCont"> 
-                    <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
-                    <div className="stars">{stars}</div>
-                    <img src={whiteHeart} alt="ürək" />
+        <Link to={"/companies/" + props.id}>
+
+            <div className="companies">
+                <div className="logoCont"><img src={props.image} alt="şirkət logo"/></div>
+                <div className="aboutText"> 
+                    <p className="name">{props.name}</p>
+                    <p className="description">{props.description}</p>
+                    <div className="bottomImgCont"> 
+                        <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
+                        <div className="stars">{stars}</div>
+                        <img src={whiteHeart} alt="ürək" />
+                    </div>
                 </div>
             </div>
-        </div>
+
+        </Link>
+
     )
 }
 

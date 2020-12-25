@@ -1,10 +1,16 @@
 .replyCommentCont {
   margin-left: 100px;
   background-color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .replyCommentCont img {
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
+/*# sourceMappingURL=replyComment.css.map */
