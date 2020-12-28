@@ -13,6 +13,8 @@ import SearchBox from './SearchBox';
 import SelectedAd from './../containers/HomePage/SelectedAd';
 import SelectedMaster from '../containers/HomePage/SelectedMaster';
 import SelectedCompany from '../containers/HomePage/SelectedCompany';
+import AddsPage from '../containers/AdvertisePage/AddsPage';
+import Masters from '../containers/MastersPage/Masters';
 function Header() {
     const [Ad, setAd] = useState([12,12])
     const [Master, setMaster] = useState([12,12])
@@ -54,11 +56,16 @@ function Header() {
             <Route path={`/companies/:id`}>
               <SelectedCompany/>
             </Route>
+            <Route path="/elanlar">
+              <AddsPage/>
+            </Route>
+            <Route path="/ustalar">
+              <Masters/>
+            </Route>
             <Route path="/">
               <HomePage numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
             </Route>
-            <Route path="/elanlar">
-            </Route>
+            
             
           </Switch>
       </Router>

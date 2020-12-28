@@ -1,0 +1,79 @@
+.categoryCont {
+  width: 1185px;
+  height: 131px;
+  background: url("../../images/page/background/categoryBg.svg");
+  background-color: #59BA44;
+  display: flex;
+  justify-content: center;
+}
+
+.categoryCont .button {
+  margin-bottom: -30px;
+  margin-left: 64.5px;
+}
+
+.categoryCont .divider {
+  display: flex;
+  width: 82%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.categoryCont p {
+  margin: 0px;
+}
+
+.categoryCont .ctgryGrid {
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 14px;
+}
+
+.categoryCont .ctgryGrid .part1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.categoryCont .ctgryGrid .part1 p {
+  width: 186px;
+  text-align: center;
+  font-family: "ComfortaaRegular";
+  font-size: 15px;
+  color: white;
+}
+
+.categoryCont .ctgryGrid .part2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoryCont .ctgryGrid .part2 button {
+  width: 186px;
+  height: 33px;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  font-family: "ComfortaaRegular";
+  font-size: 12px;
+  background: #FFFFFF;
+  border-radius: 11px;
+  color: #969696;
+  border: none;
+}
+
+.categoryCont .ctgryGrid .part2 button:focus {
+  outline: none;
+}
+
+.categoryCont .ctgryGrid .part2 button:nth-child(2) {
+  width: 158px;
+}
+
+.categoryCont .ctgryGrid .part2 button:nth-child(3) {
+  width: 156px;
+}
+
+.categoryCont .ctgryGrid .part2 button:nth-child(3) {
+  width: 156px;
+}

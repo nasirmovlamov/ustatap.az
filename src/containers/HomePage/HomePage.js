@@ -30,13 +30,13 @@ import threeDots from "../../assets/images/component/element/threeDots.svg"
 import arrDown from "../../assets/images/component/element/arrDown.svg"
 import "../../assets/css/PagesCss/HomePage.css"
 function HomePage(props) {
-    const [latestAdApi, setlatestAdApi] = useState([])
+    const [latestAdApi, setlatestAdApi] = useState([0])
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/ad") 
-             .then((res) =>  (setlatestAdApi(res.data[0]) , console.log(latestAdApi[0])))
-    } )
-
+             .then((res) =>  (setlatestAdApi(res.data[0]) ))
+    },[] )
+    console.log(latestAdApi)
 
 
     const focusHandler = (number) => {
@@ -53,8 +53,8 @@ function HomePage(props) {
     const latestAd = []
     const masters = []
     const companies = []
-    for (let i = 1; i <= props.numberOfLatestAd; i++) {
-        latestAd.push(<Ad name={ latestAdApi[0]} costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  )
+    for (let i = 0; i <= props.numberOfLatestAd; i++) {
+            latestAd.push(<Ad name={ latestAdApi.id} costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  ) 
     }
     for (let i = 1; i <= props.numberOfMasters; i++) {
         masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1} id={i}/>  )

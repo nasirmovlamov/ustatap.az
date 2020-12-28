@@ -1,0 +1,78 @@
+.addsPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addsPage .linkAndButton {
+  width: 1185px;
+  height: 130px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.addsPage .linkAndButton .link {
+  margin-top: 52.5px;
+  margin-bottom: 52.5px;
+}
+
+.addsPage .linkAndButton .link p {
+  margin: 0;
+}
+
+.addsPage .linkAndButton .topButton {
+  align-self: center;
+  justify-self: center;
+  padding: 0px;
+  margin: 0px;
+  width: 210px;
+  height: 70px;
+  border: none;
+  background-color: lightblue;
+  color: #F6F7FB;
+  font-family: "ComfortaaRegular";
+  background: url("../../images/component/element/animatedButton.svg") no-repeat;
+  background-size: auto auto;
+}
+
+.addsPage .linkAndButton .topButton:focus {
+  outline: none;
+}
+
+.addsPage .adsContainer {
+  margin-top: 66px;
+  width: 100%;
+  align-content: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.addsPage .adsContainer .ad {
+  width: 376px;
+  height: 445px;
+}
+
+.addsPage .adsContainer .ad .mainImg {
+  height: 264px;
+}
+
+.addsPage .adsContainer .ad .flexCont1 {
+  font-size: 19px;
+}
+
+.addsPage .adsContainer .ad .nameCostumer {
+  font-size: 12px;
+  margin-top: -15px;
+}
+
+.addsPage .adsContainer .ad .flexCont2 {
+  margin-top: 30px;
+}
+
+.addsPage .adsContainer .ad .flexCont2 p:nth-child(1) {
+  font-size: 10px;
+}

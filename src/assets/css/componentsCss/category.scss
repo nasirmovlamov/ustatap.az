@@ -1,0 +1,82 @@
+.categoryCont
+{
+    width: 1185px;
+    height: 131px;
+    background: url("../../images/page/background/categoryBg.svg");
+    background-color: #59BA44;
+    display: flex;
+    justify-content: center;
+    .button 
+    {
+        margin-bottom: -30px;
+        margin-left: 64.5px;
+    }
+    .divider
+    {
+        display: flex;
+        width: 82%;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    p 
+    {
+        margin: 0px;
+    }
+    .ctgryGrid
+    {
+        width: auto;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 14px;
+        
+        .part1 
+        {
+            display: flex;
+            justify-content: space-around;
+            p
+            {
+                width: 186px;
+                text-align: center;
+                font-family: "ComfortaaRegular";
+                font-size: 15px;
+                color: white;
+            }
+        }
+        .part2 
+        {
+            display: flex;
+            justify-content: space-between;
+            button 
+            {
+                width: 186px;
+                height: 33px;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                font-family: "ComfortaaRegular";
+                font-size: 12px;
+                background: #FFFFFF;
+                border-radius: 11px;
+                color: rgba(150,150,150,1);
+                border: none;
+                &:focus 
+                {
+                    outline:none;
+                }
+                &:nth-child(2)
+                {
+                    width: 158px;
+                }
+                &:nth-child(3)
+                {
+                    width: 156px;
+                }
+                &:nth-child(3)
+                {
+                    width: 156px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+.mastersPage 
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .linkAndButton
+    {
+        width: 1185px;
+        height: 130px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        .link
+        {
+            margin-top: 52.5px;
+            margin-bottom: 52.5px;
+            p 
+            {
+                margin: 0;
+            }
+        }
+        .topButton
+        {
+            align-self: center;
+            justify-self: center;
+            padding: 0px;
+            margin: 0px;
+            width: 210px;
+            height: 70px;
+            border: none;
+            background-color: lightblue;
+            color: #F6F7FB;
+            font-family: "ComfortaaRegular";
+            background: url("../../images/component/element/animatedButton.svg") no-repeat;
+            background-size: auto auto;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    
+        
+        
+        .adsContainer
+        {
+            margin-top: 66px;
+            width: 100%;
+            align-content: center;
+            justify-items: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+            .ad
+            {
+                .mainImg
+                {
+                    height: 264px;
+                }
+                width: 376px;
+                height: 445px;
+                .flexCont1
+                {
+                    font-size: 19px;
+                }
+                .nameCostumer
+                {
+                    font-size: 12px;
+                    margin-top:-15px;
+                } 
+                .flexCont2
+                {
+                    margin-top: 30px; 
+                    p 
+                    {
+                        &:nth-child(1)
+                        {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    
+}
