@@ -1,0 +1,304 @@
+.addvertise {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addvertise .generalCont {
+  width: 1239px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addvertise .generalCont .reklamCont {
+  width: 100%;
+  font-size: 21px;
+  color: black;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.addvertise .generalCont .reklamCont .reklamText {
+  margin-left: 10%;
+}
+
+.addvertise .generalCont .reklamCont .reklamText p {
+  margin: 0px;
+}
+
+.addvertise .generalCont .reklamCont .reklamText .reklamTitle {
+  color: black;
+  margin-bottom: 50px;
+  font-size: 28px;
+  font-family: "ComfortaaRegular";
+  text-align: center;
+  margin-left: -70px;
+}
+
+.addvertise .generalCont .reklamCont .reklamText .reklamDescription {
+  color: black;
+  opacity: 0.5;
+}
+
+.addvertise .generalCont .reklamCont .reklamText .reklamDescription p {
+  margin-bottom: 20px;
+}
+
+.addvertise .generalCont .aboutText {
+  width: 80%;
+  font-size: 21px;
+  color: black;
+  opacity: 0.5;
+  height: auto;
+}
+
+.addvertise .linkAndButton {
+  width: 1185px;
+}
+
+.addvertise .linkAndButton .link {
+  margin-top: 52.5px;
+  margin-bottom: 52.5px;
+}
+
+.addvertise .linkAndButton .link p {
+  margin: 0;
+}
+
+.addvertise .formCont {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addvertise .formCont .button {
+  margin-top: 50px;
+}
+
+.addvertise .formCont form {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addvertise .formCont .formTitle {
+  font-size: 28px;
+  font-family: "ComfortaaRegular";
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.addvertise .formCont .gridContForm {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  grid-row-gap: 60px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+}
+
+.addvertise .formCont .gridContForm input {
+  height: 28.5px;
+  border: none;
+  width: 75%;
+  border-bottom: 2px solid gray;
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont .gridContForm input:focus {
+  outline: none;
+}
+
+.addvertise .formCont .gridContForm input::-webkit-input-placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont .gridContForm input:-ms-input-placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont .gridContForm input::-ms-input-placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont .gridContForm input::placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont textarea {
+  width: 84%;
+  margin-top: 50px;
+  padding: 20px;
+  border: 2px solid gray;
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont textarea::-webkit-input-placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont textarea:-ms-input-placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont textarea::-ms-input-placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .formCont textarea::placeholder {
+  font-family: "FuturicaRegular";
+}
+
+.addvertise .statistica {
+  width: 100%;
+  height: auto;
+  padding-bottom: 100px;
+  margin-top: 100px;
+  background-color: crimson;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 30px;
+  background: url("../../images/component/background/statisticBg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 100px;
+}
+
+.addvertise .statistica p {
+  margin: 0px;
+}
+
+.addvertise .statistica .gridCont1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  width: 90%;
+  height: 129px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  font-size: 29px;
+  font-family: "FuturicaRegular";
+  grid-row-gap: 29px;
+  margin-top: 70px;
+  color: white;
+}
+
+.addvertise .statistica .gridCont2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  width: 60%;
+  height: 129px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  font-size: 29px;
+  font-family: "FuturicaRegular";
+  grid-row-gap: 29px;
+  margin-top: 70px;
+  color: white;
+}
+
+.addvertise .statistica .gridCont2 .whiteImg1 {
+  width: 21px;
+}
+
+.addvertise .statistica .gridCont2 .whiteImg2 {
+  width: 31px;
+}
+
+.addvertise .statistica .gridCont2 .whiteImg3 {
+  width: 27px;
+}
+
+.addvertise .statistica .gridCont2 .whiteImg4 {
+  width: 32px;
+}
+
+.addvertise .statistica .gridCont2 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.addvertise .statistica .gridCont2 p img {
+  width: 25px;
+}
+
+.addvertise .statistica .gridCont2 p span {
+  margin-left: 20px;
+  font-size: 20px;
+  font-family: "ComfortaaRegular";
+}
+
+.addvertise .statistica .mainLogo {
+  margin-top: -70px;
+  margin-right: 10%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.addvertise .underLine {
+  width: 90%;
+  height: 1px;
+  border: none;
+  background: #FFFFFF;
+  opacity: 0.5;
+  margin-top: 31px;
+}
+/*# sourceMappingURL=addvertise.css.map */

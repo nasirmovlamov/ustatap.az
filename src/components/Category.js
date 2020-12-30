@@ -5,7 +5,7 @@ import lupa from "../assets/images/component/element/lupa2.svg"
 
 function Category(props) {
     const styleForBg = {
-        background: props.color,
+        backgroundColor: props.color ,
     }
     return (
         <div className="categoryCont" style={styleForBg}>
@@ -14,19 +14,18 @@ function Category(props) {
                     <div className="part1">
                         <p>Kateqoriya</p>    
                         <p>Şəhər</p>    
-                        <p>Rayon</p>    
-                        <p>Tarixə Görə</p>
+                        { props.type3 === undefined && <p>Rayon</p>    }
+                        { props.type4 === undefined && <p>Tarixə Görə</p>}
                     </div>
 
                     <div className="part2">
                         <button>Bütün Kateqoriya</button>
                         <button>Bütün Şəhər</button>
-                        <button>Bütün Rayon</button>
-                        <button>Bütün Tarixlər</button>
+                        { props.type3 === undefined && <button>Bütün Rayon</button>}
+                        { props.type4 === undefined && <button>Bütün Tarixlər</button>}
                     </div>
                 </div>
-                <Button name="axtar"  image2={lupa} color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
-
+                <Button name="axtar"  image2={lupa} color={props.btnColor}/>
             </div> 
         </div>
     )

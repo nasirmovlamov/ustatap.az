@@ -161,7 +161,7 @@
 }
 
 .main .allAdsContainer {
-  margin-left: 47px;
+  margin-left: 100px;
   width: 887px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -252,12 +252,12 @@
 }
 
 .main .allAdsContainer .adsContainer {
-  margin-top: 22.5px;
+  margin-top: 50px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 50px;
   margin-bottom: 50px;
 }
 /*# sourceMappingURL=HomePage.css.map */

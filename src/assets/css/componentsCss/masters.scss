@@ -4,7 +4,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    .mastersCont
+    {
+        width: 378px;
+        height: 214px;
+        .aboutText
+        {
+            width: 165px;
+            height:185px;
+        }
+    }
     .linkAndButton
     {
         width: 1185px;
@@ -40,8 +49,15 @@
         }
     }
     
-        
-        
+    .categoryCont
+    {
+        width: 100%;
+    }
+    .subBanner
+    {
+        width: 887px;
+        margin-top: 100px;
+    }
         .adsContainer
         {
             margin-top: 66px;
@@ -49,9 +65,27 @@
             align-content: center;
             justify-items: center;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(1, 1fr);
+            .Vipmasters
+            {
+                margin-top: 66px;
+                width: 100%;
+                align-content: center;
+                justify-items: center;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 50px;
+            }
+            .masters
+            {
+                margin-top: 66px;
+                width: 100%;
+                align-content: center;
+                justify-items: center;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 50px;
+            }
             .ad
             {
                 .mainImg

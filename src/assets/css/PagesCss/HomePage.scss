@@ -132,7 +132,7 @@
     } 
     .allAdsContainer
     {
-        margin-left: 47px;
+        margin-left: 100px;
         width: 887px;
         display:flex;
         flex-direction: column;
@@ -211,10 +211,10 @@
 
         .adsContainer
         {
-            margin-top: 22.5px;
+            margin-top: 50px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 50px;
             margin-bottom: 50px;
         }
     }  

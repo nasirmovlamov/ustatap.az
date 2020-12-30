@@ -39,6 +39,10 @@
           flex-direction: column;
 }
 
+.aboutText p {
+  margin: 0px;
+}
+
 .aboutText .name {
   font-size: 15px;
   color: white;

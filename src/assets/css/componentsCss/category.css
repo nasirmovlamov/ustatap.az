@@ -3,8 +3,12 @@
   height: 131px;
   background: url("../../images/page/background/categoryBg.svg");
   background-color: #59BA44;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .categoryCont .button {
@@ -13,10 +17,16 @@
 }
 
 .categoryCont .divider {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 82%;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .categoryCont p {
@@ -25,14 +35,19 @@
 
 .categoryCont .ctgryGrid {
   width: auto;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
   grid-gap: 14px;
 }
 
 .categoryCont .ctgryGrid .part1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .categoryCont .ctgryGrid .part1 p {
@@ -44,8 +59,12 @@
 }
 
 .categoryCont .ctgryGrid .part2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .categoryCont .ctgryGrid .part2 button {
@@ -77,3 +96,4 @@
 .categoryCont .ctgryGrid .part2 button:nth-child(3) {
   width: 156px;
 }
+/*# sourceMappingURL=category.css.map */

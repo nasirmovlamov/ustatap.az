@@ -24,7 +24,10 @@
     justify-content:space-between;
     height:65.5px;
     flex-direction: column;
-
+    p 
+    {
+        margin: 0px;
+    }
     .name 
     {
         font-size: 15px;

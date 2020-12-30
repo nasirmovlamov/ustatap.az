@@ -1,0 +1,111 @@
+.vipCompany {
+  width: 280px;
+  height: 270px;
+  background-color: #58BC40;
+  -webkit-box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+}
+
+.vipCompany .crown {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: -35px;
+}
+
+.vipCompany .logoCont {
+  width: 100%;
+  height: 156px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+}
+
+.vipCompany .aboutText {
+  padding-left: 16px;
+  padding-top: 30px;
+  padding-right: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 65.5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.vipCompany .aboutText p {
+  margin: 0px;
+}
+
+.vipCompany .aboutText .name {
+  font-size: 15px;
+  color: white;
+  font-family: "FuturicaRegular";
+}
+
+.vipCompany .aboutText .description {
+  font-size: 6px;
+  color: white;
+  font-family: "ComfortaaRegular";
+}
+
+.vipCompany .aboutText .bottomImgCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
+}
+
+.vipCompany .aboutText .bottomImgCont .address {
+  font-family: "ComfortaaRegular";
+  font-size: 6px;
+  color: white;
+}
+
+.vipCompany .aboutText .bottomImgCont .address img {
+  margin-right: 3px;
+}
+
+.vipCompany .aboutText .bottomImgCont .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: -5px;
+}
+
+.vipCompany .aboutText .bottomImgCont p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=vipAd3.css.map */

@@ -1,0 +1,127 @@
+.companiesPage {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.companiesPage .linkAndButton {
+  width: 1185px;
+  height: 130px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.companiesPage .linkAndButton .link {
+  margin-top: 52.5px;
+  margin-bottom: 52.5px;
+}
+
+.companiesPage .linkAndButton .link p {
+  margin: 0;
+}
+
+.companiesPage .linkAndButton .topButton {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 0px;
+  margin: 0px;
+  width: 210px;
+  height: 70px;
+  border: none;
+  background-color: lightblue;
+  color: #F6F7FB;
+  font-family: "ComfortaaRegular";
+  background: url("../../images/component/element/animatedButton.svg") no-repeat;
+  background-size: auto auto;
+}
+
+.companiesPage .linkAndButton .topButton:focus {
+  outline: none;
+}
+
+.companiesPage .adsContainer {
+  margin-top: 36px;
+  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+}
+
+.companiesPage .adsContainer .topImgVIP {
+  margin-bottom: 30px;
+}
+
+.companiesPage .adsContainer .companiesVipCont {
+  margin-top: 66px;
+  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 100px;
+}
+
+.companiesPage .adsContainer .companiesCont {
+  margin-top: 66px;
+  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 100px;
+}
+
+.companiesPage .adsContainer .subBanner {
+  width: 887px;
+  margin-top: 100px;
+}
+
+.companiesPage .adsContainer .ad {
+  width: 376px;
+  height: 445px;
+}
+
+.companiesPage .adsContainer .ad .mainImg {
+  height: 264px;
+}
+
+.companiesPage .adsContainer .ad .flexCont1 {
+  font-size: 19px;
+}
+
+.companiesPage .adsContainer .ad .nameCostumer {
+  font-size: 12px;
+  margin-top: -15px;
+}
+
+.companiesPage .adsContainer .ad .flexCont2 {
+  margin-top: 30px;
+}
+
+.companiesPage .adsContainer .ad .flexCont2 p:nth-child(1) {
+  font-size: 10px;
+}
+/*# sourceMappingURL=companies.css.map */

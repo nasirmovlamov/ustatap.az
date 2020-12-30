@@ -15,6 +15,11 @@ import SelectedMaster from '../containers/HomePage/SelectedMaster';
 import SelectedCompany from '../containers/HomePage/SelectedCompany';
 import AddsPage from '../containers/AdvertisePage/AddsPage';
 import Masters from '../containers/MastersPage/Masters';
+import Companies from '../containers/Companies/Companies';
+import AboutUs from '../containers/AboutUsPage/AboutUs';
+import Footer from './Footer';
+import Addvertise from '../containers/AdvertisePage/Addvertise';
+import Contact from '../containers/Contact/Contact';
 function Header() {
     const [Ad, setAd] = useState([12,12])
     const [Master, setMaster] = useState([12,12])
@@ -62,12 +67,26 @@ function Header() {
             <Route path="/ustalar">
               <Masters/>
             </Route>
+            <Route path="/shirketler">
+              <Companies/>
+            </Route>
+            <Route path="/haqqimizda">
+              <AboutUs/>
+            </Route>
+            <Route path="/reklam">
+              <Addvertise/>
+            </Route>
+            <Route path="/elaqe">
+              <Contact/>
+            </Route>
             <Route path="/">
               <HomePage numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
             </Route>
             
             
           </Switch>
+          <Footer/>
+
       </Router>
     )
 }

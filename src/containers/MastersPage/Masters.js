@@ -9,12 +9,19 @@ import adImage from "../../assets/images/component/element/adImage.png"
 import Ad from '../../components/Ad';
 import Ad2 from '../../components/Ad2';
 import master from "../../assets/images/component/element/master.png"
+import vipTopImg from "../../assets/images/component/element/vipMastersTop.png"
+import VipAd2 from '../../components/VipAd2';
+import SubBanner from '../../components/SubBanner';
 
 function Masters() {
 
     const [Masters, setMasters] = useState([])
-    for (let i = 0; i <= 15; i++) {
+    const [VipMasters, setVipMasters] = useState([])
+    for (let i = 0; i <= 5; i++) {
         Masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2} id={i}/> )
+    }    
+    for (let i = 0; i <= 5; i++) {
+        VipMasters.push(<VipAd2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2} id={i}/> )
     }    
     return (
         <div className="mastersPage">
@@ -35,10 +42,13 @@ function Masters() {
                     <button className="topButton">Ustalar üzrə Axtarış</button>
                 </div>
 
-                <Category/>
+                <Category  type4={1}  color="#F27B29" btnCollor="green"/>
 
                     <div className="adsContainer">
-                        {Masters}
+                        <img src={vipTopImg} alt=""/>
+                        <div className="Vipmasters"> {VipMasters} </div>
+                        <SubBanner/>
+                        <div className="masters"> {Masters} </div>
                     </div>    
 
 

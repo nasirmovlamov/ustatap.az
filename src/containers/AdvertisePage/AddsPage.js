@@ -32,7 +32,7 @@ function AddsPage(props) {
                     <button className="topButton">Elanlar üzrə Axtarış</button>
                 </div>
 
-                <Category/>
+                <Category type4={undefined} btnColor="#F27B29"/>
 
                     <div className="adsContainer">
                         {Adds}

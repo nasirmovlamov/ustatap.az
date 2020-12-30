@@ -29,13 +29,30 @@ import carpenter from "../../assets/images/component/element/carpenter.svg"
 import threeDots from "../../assets/images/component/element/threeDots.svg"
 import arrDown from "../../assets/images/component/element/arrDown.svg"
 import "../../assets/css/PagesCss/HomePage.css"
+import VipAd2 from '../../components/VipAd2'
+import VipAd3 from '../../components/VipAd3'
+import Masters from '../MastersPage/Masters'
+import Companies from '../Companies/Companies'
 function HomePage(props) {
+    const latestAd = []
+    const masters = []
+    const companies = []
+    const [VipMasters1, setVipMasters] = useState([])
+    const [VipCompanies2, setVipCompanies] = useState([])
+
     const [latestAdApi, setlatestAdApi] = useState([0])
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/ad") 
              .then((res) =>  (setlatestAdApi(res.data[0]) ))
-    },[] )
+
+        for (let j = 0; j <= 5; j++) {
+            VipMasters1.push(<VipAd2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2} /> )
+        } 
+        for (let j = 0; j <= 5; j++) {
+            VipCompanies2.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>)
+        }  
+    },[VipMasters1,VipCompanies2] )
     console.log(latestAdApi)
 
 
@@ -50,18 +67,20 @@ function HomePage(props) {
     } 
     const clickHandler = () => {
     }
-    const latestAd = []
-    const masters = []
-    const companies = []
-    for (let i = 0; i <= props.numberOfLatestAd; i++) {
-            latestAd.push(<Ad name={ latestAdApi.id} costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  ) 
+    
+
+    for (let i = 0; i <= 5; i++) {
+        latestAd.push(<Ad name={ latestAdApi.id} costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  ) 
     }
-    for (let i = 1; i <= props.numberOfMasters; i++) {
+    for (let i = 1; i <= 6; i++) {
         masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1} id={i}/>  )
     }
-    for (let i = 1; i <= props.numberOfCompanies; i++) {
-        masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1} id={i}/>  )
+    for (let i = 1; i <= 6; i++) {
+        companies.push(<Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>  )
     }
+    
+
+
     return (
         <div className="homePage">
             
@@ -290,11 +309,11 @@ function HomePage(props) {
 
 
                         <div className="typeAddContainer"> 
-                            <p className="title">Ustalar</p>
+                            <p className="title">Vip Ustalar</p>
                             <div className="line2"></div>
                             <div className="adsContainer">
                                 
-                                {masters}
+                                {VipMasters1}
                                 
                             </div>  
                             <Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
@@ -305,19 +324,13 @@ function HomePage(props) {
 
                 
                         <div className="typeAddContainer"> 
-                            <p className="title">Şirkətlər</p>
+                            <p className="title">Vip Şirkətlər</p>
                             <div className="line3"></div>
                             <div className="adsContainer">
-                                <Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
-                                <Ad3 numberStar={3} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
-                                <Ad3 numberStar={3.5} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
-                                <Ad3 numberStar={2.5} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>
-                                
-
+                                {VipCompanies2}
                             </div>     
                             <Button name="Bütün şirkətlərə bax"/>
                         </div>
-
 
                         <SubBanner marginTop="60px" marginBottom="78px"/>
 
@@ -331,14 +344,6 @@ function HomePage(props) {
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                 
                             </div>      
                             <Button name="Bütün elanlara bax"/>
                         </div>
@@ -356,23 +361,38 @@ function HomePage(props) {
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
-                                 
                             </div>  
                             <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
                         </div>
+
+                        <div className="typeAddContainer"> 
+                            <p className="title">Ustalar</p>
+                            <div className="line2"></div>
+                            <div className="adsContainer">
+                                {masters}
+                            </div>  
+                            <Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
+                        </div>
+
+                
+                        <SubBanner marginTop="60px" marginBottom="78px"/>
+
+                
+                        <div className="typeAddContainer"> 
+                            <p className="title">Şirkətlər</p>
+                            <div className="line3"></div>
+                            <div className="adsContainer">
+                                {companies}
+                            </div>     
+                            <Button name="Bütün şirkətlərə bax"/>
+                        </div>
+
+
                     </div> 
                 {/* All Grids  All Grids  All Grids  All Grids  All Grids  All Grids  All Grids */}
 
             </main>
 
-            <Footer/>
         </div>
     )
 }

@@ -1,15 +1,24 @@
 .addsPage {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .addsPage .linkAndButton {
   width: 1185px;
   height: 130px;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
 .addsPage .linkAndButton .link {
@@ -22,8 +31,11 @@
 }
 
 .addsPage .linkAndButton .topButton {
-  align-self: center;
-  justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   padding: 0px;
   margin: 0px;
   width: 210px;
@@ -43,10 +55,13 @@
 .addsPage .adsContainer {
   margin-top: 66px;
   width: 100%;
-  align-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   justify-items: center;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-bottom: 50px;
 }
@@ -76,3 +91,4 @@
 .addsPage .adsContainer .ad .flexCont2 p:nth-child(1) {
   font-size: 10px;
 }
+/*# sourceMappingURL=addsPage.css.map */
