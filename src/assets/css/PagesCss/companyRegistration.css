@@ -1,0 +1,175 @@
+.companyRegCont {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.companyRegCont form {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+.companyRegCont form .inputSelectCont {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 25px;
+          column-gap: 25px;
+  margin-top: 50px;
+}
+
+.companyRegCont form .button {
+  width: 238px;
+  height: 53px;
+  border-radius: 30px;
+}
+
+.companyRegCont input {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: "FuturicaRegular";
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  height: 30px;
+  margin-bottom: 57px;
+}
+
+.companyRegCont input:focus {
+  outline: none;
+}
+
+.companyRegCont select {
+  width: 100.8%;
+  font-family: "FuturicaRegular";
+  font-size: 17px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 57px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.companyRegCont select:focus {
+  outline: none;
+}
+
+.companyRegCont .formPart1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 49.5%;
+}
+
+.companyRegCont .formPart1 option[value=""][disabled] {
+  display: none;
+}
+
+.companyRegCont .formPart2 {
+  width: 49.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.companyRegCont .formPart2 .selections {
+  margin-top: -34px;
+}
+
+.companyRegCont .formPart2 .selections .titleSelections {
+  font-family: "FuturicaRegular";
+  color: black;
+  opacity: 0.5;
+  font-size: 16px;
+  margin: 0px;
+}
+
+.companyRegCont .formPart2 .selections .buttons {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.companyRegCont .formPart2 .selections .buttons button {
+  color: rgba(0, 0, 0, 0.9);
+  min-width: 77px;
+  height: 31px;
+  margin: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  border: 1px solid #58BC40;
+  background-color: transparent;
+  border-radius: 10px;
+  font-family: "FuturicaRegular";
+}
+
+.companyRegCont .formPart2 .selections .buttons button:nth-child(1) {
+  background-color: #58BC40;
+  color: white;
+}
+
+.companyRegCont .formPart2 .selections .buttons button:nth-child(5) {
+  background-color: #58BC40;
+  color: white;
+}
+
+.companyRegCont .formPart2 .selections .buttons button:nth-child(9) {
+  background-color: #58BC40;
+  color: white;
+}
+
+.companyRegCont option[value=""][disabled] {
+  display: none;
+}
+
+.companyRegCont input:focus {
+  outline: none;
+}
+
+.companyRegCont select:focus {
+  outline: none;
+}
+/*# sourceMappingURL=companyRegistration.css.map */

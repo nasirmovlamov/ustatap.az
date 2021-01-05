@@ -20,6 +20,12 @@ import AboutUs from '../containers/AboutUsPage/AboutUs';
 import Footer from './Footer';
 import Addvertise from '../containers/AdvertisePage/Addvertise';
 import Contact from '../containers/Contact/Contact';
+import Page404 from '../containers/ErrorsPage/Page404';
+import MasterRegistration from '../containers/RegistrationPages/MasterRegistration';
+import TopSelection from './TopSelection';
+import CompanyRegistration from '../containers/RegistrationPages/CompanyRegistration';
+import UserRegistration from '../containers/RegistrationPages/UserRegistration';
+import Slider from './Slider';
 function Header() {
     const [Ad, setAd] = useState([12,12])
     const [Master, setMaster] = useState([12,12])
@@ -78,6 +84,21 @@ function Header() {
             </Route>
             <Route path="/elaqe">
               <Contact/>
+            </Route>
+            <Route path="/404">
+              <Page404/>
+            </Route>
+            <Route path="/usta-qeydiyyati">
+              <MasterRegistration/>
+            </Route>
+            <Route path="/shirket-qeydiyyati">
+              <CompanyRegistration/>
+            </Route>
+            <Route path="/istifadeci-qeydiyyati">
+              <UserRegistration/>
+            </Route>
+            <Route path="/sliderTest">
+              <Slider/>
             </Route>
             <Route path="/">
               <HomePage numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>

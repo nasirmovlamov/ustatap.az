@@ -1,0 +1,136 @@
+.masterRegistrationCont {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.masterRegistrationCont .registration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+}
+
+.masterRegistrationCont .registration .masterImg {
+  width: auto;
+  height: 579px;
+}
+
+.masterRegistrationCont .registration .formContReg {
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.masterRegistrationCont .registration .formContReg form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 540px;
+  height: auto;
+}
+
+.masterRegistrationCont .registration .formContReg form input {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: "FuturicaRegular";
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  height: 30px;
+  margin-bottom: 28px;
+}
+
+.masterRegistrationCont .registration .formContReg form input:focus {
+  outline: none;
+}
+
+.masterRegistrationCont .registration .formContReg form select {
+  width: 100.8%;
+  font-family: "FuturicaRegular";
+  font-size: 17px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 28px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.masterRegistrationCont .registration .formContReg form select:focus {
+  outline: none;
+}
+
+.masterRegistrationCont .registration .formContReg form option[value=""][disabled] {
+  display: none;
+}
+
+.masterRegistrationCont .registration .formContReg form .selections .titleSelections {
+  font-family: "FuturicaRegular";
+  color: black;
+  opacity: 0.5;
+  font-size: 16px;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.masterRegistrationCont .registration .formContReg form .selections .buttons {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.masterRegistrationCont .registration .formContReg form .selections .buttons button {
+  color: rgba(0, 0, 0, 0.9);
+  min-width: 77px;
+  height: 31px;
+  margin: 10px;
+  margin-left: 0px;
+  border: 1px solid #58BC40;
+  background-color: transparent;
+  border-radius: 10px;
+  font-family: "FuturicaRegular";
+}
+
+.masterRegistrationCont .registration .formContReg form .selections .buttons button:nth-child(1) {
+  background-color: #58BC40;
+  color: white;
+}
+
+.masterRegistrationCont .registration .formContReg form .selections .buttons button:nth-child(5) {
+  background-color: #58BC40;
+  color: white;
+}
+
+.masterRegistrationCont .registration .formContReg form .selections .buttons button:nth-child(9) {
+  background-color: #58BC40;
+  color: white;
+}
+/*# sourceMappingURL=masterRegistration.css.map */

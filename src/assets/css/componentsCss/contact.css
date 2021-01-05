@@ -114,6 +114,7 @@
 .contact .formCont {
   width: 50%;
   margin-top: 100px;
+  margin-left: 30px;
 }
 
 .contact .formCont form {
@@ -173,7 +174,7 @@
 
 .contact .formCont form textarea {
   padding: 20px;
-  width: 53%;
+  width: 81%;
   border: 2px solid gray;
   height: 150px;
   resize: none;

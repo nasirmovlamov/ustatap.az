@@ -1,0 +1,146 @@
+.companyRegCont
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    form 
+    {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        .inputSelectCont
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            column-gap: 25px;
+            margin-top: 50px;
+        }
+        .button 
+        {
+            width: 238px;
+            height: 53px;
+            border-radius: 30px;
+        }
+    }
+    input {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        font-family: "FuturicaRegular";
+        font-size: 16px;
+        border: none;
+        border-bottom: 1px solid lightgray;
+        height: 30px;
+        margin-bottom: 57px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    
+      select {
+          width: 100.8%;
+          font-family: "FuturicaRegular";
+          font-size: 17px;
+          border: none;
+          border-bottom: 1px solid lightgray;
+          margin-bottom: 57px;
+          color: rgba(0, 0, 0, 0.6);
+          
+          &:focus {
+              outline: none;
+          }
+
+      }
+      
+    .formPart1
+    {
+        display: flex;
+        flex-direction: column;
+        width: 49.5%;
+        option[value=""][disabled] {
+            display: none;
+        } 
+        
+    }
+    .formPart2
+    {
+        width: 49.5%;
+
+        display: flex;
+        flex-direction: column;
+        
+         .selections {
+            margin-top: -34px;
+             .titleSelections {
+                 font-family: "FuturicaRegular";
+                 color: black;
+                 opacity: 0.5;
+                 font-size: 16px;
+                 margin: 0px;
+             }
+
+             .buttons {
+                 margin: 0px;
+                 display: flex;
+                 align-items: center;
+                 justify-content: flex-start;
+                 flex-wrap: wrap;
+                 margin-bottom: 10px;
+                    
+                 button {
+                     color: rgba(0, 0, 0, 0.9);
+                     min-width: 77px;
+                     height: 31px;
+                     margin: 10px;
+                     margin-bottom: 5px;
+                     margin-left: 0px;
+                     border: 1px solid #58BC40;
+                     background-color: transparent;
+                     border-radius: 10px;
+                     font-family: "FuturicaRegular";
+
+                     &:nth-child(1) {
+                         background-color: #58BC40;
+                         color: white;
+                     }
+
+                     &:nth-child(5) {
+                         background-color: #58BC40;
+                         color: white;
+                     }
+
+                     &:nth-child(9) {
+                         background-color: #58BC40;
+                         color: white;
+                     }
+                 }
+             }
+         } //Selection
+
+
+
+         }
+
+        option[value=""][disabled] {
+            display: none;
+        }
+         input {
+             &:focus {
+                 outline: none;
+             }
+         }
+
+         select {
+             &:focus {
+                 outline: none;
+             }
+         }
+         
+    }

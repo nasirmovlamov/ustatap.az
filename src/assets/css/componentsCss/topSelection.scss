@@ -1,0 +1,27 @@
+.topSelection
+{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+    .regSelection
+    {
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        
+        p    
+        {
+            font-family: "FuturicaRegular";
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.7);
+            img 
+            {
+                margin-right: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.eror404Cont
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: -50px;
+    .textSide
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 35px;
+        .title
+        {
+            font-family: "ComfortaaBold";
+            color: black;
+            opacity: 0.5;
+            font-size: 42px;
+        }
+        .button 
+        {
+            width: 279px;
+            height: 62px;
+            border-radius:30px ;
+            p 
+            {
+                font-family: "FuturicaRegular";
+                font-size: 26px;
+            }
+        }
+    }
+}

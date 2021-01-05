@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import {
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
+
 import "../../assets/css/componentsCss/selectedAd.css"
 import Frame from './../../components/Frame';
 import selectedAd1 from '../../assets/images/component/element/selectedAdJpg.jpg';
@@ -24,6 +25,8 @@ function SelectedAd(props) {
     const [image, setimage] = useState([selectedAd1,selectedAd2,selectedAd3,selectedAd4,selectedAd5 ])
     var url = window.location.href;
     var id = url.substring(url.lastIndexOf('secilmish-son-elan/') + 1);
+
+   
     return (
 
         <div className="selectedAd">
