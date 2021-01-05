@@ -44,7 +44,7 @@ function HomePage(props) {
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/ad") 
-             .then((res) =>  (setlatestAdApi(res.data[0]) ))
+             .then((res) =>  (setlatestAdApi(res.data) ))
 
         for (let j = 0; j <= 5; j++) {
             VipMasters1.push(<VipAd2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2} /> )
@@ -70,7 +70,7 @@ function HomePage(props) {
     
 
     for (let i = 0; i <= 5; i++) {
-        latestAd.push(<Ad name={ latestAdApi.id} costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  ) 
+        latestAd.push( latestAdApi.map(title => <Ad name={ latestAdApi[0].title} costumer={latestAdApi[0].description} address={latestAdApi[0].city} date={latestAdApi[0].updated_at} view="1258" image={latestAdApi[0].images} id={latestAdApi[0].id}/>)  ) 
     }
     for (let i = 1; i <= 6; i++) {
         masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1} id={i}/>  )
@@ -398,3 +398,4 @@ function HomePage(props) {
 }
 
 export default HomePage
+
