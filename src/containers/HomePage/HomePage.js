@@ -39,12 +39,14 @@ function HomePage(props) {
     const companies = []
     const [VipMasters1, setVipMasters] = useState([])
     const [VipCompanies2, setVipCompanies] = useState([])
-
     const [latestAdApi, setlatestAdApi] = useState([0])
+    const [MasterApi, setMasterApi] = useState([0])
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/ad") 
              .then((res) =>  (setlatestAdApi(res.data) ))
+        axios.get("http://ustatap.testjed.me/handymen") 
+             .then((res) =>  (setMasterApi(res.data) ))
 
         for (let j = 0; j <= 5; j++) {
             VipMasters1.push(<VipAd2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2} /> )
@@ -53,7 +55,6 @@ function HomePage(props) {
             VipCompanies2.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>)
         }  
     },[VipMasters1,VipCompanies2] )
-    console.log(latestAdApi)
 
 
     const focusHandler = (number) => {
@@ -68,18 +69,9 @@ function HomePage(props) {
     const clickHandler = () => {
     }
     
-
-    for (let i = 0; i <= 5; i++) {
-        latestAd.push( latestAdApi.map(title => <Ad name={ latestAdApi[0].title} costumer={latestAdApi[0].description} address={latestAdApi[0].city} date={latestAdApi[0].updated_at} view="1258" image={latestAdApi[0].images} id={latestAdApi[0].id}/>)  ) 
-    }
-    for (let i = 1; i <= 6; i++) {
-        masters.push(<Ad2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={1} id={i}/>  )
-    }
-    for (let i = 1; i <= 6; i++) {
-        companies.push(<Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>  )
-    }
-    
-
+    latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
+    masters.push(MasterApi.map(master =>  <Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)  )
+    companies.push(<Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>  )
 
     return (
         <div className="homePage">
@@ -397,5 +389,5 @@ function HomePage(props) {
     )
 }
 
-export default HomePage
+export default (HomePage)
 

@@ -9,12 +9,9 @@ import {
 function Ad(props) {
     return (
         
-
-       
-        
         <Link to={"/elanlar/secilmish-son-elan/" + props.id}>
             <div className="ad">
-                <img src={ "http://ustatap.testjed.me/storage/app/" + props.image} alt="" className="mainImg"/>
+                <img src={ "http://ustatap.testjed.me/storage/app/public/" + props.image} alt="" className="mainImg"/>
                 <div className="lineAd"></div>
                 <div className="subCont">
                     <div className="flexCont1">  <p>{props.name + props.id}</p>  <img src={favorite} alt=""/></div>
@@ -23,8 +20,6 @@ function Ad(props) {
                 </div>
             </div>
         </Link>
-         
-
             
     )
 }

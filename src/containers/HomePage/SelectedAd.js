@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {
     Link
 } from "react-router-dom";
-
+import axios from "axios"
 import "../../assets/css/componentsCss/selectedAd.css"
 import Frame from './../../components/Frame';
 import selectedAd1 from '../../assets/images/component/element/selectedAdJpg.jpg';
@@ -11,7 +11,6 @@ import selectedAd2 from '../../assets/images/component/element/selectedAdJpg2.jp
 import selectedAd3 from '../../assets/images/component/element/selectedAdJpg3.jpg';
 import selectedAd4 from '../../assets/images/component/element/selectedAdJpg4.jpg';
 import selectedAd5 from '../../assets/images/component/element/selectedAdJpg5.jpg';
-
 import locationCity from '../../assets/images/component/element/locationCity.svg';
 import locationDistrict from '../../assets/images/component/element/locationDistrict.svg';
 import humanSelectedAd from '../../assets/images/component/element/humanSelectedAd.svg';
@@ -19,14 +18,28 @@ import selectedAdEye from '../../assets/images/component/element/selectedAdEye.s
 import Button from './../../components/Button';
 import mainLogo from "../../assets/images/component/element/mainLogo.svg"
 import Comments from '../../components/Comments';
-import Slider from '../../components/Slider';
-
+import OurSlider from '../../components/OurSlider';
+import Ad from '../../components/Ad';
 function SelectedAd(props) {
     const [image, setimage] = useState([selectedAd1,selectedAd2,selectedAd3,selectedAd4,selectedAd5 ])
     var url = window.location.href;
-    var id = url.substring(url.lastIndexOf('secilmish-son-elan/') + 1);
+    var id = url.substring(url.lastIndexOf('/') + 1 );
+    const [SelectedAd, setSelectedAd] = useState(0)
+    const [latestAdApi, setlatestAdApi] = useState([0])
+    const latestAd = []
+    latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
+    
+    useEffect(() => 
+    {
+        axios.get(`http://ustatap.testjed.me/singlead/${id}`) 
+             .then((res) =>  (setSelectedAd(res.data)))
 
-   
+        axios.get("http://ustatap.testjed.me/ad") 
+            .then((res) =>  (setlatestAdApi(res.data) ))
+
+        
+    } , [])
+    console.log(SelectedAd);
     return (
 
         <div className="selectedAd">
@@ -47,19 +60,18 @@ function SelectedAd(props) {
                 <div className="frameAndText">
                     <Frame image={image} mainImg={mainImg}/>
                     <div className="aboutAd">
-                        <p className="title">Görüləcək İşin Adı {id}</p>
+                        <p className="title">{SelectedAd.title}</p>
                         <div className="subTitle">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
+                           {SelectedAd.description}
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: Bakı</span></p></a>
-                            <a href="#"><p><img src={locationDistrict} alt=""/> <span>Rayon: Yasamal</span></p></a>
+                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: {SelectedAd.city}</span></p></a>
+                            <a href="#"><p><img src={locationDistrict} alt=""/> <span>Rayon: {SelectedAd.district}</span></p></a>
                             <a href="#"><p><img src={humanSelectedAd} alt=""/> <span>Sifarişçi: Kənan Bağırov</span></p></a>   
                         </div>
                         <div className="aboutButtons">
-                            <p>Elan yerləşdirilib: <span>13.03.2020</span></p> 
-                            <p><img src={selectedAdEye} alt=""/> <span>13.03.2020</span></p> 
+                            <p>Elan yerləşdirilib: <span>{SelectedAd.created_at}</span></p> 
+                            <p><img src={selectedAdEye} alt=""/> <span>100</span></p> 
                             <p><img src={locationDistrict} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
                             <Button name="Mən bu işi Görərəm" />
                         </div>
@@ -68,7 +80,7 @@ function SelectedAd(props) {
                 </div>
                 <Comments id={id}/>
 
-                <Slider/>
+                <OurSlider elements={latestAd}/>
             </div>
 
         </div>

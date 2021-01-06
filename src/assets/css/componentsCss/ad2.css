@@ -6,11 +6,15 @@
   display: flex;
   -webkit-box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .mastersCont .masterImg {
   width: 47%;
   height: 100%;
+  background-size: cover !important;
 }
 
 .mastersCont .aboutText {
@@ -28,6 +32,7 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background: url(../../images/component/background/masterAboutBg.svg);
+  text-align: start;
 }
 
 .mastersCont .aboutText .name {
@@ -41,11 +46,10 @@
   font-family: "ComfortaaRegular";
   color: #F97922;
   margin-top: -10%;
-  margin-left: 5px;
 }
 
 .mastersCont .aboutText .location {
-  font-size: 6px;
+  font-size: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -56,6 +60,8 @@
 
 .mastersCont .aboutText .location img {
   margin-right: 5px;
+  width: 10px;
+  height: auto;
 }
 
 .mastersCont .aboutText .stars img {
@@ -65,6 +71,7 @@
 .mastersCont .aboutText .heart {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-right: -10px;
+  margin-right: 0px;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=ad2.css.map */

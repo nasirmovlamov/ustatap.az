@@ -4,11 +4,12 @@
     height:160px;
     display:flex;
     box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
-
+    align-items: center;
     .masterImg 
     {
         width: 47%;
-        height:100%;
+        height: 100%;
+        background-size: cover !important;
     }
     .aboutText
     {
@@ -20,6 +21,7 @@
         flex-direction: column;
         justify-content:space-around;
         background: url(../../images/component/background/masterAboutBg.svg);
+        text-align: start;
         .name {
             font-size: 16px;
             font-family: "ComfortaaRegular";
@@ -31,16 +33,17 @@
             font-family: "ComfortaaRegular";
             color: #F97922;
             margin-top: -10%;
-            margin-left:5px;
         }
         .location 
         {
-            font-size: 6px;
+            font-size: 10px;
             display: flex;
             align-items:center;
             img 
             {
                 margin-right: 5px;
+                width: 10px;
+                height: auto;
             }
         }
         .stars 
@@ -53,7 +56,8 @@
         .heart 
         {
             align-self: flex-end;
-            margin-right: -10px;
+            margin-right: 0px;
+            margin-bottom: 10px;
         }
     }
 }

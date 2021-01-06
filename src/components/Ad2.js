@@ -33,10 +33,13 @@ function Ad2(props) {
             stars.push(<img src={emptyStar} alt="ulduz" /> )
           }
     }
+    const bgImg = {
+        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`,
+    }
     return (
         <Link to={"/masters/" + props.id}>
             <div className="mastersCont">
-                <img src={props.image} alt="Usta" className="masterImg"/>
+                <div className="masterImg" style={bgImg} ></div>
                 <div className="aboutText">
                     <p className="name">{props.name}</p>
                     <p className="job">{props.job}</p>
