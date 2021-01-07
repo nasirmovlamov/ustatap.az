@@ -39,6 +39,7 @@
   font-size: 16px;
   font-family: "ComfortaaRegular";
   color: black;
+  text-align: start;
 }
 
 .mastersCont .aboutText .job {
@@ -64,6 +65,12 @@
   height: auto;
 }
 
+.mastersCont .aboutText .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .mastersCont .aboutText .stars img {
   margin-left: -5px;
 }
@@ -72,6 +79,6 @@
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin-right: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=ad2.css.map */

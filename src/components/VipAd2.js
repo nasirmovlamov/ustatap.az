@@ -37,7 +37,7 @@ function VipAd2(props) {
     }
 
     const backgroundImgHuman = {
-        background:vipMaster,
+        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`
     }
     return (
         <Link to={"/masters/" + props.id}>

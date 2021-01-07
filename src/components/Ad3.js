@@ -35,13 +35,15 @@ function Ad3(props) {
             stars.push(<img src={emptyStar} alt="ulduz" /> )
           }
     }
-    
+    const bgImg = {
+        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`,
+    }
     return (
         <Link to={"/companies/" + props.id}>
 
             <div className="companies">
-                <div className="logoCont"><img src={props.image} alt="şirkət logo"/></div>
-                <div className="aboutText"> 
+                <div className="logoCont" style={bgImg}></div>
+                <div className="aboutTextMaster"> 
                     <p className="name">{props.name}</p>
                     <p className="description">{props.description}</p>
                     <div className="bottomImgCont"> 

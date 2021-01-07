@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import  "../../assets/css/PagesCss/addsPage.css"
+import axios from "axios"
 import {
     Link
   } from "react-router-dom";
@@ -10,9 +11,21 @@ import Ad from '../../components/Ad';
 
 function AddsPage(props) {
     const [Adds, setAdds] = useState([])
-    for (let i = 0; i <= 15; i++) {
-        Adds.push(<Ad name="New Ad" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="1258" image={adImage} id={i}/>  ) 
-    }
+    var url = window.location.href;
+    var id = url.substring(url.lastIndexOf('/') + 1 );
+    const [SelectedAd, setSelectedAd] = useState(0)
+    const [latestAdApi, setlatestAdApi] = useState([0])
+    const AllAd = []
+    AllAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
+    useEffect(() => 
+    {
+        axios.get(`http://ustatap.testjed.me/singlead/${id}`) 
+             .then((res) =>  (setSelectedAd(res.data)))
+
+        axios.get("http://ustatap.testjed.me/ad") 
+            .then((res) =>  (setlatestAdApi(res.data) ))
+
+    } , [])
     return (
         <div className="addsPage">
             <div className="generalCont">
@@ -35,7 +48,7 @@ function AddsPage(props) {
                 <Category type4={undefined} btnColor="#F27B29"/>
 
                     <div className="adsContainer">
-                        {Adds}
+                        {AllAd}
                     </div>    
 
 

@@ -19,11 +19,12 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
+  background-size: cover !important;
 }
 
-.aboutText {
+.aboutTextMaster {
   padding-left: 16px;
-  padding-top: 30px;
+  padding-top: 20px;
   padding-right: 18px;
   overflow: hidden;
   display: -webkit-box;
@@ -32,30 +33,31 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 65.5px;
+  height: 75.5px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: start;
 }
 
-.aboutText p {
+.aboutTextMaster p {
   margin: 0px;
 }
 
-.aboutText .name {
+.aboutTextMaster .name {
   font-size: 15px;
   color: white;
   font-family: "FuturicaRegular";
 }
 
-.aboutText .description {
+.aboutTextMaster .description {
   font-size: 6px;
   color: white;
   font-family: "ComfortaaRegular";
 }
 
-.aboutText .bottomImgCont {
+.aboutTextMaster .bottomImgCont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,17 +70,17 @@
   margin-top: 10px;
 }
 
-.aboutText .bottomImgCont .address {
+.aboutTextMaster .bottomImgCont .address {
   font-family: "ComfortaaRegular";
   font-size: 6px;
   color: white;
 }
 
-.aboutText .bottomImgCont .address img {
+.aboutTextMaster .bottomImgCont .address img {
   margin-right: 3px;
 }
 
-.aboutText .bottomImgCont .stars {
+.aboutTextMaster .bottomImgCont .stars {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,7 +93,7 @@
   margin-bottom: -5px;
 }
 
-.aboutText .bottomImgCont p {
+.aboutTextMaster .bottomImgCont p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

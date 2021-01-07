@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Ad2 from '../components/Ad2'
 import "../assets/css/componentsCss/ourSlider.css"
-import Ad from './Ad';
 function OurSlider(props) {
     var settings = {
         dots: true,
@@ -14,15 +12,7 @@ function OurSlider(props) {
         slidesToScroll: 4,
         initialSlide: 0,
         responsive: [
-            {
-            breakpoint: 2500,
-            settings: {
-                slidesToShow: 4,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-            }
-            },
+            
             {
             breakpoint: 1750,
             settings: {

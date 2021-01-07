@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import axios from "axios"
 import "../../assets/css/componentsCss/selectedCompany.css"
 import {
     Link
@@ -29,7 +30,8 @@ import Button from './../../components/Button';
 import mainLogo from "../../assets/images/component/element/mainLogo.svg"
 import Comments from '../../components/Comments';
 import Frame from '../../components/Frame';
-import Slider from '../../components/Slider';
+import OurSlider from '../../components/OurSlider';
+import Ad3 from '../../components/Ad3'
 function SelectedCompany(props) {
     const stars = []
     const numberStar = 5
@@ -57,7 +59,22 @@ function SelectedCompany(props) {
 
 
     var url = window.location.href;
-    var id = url.substring(url.lastIndexOf('masters/') + 1);
+    var id = url.substring(url.lastIndexOf('/masters/') + 1);
+    var mainId = url.substring(url.lastIndexOf('/') + 1);
+    console.log(mainId)
+    const Company1 = []
+    const [CompanyApi1, setCompanyApi1] = useState([0])
+    const [SelectedCompany, setSelectedCompany] = useState([0])
+    useEffect(() => 
+    {
+        axios.get("http://ustatap.testjed.me/company") 
+            .then((res) =>  (setCompanyApi1(res.data) )) 
+
+        axios.get(`http://ustatap.testjed.me/company/${mainId}`) 
+            .then((res) =>  (setSelectedCompany(res.data)))
+
+    } , [])
+    CompanyApi1.map( company => Company1.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.company_description}/>)  )
     return (
         <div className="selectedCompany">
             <div className="generalCont">
@@ -75,22 +92,22 @@ function SelectedCompany(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame overlayImg={overlay} image={0} mainImg={mainImg}/>
+                    <Frame overlayImg={overlay} image={0} mainImg={"http://ustatap.testjed.me/storage/app/public/" + SelectedCompany.image}/>
                     <div className="aboutAd">
-                        <p className="title">Company Name</p>
+                        <p className="title">{SelectedCompany.company_name}</p>
                         <div className="subTitle">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <p>{SelectedCompany.description}</p>
                             <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: Bakı</span></p></a>
-                            <a href="#"><p><img src={locationDistrict} alt=""/> <span className="district">Rayon:Nəsimi rayonu,Azadlıq  prospekti 110A </span></p></a>
-                            <a href="#"><p><img src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: Dam örtüyü, Qapı Pəncərə, Suvaq işləri</span></p></a>   
+                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: {SelectedCompany.company_adress}</span></p></a>
+                            <a href="#"><p><img src={locationDistrict} alt=""/> <span className="district">Rayon:{SelectedCompany.company_adress}</span></p></a>
+                            <a href="#"><p><img src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: {SelectedCompany.categories}</span></p></a>   
                         </div>
                         
                         <div className="bottomPart">
-                            <div  className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><span>+994 70 XXX XX XX</span> <span>+994 55 XXX XX XX</span></div></p></div>   
-                            <div  className="mailOfMaster"><p><img src={mail} alt=""/> <div className="mail"><span>info@ustatap.net</span></div></p></div>   
+                            <div  className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><span>{SelectedCompany.phone}</span> <span>{SelectedCompany.contac_person_phone}</span></div></p></div>   
+                            <div  className="mailOfMaster"><p><img src={mail} alt=""/> <div className="mail"><span>{SelectedCompany.email}</span></div></p></div>   
                             <div  className="social"><img src={facebookForMaster} alt=""/> <img src={instagramForMaster} alt=""/>  <img src={linkedinForMaster} alt=""/> <img src={twitterForMaster} alt=""/></div>   
                         </div>
                         <div className="aboutButtons">
@@ -106,10 +123,11 @@ function SelectedCompany(props) {
                     <source src="movie.mp4" type="video/mp4"></source>
                 </video>
                 <Comments/>
+                    <OurSlider elements={Company1}/></div>
+                <div>
 
-                <Slider/>
             </div>
-
+            
         </div>
     )
 }

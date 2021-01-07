@@ -28,7 +28,6 @@ function SelectedAd(props) {
     const [latestAdApi, setlatestAdApi] = useState([0])
     const latestAd = []
     latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
-    
     useEffect(() => 
     {
         axios.get(`http://ustatap.testjed.me/singlead/${id}`) 
@@ -39,7 +38,6 @@ function SelectedAd(props) {
 
         
     } , [])
-    console.log(SelectedAd);
     return (
 
         <div className="selectedAd">

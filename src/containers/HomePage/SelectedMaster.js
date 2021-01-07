@@ -1,9 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {
     Link
   } from "react-router-dom";
 import "../../assets/css/componentsCss/selectedMaster.css"
-
+import axios from "axios"
 import mainImg from '../../assets/images/component/element/selectedAdJpg.jpg';
 import selectedAd2 from '../../assets/images/component/element/selectedAdJpg2.jpg';
 import selectedAd3 from '../../assets/images/component/element/selectedAdJpg3.jpg';
@@ -24,6 +24,8 @@ import mainLogo from "../../assets/images/component/element/mainLogo.svg"
 import Comments from '../../components/Comments';
 import Frame from '../../components/Frame';
 import Slider from '../../components/Slider';
+import OurSlider from '../../components/OurSlider';
+import Ad2 from "../../components/Ad2"
 function SelectedMaster(props) {
     const stars = []
     const numberStar = 5
@@ -52,6 +54,24 @@ function SelectedMaster(props) {
 
     var url = window.location.href;
     var id = url.substring(url.lastIndexOf('masters/') + 1);
+
+
+    var mainId = url.substring(url.lastIndexOf('/') + 1 );
+    const [SelectedMaster, setSelectedMaster] = useState(0)
+    const [MasterApi, setMasterApi] = useState([0])
+    const masters = []
+    masters.push( MasterApi.map(master =>  <Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)   ) 
+    useEffect(() => 
+    {
+        axios.get(`http://ustatap.testjed.me/handyman/${mainId}`) 
+             .then((res) =>  (setSelectedMaster(res.data)))
+
+        axios.get("http://ustatap.testjed.me/handymen") 
+            .then((res) =>  (setMasterApi(res.data) ))
+
+        
+    } , [])
+
     return (
         <div className="selectedMaster">
             <div className="generalCont">
@@ -94,7 +114,7 @@ function SelectedMaster(props) {
                 </div>
                 <Comments/>
 
-                <Slider/>
+                <OurSlider elements={masters}/>
             </div>
 
         </div>

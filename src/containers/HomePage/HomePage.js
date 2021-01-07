@@ -36,25 +36,22 @@ import Companies from '../Companies/Companies'
 function HomePage(props) {
     const latestAd = []
     const masters = []
+    const vipMasters = []
     const companies = []
-    const [VipMasters1, setVipMasters] = useState([])
-    const [VipCompanies2, setVipCompanies] = useState([])
+    const vipCompanies = []
+    
     const [latestAdApi, setlatestAdApi] = useState([0])
     const [MasterApi, setMasterApi] = useState([0])
+    const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/ad") 
              .then((res) =>  (setlatestAdApi(res.data) ))
         axios.get("http://ustatap.testjed.me/handymen") 
              .then((res) =>  (setMasterApi(res.data) ))
-
-        for (let j = 0; j <= 5; j++) {
-            VipMasters1.push(<VipAd2 name="Şahin Zeynallı" job="malyar" address="Bakı ş, Yasamal ray" image={master} numberStar={2} /> )
-        } 
-        for (let j = 0; j <= 5; j++) {
-            VipCompanies2.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>)
-        }  
-    },[VipMasters1,VipCompanies2] )
+        axios.get("http://ustatap.testjed.me/company") 
+             .then((res) =>  (setCompanyApi(res.data) ))
+    },[] )
 
 
     const focusHandler = (number) => {
@@ -68,10 +65,14 @@ function HomePage(props) {
     } 
     const clickHandler = () => {
     }
-    
+
+
+    vipCompanies.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"} id={2}/>)
+    vipMasters.push() 
     latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
-    masters.push(MasterApi.map(master =>  <Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)  )
-    companies.push(<Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>  )
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}})
+    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
+    CompanyApi.map( company =>  companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>) )
 
     return (
         <div className="homePage">
@@ -305,7 +306,7 @@ function HomePage(props) {
                             <div className="line2"></div>
                             <div className="adsContainer">
                                 
-                                {VipMasters1}
+                                {vipMasters}
                                 
                             </div>  
                             <Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
@@ -319,7 +320,7 @@ function HomePage(props) {
                             <p className="title">Vip Şirkətlər</p>
                             <div className="line3"></div>
                             <div className="adsContainer">
-                                {VipCompanies2}
+                                {vipCompanies}
                             </div>     
                             <Button name="Bütün şirkətlərə bax"/>
                         </div>

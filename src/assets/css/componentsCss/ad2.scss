@@ -26,6 +26,8 @@
             font-size: 16px;
             font-family: "ComfortaaRegular";
             color: black;
+            text-align: start;
+            
         }
         .job 
         {
@@ -52,12 +54,13 @@
             {
                 margin-left: -5px;
             }
+            display: flex;
         }
         .heart 
         {
             align-self: flex-end;
             margin-right: 0px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
     }
 }

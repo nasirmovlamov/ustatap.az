@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Ad3 from '../../components/Ad3'
+import axios from "axios"
 import  "../../assets/css/componentsCss/companies.css"
 import {
     Link
@@ -15,14 +16,24 @@ import VipAd3 from '../../components/VipAd3';
 import companyLogo from "../../assets/images/component/element/companyLogo.png"
 import vipCompaniesTop from "../../assets/images/component/element/vipCompaniesTop.svg"
 function Companies() {
-    const [Companies, setCompanies] = useState([])
-    for (let i = 0; i <= 5; i++) {
-        Companies.push(<Ad3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>)
-    }    
+    var url = window.location.href;
+    var id = url.substring(url.lastIndexOf('/masters/') + 1);
+    var mainId = url.substring(url.lastIndexOf('/') + 1);
+    
+    const Company1 = []
+    const [CompanyApi1, setCompanyApi1] = useState([0])
+    useEffect(() => 
+    {
+        axios.get("http://ustatap.testjed.me/company") 
+            .then((res) =>  (setCompanyApi1(res.data) )) 
+
+    } , [])
+    Company1.push(CompanyApi1.map( company => <Ad3 id="3" numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.company_description}/>)  )
+ 
     const [VipCompanies, setVipCompanies] = useState([])
-    for (let i = 0; i <= 5; i++) {
-        VipCompanies.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>)
-    }    
+    VipCompanies.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>)
+    console.log("VipCompanies");
+
     return (
         <div className="companiesPage">
              <div className="generalCont">
@@ -51,7 +62,7 @@ function Companies() {
                         </div>
                         <SubBanner/>
                         <div className="companiesCont">
-                            {Companies}
+                            {Company1}
                         </div>
                     </div>    
 

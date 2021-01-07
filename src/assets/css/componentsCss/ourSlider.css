@@ -1,7 +1,3 @@
-div {
-  text-align: center;
-}
-
 .slick-next::before, .slick-prev::before {
   color: black;
 }
