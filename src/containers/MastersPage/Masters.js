@@ -17,7 +17,8 @@ import axios from 'axios';
 
 function Masters() {
 
-    const [VipMasters, setVipMasters] = useState([])
+
+
     
     
     var url = window.location.href;
@@ -28,12 +29,12 @@ function Masters() {
     const [SelectedMaster, setSelectedMaster] = useState(0)
     const [MasterApi, setMasterApi] = useState([0])
     const masters = []
-    masters.push( MasterApi.map(master =>  <Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)   ) 
+    const vipMasters = []
+
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}})
+    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
     useEffect(() => 
     {
-        axios.get(`http://ustatap.testjed.me/handyman/${mainId}`) 
-             .then((res) =>  (setSelectedMaster(res.data)))
-
         axios.get("http://ustatap.testjed.me/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
 
@@ -67,7 +68,7 @@ function Masters() {
 
                     <div className="adsContainer">
                         <img src={vipTopImg} alt=""/>
-                        <div className="Vipmasters"> {VipMasters} </div>
+                        <div className="Vipmasters"> {vipMasters} </div>
                         <SubBanner/>
                         <div className="masters"> {masters} </div>
                     </div>    

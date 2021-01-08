@@ -352,7 +352,7 @@ function HomePage(props) {
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                             </div>      
-                            <Button name="Bütün elanlara bax"/>
+                            <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
                         </div>
 
 
@@ -369,7 +369,7 @@ function HomePage(props) {
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                                 <Ad name="Görüləcək İşin Adı" costumer="Sifarişçi: Orxan Zeynallı" address="Bakı ş., Yasamal ray" date="13.03.2020" view="58" image={adImage}/>   
                             </div>  
-                            <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
+                            <Link to="/elanlar"> <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
 
                         <div className="typeAddContainer"> 
@@ -378,7 +378,7 @@ function HomePage(props) {
                             <div className="adsContainer">
                                 {masters}
                             </div>  
-                            <Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
+                            <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
 
                 
@@ -391,7 +391,7 @@ function HomePage(props) {
                             <div className="adsContainer">
                                 {companies}
                             </div>     
-                            <Button name="Bütün şirkətlərə bax"/>
+                            <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
 
 

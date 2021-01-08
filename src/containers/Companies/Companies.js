@@ -20,19 +20,18 @@ function Companies() {
     var id = url.substring(url.lastIndexOf('/masters/') + 1);
     var mainId = url.substring(url.lastIndexOf('/') + 1);
     
-    const Company1 = []
-    const [CompanyApi1, setCompanyApi1] = useState([0])
+    const companies = []
+    const vipCompanies = []
+    const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/company") 
-            .then((res) =>  (setCompanyApi1(res.data) )) 
+            .then((res) =>  (setCompanyApi(res.data) )) 
 
     } , [])
-    Company1.push(CompanyApi1.map( company => <Ad3 id="3" numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.company_description}/>)  )
- 
-    const [VipCompanies, setVipCompanies] = useState([])
-    VipCompanies.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"}/>)
-    console.log("VipCompanies");
+    CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
+    CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
+
 
     return (
         <div className="companiesPage">
@@ -58,11 +57,11 @@ function Companies() {
                     <div className="adsContainer">
                         <img src={vipCompaniesTop} className="topImgVIP" alt=""/>
                         <div className="companiesVipCont">
-                            {VipCompanies}
+                            {vipCompanies}
                         </div>
                         <SubBanner/>
                         <div className="companiesCont">
-                            {Company1}
+                            {companies}
                         </div>
                     </div>    
 
