@@ -68,6 +68,8 @@
 
 .subImgCont {
   margin-top: 27.5px;
+  background-size: cover;
+  background-position: center;
   height: 101px;
   width: 535px;
 }
@@ -91,5 +93,9 @@
 
 .subImgCont img:nth-child(1) {
   margin-left: 0px;
+}
+
+.imgCont {
+  background-size: 100% auto !important;
 }
 /*# sourceMappingURL=frame.css.map */

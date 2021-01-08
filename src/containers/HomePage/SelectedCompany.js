@@ -92,7 +92,7 @@ function SelectedCompany(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame overlayImg={overlay} image={0} mainImg={"http://ustatap.testjed.me/storage/app/public/" + SelectedCompany.image}/>
+                    <Frame overlayImg={overlay} image={0} mainImg={"http://ustatap.testjed.me/storage/app/public/" + SelectedCompany.image} height="420px" heightImg="282px" widthImg="458px"/>
                     <div className="aboutAd">
                         <p className="title">{SelectedCompany.company_name}</p>
                         <div className="subTitle">

@@ -23,33 +23,10 @@ import Button from './../../components/Button';
 import mainLogo from "../../assets/images/component/element/mainLogo.svg"
 import Comments from '../../components/Comments';
 import Frame from '../../components/Frame';
-import Slider from '../../components/Slider';
 import OurSlider from '../../components/OurSlider';
 import Ad2 from "../../components/Ad2"
 function SelectedMaster(props) {
-    const stars = []
-    const numberStar = 5
-    if ((numberStar - Math.floor(numberStar)) === 0) {
-        
-        for (var i=0;i<numberStar;i++) {
-            stars.push(<img src={fullStar} alt="ulduz" /> )
-          }
-        for (var j=(numberStar);j<5;j++) {
-            stars.push(<img src={emptyStar} alt="ulduz" /> )
-        }
-
-    }
-    else 
-    {
-        for (var i=0;i<Math.floor(numberStar);i++) {
-            stars.push(<img src={fullStar} alt="ulduz" /> )
-          }
-        stars.push(<img src={halfStar} alt="ulduz" />)
-
-        for (var i=Math.floor(numberStar) + 1;i<5;i++) {
-            stars.push(<img src={emptyStar} alt="ulduz" /> )
-          }
-    }
+    
 
 
     var url = window.location.href;
@@ -72,6 +49,31 @@ function SelectedMaster(props) {
         
     } , [])
 
+
+    const stars = []
+    const numberStar = SelectedMaster.rating
+
+    if ((numberStar - Math.floor(numberStar)) === 0) {
+        
+        for (var i=0;i<numberStar;i++) {
+            stars.push(<img src={fullStar} alt="ulduz" /> )
+          }
+        for (var j=(numberStar);j<5;j++) {
+            stars.push(<img src={emptyStar} alt="ulduz" /> )
+        }
+
+    }
+    else 
+    {
+        for (var i=0;i<Math.floor(numberStar);i++) {
+            stars.push(<img src={fullStar} alt="ulduz" /> )
+          }
+        stars.push(<img src={halfStar} alt="ulduz" />)
+
+        for (var i=Math.floor(numberStar) + 1;i<5;i++) {
+            stars.push(<img src={emptyStar} alt="ulduz" /> )
+          }
+    }
     return (
         <div className="selectedMaster">
             <div className="generalCont">
@@ -89,19 +91,19 @@ function SelectedMaster(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame mainImg={mainImg} image={0} color="#F27B29"/>
+                    <Frame mainImg={`http://ustatap.testjed.me/storage/app/public/${SelectedMaster.image}`} image={0} color="#F27B29" height="550px" heightImg="382px" widthImg="458px"/>
                     <div className="aboutAd">
-                        <p className="title">Master Name</p>
+                        <p className="title">{SelectedMaster.name}</p>
                         <div className="subTitle">
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                             <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: Bakı</span></p></a>
+                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: {SelectedMaster.city}</span></p></a>
                             <a href="#"><p><img src={locationDistrict} alt=""/> <span>Rayon: Yasamal</span></p></a>
-                            <a href="#"><p><img src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: Dam örtüyü, Qapı Pəncərə, Suvaq işləri</span></p></a>   
+                            <a href="#"><p><img src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür:{SelectedMaster.categories}</span></p></a>   
                         </div>
-                        <div href="#" className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><span>+994 70 XXX XX XX</span> <span>+994 55 XXX XX XX</span></div></p></div>   
+                        <div href="#" className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><span>{SelectedMaster.phone}</span> <span>{SelectedMaster.phone}</span></div></p></div>   
 
                         <div className="aboutButtons">
                             <div className="stars">{stars}</div>

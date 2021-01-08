@@ -56,7 +56,7 @@ function SelectedAd(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame image={image} mainImg={mainImg}/>
+                    <Frame image={image} mainImg={ `http://ustatap.testjed.me/storage/app/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>
                     <div className="aboutAd">
                         <p className="title">{SelectedAd.title}</p>
                         <div className="subTitle">

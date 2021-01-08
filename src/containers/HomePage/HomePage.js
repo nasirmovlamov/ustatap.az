@@ -33,7 +33,10 @@ import VipAd2 from '../../components/VipAd2'
 import VipAd3 from '../../components/VipAd3'
 import Masters from '../MastersPage/Masters'
 import Companies from '../Companies/Companies'
+import {Link} from "react-router-dom"
 function HomePage(props) {
+    const [CheckAside, setCheckAside] = useState(false)
+
     const latestAd = []
     const masters = []
     const vipMasters = []
@@ -54,25 +57,36 @@ function HomePage(props) {
     },[] )
 
 
-    const focusHandler = (number) => {
-            document.getElementById("wD" + number).setAttribute("style" , "display:block")
-            document.getElementById("aside").setAttribute("style" , "height:95vh")
+    const focusHandler = () => {
+            
             
     }
     const blurHandler = (number) => {
             document.getElementById("wD" + number).setAttribute("style" , "display:none")
             document.getElementById("aside").setAttribute("style" , "height:83vh")
     } 
-    const clickHandler = () => {
+    const clickHandler = (number) => {
+        
+        if (!CheckAside) {
+            document.getElementById("wD" + number).setAttribute("style" , "display:block")
+            document.getElementById("aside").setAttribute("style" , "height:95vh")
+            setCheckAside(true)
+        }
+        else 
+        {
+            document.getElementById("wD" + number).setAttribute("style" , "display:none")
+            document.getElementById("aside").setAttribute("style" , "height:83vh")
+            setCheckAside(false)
+        }
+        
     }
 
 
-    vipCompanies.push(<VipAd3 numberStar={4} image={companyLogo} name={"Şirkət Adı"} location={"Bakı şəhəri "} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,"} id={2}/>)
-    vipMasters.push() 
     latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
     MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}})
     MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
-    CompanyApi.map( company =>  companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>) )
+    CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
+    CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
 
     return (
         <div className="homePage">
@@ -86,7 +100,7 @@ function HomePage(props) {
             <main className="main"> 
                 <aside className="aside" id="aside">
                     {/* 1 */}
-                    <button className="contForAside" onClick={() => clickHandler(1)} onFocus={() => focusHandler(1)}  onBlur={() => blurHandler(1)} >
+                    <button className="contForAside" onClick={() => clickHandler(1)}   onBlur={() => blurHandler(1)} >
                         <div className="workTypeCont">
                             <img src={plumber} alt="santexnik"/>
                             <p>Santexnik</p>
@@ -100,7 +114,7 @@ function HomePage(props) {
                     </button>
                     
                     {/* 2 */}
-                    <button className="contForAside" onFocus={() => focusHandler(2)} onBlur={() => blurHandler(2)}>
+                    <button className="contForAside" onClick={() => clickHandler(2)} onBlur={() => blurHandler(2)}>
                         <div className="workTypeCont">
                             <img src={electric} alt=""/>
                             <p>Elektirik</p>
@@ -114,7 +128,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 3 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(3)} onBlur={() => blurHandler(3)}>
+                    <button className="contForAside"  onClick={() => clickHandler(3)} onBlur={() => blurHandler(3)}>
                         <div className="workTypeCont">
                             <img src={wallpaper} alt=""/>
                             <p>Divar Kağızı</p>
@@ -128,7 +142,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 4 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(4)} onBlur={() => blurHandler(4)}>
+                    <button className="contForAside"  onClick={() => clickHandler(4)} onBlur={() => blurHandler(4)}>
                         <div className="workTypeCont">
                             <img src={windowDoor} alt=""/>
                             <p>Qapı-Pəncərə</p>
@@ -142,7 +156,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 5 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(5)} onBlur={() => blurHandler(5)}>
+                    <button className="contForAside"  onClick={() => clickHandler(5)} onBlur={() => blurHandler(5)}>
                         <div className="workTypeCont">
                             <img src={welder} alt=""/>
                             <p>Qaynaqçı</p>
@@ -156,7 +170,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 6 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(6)} onBlur={() => blurHandler(6)}>
+                    <button className="contForAside"  onClick={() => clickHandler(6)} onBlur={() => blurHandler(6)}>
                         <div className="workTypeCont">
                             <img src={plasterer} alt=""/>
                             <p>Suvaqçı</p>
@@ -170,7 +184,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 7 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(7)} onBlur={() => blurHandler(7)}>
+                    <button className="contForAside"  onClick={() => clickHandler(7)} onBlur={() => blurHandler(7)}>
                         <div className="workTypeCont">
                             <img src={metlag} alt=""/>
                             <p>Metlaq</p>
@@ -184,7 +198,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 8 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(8)} onBlur={() => blurHandler(8)}>
+                    <button className="contForAside"  onClick={() => clickHandler(8)} onBlur={() => blurHandler(8)}>
                         <div className="workTypeCont">
                             <img src={roof} alt=""/>
                             <p>Dam Örtüyü</p>
@@ -198,7 +212,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 9 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(9)} onBlur={() => blurHandler(9)}>
+                    <button className="contForAside"  onClick={() => clickHandler(9)} onBlur={() => blurHandler(9)}>
                         <div className="workTypeCont">
                             <img src={stonemaster} alt=""/>
                             <p>Bənna</p>
@@ -212,7 +226,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 10 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(10)} onBlur={() => blurHandler(10)}>
+                    <button className="contForAside"  onClick={() => clickHandler(10)} onBlur={() => blurHandler(10)}>
                         <div className="workTypeCont">
                             <img src={painter} alt=""/>
                             <p>Malyar</p>
@@ -226,7 +240,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 11 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(11)} onBlur={() => blurHandler(11)}>
+                    <button className="contForAside"  onClick={() => clickHandler(11)} onBlur={() => blurHandler(11)}>
                         <div className="workTypeCont">
                             <img src={floor} alt=""/>
                             <p>Döşəmə</p>
@@ -240,7 +254,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 12 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(12)} onBlur={() => blurHandler(12)}>
+                    <button className="contForAside"  onClick={() => clickHandler(12)} onBlur={() => blurHandler(12)}>
                         <div className="workTypeCont">
                             <img src={window} alt=""/>
                             <p>Şüşə-Güzgü</p>
@@ -254,7 +268,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 13 */}
-                    <button className="contForAside" onFocus={() => focusHandler(13)} onBlur={() => blurHandler(13)}>
+                    <button className="contForAside" onClick={() => clickHandler(13)} onBlur={() => blurHandler(13)}>
                         <div className="workTypeCont">
                             <img src={carpenter} alt=""/>
                             <p>Dülgər</p>
@@ -268,7 +282,7 @@ function HomePage(props) {
                     </button>
 
                     {/* 14 */}
-                    <button className="contForAside"  onFocus={() => focusHandler(14)}  onBlur={() => blurHandler(14)}>
+                    <button className="contForAside"  onClick={() => clickHandler(14)}  onBlur={() => blurHandler(14)}>
                         <div className="workTypeCont">
                             <button><img src={threeDots} alt=""/></button>
                             <p className="differP">Digər</p>
@@ -293,7 +307,7 @@ function HomePage(props) {
                             <div className="adsContainer">
                                 {latestAd}
                             </div>    
-                            <Button name="Bütün elanlara bax"/>
+                            <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
                         </div>
                     
 
@@ -309,7 +323,7 @@ function HomePage(props) {
                                 {vipMasters}
                                 
                             </div>  
-                            <Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
+                            <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
 
                 
@@ -322,7 +336,7 @@ function HomePage(props) {
                             <div className="adsContainer">
                                 {vipCompanies}
                             </div>     
-                            <Button name="Bütün şirkətlərə bax"/>
+                            <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
 
                         <SubBanner marginTop="60px" marginBottom="78px"/>

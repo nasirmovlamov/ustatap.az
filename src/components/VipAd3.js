@@ -35,13 +35,15 @@ function VipAd3(props) {
             stars.push(<img src={emptyStar} alt="ulduz" /> )
           }
     }
-    
+    const backgroundImgHuman = {
+        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`
+    }
     return (
         <Link to={"/companies/" + props.id}>
 
             <div className="vipCompany">
                 <img className="crown" src={crown} alt=""/>
-                <div className="logoCont"><img src={props.image} alt="şirkət logo"/></div>
+                <div className="logoCont" style={backgroundImgHuman}></div>
                 <div className="aboutText"> 
                     <p className="name">{props.name}</p>
                     <p className="description">{props.description}</p>

@@ -9,18 +9,21 @@ function Frame(props) {
             document.getElementById("btn" + i).setAttribute("style", "background-color:white") 
             document.getElementById("btn" + nmb).setAttribute("style", "background-color:#F97922") 
         }
-      document.getElementById("mainImg").src = (props.image[nmb-1])
+      document.getElementById("imgCont").style.background =  `url(${props.image[nmb-1]})`
     }
     const styleOverlay = {
         width: props.width,
         height: props.height,
         background: props.color,
     }
+    const styleImg = {
+        
+    }
     const overlayForİmage = {
         backgroundColor: "white",
-        height:"282px",
-        width:"458px",
-        background:props.overlayImg,
+        background:`url(${props.mainImg}) no-repeat`,
+        width: props.widthImg,
+        height: props.heightImg,
     }
     return (
         <div className="FrameCont">
@@ -28,7 +31,7 @@ function Frame(props) {
             <div className="frame" >
                 <div className="overlay" style={styleOverlay}></div>
                 <div className="imgAndBullet">
-                    <div  className="imgCont"  style={overlayForİmage}><img  alt="" src={props.mainImg} id="mainImg"/></div>
+                    <div id="imgCont" className="imgCont"  style={overlayForİmage} ></div>
                     {props.image !== 0 && ( <div className="bullets">
                         <button  id="btn1"  onClick={() => subButtonHandler(1)}></button>  
                         <button  id="btn2"  onClick={() => subButtonHandler(2)}></button>  
