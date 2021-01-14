@@ -65,16 +65,14 @@ function HomePage(props) {
 
     },[] )
 
-    function clickHandler (number) {
-        var display = document.getElementById("wD" + number).style.display
-        if (display === "none") {
-            document.getElementById("wD" + number).setAttribute("style" , "display:block")
-
+    const  clickHandler = (number) => {
+        if (document.getElementById("wD" + number).style.display === "block") {
+            document.getElementById("wD" + number).setAttribute("style" , "display:nonne")
         }
         else 
         {
-            document.getElementById("wD" + number).setAttribute("style" , "display:none")
-        }
+            document.getElementById("wD" + number).setAttribute("style" , "display:block")
+        }  
     }
     
     
