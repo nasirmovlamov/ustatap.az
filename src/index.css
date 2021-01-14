@@ -21,17 +21,21 @@ body {
 
 @font-face {
   font-family: 'ComfortaaRegular';
-  src: url(./assets/fonts/Comfortaa-Regular.otf) format('truetype');
+  src: url(./assets/fonts/Comfortaa-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'ComfortaaBold';
-  src: url(./assets/fonts/Comfortaa-Bold.otf) format('truetype');
+  src: url(./assets/fonts/Comfortaa-Bold.ttf) format('truetype');
 }
 @font-face {
   font-family: 'ComfortaaLight';
-  src: url(./assets/fonts/Comfortaa-Light.otf) format('truetype');
+  src: url(./assets/fonts/Comfortaa-Light.ttf) format('truetype');
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+button , a 
+{
+    cursor: pointer;
 }

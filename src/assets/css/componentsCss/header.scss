@@ -11,6 +11,11 @@
     display:flex;
     justify-content:space-around; 
     align-items:center;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 30;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
     .text
     {
         width: 75%;

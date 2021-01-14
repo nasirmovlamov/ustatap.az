@@ -1,11 +1,12 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import human from "../assets/images/component/element/human.svg"
 import mainLogo from "../assets/images/component/element/mainLogo.svg"
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    useLocation
   } from "react-router-dom";
 import "../assets/css/componentsCss/header.css"
 import HomePage from './../containers/HomePage/HomePage';
@@ -26,6 +27,7 @@ import TopSelection from './TopSelection';
 import CompanyRegistration from '../containers/RegistrationPages/CompanyRegistration';
 import UserRegistration from '../containers/RegistrationPages/UserRegistration';
 import Slider from './Slider';
+import ScrolltoTop from './ScrolltoTop';
 function Header() {
     const [Ad, setAd] = useState([12,12])
     const [Master, setMaster] = useState([12,12])
@@ -35,12 +37,15 @@ function Header() {
 
       }
     }
+    
+   
     return (
         
         <Router>
+          <ScrolltoTop/>
         <div className="topContainer">
           <navbar className="navbar">
-              <img src={mainLogo}  alt=""/>
+              <Link to="/"><img src={mainLogo} width="90px" alt=""/></Link>
               <div className="text"> 
                   <Link to="/"><p>Əsas Səhifə</p></Link>
                   <Link to="/elanlar"><p>Elanlar</p> </Link>
