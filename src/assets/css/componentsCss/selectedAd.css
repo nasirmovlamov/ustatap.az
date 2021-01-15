@@ -92,8 +92,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 10px;
-  margin-top: 36px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .frameAndText .aboutAd .aboutButtons p {
@@ -108,6 +109,14 @@
           align-items: center;
   color: #000000;
   opacity: 0.5;
+  font-size: 14px;
+}
+
+.frameAndText .aboutAd .aboutButtons p .date {
+  margin-left: 5px;
+  width: 67px;
+  font-size: 14px;
+  overflow: hidden;
 }
 
 .frameAndText .aboutAd .aboutButtons p img {

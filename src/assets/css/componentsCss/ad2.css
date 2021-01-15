@@ -1,6 +1,11 @@
 .mastersCont {
-  width: 280px;
-  height: 160px;
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
+  transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
+  border-radius: 3px;
+  width: 300px;
+  height: 170px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,9 +16,19 @@
           align-items: center;
 }
 
+.mastersCont:hover {
+  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
+  transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
+}
+
 .mastersCont .masterImg {
   width: 47%;
   height: 100%;
+  background-color: #fff;
   background-size: cover !important;
 }
 
@@ -36,27 +51,27 @@
 }
 
 .mastersCont .aboutText .name {
-  font-size: 16px;
+  font-size: 20px;
   font-family: "ComfortaaRegular";
   color: black;
   text-align: start;
 }
 
 .mastersCont .aboutText .job {
-  font-size: 12px;
+  font-size: 17px;
   font-family: "ComfortaaRegular";
   color: #F97922;
-  margin-top: -10%;
 }
 
 .mastersCont .aboutText .location {
-  font-size: 10px;
+  font-size: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 10px;
 }
 
 .mastersCont .aboutText .location img {
@@ -65,7 +80,13 @@
   height: auto;
 }
 
+.mastersCont .aboutText .rating {
+  font-size: 11px;
+  margin-top: -9px;
+}
+
 .mastersCont .aboutText .stars {
+  margin-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,7 +99,7 @@
 .mastersCont .aboutText .heart {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-right: 0px;
-  margin-bottom: 20px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
 /*# sourceMappingURL=ad2.css.map */

@@ -9,13 +9,14 @@ import {
 function Ad(props) {
     const bgImg = {
         background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`,
+        
     }
     
     return (
         
         <Link to={"/elanlar/secilmish-son-elan/" + props.id}>
             <div className="ad">
-                <div className="logoCont" style={bgImg}></div>
+                <div className="mainImg" style={bgImg}></div>
                 <div className="lineAd"></div>
                 <div className="subCont">
                     <div className="flexCont1">  <p>{props.name + props.id}</p>  <img src={favorite} alt=""/></div>

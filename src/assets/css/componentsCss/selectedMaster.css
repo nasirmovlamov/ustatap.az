@@ -25,31 +25,31 @@
   margin: 0;
 }
 
-.frameAndText {
+.selectedMaster .frameAndText {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.frameAndText .aboutAd {
+.selectedMaster .frameAndText .aboutAd {
   margin-left: 55px;
   width: 732px;
 }
 
-.frameAndText .aboutAd .title {
+.selectedMaster .frameAndText .aboutAd .title {
   font-size: 28px;
   color: black;
   font-family: "ComfortaaRegular";
 }
 
-.frameAndText .aboutAd .subTitle p {
+.selectedMaster .frameAndText .aboutAd .subTitle p {
   font-family: "FuturicaRegular";
   font-size: 14px;
   color: #616161;
   opacity: 0.63;
 }
 
-.frameAndText .aboutAd .stars {
+.selectedMaster .frameAndText .aboutAd .stars {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,17 +58,18 @@
           align-items: center;
 }
 
-.frameAndText .aboutAd .phoneOfMaster {
+.selectedMaster .frameAndText .aboutAd .phoneOfMaster {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 46px;
+  width: 100px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.frameAndText .aboutAd .phoneOfMaster p {
+.selectedMaster .frameAndText .aboutAd .phoneOfMaster p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,7 +80,7 @@
   margin-bottom: 0;
 }
 
-.frameAndText .aboutAd .phoneOfMaster .numbers {
+.selectedMaster .frameAndText .aboutAd .phoneOfMaster .numbers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,13 +88,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 5px;
-  font-size: 7px;
+  margin-left: 7px;
+  font-size: 10px;
   color: #969696;
   opacity: 0.83;
 }
 
-.frameAndText .aboutAd .aboutLinks {
+.selectedMaster .frameAndText .aboutAd .aboutLinks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,7 +102,7 @@
   border-bottom: 1px solid rgba(150, 150, 150, 0.28);
 }
 
-.frameAndText .aboutAd .aboutLinks a {
+.selectedMaster .frameAndText .aboutAd .aboutLinks a {
   border-right: 1px solid rgba(150, 150, 150, 0.28);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -119,7 +120,7 @@
   font-size: 12px;
 }
 
-.frameAndText .aboutAd .aboutLinks a p {
+.selectedMaster .frameAndText .aboutAd .aboutLinks a p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -128,19 +129,19 @@
           align-items: center;
 }
 
-.frameAndText .aboutAd .aboutLinks a img {
+.selectedMaster .frameAndText .aboutAd .aboutLinks a img {
   margin-right: 5px;
 }
 
-.frameAndText .aboutAd .aboutLinks a:nth-child(1) {
+.selectedMaster .frameAndText .aboutAd .aboutLinks a:nth-child(1) {
   margin-left: 0px;
 }
 
-.frameAndText .aboutAd .aboutLinks a:nth-child(3) {
+.selectedMaster .frameAndText .aboutAd .aboutLinks a:nth-child(3) {
   border: none;
 }
 
-.frameAndText .aboutAd .aboutButtons {
+.selectedMaster .frameAndText .aboutAd .aboutButtons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,7 +150,7 @@
   width: 100%;
 }
 
-.frameAndText .aboutAd .aboutButtons p {
+.selectedMaster .frameAndText .aboutAd .aboutButtons p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,17 +164,17 @@
   opacity: 0.5;
 }
 
-.frameAndText .aboutAd .aboutButtons p img {
+.selectedMaster .frameAndText .aboutAd .aboutButtons p img {
   margin-right: 5px;
 }
 
-.frameAndText .aboutAd .aboutButtons button p {
+.selectedMaster .frameAndText .aboutAd .aboutButtons button p {
   color: white;
   opacity: 1;
   font-family: "FuturicaRegular";
 }
 
-.frameAndText .aboutAd .bottomLines {
+.selectedMaster .frameAndText .aboutAd .bottomLines {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -186,12 +187,12 @@
   margin-top: 120px;
 }
 
-.frameAndText .aboutAd .bottomLines img {
+.selectedMaster .frameAndText .aboutAd .bottomLines img {
   width: 86px;
   height: auto;
 }
 
-.frameAndText .aboutAd .bottomLines hr {
+.selectedMaster .frameAndText .aboutAd .bottomLines hr {
   margin: 0;
   width: 35%;
   background-color: #59B93F;

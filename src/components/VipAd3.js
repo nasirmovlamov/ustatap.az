@@ -43,7 +43,7 @@ function VipAd3(props) {
 
             <div className="vipCompany">
                 <img className="crown" src={crown} alt=""/>
-                <div className="logoCont" style={backgroundImgHuman}></div>
+                <div className="logoContVipAd1" style={backgroundImgHuman}></div>
                 <div className="aboutText"> 
                     <p className="name">{props.name}</p>
                     <p className="description">{props.description}</p>

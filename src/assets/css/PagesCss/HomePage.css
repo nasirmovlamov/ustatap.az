@@ -178,9 +178,13 @@
   font-family: "FuturicaRegular";
 }
 
+.main .aside .workDescCont p a {
+  color: black;
+}
+
 .main .allAdsContainer {
   margin-left: 100px;
-  width: 887px;
+  width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -274,9 +278,9 @@
   margin-top: 50px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
   margin-bottom: 50px;
 }
 /*# sourceMappingURL=HomePage.css.map */

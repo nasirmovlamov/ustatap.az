@@ -12,6 +12,7 @@ import selectedAd3 from '../../assets/images/component/element/selectedAdJpg3.jp
 import selectedAd4 from '../../assets/images/component/element/selectedAdJpg4.jpg';
 import selectedAd5 from '../../assets/images/component/element/selectedAdJpg5.jpg';
 import locationCity from '../../assets/images/component/element/locationCity.svg';
+import heart from '../../assets/images/component/element/heart.svg';
 import locationDistrict from '../../assets/images/component/element/locationDistrict.svg';
 import humanSelectedAd from '../../assets/images/component/element/humanSelectedAd.svg';
 import selectedAdEye from '../../assets/images/component/element/selectedAdEye.svg';
@@ -68,9 +69,9 @@ function SelectedAd(props) {
                             <a href="#"><p><img src={humanSelectedAd} alt=""/> <span>Sifarişçi: Kənan Bağırov</span></p></a>   
                         </div>
                         <div className="aboutButtons">
-                            <p>Elan yerləşdirilib: <span>{SelectedAd.created_at}</span></p> 
+                            <p>Elan yerləşdirilib: <pre className="date">{SelectedAd.created_at}</pre></p> 
                             <p><img src={selectedAdEye} alt=""/> <span>100</span></p> 
-                            <p><img src={locationDistrict} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
+                            <p><img src={heart} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
                             <Button name="Mən bu işi Görərəm" />
                         </div>
                         <div className="bottomLines"><hr/> <img src={mainLogo} alt="" /> <hr/></div>

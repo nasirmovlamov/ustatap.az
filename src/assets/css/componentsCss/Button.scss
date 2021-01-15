@@ -1,5 +1,6 @@
 .button 
 {
+    
     cursor: pointer;
     width: 163px;
     height: 36px;
@@ -22,6 +23,8 @@
         color: white;
         font-size: 14px;
         font-family: "FuturicaRegular";
+        transition: 1s border-radius;
+
         .img 
         {
             display: flex;
@@ -36,5 +39,18 @@
     &:focus 
     {
         outline: none;
+    }
+    transition: 1s border-radius;
+
+    &:hover 
+    {
+        border-radius: 10px 0px 10px 0px;
+        transition: 1s border-radius;
+        .text 
+        {
+            border-radius: 10px 0px 10px 0px;
+            transition: 1s border-radius;
+
+        }
     }
 }

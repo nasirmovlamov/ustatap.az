@@ -97,12 +97,11 @@ function SelectedCompany(props) {
                         <p className="title">{SelectedCompany.company_name}</p>
                         <div className="subTitle">
                             <p>{SelectedCompany.description}</p>
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: {SelectedCompany.company_adress}</span></p></a>
-                            <a href="#"><p><img src={locationDistrict} alt=""/> <span className="district">Rayon:{SelectedCompany.company_adress}</span></p></a>
-                            <a href="#"><p><img src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: {SelectedCompany.categories}</span></p></a>   
+                            <a href="#"><p className="imgAndText"><img src={locationCity} alt=""/> <p>Şəhər: {SelectedCompany.company_adress}</p></p></a>
+                            <a href="#"><p className="imgAndText"><img src={locationDistrict} alt=""/> <p className="district">Rayon:{SelectedCompany.company_adress}</p></p></a>
+                            <a href="#"><p className="imgAndText"><img src={tools} alt=""/> <p className="worksCanDo">Hansı işləri görür: {SelectedCompany.categories}</p></p></a>   
                         </div>
                         
                         <div className="bottomPart">

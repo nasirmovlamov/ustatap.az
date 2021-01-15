@@ -25,31 +25,36 @@
   margin: 0;
 }
 
-.frameAndText {
+.selectedCompany .frameAndText {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.frameAndText .aboutAd {
+.selectedCompany .frameAndText .aboutAd {
   margin-left: 55px;
   width: 732px;
 }
 
-.frameAndText .aboutAd .title {
+.selectedCompany .frameAndText .aboutAd .title {
   font-size: 28px;
   color: black;
   font-family: "ComfortaaRegular";
 }
 
-.frameAndText .aboutAd .subTitle p {
+.selectedCompany .frameAndText .aboutAd .subTitle {
+  height: 100px;
+  overflow: hidden;
+}
+
+.selectedCompany .frameAndText .aboutAd .subTitle p {
   font-family: "FuturicaRegular";
   font-size: 14px;
   color: #616161;
   opacity: 0.63;
 }
 
-.frameAndText .aboutAd .stars {
+.selectedCompany .frameAndText .aboutAd .stars {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,7 +63,7 @@
           align-items: center;
 }
 
-.frameAndText .aboutAd .phoneOfMaster {
+.selectedCompany .frameAndText .aboutAd .phoneOfMaster {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,9 +71,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 203px;
+  padding-left: 15px;
 }
 
-.frameAndText .aboutAd .phoneOfMaster p {
+.selectedCompany .frameAndText .aboutAd .phoneOfMaster p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,7 +86,7 @@
   margin-bottom: 0;
 }
 
-.frameAndText .aboutAd .phoneOfMaster .numbers {
+.selectedCompany .frameAndText .aboutAd .phoneOfMaster .numbers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,24 +95,24 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin-left: 5px;
-  font-size: 7px;
+  font-size: 12px;
   color: #969696;
   opacity: 0.83;
 }
 
-.frameAndText .aboutAd .aboutLinks {
+.selectedCompany .frameAndText .aboutAd .aboutLinks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 29px;
-  width: 632px;
+  width: 752px;
 }
 
-.frameAndText .aboutAd .aboutLinks .worksCanDo {
+.selectedCompany .frameAndText .aboutAd .aboutLinks .worksCanDo {
   width: 345px;
 }
 
-.frameAndText .aboutAd .aboutLinks a {
+.selectedCompany .frameAndText .aboutAd .aboutLinks a {
   border-right: 1px solid rgba(150, 150, 150, 0.28);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -123,15 +130,15 @@
   font-size: 12px;
 }
 
-.frameAndText .aboutAd .aboutLinks a .district {
-  font-size: 6px;
+.selectedCompany .frameAndText .aboutAd .aboutLinks a .district {
+  font-size: 12px;
 }
 
-.frameAndText .aboutAd .aboutLinks a:nth-child(1) {
-  width: 86px;
+.selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(1) {
+  width: 206px;
 }
 
-.frameAndText .aboutAd .aboutLinks a p {
+.selectedCompany .frameAndText .aboutAd .aboutLinks a .imgAndText {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,32 +151,34 @@
           justify-content: center;
 }
 
-.frameAndText .aboutAd .aboutLinks a img {
+.selectedCompany .frameAndText .aboutAd .aboutLinks a img {
   margin-right: 5px;
 }
 
-.frameAndText .aboutAd .aboutLinks a:nth-child(1) {
+.selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(1) {
   margin-left: 0px;
+  font-size: 12px;
 }
 
-.frameAndText .aboutAd .aboutLinks a:nth-child(3) {
+.selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(3) {
   border: none;
+  width: 250px;
 }
 
-.frameAndText .aboutAd .aboutLinks a:nth-child(2) {
+.selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(2) {
   padding: 0px;
   margin: 0px;
-  width: 175px;
+  width: 255px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.frameAndText .aboutAd .aboutLinks a:nth-child(2) span {
+.selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(2) span {
   width: 80px;
 }
 
-.frameAndText .aboutAd .aboutButtons {
+.selectedCompany .frameAndText .aboutAd .aboutButtons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -178,7 +187,7 @@
   width: 100%;
 }
 
-.frameAndText .aboutAd .aboutButtons p {
+.selectedCompany .frameAndText .aboutAd .aboutButtons p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -192,33 +201,34 @@
   opacity: 0.5;
 }
 
-.frameAndText .aboutAd .aboutButtons p img {
+.selectedCompany .frameAndText .aboutAd .aboutButtons p img {
   margin-right: 5px;
 }
 
-.frameAndText .aboutAd .aboutButtons button p {
+.selectedCompany .frameAndText .aboutAd .aboutButtons button p {
   color: white;
   opacity: 1;
   font-family: "FuturicaRegular";
 }
 
-.frameAndText .aboutAd .bottomPart {
+.selectedCompany .frameAndText .aboutAd .bottomPart {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 732px;
 }
 
-.frameAndText .aboutAd .bottomPart .phoneOfMaster {
+.selectedCompany .frameAndText .aboutAd .bottomPart .phoneOfMaster {
   border-right: 1px solid rgba(150, 150, 150, 0.28);
-  width: 87px;
+  min-width: 187px;
 }
 
-.frameAndText .aboutAd .bottomPart .phoneOfMaster p {
+.selectedCompany .frameAndText .aboutAd .bottomPart .phoneOfMaster p {
   margin: 0px;
+  font-size: 12px;
 }
 
-.frameAndText .aboutAd .bottomPart .mailOfMaster {
+.selectedCompany .frameAndText .aboutAd .bottomPart .mailOfMaster {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,14 +236,14 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 145px;
+  width: 252px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   border-right: 1px solid rgba(150, 150, 150, 0.28);
 }
 
-.frameAndText .aboutAd .bottomPart .mailOfMaster p {
+.selectedCompany .frameAndText .aboutAd .bottomPart .mailOfMaster p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -244,11 +254,11 @@
   margin-bottom: 0;
 }
 
-.frameAndText .aboutAd .bottomPart .mailOfMaster img {
+.selectedCompany .frameAndText .aboutAd .bottomPart .mailOfMaster img {
   width: 17px;
 }
 
-.frameAndText .aboutAd .bottomPart .mailOfMaster .mail {
+.selectedCompany .frameAndText .aboutAd .bottomPart .mailOfMaster .mail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -262,7 +272,7 @@
   opacity: 0.83;
 }
 
-.frameAndText .aboutAd .bottomPart .social {
+.selectedCompany .frameAndText .aboutAd .bottomPart .social {
   height: 46px;
   width: 100px;
   margin-left: 15px;
@@ -281,11 +291,11 @@
           flex-direction: row;
 }
 
-.frameAndText .aboutAd .bottomPart .social p {
+.selectedCompany .frameAndText .aboutAd .bottomPart .social p {
   margin: 0px;
 }
 
-.frameAndText .aboutAd .bottomLines {
+.selectedCompany .frameAndText .aboutAd .bottomLines {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -298,12 +308,12 @@
   margin-top: 120px;
 }
 
-.frameAndText .aboutAd .bottomLines img {
+.selectedCompany .frameAndText .aboutAd .bottomLines img {
   width: 86px;
   height: auto;
 }
 
-.frameAndText .aboutAd .bottomLines hr {
+.selectedCompany .frameAndText .aboutAd .bottomLines hr {
   margin: 0;
   width: 35%;
   background-color: #59B93F;

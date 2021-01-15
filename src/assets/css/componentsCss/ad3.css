@@ -1,12 +1,26 @@
 .companies {
-  width: 280px;
+  width: 300px;
   height: 270px;
   background-color: #58BC40;
   -webkit-box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
+  transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
+  border-radius: 3px;
 }
 
-.logoCont {
+.companies:hover {
+  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
+  transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
+}
+
+.companies .logoCont {
   width: 100%;
   height: 156px;
   display: -webkit-box;
@@ -22,7 +36,7 @@
   background-size: cover !important;
 }
 
-.aboutTextMaster {
+.companies .aboutTextMaster {
   padding-left: 16px;
   padding-top: 20px;
   padding-right: 18px;
@@ -41,23 +55,26 @@
   text-align: start;
 }
 
-.aboutTextMaster p {
+.companies .aboutTextMaster p {
   margin: 0px;
 }
 
-.aboutTextMaster .name {
+.companies .aboutTextMaster .name {
   font-size: 15px;
   color: white;
   font-family: "FuturicaRegular";
 }
 
-.aboutTextMaster .description {
-  font-size: 6px;
+.companies .aboutTextMaster .description {
+  font-size: 10px;
   color: white;
   font-family: "ComfortaaRegular";
+  height: 158px;
+  overflow: hidden;
+  opacity: 0.5;
 }
 
-.aboutTextMaster .bottomImgCont {
+.companies .aboutTextMaster .bottomImgCont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,17 +87,17 @@
   margin-top: 10px;
 }
 
-.aboutTextMaster .bottomImgCont .address {
+.companies .aboutTextMaster .bottomImgCont .address {
   font-family: "ComfortaaRegular";
-  font-size: 6px;
+  font-size: 10px;
   color: white;
 }
 
-.aboutTextMaster .bottomImgCont .address img {
+.companies .aboutTextMaster .bottomImgCont .address img {
   margin-right: 3px;
 }
 
-.aboutTextMaster .bottomImgCont .stars {
+.companies .aboutTextMaster .bottomImgCont .stars {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,7 +110,7 @@
   margin-bottom: -5px;
 }
 
-.aboutTextMaster .bottomImgCont p {
+.companies .aboutTextMaster .bottomImgCont p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

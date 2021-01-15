@@ -15,22 +15,22 @@ function Ad2(props) {
     if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
         
         for (var i=0;i<props.numberStar;i++) {
-            stars.push(<img src={fullStar} alt="ulduz" /> )
+            stars.push(<img src={fullStar} width="25px" alt="ulduz" /> )
           }
         for (var j=(props.numberStar);j<5;j++) {
-            stars.push(<img src={emptyStar} alt="ulduz" /> )
+            stars.push(<img src={emptyStar} alt="ulduz" width="25px"/> )
         }
 
     }
     else 
     {
         for (var i=0;i<Math.floor(props.numberStar);i++) {
-            stars.push(<img src={fullStar} alt="ulduz" /> )
+            stars.push(<img src={fullStar} alt="ulduz" width="25px"/> )
           }
-        stars.push(<img src={halfStar} alt="ulduz" />)
+        stars.push(<img src={halfStar} alt="ulduz" width="25px"/>)
 
         for (var i=Math.floor(props.numberStar) + 1;i<5;i++) {
-            stars.push(<img src={emptyStar} alt="ulduz" /> )
+            stars.push(<img src={emptyStar} alt="ulduz" width="25px"/> )
           }
     }
     const bgImg = {
@@ -45,6 +45,7 @@ function Ad2(props) {
                     <p className="job">{props.job}</p>
                     <p className="location"><img src={location} alt="location"/> {props.address}</p>
                     <div className="stars">{stars}</div>
+                    <p className="rating">Reyting sayı {props.rating} </p>
                     <img className="heart" src={heart} alt="ürək"/>
                 </div> 
             </div>

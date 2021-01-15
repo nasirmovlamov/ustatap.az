@@ -4,6 +4,20 @@
   background-color: #58BC40;
   -webkit-box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
+  transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
+  border-radius: 3px;
+}
+
+.vipCompany:hover {
+  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
+  transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
 }
 
 .vipCompany .crown {
@@ -12,7 +26,7 @@
   margin-left: -35px;
 }
 
-.vipCompany .logoCont {
+.vipCompany .logoContVipAd1 {
   width: 100%;
   height: 156px;
   display: -webkit-box;
@@ -25,6 +39,7 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
+  background-size: cover !important;
 }
 
 .vipCompany .aboutText {

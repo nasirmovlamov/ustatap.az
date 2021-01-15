@@ -83,8 +83,8 @@ function HomePage(props) {
     latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
     latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
     
-    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}})
-    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)}})
+    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating}/> )}})
     CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
     CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
     
@@ -108,8 +108,8 @@ function HomePage(props) {
                         </div>
                         <div className="workDescCont" id="wD1" >
                             <p><Link to="/masters/santexnik">Ustalar <span>({23})</span></Link> </p>
-                            <p>Elanlar <span>({22})</span></p>
-                            <p>Şirkətlər <span>({11})</span></p>
+                            <p><Link to="/elanlar">Elanlar <span>({22})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({11})</span></Link></p>
                         </div>
                     </button>
                     
@@ -121,9 +121,9 @@ function HomePage(props) {
                             <button ><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD2" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -135,9 +135,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD3" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -149,9 +149,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD4" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -163,9 +163,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD5" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -177,9 +177,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD6" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/shirketler">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -191,9 +191,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD7" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -205,9 +205,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD8" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -219,9 +219,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD9" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -233,9 +233,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD10" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -247,9 +247,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD11" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -261,9 +261,9 @@ function HomePage(props) {
                             <button><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD12" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -275,9 +275,9 @@ function HomePage(props) {
                             <button ><img src={arrDown} alt=""/></button>
                         </div>
                         <div className="workDescCont" id="wD13" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
 
@@ -288,9 +288,9 @@ function HomePage(props) {
                             <p className="differP">Digər</p>
                         </div>
                         <div className="workDescCont " id="wD14" >
-                            <p>Ustalar <span>({23})</span></p>
-                            <p>Elanlar <span>({23})</span></p>
-                            <p>Şirkətlər <span>({23})</span></p>
+                            <p><Link to="/masters">Ustalar <span>({23})</span></Link></p>
+                            <p><Link to="/elanlar">Elanlar <span>({23})</span></Link></p>
+                            <p><Link to="/companies">Şirkətlər <span>({23})</span></Link></p>
                         </div>
                     </button>
                 </aside>
