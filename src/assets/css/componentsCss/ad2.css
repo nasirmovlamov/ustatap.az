@@ -55,12 +55,14 @@
   font-family: "ComfortaaRegular";
   color: black;
   text-align: start;
+  margin: 0px;
 }
 
 .mastersCont .aboutText .job {
   font-size: 17px;
   font-family: "ComfortaaRegular";
   color: #F97922;
+  margin: 0px;
 }
 
 .mastersCont .aboutText .location {

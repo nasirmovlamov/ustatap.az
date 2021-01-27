@@ -120,6 +120,7 @@
 
 .contact .formCont form {
   width: 450px;
+  height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,11 +133,18 @@
           align-items: center;
 }
 
+.contact .formCont form .errors {
+  margin-bottom: 10px;
+  height: 30px;
+  margin-top: 5px;
+  width: 403px;
+  color: red;
+}
+
 .contact .formCont form input {
   width: 403px;
   border: none;
   border-bottom: 2px solid gray;
-  margin-bottom: 40px;
   font-size: 16px;
   font-family: "ComfortaaRegular";
 }
@@ -214,8 +222,7 @@
 .contact .formCont form .button {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-right: 20%;
-  margin-top: 50px;
+  margin-right: 20px;
   border-radius: 0px;
   width: 116px;
 }

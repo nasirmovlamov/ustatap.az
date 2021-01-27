@@ -9,7 +9,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: -50px;
+  margin-bottom: 0px;
 }
 
 .userRegCont .formAndImg {
@@ -36,6 +36,14 @@
   width: 530px;
 }
 
+.userRegCont .formAndImg form .errors {
+  margin-bottom: 10px;
+  height: 30px;
+  margin-top: 5px;
+  width: 403px;
+  color: red;
+}
+
 .userRegCont .formAndImg form input {
   width: 100%;
   margin: 0px;
@@ -45,7 +53,6 @@
   border: none;
   border-bottom: 1px solid lightgray;
   height: 30px;
-  margin-bottom: 57px;
 }
 
 .userRegCont .formAndImg form input:focus {

@@ -326,10 +326,21 @@ function HomePage(props) {
                             <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
 
-                
+
                         <SubBanner marginTop="60px" marginBottom="78px"/>
 
-                
+
+                        <div className="typeAddContainer"> 
+                            <p className="title">Ustalar</p>
+                            <div className="line2"></div>
+                            <div className="adsContainer">
+                                {masters}
+                            </div>  
+                            <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
+                        </div>
+
+                        <SubBanner marginTop="60px" marginBottom="78px"/>
+
                         <div className="typeAddContainer"> 
                             <p className="title">Vip Şirkətlər</p>
                             <div className="line3"></div>
@@ -341,6 +352,15 @@ function HomePage(props) {
 
                         <SubBanner marginTop="60px" marginBottom="78px"/>
 
+                        
+                        <div className="typeAddContainer"> 
+                            <p className="title">Şirkətlər</p>
+                            <div className="line3"></div>
+                            <div className="adsContainer">
+                                {companies}
+                            </div>     
+                            <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
+                        </div>
 
                         <div className="typeAddContainer"> 
                             <p className="title">Santexnika elanları</p>
@@ -364,27 +384,12 @@ function HomePage(props) {
                             <Link to="/elanlar"> <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
 
-                        <div className="typeAddContainer"> 
-                            <p className="title">Ustalar</p>
-                            <div className="line2"></div>
-                            <div className="adsContainer">
-                                {masters}
-                            </div>  
-                            <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
-                        </div>
+                       
 
                 
-                        <SubBanner marginTop="60px" marginBottom="78px"/>
+                       
 
                 
-                        <div className="typeAddContainer"> 
-                            <p className="title">Şirkətlər</p>
-                            <div className="line3"></div>
-                            <div className="adsContainer">
-                                {companies}
-                            </div>     
-                            <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
-                        </div>
 
 
                     </div> 

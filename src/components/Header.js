@@ -42,76 +42,77 @@ function Header() {
     return (
         
         <Router>
+          
           <ScrolltoTop/>
-        <div className="topContainer">
-          <navbar className="navbar">
-              <Link to="/"><img src={mainLogo} width="90px" alt=""/></Link>
-              <div className="text"> 
-                  <Link to="/"><p>Əsas Səhifə</p></Link>
-                  <Link to="/elanlar"><p>Elanlar</p> </Link>
-                  <Link to="/ustalar"><p>Ustalar</p> </Link>
-                  <Link to="/shirketler"> <p>Şirkətlər</p> </Link>
-                  <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
-                  <Link to="/reklam"><p>Reklam</p> </Link>
-                  <Link to="/elaqe"><p>Əlaqə</p> </Link>
-                  <button className="login"><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
-                  <button className="putAd"><span>+</span> Elan Yerləşdir</button> 
-              </div>
-          </navbar>
-          <SearchBox/>
-        </div>
+          <div className="topContainer">
+            <navbar className="navbar">
+                <Link to="/"><img src={mainLogo} width="90px" alt=""/></Link>
+                <div className="text"> 
+                    <Link to="/"><p>Əsas Səhifə</p></Link>
+                    <Link to="/elanlar"><p>Elanlar</p> </Link>
+                    <Link to="/ustalar"><p>Ustalar</p> </Link>
+                    <Link to="/shirketler"> <p>Şirkətlər</p> </Link>
+                    <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
+                    <Link to="/reklam"><p>Reklam</p> </Link>
+                    <Link to="/elaqe"><p>Əlaqə</p> </Link>
+                    <button className="login"><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
+                    <button className="putAd"><span>+</span> Elan Yerləşdir</button> 
+                </div>
+            </navbar>
+            <SearchBox/>
+          </div>
 
 
-          <Switch>
-            <Route path={`/elanlar/secilmish-son-elan/:id`}>
-              <SelectedAd/>
-            </Route>
-            <Route path={`/masters/:id`}>
-              <SelectedMaster/>
-            </Route>
-            <Route path={`/companies/:id`}>
-              <SelectedCompany/>
-            </Route>
-            <Route path="/elanlar">
-              <AddsPage/>
-            </Route>
-            <Route path="/ustalar">
-              <Masters/>
-            </Route>
-            <Route path="/shirketler">
-              <Companies/>
-            </Route>
-            <Route path="/haqqimizda">
-              <AboutUs/>
-            </Route>
-            <Route path="/reklam">
-              <Addvertise/>
-            </Route>
-            <Route path="/elaqe">
-              <Contact/>
-            </Route>
-            <Route path="/404">
-              <Page404/>
-            </Route>
-            <Route path="/usta-qeydiyyati">
-              <MasterRegistration/>
-            </Route>
-            <Route path="/shirket-qeydiyyati">
-              <CompanyRegistration/>
-            </Route>
-            <Route path="/istifadeci-qeydiyyati">
-              <UserRegistration/>
-            </Route>
-            <Route path="/sliderTest">
-              <Slider/>
-            </Route>
-            <Route path="/">
-              <HomePage numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
-            </Route>
-            
-            
-          </Switch>
-          <Footer/>
+            <Switch>
+              <Route path={`/elanlar/secilmish-son-elan/:id`}>
+                <SelectedAd/>
+              </Route>
+              <Route path={`/masters/:id`}>
+                <SelectedMaster/>
+              </Route>
+              <Route path={`/companies/:id`}>
+                <SelectedCompany/>
+              </Route>
+              <Route path="/elanlar">
+                <AddsPage/>
+              </Route>
+              <Route path="/ustalar">
+                <Masters/>
+              </Route>
+              <Route path="/shirketler">
+                <Companies/>
+              </Route>
+              <Route path="/haqqimizda">
+                <AboutUs/>
+              </Route>
+              <Route path="/reklam">
+                <Addvertise/>
+              </Route>
+              <Route path="/elaqe">
+                <Contact/>
+              </Route>
+              <Route path="/404">
+                <Page404/>
+              </Route>
+              <Route path="/usta-qeydiyyati">
+                <MasterRegistration/>
+              </Route>
+              <Route path="/shirket-qeydiyyati">
+                <CompanyRegistration/>
+              </Route>
+              <Route path="/istifadeci-qeydiyyati">
+                <UserRegistration/>
+              </Route>
+              <Route path="/sliderTest">
+                <Slider/>
+              </Route>
+              <Route path="/">
+                <HomePage numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
+              </Route>
+              
+              
+            </Switch>
+            <Footer/>
 
       </Router>
     )

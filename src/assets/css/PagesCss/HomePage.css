@@ -23,7 +23,6 @@
   height: 193px;
   background: url(../../images/component/background/subBannerBg.jpg) no-repeat;
   background-size: 100%;
-  background-position: center;
   margin-top: 106px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -184,7 +183,7 @@
 
 .main .allAdsContainer {
   margin-left: 100px;
-  width: 1200px;
+  width: 1300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -201,6 +200,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;

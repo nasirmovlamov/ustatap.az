@@ -94,15 +94,24 @@
         form 
         {
             width: 450px;
+            height: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            .errors
+            {
+                margin-bottom: 10px;
+                height: 30px;
+                margin-top: 5px;
+                width: 403px;
+                color: red;
+
+            }
             input 
             {
                 width: 403px;
                 border: none;
                 border-bottom: 2px solid gray;
-                margin-bottom: 40px;
                 font-size: 16px;
                 font-family: "ComfortaaRegular";
                 &:focus 
@@ -143,8 +152,7 @@
             .button 
             {
                 align-self: flex-end;
-                margin-right: 20%;
-                margin-top: 50px;
+                margin-right: 20px;
                 border-radius: 0px;
                 width: 116px;
                 p 

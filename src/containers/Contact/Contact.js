@@ -1,5 +1,5 @@
-import React from 'react'
-import {useFormik } from "formik"
+import React, { useState } from 'react'
+import {Formik , Form , Field, ErrorMessage} from "formik"
 import * as Yup from "yup"
 import "../../assets/css/componentsCss/contact.css"
 import phone from "../../assets/images/component/element/greenPhone.svg"
@@ -8,7 +8,6 @@ import location from "../../assets/images/component/element/greenLocation.svg"
 import Button from '../../components/Button'
 import axios from 'axios'
 function Contact(props) {
-    
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     const validationSchema = Yup.object({
@@ -17,31 +16,21 @@ function Contact(props) {
         topic: Yup.string().required('Required'),
         phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
         description: Yup.string().required('Required'),
-
     })
-
-    var formik = useFormik({
-        initialValues:{
-            name:'',
-            email:'',
-            topic:'',
-            phone:'',
-            description:'',
-
-        },
-        onSubmit: values => {
-            if(formik.errors)
-            {
-                axios.post('https://jsonplaceholder.typicode.com/posts', {values: values})
-                 .then(res => console.log(res))
-                 .catch(err => console.log(err))
-            }
-        },
-        validationSchema
-    })
-
-   console.log('Visited' , formik.touched)
-
+    const onSubmit =  (values) => {
+            axios.post('https://jsonplaceholder.typicode.com/posts', {values: values})
+             .then(res => console.log(res))
+             .catch(err => console.log(err))
+    }
+    
+    
+    const initialValues = {
+        name:'',
+        email:'',
+        topic:'',
+        phone:'',
+        description:'',
+    }
       
     
     return (
@@ -72,22 +61,23 @@ function Contact(props) {
                             </div>
                         </div>
                     </div>
-                    
+                   
                     <div className="formCont">
-                        <form action="" method="post" onSubmit={formik.handleSubmit}>
-                            <input onBlur={formik.handleBlur} type="text" placeholder="Ad və soyad" name="name" onChange={formik.handleChange} value={formik.values.name}/>
-                            {formik.touched.name && formik.errors.name ? <div>{formik.errors.name}</div> : null}
-                            <input onBlur={formik.handleBlur} type="email" placeholder="Elektron poçt ünvanı" name="email"  onChange={formik.handleChange} value={formik.values.email}/>
-                            {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
-                            <input onBlur={formik.handleBlur} type="text" placeholder="Müraciətin mövzusu" name="topic"  onChange={formik.handleChange} value={formik.values.topic}/>
-                            {formik.touched.topic && formik.errors.topic ? <div>{formik.errors.topic}</div> : null}
-                            <input onBlur={formik.handleBlur} type="text" placeholder="Telefon nömrəsi" name="phone"  onChange={formik.handleChange} value={formik.values.phone}/>
-                            {formik.touched.phone && formik.errors.phone ? <div>{formik.errors.phone}</div> : null}
-                            <textarea onBlur={formik.handleBlur} name="" id="" cols="30" rows="10" placeholder="Müraciət Mətn" name="description"  onChange={formik.handleChange} value={formik.values.description}></textarea>
-                            {formik.touched.description && formik.errors.description ? <div>{formik.errors.description}</div> : null}
-                            
-                            <Button name="Göndər"/>
-                        </form>
+                        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}>
+                            <Form action="" method="post" >
+                                <Field  type="text" placeholder="Ad və soyad" name="name"/>
+                                <div className="errors"><ErrorMessage name="name"/></div>
+                                <Field  type="email" placeholder="Elektron poçt ünvanı" name="email"  />
+                                <div className="errors"><ErrorMessage name="email"/></div> 
+                                <Field  type="text" placeholder="Müraciətin mövzusu" name="topic"  />
+                                <div className="errors"><ErrorMessage name="topic"/></div> 
+                                <Field  type="text" placeholder="050XXXXXXX" name="phone"  />
+                                <div className="errors"><ErrorMessage name="phone"/></div> 
+                                <Field as="textarea" name="description" id="" cols="30" rows="10" placeholder="Müraciət Mətn"  />
+                                <div className="errors"><ErrorMessage name="description"/></div>                             
+                                <Button name="Göndər"/>
+                            </Form>
+                        </Formik>
                     </div>
                 </div>
         </div>

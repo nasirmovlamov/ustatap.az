@@ -50,9 +50,9 @@ function SearchBox() {
             {/* title Subtitle */}
             <p className="title">UstaTap.net</p>
             <p className="subTitle">Usta Axtarışı Portalı</p>
-
-
             {/* Dropdown */}
+            <form action="" method="post">>
+
                 <div className="searchCont">  
                     <div className="dropdownCont">
                         <button class="dropdown " >
@@ -84,6 +84,8 @@ function SearchBox() {
                     </div>
                     <button class="searchButton"> <img src={lupa} />axtar</button>
                 </div>
+            </form>
+
             {/* Dropdown */}
 
         </div>  
