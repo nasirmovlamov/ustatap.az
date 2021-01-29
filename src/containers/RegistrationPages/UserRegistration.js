@@ -53,7 +53,7 @@ function UserRegistration() {
                         <div className="errors"><ErrorMessage name="password"/></div>
                         <Field type="password" placeholder="Təkrar şifrə" name="confirmPassword"/>
                         <div className="errors"><ErrorMessage name="confirmPassword"/></div>
-                        <Button name="Qeydiyatdan keç"/>
+                        <Button  name="Qeydiyatdan keç"/>
                     </Form>
                 </Formik>
 
