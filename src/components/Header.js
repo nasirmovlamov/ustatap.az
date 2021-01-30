@@ -28,6 +28,13 @@ import CompanyRegistration from '../containers/RegistrationPages/CompanyRegistra
 import UserRegistration from '../containers/RegistrationPages/UserRegistration';
 import Slider from './Slider';
 import ScrolltoTop from './ScrolltoTop';
+import Modal from '@material-ui/core/Modal';
+import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import LoginModal from './LoginModal'
+
+
+
 function Header() {
     const [Ad, setAd] = useState([12,12])
     const [Master, setMaster] = useState([12,12])
@@ -36,14 +43,48 @@ function Header() {
       for (let i = 0; i < Ad[0]; i++) {
 
       }
-    }
+  }
+  
+  const useStyles = makeStyles((theme) => ({
+        paper: {
+          position: 'absolute',
+          width: 400,
+          backgroundColor: "red",
+          border: '2px solid #000',
+          boxShadow: theme.shadows[5],
+          padding: theme.spacing(2, 4, 3),
+        },
+      }));
+  const classes = useStyles();
+  
+    const [open, setOpen] = useState(false);
+    
+    const handleOpen = () => {
+        setOpen(true);
+      };
+    
+    const handleClose = () => {
+    setOpen(false);
+    };
+
     
    
     return (
         
         <Router>
           
-          <ScrolltoTop/>
+        <ScrolltoTop />
+        
+        
+        <Modal  
+                  style={{display:"flex", justifyContent:"center",overflow:"auto",backgroundColor:"rgba(0,0,0,0.5)",}}
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="simple-modal-title"
+                  aria-describedby="simple-modal-description">
+                  {<LoginModal modalOpener={handleOpen} modalCloser={handleClose}/>}
+        </Modal>
+
           <div className="topContainer">
             <navbar className="navbar">
                 <Link to="/"><img src={mainLogo} width="90px" alt=""/></Link>
@@ -55,7 +96,7 @@ function Header() {
                     <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
                     <Link to="/reklam"><p>Reklam</p> </Link>
                     <Link to="/elaqe"><p>Əlaqə</p> </Link>
-                    <button className="login"><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
+                    <button className="login" onClick={() => handleOpen()}  ><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
                     <button className="putAd"><span>+</span> Elan Yerləşdir</button> 
                 </div>
             </navbar>

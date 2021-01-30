@@ -1,0 +1,83 @@
+.loginModal
+{
+    width: 50vw;
+    height: 100vh;
+    padding-left: 50vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('../../images/component/background/backgroundForLogin.png');
+    background-position: cover;
+    form 
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .closeImg
+    {
+        align-self: flex-end;
+        background-color: transparent;
+        border: none;
+        margin-top: 31px;
+        margin-right:31px;
+        margin-bottom: 100px;
+    }
+    .title
+    {
+        font-size: 36px;
+        background: 0,37,46,1;
+        margin: 0px;
+    }
+    .errors
+    {
+        color: red;
+    }
+    input
+    {
+        border: none;
+        margin-top: 20px;
+        height: 54px;
+        width: 400px;
+        padding-left: 30px;
+        border-radius: 10px;
+        font-size: 18px;
+        &::placeholder
+        {
+            color: rgba(0,0,0,0.4);
+        }   
+        &:focus 
+        {
+            outline: none;
+        }
+    }
+    .button
+    {
+        margin-top: 39px;
+        width: 220px;
+        align-self: center;
+        height: 49px;
+        font-family: "MsR";
+        p 
+        {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .link
+    {
+        margin: 0px;
+        margin-top: 30px;
+        font-size: 18px;
+        color: #00252E;
+        button 
+        {
+            background-color: transparent;
+            border: none;
+            color: rgba(61, 146, 167, 1);
+            font-size: 18px;
+        }
+    }
+}

@@ -1,8 +1,8 @@
 import React from 'react'
 import "../assets/css/componentsCss/input.css"
-function Input() {
+function Input(props) {
     return (
-        <input className="inputComponent" placeholder="Email ünvanınızı daxil edin"/>
+        <input type={props.type} className="inputComponent" name={props.name} placeholder={props.placeholder}/>
     )
 }
 

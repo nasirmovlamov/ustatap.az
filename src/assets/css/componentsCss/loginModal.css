@@ -1,0 +1,116 @@
+.loginModal {
+  width: 50vw;
+  height: 100vh;
+  padding-left: 50vw;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url("../../images/component/background/backgroundForLogin.png");
+  background-position: cover;
+}
+
+.loginModal form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loginModal .closeImg {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  margin-top: 31px;
+  margin-right: 31px;
+  margin-bottom: 100px;
+}
+
+.loginModal .title {
+  font-size: 36px;
+  background: 0,37,46,1;
+  margin: 0px;
+}
+
+.loginModal .errors {
+  color: red;
+}
+
+.loginModal input {
+  border: none;
+  margin-top: 20px;
+  height: 54px;
+  width: 400px;
+  padding-left: 30px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.loginModal input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.loginModal input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.loginModal input::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.loginModal input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.loginModal input:focus {
+  outline: none;
+}
+
+.loginModal .button {
+  margin-top: 39px;
+  width: 220px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 49px;
+  font-family: "MsR";
+}
+
+.loginModal .button p {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loginModal .link {
+  margin: 0px;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #00252E;
+}
+
+.loginModal .link button {
+  background-color: transparent;
+  border: none;
+  color: #3d92a7;
+  font-size: 18px;
+}
+/*# sourceMappingURL=loginModal.css.map */

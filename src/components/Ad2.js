@@ -6,7 +6,7 @@ import "../assets/css/componentsCss/ad2.css"
 import emptyStar from "../assets/images/component/element/emptyStar.svg"
 import fullStar from "../assets/images/component/element/fullStar.svg"
 import halfStar from "../assets/images/component/element/halfStar.svg"
-
+import axios from 'axios'
 import location from "../assets/images/component/element/location.svg"
 import heart from "../assets/images/component/element/heart.svg"
 
@@ -36,10 +36,22 @@ function Ad2(props) {
     const bgImg = {
         background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`,
     }
+
+    const heartPost = () => {
+        axios.post('http://ustatap.testjed.me/', {addFavorite:"add favorite"})
+             .then(res => console.log(res))
+             .catch(err => console.log(err))
+    }
+    const viewHandler = () => {
+        axios.post('http://ustatap.testjed.me/', {increase:"View"})
+             .then(res => console.log(res))
+                .catch(err => console.log(err))
+    }
+
+
     return (
-        <Link to={"/masters/" + props.id}>
             <div className="mastersCont">
-                <div className="masterImg" style={bgImg} ></div>
+                <button className="masterImg" style={bgImg} ></button>
                 <div className="aboutText">
                     <p className="name">{props.name}</p>
                     <p className="job">{props.job}</p>
@@ -49,8 +61,6 @@ function Ad2(props) {
                     <img className="heart" src={heart} alt="ürək"/>
                 </div> 
             </div>
-        </Link>
-
     )
 }
 
