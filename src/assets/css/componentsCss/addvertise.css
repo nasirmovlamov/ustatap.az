@@ -1,4 +1,5 @@
 .addvertise {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,6 +10,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 150px;
+  margin-top: 125px;
 }
 
 .addvertise .generalCont {
@@ -68,6 +71,14 @@
   color: black;
   opacity: 0.5;
   height: auto;
+}
+
+.addvertise .generalCont .errors {
+  margin-bottom: 10px;
+  height: 30px;
+  margin-top: 5px;
+  width: 403px;
+  color: red;
 }
 
 .addvertise .linkAndButton {
@@ -134,10 +145,15 @@
   justify-items: center;
 }
 
+.addvertise .formCont .gridContForm .errors {
+  width: 75%;
+  color: red;
+}
+
 .addvertise .formCont .gridContForm input {
   height: 28.5px;
   border: none;
-  width: 75%;
+  width: 100%;
   border-bottom: 2px solid gray;
   font-family: "FuturicaRegular";
 }

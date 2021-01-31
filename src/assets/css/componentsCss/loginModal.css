@@ -14,7 +14,7 @@
       -ms-flex-align: center;
           align-items: center;
   background: url("../../images/component/background/backgroundForLogin.png");
-  background-position: cover;
+  background-size: cover;
 }
 
 .loginModal form {

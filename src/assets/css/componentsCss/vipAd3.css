@@ -8,7 +8,8 @@
   transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
   transition: 1s box-shadow, 1s -webkit-box-shadow;
-  border-radius: 3px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .vipCompany:hover {
@@ -22,7 +23,7 @@
 
 .vipCompany .crown {
   position: absolute;
-  margin-top: -50px;
+  margin-top: -55px;
   margin-left: -35px;
 }
 
@@ -40,6 +41,7 @@
           align-items: center;
   background-color: #fff;
   background-size: cover !important;
+  border: none;
 }
 
 .vipCompany .aboutText {
@@ -113,6 +115,23 @@
 }
 
 .vipCompany .aboutText .bottomImgCont p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vipCompany .aboutText .heartBtn {
+  width: 20px;
+  margin: 0px;
+  border: none;
+  background: transparent;
+  padding: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

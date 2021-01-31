@@ -4,6 +4,8 @@
   transition: 1s box-shadow;
   transition: 1s box-shadow, 1s -webkit-box-shadow;
   border-radius: 3px;
+  border-radius: 5px;
+  overflow: hidden;
   width: 300px;
   height: 170px;
   display: -webkit-box;
@@ -30,6 +32,38 @@
   height: 100%;
   background-color: #fff;
   background-size: cover !important;
+  border: none;
+}
+
+.mastersCont .masterImgBtn {
+  width: 100%;
+  height: 100vh;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.mastersCont .heartBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px;
+  margin: 0px;
+  width: 45px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 10px;
+  margin-right: -10px;
 }
 
 .mastersCont .aboutText {
@@ -101,7 +135,5 @@
 .mastersCont .aboutText .heart {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-right: 15px;
-  margin-bottom: 15px;
 }
 /*# sourceMappingURL=ad2.css.map */

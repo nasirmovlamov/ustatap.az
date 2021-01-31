@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
     Link
   } from "react-router-dom";
@@ -11,6 +11,8 @@ import  fullStar  from  "../assets/images/component/element/fullStar.svg"
 import  halfStar  from  "../assets/images/component/element/halfStar.svg"
 import  carona    from  "../assets/images/component/element/carona.svg"
 import  vipMaster    from  "../assets/images/component/element/vipMaster.png"
+import axios from 'axios'
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 function VipAd2(props) {
     const stars = []
@@ -39,19 +41,49 @@ function VipAd2(props) {
     const backgroundImgHuman = {
         background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`
     }
+
+
+    const [checker , setChecker] = useState(false)
+    
+    const heartPost = () => {
+        if(!checker)
+        {
+            document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+            axios.post('http://ustatap.testjed.me/', {addFavorite:true})
+             .then(res => (console.log(res) ))
+             .catch(err => console.log(err))
+             setChecker(true)
+        }
+        else 
+        {
+            document.getElementById(`${props.id}`).setAttribute('style' , 'color:#2E3436;')
+            axios.post('http://ustatap.testjed.me/', {addFavorite:false})
+             .then(res => (console.log(res) ))
+             .catch(err => console.log(err))
+             setChecker(false)
+
+        }
+        
+    }
+    const viewHandler = () => {
+        axios.post('http://ustatap.testjed.me/', {increase:props.view+1})
+             .then(res => console.log(res))
+             .catch(err => console.log(err))
+    }
+
+
     return (
-        <Link to={"/masters/" + props.id}>
+        
             <div className="Vipad">
                 <img src={carona} alt="" className="crown"/>
-                <div className="mainImg" style={backgroundImgHuman}></div>
+                <Link to={"/masters/" + props.id}><button className="mainImg" style={backgroundImgHuman}></button></Link>
                 <div className="subCont">
-                    <div className="flexCont1">  <p>{props.name}</p>  <img src={favorite} alt=""/></div>
+                    <div className="flexCont1">  <p>{props.name}</p>  <button onClick={() => heartPost()} className="heartBtn"><FavoriteIcon id={props.id}/></button></div>
                     <p className="jobTitle">{props.job}</p>
                     <div className="flexCont2">   <p className="address">{props.address}</p></div>
                     <div className="stars">{stars}</div>
                 </div>
             </div>
-        </Link>
     )
 }
 

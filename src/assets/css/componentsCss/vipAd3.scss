@@ -5,7 +5,8 @@
     background-color: #58BC40;
     box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
     transition: 1s box-shadow;
-    border-radius: 3px;
+    border-radius: 5px;
+    overflow: hidden;
     &:hover 
     {
         box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
@@ -15,7 +16,7 @@
     .crown
     {
         position: absolute;
-        margin-top: -50px;
+        margin-top: -55px;
         margin-left: -35px;   
     }
     
@@ -28,6 +29,7 @@
     align-items:center;
     background-color: #fff;
     background-size: cover !important;
+    border: none;
     }
     .aboutText
     {
@@ -84,6 +86,17 @@
                 justify-content:center;
                 align-items:center;
             }
+        }
+        .heartBtn
+        {
+            width: 20px;
+            margin: 0px;
+            border: none;
+            background: transparent;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items:center ;
         }
     }
 }

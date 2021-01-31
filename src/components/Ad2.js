@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
     Link
   } from "react-router-dom";
@@ -9,6 +9,7 @@ import halfStar from "../assets/images/component/element/halfStar.svg"
 import axios from 'axios'
 import location from "../assets/images/component/element/location.svg"
 import heart from "../assets/images/component/element/heart.svg"
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 function Ad2(props) {
     const stars = []
@@ -37,28 +38,45 @@ function Ad2(props) {
         background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`,
     }
 
+    const [checker , setChecker] = useState(false)
+    
     const heartPost = () => {
-        axios.post('http://ustatap.testjed.me/', {addFavorite:"add favorite"})
-             .then(res => console.log(res))
+        if(!checker)
+        {
+            document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+            axios.post('http://ustatap.testjed.me/', {addFavorite:true})
+             .then(res => (console.log(res) ))
              .catch(err => console.log(err))
+             setChecker(true)
+        }
+        else 
+        {
+            document.getElementById(`${props.id}`).setAttribute('style' , 'color:#2E3436;')
+            axios.post('http://ustatap.testjed.me/', {addFavorite:false})
+             .then(res => (console.log(res) ))
+             .catch(err => console.log(err))
+             setChecker(false)
+
+        }
+        
     }
     const viewHandler = () => {
-        axios.post('http://ustatap.testjed.me/', {increase:"View"})
+        axios.post('http://ustatap.testjed.me/', {increase:props.view+1})
              .then(res => console.log(res))
-                .catch(err => console.log(err))
+             .catch(err => console.log(err))
     }
 
 
     return (
             <div className="mastersCont">
-                <button className="masterImg" style={bgImg} ></button>
+                <Link to={"/masters/" + props.id} className="masterImg"  style={bgImg}><button className="masterImgBtn" onClick={() => viewHandler()}   ></button></Link>
                 <div className="aboutText">
                     <p className="name">{props.name}</p>
                     <p className="job">{props.job}</p>
                     <p className="location"><img src={location} alt="location"/> {props.address}</p>
                     <div className="stars">{stars}</div>
                     <p className="rating">Reyting sayı {props.rating} </p>
-                    <img className="heart" src={heart} alt="ürək"/>
+                    <button className="heartBtn"  onClick={() => heartPost()}><FavoriteIcon id={props.id}/></button>
                 </div> 
             </div>
     )

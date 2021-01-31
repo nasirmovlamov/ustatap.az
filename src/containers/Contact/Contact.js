@@ -18,7 +18,8 @@ function Contact(props) {
         description: Yup.string().required('Required'),
     })
     const onSubmit =  (values) => {
-            axios.post('https://jsonplaceholder.typicode.com/posts', {values: values})
+
+            axios.post('http://ustatap.testjed.me/elaqe', {values: values})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }

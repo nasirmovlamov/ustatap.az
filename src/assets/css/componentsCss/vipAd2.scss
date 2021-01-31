@@ -5,7 +5,8 @@
     font-family: "ComfortaaRegular";
     color: black;
     box-shadow: 0px 0px 20px 5px lightgray;
-    border-radius: 3px;
+    border-radius: 5px;
+    overflow: hidden;
     transition: 1s box-shadow;
     &:hover 
     {
@@ -24,6 +25,8 @@
         background-size: cover !important;
         width: 264px;
         height: 308px;
+        border: none;
+
     }
     p 
     {
@@ -50,15 +53,27 @@
         opacity: 0.5;
         font-size: 12px;
         margin-top: 20px;
-        margin-left: 10px;
-    }
+        }
     .stars
     {
         margin-top: 20px;
-        margin-left: 10px;
         img 
         {
             transform: scale(2);
         }
+    }
+    .heartBtn
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        margin: 0px;
+        width: 45px;
+        align-self: flex-end;
+        border: none ;
+        background-color: transparent;
+        margin-bottom: 10px;
+        margin-right: -10px;
     }
 }   

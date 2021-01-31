@@ -11,16 +11,10 @@ import TopSelection from '../../components/TopSelection'
 function UserRegistration() {
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-    const validationSchema = Yup.object({
-        name: Yup.string().required('Required'),
-        email: Yup.string().email('Invalid email format').required('Required'),
-        phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
-        password: Yup.string().required('Required'),
-        confirmPassword: Yup.string().required('Required'),
-    })
+    
 
     const onSubmit =  (values) => {
-            axios.post('https://jsonplaceholder.typicode.com/posts', {values: values})
+            axios.post('http://ustatap.testjed.me/istifadeci-qeydiyyati', {values: values})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
@@ -34,6 +28,14 @@ function UserRegistration() {
         confirmPassword:'',
     }
       
+    const validationSchema = Yup.object({
+        name: Yup.string().required('Required'),
+        email: Yup.string().email('Invalid email format').required('Required'),
+        phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
+        password: Yup.string().required('Required'),
+        confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    })
 
     return (
         <div className="userRegCont">

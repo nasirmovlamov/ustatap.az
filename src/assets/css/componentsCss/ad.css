@@ -7,7 +7,8 @@ a {
   transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
   transition: 1s box-shadow, 1s -webkit-box-shadow;
-  border-radius: 3px;
+  border-radius: 5px;
+  overflow: hidden;
   width: 281px;
   height: 290px;
   -webkit-box-shadow: 0px 4px 52px 9px rgba(0, 0, 0, 0.25);
@@ -48,7 +49,16 @@ a {
       -ms-flex-align: center;
           align-items: center;
   background-color: #fff;
-  background-size: cover !important;
+  background-size: cover;
+  -webkit-transition: 1s  background-size;
+  transition: 1s  background-size;
+  background-position: center;
+}
+
+.ad .mainImg:hover {
+  background-size: 120%;
+  -webkit-transition: 1s  background-size;
+  transition: 1s  background-size;
 }
 
 .ad .lineAd {
@@ -102,7 +112,7 @@ a {
   font-size: 14px;
   height: 300px !important;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   margin-left: 3px;
 }
 

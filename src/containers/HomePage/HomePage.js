@@ -78,7 +78,7 @@ function HomePage(props) {
     
     
 
-    latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
+    latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view={1258} image={ad.images} id={ad.id}/>)  ) 
     jobCategoryApi.map((category) => jobCategory.push(category.name))
     latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
     latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
@@ -327,7 +327,6 @@ function HomePage(props) {
                         </div>
 
 
-                        <SubBanner marginTop="60px" marginBottom="78px"/>
 
 
                         <div className="typeAddContainer"> 
@@ -350,7 +349,6 @@ function HomePage(props) {
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
 
-                        <SubBanner marginTop="60px" marginBottom="78px"/>
 
                         
                         <div className="typeAddContainer"> 

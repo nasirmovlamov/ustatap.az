@@ -11,6 +11,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 100px;
 }
 
 .masterRegistrationCont .registration {
@@ -41,11 +42,21 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 540px;
   height: auto;
+}
+
+.masterRegistrationCont .registration .formContReg form .button {
+  margin-top: 30px;
+  width: 240px;
+  height: 50px;
+}
+
+.masterRegistrationCont .registration .formContReg form .button p {
+  font-size: 18px !important;
 }
 
 .masterRegistrationCont .registration .formContReg form input {
@@ -57,11 +68,18 @@
   border: none;
   border-bottom: 1px solid lightgray;
   height: 30px;
-  margin-bottom: 28px;
+  margin-bottom: 5px;
 }
 
 .masterRegistrationCont .registration .formContReg form input:focus {
   outline: none;
+}
+
+.masterRegistrationCont .registration .formContReg form .errors {
+  margin-bottom: 5px;
+  color: red;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .masterRegistrationCont .registration .formContReg form select {
@@ -117,20 +135,5 @@
   background-color: transparent;
   border-radius: 10px;
   font-family: "FuturicaRegular";
-}
-
-.masterRegistrationCont .registration .formContReg form .selections .buttons button:nth-child(1) {
-  background-color: #58BC40;
-  color: white;
-}
-
-.masterRegistrationCont .registration .formContReg form .selections .buttons button:nth-child(5) {
-  background-color: #58BC40;
-  color: white;
-}
-
-.masterRegistrationCont .registration .formContReg form .selections .buttons button:nth-child(9) {
-  background-color: #58BC40;
-  color: white;
 }
 /*# sourceMappingURL=masterRegistration.css.map */

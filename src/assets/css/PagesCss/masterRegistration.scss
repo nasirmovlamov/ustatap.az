@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 100px;
+    
     .registration
     {
         display: flex;
@@ -19,13 +21,24 @@
         .formContReg {
         margin-left: 30px;
         margin-top: 40px;
+
             form {
+                
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
                 width: 540px;
                 height: auto;
-
+                .button 
+                {
+                    margin-top: 30px;
+                    width: 240px;
+                    height: 50px;
+                    p 
+                    {
+                        font-size: 18px !important; 
+                    }
+                }
                 input {
                     width: 100%;
                     margin: 0px;
@@ -35,13 +48,18 @@
                     border: none;
                     border-bottom: 1px solid lightgray;
                     height: 30px;
-                    margin-bottom: 28px;
+                    margin-bottom: 5px;
 
                     &:focus {
                         outline: none;
                     }
                 }
-
+                .errors 
+                {
+                    margin-bottom: 5px;
+                    color: red;
+                    align-self: flex-start;
+                }
                 select {
                     width: 100.8%;
                     font-family: "FuturicaRegular";
@@ -89,20 +107,7 @@
                             border-radius: 10px;
                             font-family: "FuturicaRegular";
 
-                            &:nth-child(1) {
-                                background-color: #58BC40;
-                                color: white;
-                            }
-
-                            &:nth-child(5) {
-                                background-color: #58BC40;
-                                color: white;
-                            }
-
-                            &:nth-child(9) {
-                                background-color: #58BC40;
-                                color: white;
-                            }
+                            
                         }
                     }
                 }

@@ -58,11 +58,16 @@
   border: none;
   border-bottom: 1px solid lightgray;
   height: 30px;
-  margin-bottom: 57px;
+  margin-bottom: 10px;
 }
 
 .companyRegCont input:focus {
   outline: none;
+}
+
+.companyRegCont .errors {
+  margin-bottom: 30px;
+  color: red;
 }
 
 .companyRegCont select {
@@ -144,21 +149,6 @@
   background-color: transparent;
   border-radius: 10px;
   font-family: "FuturicaRegular";
-}
-
-.companyRegCont .formPart2 .selections .buttons button:nth-child(1) {
-  background-color: #58BC40;
-  color: white;
-}
-
-.companyRegCont .formPart2 .selections .buttons button:nth-child(5) {
-  background-color: #58BC40;
-  color: white;
-}
-
-.companyRegCont .formPart2 .selections .buttons button:nth-child(9) {
-  background-color: #58BC40;
-  color: white;
 }
 
 .companyRegCont option[value=""][disabled] {

@@ -36,13 +36,17 @@
         border: none;
         border-bottom: 1px solid lightgray;
         height: 30px;
-        margin-bottom: 57px;
+        margin-bottom: 10px;
 
         &:focus {
             outline: none;
         }
     }
-
+    .errors 
+    {
+        margin-bottom: 30px;
+        color: red;
+    }
     
       select {
           width: 100.8%;
@@ -106,20 +110,7 @@
                      border-radius: 10px;
                      font-family: "FuturicaRegular";
 
-                     &:nth-child(1) {
-                         background-color: #58BC40;
-                         color: white;
-                     }
-
-                     &:nth-child(5) {
-                         background-color: #58BC40;
-                         color: white;
-                     }
-
-                     &:nth-child(9) {
-                         background-color: #58BC40;
-                         color: white;
-                     }
+                     
                  }
              }
          } //Selection
