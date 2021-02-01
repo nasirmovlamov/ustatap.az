@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.b0a90930.chunk.css",
-    "main.js": "/static/js/main.ccf3bcd1.chunk.js",
-    "main.js.map": "/static/js/main.ccf3bcd1.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6a13364b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6a13364b.js.map",
+    "main.css": "/static/css/main.edc75acd.chunk.css",
+    "main.js": "/static/js/main.d88cc7b4.chunk.js",
+    "main.js.map": "/static/js/main.d88cc7b4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.24b1b848.js",
+    "runtime-main.js.map": "/static/js/runtime-main.24b1b848.js.map",
     "static/css/2.165ff965.chunk.css": "/static/css/2.165ff965.chunk.css",
-    "static/js/2.8c914313.chunk.js": "/static/js/2.8c914313.chunk.js",
-    "static/js/2.8c914313.chunk.js.map": "/static/js/2.8c914313.chunk.js.map",
-    "static/js/3.35dc6151.chunk.js": "/static/js/3.35dc6151.chunk.js",
-    "static/js/3.35dc6151.chunk.js.map": "/static/js/3.35dc6151.chunk.js.map",
+    "static/js/2.5078d59b.chunk.js": "/static/js/2.5078d59b.chunk.js",
+    "static/js/2.5078d59b.chunk.js.map": "/static/js/2.5078d59b.chunk.js.map",
+    "static/js/3.10ffbf90.chunk.js": "/static/js/3.10ffbf90.chunk.js",
+    "static/js/3.10ffbf90.chunk.js.map": "/static/js/3.10ffbf90.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.165ff965.chunk.css.map": "/static/css/2.165ff965.chunk.css.map",
-    "static/css/main.b0a90930.chunk.css.map": "/static/css/main.b0a90930.chunk.css.map",
-    "static/js/2.8c914313.chunk.js.LICENSE.txt": "/static/js/2.8c914313.chunk.js.LICENSE.txt",
+    "static/css/main.edc75acd.chunk.css.map": "/static/css/main.edc75acd.chunk.css.map",
+    "static/js/2.5078d59b.chunk.js.LICENSE.txt": "/static/js/2.5078d59b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/FuturicaL.335ed114.ttf",
     "static/media/HomePage.css": "/static/media/subBannerBg.bcbd256b.jpg",
     "static/media/adImage.b7202de4.png": "/static/media/adImage.b7202de4.png",
     "static/media/addsPage.css": "/static/media/animatedButton.cf5ffc0d.svg",
     "static/media/arrDown.4c6a058b.svg": "/static/media/arrDown.4c6a058b.svg",
     "static/media/arrowRight.36535815.svg": "/static/media/arrowRight.36535815.svg",
+    "static/media/loginModal.css": "/static/media/backgroundForLogin.7f9408e2.png",
     "static/media/bmgLogo.f2b438b6.svg": "/static/media/bmgLogo.f2b438b6.svg",
     "static/media/calendar.1b19fa1e.svg": "/static/media/calendar.1b19fa1e.svg",
     "static/media/calendarForComment.765e8a8b.svg": "/static/media/calendarForComment.765e8a8b.svg",
@@ -105,10 +106,10 @@
     "static/media/wwwWhite.004b0fdf.svg": "/static/media/wwwWhite.004b0fdf.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6a13364b.js",
+    "static/js/runtime-main.24b1b848.js",
     "static/css/2.165ff965.chunk.css",
-    "static/js/2.8c914313.chunk.js",
-    "static/css/main.b0a90930.chunk.css",
-    "static/js/main.ccf3bcd1.chunk.js"
+    "static/js/2.5078d59b.chunk.js",
+    "static/css/main.edc75acd.chunk.css",
+    "static/js/main.d88cc7b4.chunk.js"
   ]
 }

@@ -114,6 +114,11 @@
             width: 210px;
             font-size: 16px;
             margin-top: 24px;
+            a {
+                display: flex;
+            align-items: center;
+            color: white;
+            }
             &:nth-child(1)
             {
                 margin: 0;
@@ -130,6 +135,10 @@
         font-size: 19px;
         color: white;
         font-family: "ComfortaaRegular";
+        a 
+        {
+            color: white;
+        }
         p 
         {
             margin: 0;
@@ -147,6 +156,10 @@
         font-size: 19px;
         color: white;
         font-family: "ComfortaaRegular";
+        a 
+        {
+            color: white;
+        }
         p 
         {
             margin: 0;

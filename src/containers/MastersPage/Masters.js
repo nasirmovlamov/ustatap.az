@@ -15,7 +15,7 @@ import VipAd2 from '../../components/VipAd2';
 import SubBanner from '../../components/SubBanner';
 import axios from 'axios';
 
-function Masters() {
+function Masters(props) {
 
 
 
@@ -67,8 +67,10 @@ function Masters() {
                 <Category  type4={1}  color="#F27B29" btnCollor="green"/>
 
                     <div className="adsContainer">
-                        <img src={vipTopImg} alt=""/>
-                        <div className="Vipmasters"> {vipMasters} </div>
+                        { props.hideVip &&
+                                    <><img src={vipTopImg} alt=""/>
+                                    <div className="Vipmasters"> {vipMasters} </div></>
+                        }
                         <SubBanner/>
                         <div className="masters"> {masters} </div>
                     </div>    

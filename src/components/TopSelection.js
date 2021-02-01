@@ -18,7 +18,7 @@ function TopSelection(props) {
             <div className="topSelection">
             
                 <div className="regSelection">
-                    <Link to="/user-qeydiyyati"><p><img src={imageHandler(props.value1)} width="28" alt=""/> Elan yerləşdirməkçün qeydiyyatdan keçin</p></Link>
+                    <Link to="/istifadeci-qeydiyyati"><p><img src={imageHandler(props.value1)} width="28" alt=""/> Elan yerləşdirməkçün qeydiyyatdan keçin</p></Link>
                     <Link to="/usta-qeydiyyati"><p><img src={imageHandler(props.value2)} width="28" alt=""/>Usta kimi qeydiyyatdan keç</p></Link>
                     <Link to="/shirket-qeydiyyati"><p><img src={imageHandler(props.value3)} width="28" alt=""/>Şirkət kimi qeydiyyatdan keç</p></Link>
                 </div>

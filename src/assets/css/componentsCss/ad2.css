@@ -62,8 +62,11 @@
       align-self: flex-end;
   border: none;
   background-color: transparent;
-  margin-bottom: 10px;
-  margin-right: -10px;
+  margin-bottom: 15px;
+}
+
+.mastersCont .heartBtn svg {
+  color: gray;
 }
 
 .mastersCont .aboutText {

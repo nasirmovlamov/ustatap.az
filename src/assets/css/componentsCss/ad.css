@@ -29,6 +29,10 @@ a {
   border: none;
 }
 
+.ad .btnHeart svg {
+  color: gray;
+}
+
 .ad .dateAd {
   width: 73px;
   font-size: 12px;

@@ -16,11 +16,16 @@
       -ms-flex-align: center;
           align-items: center;
   position: fixed;
+  height: 80px;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
   z-index: 30;
-  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: transparent;
+          box-shadow: transparent;
+}
+
+.navbar .navlogo {
+  width: 70px;
 }
 
 .navbar .text {

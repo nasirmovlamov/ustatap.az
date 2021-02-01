@@ -55,7 +55,7 @@ function VipAd3(props) {
         }
         else 
         {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:#2E3436;')
+            document.getElementById(`${props.id}`).setAttribute('style' , 'color:white;')
             axios.post('http://ustatap.testjed.me/', {addFavorite:false})
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))

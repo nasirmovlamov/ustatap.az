@@ -67,8 +67,20 @@ function Header() {
     setOpen(false);
     };
 
-    
+    const hideVip = null;
    
+    
+    window.addEventListener("scroll", function(){
+      if (window.scrollY > 50)
+      {
+        document.getElementById('navbar').setAttribute('style' , 'background:rgba(0,0,0,0.8);transition:0.5s background;box-shadow: 10px 10px 10px rgba(0,0,0,0.3);')
+      }
+      else if (window.scrollY < 50)
+      {
+        document.getElementById('navbar').setAttribute('style' , 'background:transparent;transition:0.5s background;box-shadow: transparent;')
+
+      } 
+    });
     return (
         
         <Router>
@@ -85,9 +97,9 @@ function Header() {
                   {<LoginModal modalOpener={handleOpen} modalCloser={handleClose}/>}
         </Modal>
 
-          <div className="topContainer">
-            <navbar className="navbar">
-                <Link to="/"><img src={mainLogo} width="90px" alt=""/></Link>
+          <div className="topContainer" >
+            <navbar className="navbar" id="navbar">
+                <Link to="/"><img className="navlogo" src={mainLogo} width="90px" alt=""/></Link>
                 <div className="text"> 
                     <Link to="/"><p>Əsas Səhifə</p></Link>
                     <Link to="/elanlar"><p>Elanlar</p> </Link>
@@ -97,7 +109,7 @@ function Header() {
                     <Link to="/reklam"><p>Reklam</p> </Link>
                     <Link to="/elaqe"><p>Əlaqə</p> </Link>
                     <button className="login" onClick={() => handleOpen()}  ><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
-                    <button className="putAd"><span>+</span> Elan Yerləşdir</button> 
+                    <Link to="/istifadeci-qeydiyyati"><button className="putAd"><span>+</span> Elan Yerləşdir</button></Link> 
                 </div>
             </navbar>
             <SearchBox/>
@@ -118,10 +130,10 @@ function Header() {
                 <AddsPage/>
               </Route>
               <Route path="/ustalar">
-                <Masters/>
+                <Masters hideVip={hideVip}/>
               </Route>
               <Route path="/shirketler">
-                <Companies/>
+                <Companies hideVip={hideVip}/>
               </Route>
               <Route path="/haqqimizda">
                 <AboutUs/>
@@ -148,7 +160,7 @@ function Header() {
                 <Slider/>
               </Route>
               <Route path="/">
-                <HomePage numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
+                <HomePage hideVip={hideVip} numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
               </Route>
               
               

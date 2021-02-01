@@ -15,7 +15,7 @@ import master from "../../assets/images/component/element/master.png"
 import VipAd3 from '../../components/VipAd3';
 import companyLogo from "../../assets/images/component/element/companyLogo.png"
 import vipCompaniesTop from "../../assets/images/component/element/vipCompaniesTop.svg"
-function Companies() {
+function Companies(props) {
     var url = window.location.href;
     var id = url.substring(url.lastIndexOf('/masters/') + 1);
     var mainId = url.substring(url.lastIndexOf('/') + 1);
@@ -55,10 +55,14 @@ function Companies() {
                 <Category  type4={1} type3={1}  btnColor="#F97922"/>
 
                     <div className="adsContainer">
-                        <img src={vipCompaniesTop} className="topImgVIP" alt=""/>
-                        <div className="companiesVipCont">
-                            {vipCompanies}
-                        </div>
+                        {
+                            props.hideVip && <>
+                                    <img src={vipCompaniesTop} className="topImgVIP" alt=""/>
+                                    <div className="companiesVipCont">
+                                        {vipCompanies}
+                                    </div>
+                            </>
+                        }
                         <SubBanner/>
                         <div className="companiesCont">
                             {companies}

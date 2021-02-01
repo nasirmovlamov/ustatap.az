@@ -35,7 +35,10 @@ import VipAd3 from '../../components/VipAd3'
 import Masters from '../MastersPage/Masters'
 import Companies from '../Companies/Companies'
 import {Link} from "react-router-dom"
+import FadeIn from 'react-fade-in';
 function HomePage(props) {
+
+
 
     const latestAd = []
     const masters = []
@@ -98,6 +101,7 @@ function HomePage(props) {
             
             
             <main className="main"> 
+            
                 <aside className="aside" id="aside">
                     {/* 1 */}
                     <button className="contForAside" onClick={() => clickHandler(1)}>
@@ -314,7 +318,8 @@ function HomePage(props) {
                         <SubBanner marginTop="60px" marginBottom="78px"/>
 
 
-
+                    {
+                        props.hideVip &&
                         <div className="typeAddContainer"> 
                             <p className="title">Vip Ustalar</p>
                             <div className="line2"></div>
@@ -325,7 +330,7 @@ function HomePage(props) {
                             </div>  
                             <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
-
+                    }
 
 
 
@@ -339,7 +344,9 @@ function HomePage(props) {
                         </div>
 
                         <SubBanner marginTop="60px" marginBottom="78px"/>
-
+                    
+                        {
+                        props.hideVip &&
                         <div className="typeAddContainer"> 
                             <p className="title">Vip Şirkətlər</p>
                             <div className="line3"></div>
@@ -348,9 +355,9 @@ function HomePage(props) {
                             </div>     
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
+                        }
 
-
-                        
+                        <FadeIn>
                         <div className="typeAddContainer"> 
                             <p className="title">Şirkətlər</p>
                             <div className="line3"></div>
@@ -359,7 +366,7 @@ function HomePage(props) {
                             </div>     
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
-
+                        </FadeIn>
                         <div className="typeAddContainer"> 
                             <p className="title">Santexnika elanları</p>
                             <div className="line4"></div>

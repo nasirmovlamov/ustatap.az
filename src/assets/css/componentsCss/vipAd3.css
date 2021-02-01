@@ -142,4 +142,8 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+.vipCompany .aboutText .heartBtn svg {
+  color: white;
+}
 /*# sourceMappingURL=vipAd3.css.map */
