@@ -60,7 +60,6 @@ a {
 }
 
 .ad .mainImg:hover {
-  background-size: 120%;
   -webkit-transition: 1s  background-size;
   transition: 1s  background-size;
 }

@@ -67,7 +67,7 @@ function Header() {
     setOpen(false);
     };
 
-    const hideVip = null;
+    const hideVip = 1;
    
     
     window.addEventListener("scroll", function(){
