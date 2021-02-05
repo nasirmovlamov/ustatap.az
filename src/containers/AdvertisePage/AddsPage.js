@@ -10,13 +10,21 @@ import adImage from "../../assets/images/component/element/adImage.png"
 import Ad from '../../components/Ad';
 
 function AddsPage(props) {
+
+    document.title = " Ustatap.net Elanlar"
+    const [filter, setfilter] = useState(false)
     const [Adds, setAdds] = useState([])
     var url = window.location.href;
     var id = url.substring(url.lastIndexOf('/') + 1 );
+    var numId = url.substring(url.lastIndexOf('/') + 1 );
+    const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [SelectedAd, setSelectedAd] = useState(0)
     const [latestAdApi, setlatestAdApi] = useState([0])
+     const jobCategory = []
+
     const AllAd = []
-    AllAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
+    jobCategoryApi.map((category) => jobCategory.push(category.category_id))
+    
     useEffect(() => 
     {
         axios.get(`http://ustatap.testjed.me/singlead/${id}`) 
@@ -24,8 +32,60 @@ function AddsPage(props) {
 
         axios.get("http://ustatap.testjed.me/ad") 
             .then((res) =>  (setlatestAdApi(res.data) ))
-
+        url = window.location.href;
+        console.log(url);
     } , [])
+
+    
+    const [filterCategory, setFilterCategory] = useState(0)
+    const [filterCity, setFilterCity] = useState(0)
+    const [filterDistrict, setFilterDistrict] = useState(0)
+    const [filterDate, setFilterDate] = useState(0)
+
+    const filterAll = () => {
+        setfilter(true)
+    }
+
+    latestAdApi.map(
+        ad => 
+            {
+                console.log(numId);
+                if(numId === 'elanlar')
+                {
+                    if(filter === true)
+                    {
+                        if (ad.category_id === filterCategory && ad.city_id === filterCity ) 
+                        {
+                            AllAd.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  
+                        }
+                    }
+                    else 
+                    {
+                        AllAd.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  
+                    }
+                }
+                if(parseInt(numId) !== 'elanlar')
+                {
+                    if(ad.category_id===parseInt(numId))
+                    {
+                        if(filter === true)
+                        {
+                            if (ad.category_id === filterCategory && ad.city === filterCity ) {
+                                AllAd.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)                                 
+                            }
+                        }
+                        else
+                        {
+                            AllAd.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>) 
+                        }
+                    }
+                }
+                else{}
+                
+            } 
+        
+    ) 
+
     return (
         <div className="addsPage">
             <div className="generalCont">
@@ -42,10 +102,10 @@ function AddsPage(props) {
                             
                         </p>
                     </div>
-                    <button className="topButton">Elanlar üzrə Axtarış</button>
+                    <button className="topButton" >Elanlar üzrə Axtarış</button>
                 </div>
 
-                <Category type4={undefined} btnColor="#F27B29"/>
+                <Category function={filterAll}  setFilterCategory={setFilterCategory} setFilterDistrict={setFilterDistrict} setFilterCity={setFilterCity} setFilterDate={setFilterDate} type4={undefined} btnColor="#F27B29"/>
 
                     <div className="adsContainer">
                         {AllAd}
@@ -57,4 +117,4 @@ function AddsPage(props) {
     )
 }
 
-export default AddsPage
+export default (AddsPage )

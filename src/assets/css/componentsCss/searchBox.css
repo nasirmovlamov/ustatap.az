@@ -146,19 +146,42 @@
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 70%;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  margin-left: 30px;
-  border-radius: 5px;
+  display: none;
+  height: auto;
+  margin-top: 8px;
+  max-height: 404px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.dropdown-content:nth-child(1) {
-  background-color: red;
+.dropdown-content::-webkit-scrollbar {
+  width: 3px;
+  background-color: white;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: 1px solid slategrey;
+  height: 10px;
+}
+
+.dropdown-content .searchBtn {
+  border: none;
 }
 
 .dropdown1 {
@@ -177,18 +200,14 @@
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown-content button {
   padding: 12px 16px 15px 0;
   text-decoration: none;
   display: block;
-  margin-left: 10px;
   color: gray;
   font-family: "FuturicaRegular";
-  border-bottom: 1px dashed rgba(242, 123, 41, 0.5);
-}
-
-.dropdown-content a:nth-child(3) {
-  border: none;
+  border-bottom: 1px dashed rgba(242, 123, 41, 0.5) !important;
+  background-color: #fff;
 }
 
 /* Change color of dropdown links on hover */

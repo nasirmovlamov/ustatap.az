@@ -20,7 +20,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 82%;
+  width: 1020px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -33,6 +33,16 @@
   margin: 0px;
 }
 
+.categoryCont .categCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .categoryCont .ctgryGrid {
   width: auto;
   display: -ms-grid;
@@ -40,14 +50,16 @@
   -ms-grid-columns: (1fr)[1];
       grid-template-columns: repeat(1, 1fr);
   grid-gap: 14px;
+  height: 65px;
 }
 
 .categoryCont .ctgryGrid .part1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .categoryCont .ctgryGrid .part1 p {
@@ -65,9 +77,60 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 800px;
+  z-index: 5;
 }
 
-.categoryCont .ctgryGrid .part2 button {
+.categoryCont .ctgryGrid .part2 .categoryButton {
+  z-index: 5;
+  font-size: 15px;
+  color: black;
+}
+
+.categoryCont .ctgryGrid .part2 .categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 145px;
+  background-color: #fff;
+  font-family: "DaxlinePro";
+  color: gray;
+  margin-left: 10px;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+  display: none;
+}
+
+.categoryCont .ctgryGrid .part2 .categories .catBtn {
+  text-align: start;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+  background-color: #fff;
+}
+
+.categoryCont .ctgryGrid .part2 .categories .catBtn:hover {
+  background-color: #f27b29;
+  color: white;
+}
+
+.categoryCont .ctgryGrid .part2 .categories p {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.categoryCont .ctgryGrid .part2 .categoryButton {
   width: 186px;
   height: 33px;
   text-align: center;
@@ -81,19 +144,19 @@
   border: none;
 }
 
-.categoryCont .ctgryGrid .part2 button:focus {
+.categoryCont .ctgryGrid .part2 .categoryButton:focus {
   outline: none;
 }
 
-.categoryCont .ctgryGrid .part2 button:nth-child(2) {
+.categoryCont .ctgryGrid .part2 .categoryButton:nth-child(2) {
   width: 158px;
 }
 
-.categoryCont .ctgryGrid .part2 button:nth-child(3) {
+.categoryCont .ctgryGrid .part2 .categoryButton:nth-child(3) {
   width: 156px;
 }
 
-.categoryCont .ctgryGrid .part2 button:nth-child(3) {
+.categoryCont .ctgryGrid .part2 .categoryButton:nth-child(3) {
   width: 156px;
 }
 /*# sourceMappingURL=category.css.map */

@@ -17,15 +17,12 @@ import axios from 'axios';
 
 function Masters(props) {
 
+    document.title = " Ustatap.net Ustalar"
 
 
-    
-    
     var url = window.location.href;
-    var id = url.substring(url.lastIndexOf('masters/') + 1);
-
-
-    var mainId = url.substring(url.lastIndexOf('/') + 1 );
+    var numId = url.substring(url.lastIndexOf('/') + 1 );
+    const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [SelectedMaster, setSelectedMaster] = useState(0)
     const [MasterApi, setMasterApi] = useState([0])
     const masters = []
@@ -35,10 +32,11 @@ function Masters(props) {
     MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/handymen") 
+            axios.get("http://ustatap.testjed.me/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
 
-        
+            axios.get("http://ustatap.testjed.me/jobcategory") 
+            .then((res) =>  (setJobCategoryApi(res.data) )) 
     } , [])
     
     
@@ -64,7 +62,7 @@ function Masters(props) {
                     <button className="topButton">Ustalar üzrə Axtarış</button>
                 </div>
 
-                <Category  type4={1}  color="#F27B29" btnCollor="green"/>
+                    <Category  type4={1}  color="#F27B29" btnCollor="green"/>
 
                     <div className="adsContainer">
                         { props.hideVip &&

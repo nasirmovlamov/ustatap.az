@@ -23,7 +23,11 @@ function LoginModal(props) {
     })
 
     const onSubmit =  (values) => {
+<<<<<<< HEAD
             axios.post('http://www.ustatap.testjed.me/login', {values: values})
+=======
+            axios.post('https://jsonplaceholder.typicode.com/posts', {email: values.email , password: values.password })
+>>>>>>> 21b03f17c259a35fd2bb8cfbe5a4ed10a86c93e7
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }

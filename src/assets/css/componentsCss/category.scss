@@ -14,7 +14,7 @@
     .divider
     {
         display: flex;
-        width: 82%;
+        width: 1020px;
         align-items: center;
         justify-content: center;
     }
@@ -23,17 +23,22 @@
     {
         margin: 0px;
     }
+    .categCont
+    {
+        display: flex;
+        flex-direction: column;
+    }
     .ctgryGrid
     {
         width: auto;
         display: grid;
         grid-template-columns: repeat(1,1fr);
         grid-gap: 14px;
-        
+        height: 65px;
         .part1 
         {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             p
             {
                 width: 186px;
@@ -47,7 +52,51 @@
         {
             display: flex;
             justify-content: space-between;
-            button 
+            width: 800px;
+            z-index: 5;
+            .categoryButton 
+            {
+                z-index: 5;
+                font-size: 15px;
+                color: black;
+                
+            }
+            .categories
+            {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                overflow: hidden;
+                justify-content: center;
+                width: 145px;
+                background-color: #fff;
+                font-family: "DaxlinePro";
+                color: gray;
+                margin-left: 10px;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+                z-index: 3;
+                display: none ;
+                .catBtn
+                {
+                    text-align: start;
+                    padding: 10px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    border: none;
+                    background-color: #fff;
+                    &:hover 
+                    {
+                        background-color: #f27b29;
+                        color: white;
+                    }
+                }
+                p 
+                {
+                    padding: 5px;
+                    font-size: 14px;
+                }
+            }
+            .categoryButton 
             {
                 width: 186px;
                 height: 33px;

@@ -105,6 +105,7 @@
     padding-bottom: 62px;
     .number 
     {
+        margin-top: 10px;
         p 
         {
             display: flex;
@@ -142,13 +143,10 @@
         p 
         {
             margin: 0;
-            margin-top: 24px;
             letter-spacing: 4.5px;
+            
+            margin-top: 10px;
 
-            &:nth-child(1)
-            {
-                margin: 0;
-            }
         }
     }
     .elements2
@@ -165,11 +163,8 @@
             margin: 0;
             letter-spacing: 4.5px;
 
-            margin-top: 27px;
-            &:nth-child(1)
-            {
-                margin: 0;
-            }
+            margin-top: 10px;
+            
         }
     }
 } 

@@ -41,12 +41,11 @@ a
         justify-content:center;
         align-items:center;
         background-color: #fff;
-        background-size: cover ;
+        background-size: cover;
         transition: 1s  background-size ;
         background-position: center;
         &:hover
         {
-            background-size: 120% ;
             transition: 1s  background-size ;
         }
     }
