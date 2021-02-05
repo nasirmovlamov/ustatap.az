@@ -101,15 +101,15 @@ function Header() {
             <navbar className="navbar" id="navbar">
                 <Link to="/"><img className="navlogo" src={mainLogo} width="90px" alt=""/></Link>
                 <div className="text"> 
-                    <Link to="/"><p>Əsas Səhifə</p></Link>
-                    <Link to="/elanlar"><p>Elanlar</p> </Link>
-                    <Link to="/ustalar"><p>Ustalar</p> </Link>
-                    <Link to="/shirketler"> <p>Şirkətlər</p> </Link>
-                    <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
-                    <Link to="/reklam"><p>Reklam</p> </Link>
-                    <Link to="/elaqe"><p>Əlaqə</p> </Link>
+                    <a href="/"><p>Əsas Səhifə</p></a>
+                    <a href="/elanlar"><p>Elanlar</p> </a>
+                    <a href="/ustalar"><p>Ustalar</p> </a>
+                    <a href="/shirketler"> <p>Şirkətlər</p> </a>
+                    <a href="/haqqimizda"><p>Haqqımızda</p> </a>
+                    <a href="/reklam"><p>Reklam</p> </a>
+                    <a href="/elaqe"><p>Əlaqə</p> </a>
                     <button className="login" onClick={() => handleOpen()}  ><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
-                    <Link to="/istifadeci-qeydiyyati"><button className="putAd"><span>+</span> Elan Yerləşdir</button></Link> 
+                    <a href="/istifadeci-qeydiyyati"><button className="putAd"><span>+</span> Elan Yerləşdir</button></a> 
                 </div>
             </navbar>
             <SearchBox/>

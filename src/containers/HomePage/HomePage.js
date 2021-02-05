@@ -78,7 +78,7 @@ function HomePage(props) {
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
-                <img  width='30px' height='auto' src={category.icon} alt={props.name}/>
+                <img  width='30px' height='auto'  src={`http://ustatap.testjed.me/storage/app/public/${category.icon}`} alt={props.name}/>
                 <p>{category.name}</p>
                 <button ><img  src={arrDown} alt=""/></button>
             </div>

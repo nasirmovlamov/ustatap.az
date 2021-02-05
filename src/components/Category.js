@@ -3,6 +3,7 @@ import axios from 'axios'
 import "../assets/css/componentsCss/category.css"
 import Button from './Button'
 import lupa from "../assets/images/component/element/lupa2.svg"
+import {Link} from 'react-router-dom'
 function Category(props) {
     const styleForBg = {
         backgroundColor: props.color ,
@@ -77,7 +78,7 @@ function Category(props) {
 
                     <div className="part2">
                         <div className="categCont">
-                            <button className="categoryButton" id="categoryBtn1" onClick={() => clickCategoryCont(1)}>Bütün Kateqoriya</button>
+                            <button className="categoryButton" id="categoryBtn1" onClick={() => clickCategoryCont(1)}></button>
                             <div className="categories" id="categories1">{jobCategoryApi.map((category) =>  <button id={category.id} onClick={() => changeValue('category' , category.id)} className="catBtn">{category.name}</button>)}</div>
                         </div>
                         
@@ -106,7 +107,7 @@ function Category(props) {
                         }
                     </div>
                 </div>
-                <Button function={props.function} name="axtar"  image2={lupa} color={props.btnColor}/>
+                <Link to=""><Button function={props.function} name="axtar"  image2={lupa} color={props.btnColor}/></Link>
             </div> 
         </div>
     )
