@@ -35,7 +35,6 @@ import VipAd3 from '../../components/VipAd3'
 import Masters from '../MastersPage/Masters'
 import Companies from '../Companies/Companies'
 import {Link} from "react-router-dom"
-import FadeIn from 'react-fade-in';
 function HomePage(props) {
 
 
@@ -357,7 +356,6 @@ function HomePage(props) {
                         </div>
                         }
 
-                        <FadeIn>
                         <div className="typeAddContainer"> 
                             <p className="title">Şirkətlər</p>
                             <div className="line3"></div>
@@ -366,7 +364,6 @@ function HomePage(props) {
                             </div>     
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
-                        </FadeIn>
                         <div className="typeAddContainer"> 
                             <p className="title">Santexnika elanları</p>
                             <div className="line4"></div>

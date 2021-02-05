@@ -23,7 +23,7 @@ function LoginModal(props) {
     })
 
     const onSubmit =  (values) => {
-            axios.post('http://ustatap.testjed.me/', {values: values})
+            axios.post('http://www.ustatap.testjed.me/login', {values: values})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
@@ -49,7 +49,7 @@ function LoginModal(props) {
                         <div className="errors"><ErrorMessage name="email"/></div>
                         <Field type="password" placeholder="Şifrənizi daxil edin"  name="password" />    
                         <div className="errors"><ErrorMessage name="password"/></div>
-                        <Button name="Daxil Ol" function={clickHandlerForClose} backgroundColor="#3D92A7" only={1} only2={2} />
+                        <Button type="submit" name="Daxil Ol" function={clickHandlerForClose} backgroundColor="#3D92A7" only={1} only2={2} />
                     </Form>
                </Formik>
                <p className="link"> Hesabınız yoxdur ? <button onClick={() => clickHandler()}>Qeydiyyatdan Keçin</button></p>
