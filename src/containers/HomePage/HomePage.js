@@ -56,13 +56,13 @@ function HomePage(props) {
 
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/ad") 
+        axios.get("http://ustatap.testjed.me/api/ad") 
              .then((res) =>  (setlatestAdApi(res.data)  ))
         axios.get("http://ustatap.testjed.me/handymen") 
              .then((res) =>  (setMasterApi(res.data) ))
         axios.get("http://ustatap.testjed.me/company") 
              .then((res) =>  (setCompanyApi(res.data) ))
-        axios.get("http://ustatap.testjed.me/jobcategory") 
+        axios.get("http://ustatap.testjed.me/xjobcategory") 
              .then((res) =>  (setJobCategoryApi(res.data) ))
 
     },[] )
