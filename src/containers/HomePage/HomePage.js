@@ -35,7 +35,6 @@ import VipAd3 from '../../components/VipAd3'
 import Masters from '../MastersPage/Masters'
 import Companies from '../Companies/Companies'
 import {Link} from "react-router-dom"
-import FadeIn from 'react-fade-in';
 function HomePage(props) {
 
     document.title = " Ustatap.net Əsas Səhifə"
@@ -57,13 +56,21 @@ function HomePage(props) {
 
     useEffect(() => 
     {
+<<<<<<< HEAD
         axios.get("http://ustatap.testjed.me/public/api/ad") 
+=======
+        axios.get("http://ustatap.testjed.me/api/ad") 
+>>>>>>> e0ac468275ad34f372b082449b54a5f090f2fbd0
              .then((res) =>  (setlatestAdApi(res.data)  ))
         axios.get("http://ustatap.testjed.me/public/api/handymen") 
              .then((res) =>  (setMasterApi(res.data) ))
         axios.get("http://ustatap.testjed.me/public/api/company") 
              .then((res) =>  (setCompanyApi(res.data) ))
+<<<<<<< HEAD
         axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
+=======
+        axios.get("http://ustatap.testjed.me/xjobcategory") 
+>>>>>>> e0ac468275ad34f372b082449b54a5f090f2fbd0
              .then((res) =>  (setJobCategoryApi(res.data) ))
 
     },[] )
@@ -184,7 +191,6 @@ function HomePage(props) {
                         </div>
                         }
 
-                        <FadeIn>
                         <div className="typeAddContainer"> 
                             <p className="title">Şirkətlər</p>
                             <div className="line3"></div>
@@ -193,7 +199,6 @@ function HomePage(props) {
                             </div>     
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
-                        </FadeIn>
                         <div className="typeAddContainer"> 
                             <p className="title">Santexnika elanları</p>
                             <div className="line4"></div>
