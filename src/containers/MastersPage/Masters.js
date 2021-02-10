@@ -32,10 +32,10 @@ function Masters(props) {
     MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
     useEffect(() => 
     {
-            axios.get("http://ustatap.testjed.me/handymen") 
+            axios.get("http://ustatap.testjed.me/public/api/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
 
-            axios.get("http://ustatap.testjed.me/jobcategory") 
+            axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
             .then((res) =>  (setJobCategoryApi(res.data) )) 
     } , [])
     

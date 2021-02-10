@@ -67,10 +67,10 @@ function SelectedCompany(props) {
     const [SelectedCompany, setSelectedCompany] = useState([0])
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/company") 
+        axios.get("http://ustatap.testjed.me/public/api/company") 
             .then((res) =>  (setCompanyApi1(res.data) )) 
 
-        axios.get(`http://ustatap.testjed.me/company/${mainId}`) 
+        axios.get(`http://ustatap.testjed.me/public/api/company/${mainId}`) 
             .then((res) =>  (setSelectedCompany(res.data)))
 
     } , [])

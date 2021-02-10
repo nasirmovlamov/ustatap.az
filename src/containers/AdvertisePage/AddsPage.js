@@ -27,10 +27,10 @@ function AddsPage(props) {
     
     useEffect(() => 
     {
-        axios.get(`http://ustatap.testjed.me/singlead/${id}`) 
+        axios.get(`http://ustatap.testjed.me/public/api/singlead/${id}`) 
              .then((res) =>  (setSelectedAd(res.data)))
 
-        axios.get("http://ustatap.testjed.me/ad") 
+        axios.get("http://ustatap.testjed.me/public/api/ad") 
             .then((res) =>  (setlatestAdApi(res.data) ))
         url = window.location.href;
         console.log(url);

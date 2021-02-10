@@ -30,10 +30,10 @@ function Companies(props) {
     const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
-            axios.get("http://ustatap.testjed.me/company") 
+            axios.get("http://ustatap.testjed.me/public/api/company") 
             .then((res) =>  (setCompanyApi(res.data) )) 
            
-            axios.get("http://ustatap.testjed.me/jobcategory") 
+            axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
             .then((res) =>  (setJobCategoryApi(res.data) )) 
 
     } , [])

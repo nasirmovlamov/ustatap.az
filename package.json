@@ -2,7 +2,7 @@
   "name": "ustatap.az",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://www.ustatap.testjed.me/",
+  "homepage": "ustatap.testjed.me",
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.19.26",
     "@material-ui/core": "^4.11.3",

@@ -25,9 +25,7 @@ function LoginModal(props) {
             axios.post('http://www.ustatap.testjed.me/login', {values: values})
             .then(res => console.log(res))
              .catch(err => console.log(err))
-            axios.post('https://jsonplaceholder.typicode.com/posts', {email: values.email , password: values.password })
-             .then(res => console.log(res))
-             .catch(err => console.log(err))
+            
     }
     
     

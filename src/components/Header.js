@@ -32,6 +32,7 @@ import Modal from '@material-ui/core/Modal';
 import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import LoginModal from './LoginModal'
+import MemberArea from '../containers/MemberArea/MemberArea';
 
 
 
@@ -83,7 +84,7 @@ function Header() {
     });
     return (
         
-        <Router>
+      <div className="topContainer1" >
           
         <ScrolltoTop />
         
@@ -96,27 +97,28 @@ function Header() {
                   aria-describedby="simple-modal-description">
                   {<LoginModal modalOpener={handleOpen} modalCloser={handleClose}/>}
         </Modal>
-
-          <div className="topContainer" >
+        <div className="topContainer" >
             <navbar className="navbar" id="navbar">
                 <Link to="/"><img className="navlogo" src={mainLogo} width="90px" alt=""/></Link>
                 <div className="text"> 
-                    <a href="/"><p>Əsas Səhifə</p></a>
-                    <a href="/elanlar"><p>Elanlar</p> </a>
-                    <a href="/ustalar"><p>Ustalar</p> </a>
-                    <a href="/shirketler"> <p>Şirkətlər</p> </a>
-                    <a href="/haqqimizda"><p>Haqqımızda</p> </a>
-                    <a href="/reklam"><p>Reklam</p> </a>
-                    <a href="/elaqe"><p>Əlaqə</p> </a>
+                    <Link to="/"><p>Əsas Səhifə</p></Link>
+                    <Link to="/elanlar"><p>Elanlar</p> </Link>
+                    <Link to="/ustalar"><p>Ustalar</p> </Link>
+                    <Link to="/shirketler"> <p>Şirkətlər</p> </Link>
+                    <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
+                    <Link to="/reklam"><p>Reklam</p> </Link>
+                    <Link to="/elaqe"><p>Əlaqə</p> </Link>
                     <button className="login" onClick={() => handleOpen()}  ><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
-                    <a href="/istifadeci-qeydiyyati"><button className="putAd"><span>+</span> Elan Yerləşdir</button></a> 
+                    <Link to="/istifadeci-qeydiyyati"><button className="putAd"><span>+</span> Elan Yerləşdir</button></Link> 
                 </div>
             </navbar>
             <SearchBox/>
-          </div>
+            </div>
 
-
-            <Switch>
+          <Switch>
+              <Route path="/member-area">
+                  <MemberArea/>
+              </Route>
               <Route path={`/elanlar/secilmish-son-elan/:id`}>
                 <SelectedAd/>
               </Route>
@@ -162,12 +164,11 @@ function Header() {
               <Route path="/">
                 <HomePage hideVip={hideVip} numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
               </Route>
+              </Switch>
               
-              
-            </Switch>
             <Footer/>
+            </div>
 
-      </Router>
     )
 }
 

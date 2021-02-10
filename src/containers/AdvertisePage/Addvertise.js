@@ -10,8 +10,9 @@ import {
 
 import Footer from '../../components/Footer';
 import Statistica from '../../components/Statistica';
-import manForReklam from "../../assets/images/component/element/manForReklam.svg"
+import manForReklam from "../../assets/images/component/element/manForReklam.jpg"
 import Button from '../../components/Button';
+import img from '../../assets/images/component/element/manForReklam.jpg'
 function Addvertise() {
 
 
@@ -63,7 +64,7 @@ function Addvertise() {
                 </div>
 
                 <div className="reklamCont"> 
-                    <img src={manForReklam} alt=""/>
+                    <img src={img} alt=""/>
                     <div className="reklamText">
                         <p className="reklamTitle">UstaTap.net saytında reklam</p>
                         <p className="reklamDescription">
@@ -74,7 +75,9 @@ function Addvertise() {
                         </p>
                     </div>
                 </div>
+                
             </div>
+            
                 <Statistica/>  
 
                 <div className="formCont">

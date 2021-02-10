@@ -31,7 +31,7 @@ function SelectedAd(props) {
     latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
     useEffect(() => 
     {
-        axios.get(`http://ustatap.testjed.me/singlead/${id}`) 
+        axios.get(`http://ustatap.testjed.me/public/api/singlead/${id}`) 
              .then((res) =>  (setSelectedAd(res.data)))
 
         axios.get("http://ustatap.testjed.me/ad") 
