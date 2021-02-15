@@ -14,7 +14,7 @@ function UserRegistration() {
     
 
     const onSubmit =  (values) => {
-            axios.post('http://ustatap.testjed.me/istifadeci-qeydiyyati', {values: values})
+            axios.post('http://ustatap.testjed.me/public/api/login', {values: values})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }

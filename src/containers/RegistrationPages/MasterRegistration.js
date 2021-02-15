@@ -6,9 +6,14 @@ import {Formik , Form , Field, ErrorMessage} from "formik"
 import * as Yup from "yup"
 import axios from 'axios'
 import Button from '../../components/Button'
+import Cookies from 'js-cookie';
+
 function MasterRegistration() {
     var expanded = false;
-    
+    const token = Cookies.get('XSRF-TOKEN') // => 'value'
+    const headers = {
+        "X-CSRF-TOKEN": token
+    }
 
     function showCheckboxes() {
         var checkboxes = document.getElementById("checkboxes");
@@ -27,7 +32,7 @@ function MasterRegistration() {
 
     const onSubmit =  (values) => {
         
-            axios.post('http://ustatap.testjed.me/usta-qeydiyyati', {values: values , categories:selectedTag})
+            axios.post('http://ustatap.testjed.me/usta-qeydiyyati', {values: values , categories:selectedTag}, headers)
              .then(res => console.log(res))
              .catch(err => console.log(err))
             
@@ -56,7 +61,7 @@ function MasterRegistration() {
 
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/jobcategory") 
+        axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
              .then((res) =>  (settagsApi(res.data)  ))
     })
     const [selectedTag,setSelectedTag] = useState([])

@@ -22,7 +22,7 @@ function LoginModal(props) {
     })
 
     const onSubmit =  (values) => {
-            axios.post('http://www.ustatap.testjed.me/login', {values: values})
+            axios.post('http://www.ustatap.testjed.me/', {values: values})
             .then(res => console.log(res))
              .catch(err => console.log(err))
             
