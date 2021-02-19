@@ -19,11 +19,11 @@ function Category(props) {
 
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/jobcategory") 
+        axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
              .then((res) =>  (setJobCategoryApi(res.data) ))
-        axios.get("http://ustatap.testjed.me/cities") 
+        axios.get("http://ustatap.testjed.me/public/api/cities") 
              .then((res) =>  (setCityCategoryApi(res.data) ))
-        axios.get("http://ustatap.testjed.me/districts") 
+        axios.get("http://ustatap.testjed.me/public/api/districts") 
              .then((res) =>  (setDistrictCategoryApi(res.data) ))
 
     } , [])
@@ -78,7 +78,7 @@ function Category(props) {
 
                     <div className="part2">
                         <div className="categCont">
-                            <button className="categoryButton" id="categoryBtn1" onClick={() => clickCategoryCont(1)}></button>
+                            <button className="categoryButton" id="categoryBtn1" onClick={() => clickCategoryCont(1)}>Bütün Kateqoriyalar</button>
                             <div className="categories" id="categories1">{jobCategoryApi.map((category) =>  <button id={category.id} onClick={() => changeValue('category' , category.id)} className="catBtn">{category.name}</button>)}</div>
                         </div>
                         
@@ -107,7 +107,7 @@ function Category(props) {
                         }
                     </div>
                 </div>
-                <Link to=""><Button function={props.function} name="axtar"  image2={lupa} color={props.btnColor}/></Link>
+                <Button function={props.function} name="axtar"  image2={lupa} color={props.btnColor}/>
             </div> 
         </div>
     )

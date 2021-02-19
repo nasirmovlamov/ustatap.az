@@ -30,32 +30,32 @@ function Companies(props) {
     const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
-        
+        if(numId === "shirketler")
+        {
             axios.get("http://ustatap.testjed.me/public/api/company") 
             .then((res) =>  (setCompanyApi(res.data) )) 
            
             axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
             .then((res) =>  (setJobCategoryApi(res.data) )) 
+        }
+        else 
+        {
+            axios.get(`https://ustatap.testjed.me/public/api/shirket/${numId}`) 
+            .then((res) =>  (setCompanyApi(res.data) )) 
+        }
 
     } , [])
-
+    console.log(numId);
     CompanyApi.map( 
         company =>
         {
-            if(numId != 'shirketler')
-            {
-                if(company.vip !== 1 && company.category_id === numId)
-                { 
-                    companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)
-                }
-            }
-            else 
-            {
+            
                 if(company.vip !== 1 )
                 { 
+                    console.log('alo');
                     companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)
                 }
-            }
+            
         }
     )
 

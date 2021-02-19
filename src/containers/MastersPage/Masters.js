@@ -20,6 +20,9 @@ function Masters(props) {
     document.title = " Ustatap.net Ustalar"
     var url = window.location.href;
     var numId = url.substring(url.lastIndexOf('/') + 1 );
+    useEffect(() => {
+        numId = url.substring(url.lastIndexOf('/') + 1 );
+    })
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [SelectedMaster, setSelectedMaster] = useState(0)
     const [MasterApi, setMasterApi] = useState([0])
@@ -38,22 +41,13 @@ function Masters(props) {
         } 
         else
         {
+           
             axios.get(`https://ustatap.testjed.me/public/api/usta/${numId}`) 
             .then((res) =>  (setMasterApi(res.data))) 
         }
-        
+
     } , [])
     
-    useEffect(() => {
-        url = window.location.href;
-        numId = url.substring(url.lastIndexOf('/') + 1 );
-        if(numId === "ustalar")
-        {
-            masters = []
-            vipMasters = []
-        }
-        
-    })
     
 
 
