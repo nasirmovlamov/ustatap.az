@@ -8,13 +8,17 @@ import "../../assets/css/PagesCss/userRegistration.css"
 import user from "../../assets/images/page/background/userRegistration.svg"
 import Button from '../../components/Button'
 import TopSelection from '../../components/TopSelection'
+import Cookies from 'js-cookie'
 function UserRegistration() {
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-    
+    const token = Cookies.get("XSRF-TOKEN")
+    const headers = {
+        'X-CSRF-TOKEN' : token
+    }
 
     const onSubmit =  (values) => {
-            axios.post('http://ustatap.testjed.me/public/api/login', {values: values})
+            axios.post('http://ustatap.testjed.me/public/api/login', {name: values.name , email: values.email ,  phone: values.phone , password: values.password } , headers)
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }

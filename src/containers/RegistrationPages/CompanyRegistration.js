@@ -6,17 +6,43 @@ import TopSelection from '../../components/TopSelection'
 import {Formik , Form , Field, ErrorMessage} from "formik"
 import * as Yup from "yup"
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 function CompanyRegistration() {
 
-    
+    const token = Cookies.get('XSRF-TOKEN') // => 'value'
+    const headers = {
+        "X-CSRF-TOKEN": token
+    }
+
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     
+    const city = [
+        { key: 'Şəhər seçin', value: '' },
+        { key: 'Option 1', value: 'Baku' },
+        { key: 'Option 2', value: 'Şuşa' }
+      ]
+    const district = [
+        { key: 'Rayon seçin', value: '' },
+        { key: 'Option 1', value: 'Baku' },
+        { key: 'Option 2', value: 'Şuşa' }
+      ]
 
     const onSubmit =  (values) => {
-        
-                axios.post('http://ustatap.testjed.me/public/api/company', {values: values , categories:selectedTag})
+
+                const postValues = {
+                    name:values.name,
+                    email:values.email,
+                    phone:values.phone,
+                    password:values.phone,
+                    voen: values.voen,
+                    city:1,
+                    district:1,
+                    address:values.address,
+                    categories:selectedTag
+                }
+                axios.post('http://ustatap.testjed.me/public/api/regcompany',  postValues, headers)
                  .then(res => console.log(res))
                  .catch(err => console.log(err))
             
@@ -56,7 +82,7 @@ function CompanyRegistration() {
     {
             axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
              .then((res) =>  (settagsApi(res.data)  ))
-    })
+    } ,[])
     const [selectedTag,setSelectedTag] = useState([])
     tagsApi.map((tag) => tags.push(<button  type="button" onClick={() => selectHandler(tag.id)} id={`btn${tag.id}`}>{tag.name}</button>)) 
 
@@ -110,9 +136,15 @@ function CompanyRegistration() {
                         <div className="formPart1">
                             <Field type="text" name="name" placeholder="Şirkətin adı" />
                             <div className="errors"><ErrorMessage name="name"/></div>
-                            <Field as="select" name="city" >
-                                <option selected value="baki">Bakı</option>
-                                <option value="gence">Gəncə</option>
+                            
+                            <Field as='select' name="city" >
+                                {city.map(city => {
+                                return (
+                                    <option key={city.value} value={city.value}>
+                                    {city.key}
+                                    </option>
+                                )
+                                })}
                             </Field>
                             <Field type="text" name="address" placeholder="Ünvanı"/>
                             <div className="errors"><ErrorMessage name="address"/></div>
@@ -128,11 +160,16 @@ function CompanyRegistration() {
                             <Field type="text" name="voen" placeholder="VÖEN" />
                             <div className="errors"><ErrorMessage name="voen"/></div>
 
-                            <Field as="select" name="district" id="" >
-                                <option selected value="ismayilli"> İsmayıllı</option>
-                                <option value="qax"> Qax</option>
+                            
+                            <Field as='select' name="district" >
+                                {district.map(district => {
+                                return (
+                                    <option key={district.value} value={district.value}>
+                                    {district.key}
+                                    </option>
+                                )
+                                })}
                             </Field>
-
                             <div className="selections">
                                 <p className="titleSelections">Hansı işləri görürsünüz ? (maksimum 3 ədəd seçə bilərsiniz)</p>
                                 <p className="buttons">

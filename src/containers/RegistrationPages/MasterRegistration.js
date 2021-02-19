@@ -31,8 +31,16 @@ function MasterRegistration() {
     
 
     const onSubmit =  (values) => {
-        
-            axios.post('http://ustatap.testjed.me/usta-qeydiyyati', {values: values , categories:selectedTag}, headers)
+            const postValues = {
+                name: values.name , 
+                email: values.email,
+                phone: values.phone,
+                password: values.password,
+                categories:selectedTag,
+                city: 1,
+                district:1
+            }
+            axios.post('http://ustatap.testjed.me/public/api/reghandyman',postValues , headers)
              .then(res => console.log(res))
              .catch(err => console.log(err))
             
@@ -45,6 +53,8 @@ function MasterRegistration() {
         phone:'',
         password:'',
         confirmPassword:'',
+        city:'',
+        district:''
     }
       
     const validationSchema = Yup.object({
@@ -63,7 +73,9 @@ function MasterRegistration() {
     {
         axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
              .then((res) =>  (settagsApi(res.data)  ))
-    })
+    } ,[])
+
+
     const [selectedTag,setSelectedTag] = useState([])
     tagsApi.map((tag) => tags.push(<button  type="button" onClick={() => selectHandler(tag.id)} id={`btn${tag.id}`}>{tag.name}</button>)) 
 

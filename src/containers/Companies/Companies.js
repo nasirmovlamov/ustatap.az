@@ -30,6 +30,7 @@ function Companies(props) {
     const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
+        
             axios.get("http://ustatap.testjed.me/public/api/company") 
             .then((res) =>  (setCompanyApi(res.data) )) 
            

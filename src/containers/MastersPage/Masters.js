@@ -18,27 +18,42 @@ import axios from 'axios';
 function Masters(props) {
 
     document.title = " Ustatap.net Ustalar"
-
-
     var url = window.location.href;
     var numId = url.substring(url.lastIndexOf('/') + 1 );
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [SelectedMaster, setSelectedMaster] = useState(0)
     const [MasterApi, setMasterApi] = useState([0])
-    const masters = []
-    const vipMasters = []
-
+    var masters = []
+    var vipMasters = []
     MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}})
     MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
     useEffect(() => 
-    {
+    {   
+        if(numId === "ustalar")
+        {
             axios.get("http://ustatap.testjed.me/public/api/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
-
             axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
-            .then((res) =>  (setJobCategoryApi(res.data) )) 
+            .then((res) =>  (setJobCategoryApi(res.data) ))
+        } 
+        else
+        {
+            axios.get(`https://ustatap.testjed.me/public/api/usta/${numId}`) 
+            .then((res) =>  (setMasterApi(res.data))) 
+        }
+        
     } , [])
     
+    useEffect(() => {
+        url = window.location.href;
+        numId = url.substring(url.lastIndexOf('/') + 1 );
+        if(numId === "ustalar")
+        {
+            masters = []
+            vipMasters = []
+        }
+        
+    })
     
 
 
