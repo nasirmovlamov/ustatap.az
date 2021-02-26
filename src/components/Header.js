@@ -33,20 +33,28 @@ import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import LoginModal from './LoginModal'
 import MemberArea from '../containers/MemberArea/MemberArea';
-
-
+import { useHistory } from "react-router-dom";
 
 function Header() {
+    
+  const [UserData, setUserData] = useState(0)
+  
+  useEffect(() => {
+    if (UserData?.id !== undefined) 
+    {
+      setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+    }
+  },[])
+
     const [Ad, setAd] = useState([12,12])
     const [Master, setMaster] = useState([12,12])
     const [Company, setCompany] = useState([12,12])
     function SelectedLatestAd(id) {
-      for (let i = 0; i < Ad[0]; i++) {
+        for (let i = 0; i < Ad[0]; i++) {
 
-      }
-  }
-  
-  const useStyles = makeStyles((theme) => ({
+        }
+    }
+    const useStyles = makeStyles((theme) => ({
         paper: {
           position: 'absolute',
           width: 400,
@@ -55,40 +63,36 @@ function Header() {
           boxShadow: theme.shadows[5],
           padding: theme.spacing(2, 4, 3),
         },
-      }));
-  const classes = useStyles();
-  
+    }));
+    const classes = useStyles();
     const [open, setOpen] = useState(false);
-    
-    const handleOpen = () => {
-        setOpen(true);
-      };
-    
+    const history = useHistory();
     const handleClose = () => {
-    setOpen(false);
+      setOpen(false);
+      window.location.reload()
     };
 
     const hideVip = 1;
-   
-    
     window.addEventListener("scroll", function(){
-      if (window.scrollY > 50)
+      if (window.scrollY > 50 &&  document.getElementById('navbar') !== null)
       {
         document.getElementById('navbar').setAttribute('style' , 'background:rgba(0,0,0,0.8);transition:0.5s background;box-shadow: 10px 10px 10px rgba(0,0,0,0.3);')
       }
-      else if (window.scrollY < 50)
+      else if (window.scrollY < 50 && document.getElementById('navbar') !== null)
       {
         document.getElementById('navbar').setAttribute('style' , 'background:transparent;transition:0.5s background;box-shadow: transparent;')
-
       } 
     });
+    const handleOpen = () => {
+          UserData?.user?.id !== undefined ? history.push('/member-area')  : setOpen(true)  
+    };
+
     return (
         
       <div className="topContainer1" >
           
         <ScrolltoTop />
-        
-        
+
         <Modal  
                   style={{display:"flex", justifyContent:"center",overflow:"auto",backgroundColor:"rgba(0,0,0,0.5)",}}
                   open={open}
@@ -97,18 +101,19 @@ function Header() {
                   aria-describedby="simple-modal-description">
                   {<LoginModal modalOpener={handleOpen} modalCloser={handleClose}/>}
         </Modal>
+
         <div className="topContainer" >
             <navbar className="navbar" id="navbar">
                 <Link to="/"><img className="navlogo" src={mainLogo} width="90px" alt=""/></Link>
-                <div className="text"> 
+                <div className="text" >
                     <Link to="/"><p>Əsas Səhifə</p></Link>
-                    <Link to="/elanlar"><p>Elanlar</p> </Link>
-                    <Link to="/ustalar"><p>Ustalar</p> </Link>
-                    <Link to="/shirketler"> <p>Şirkətlər</p> </Link>
+                    <a href="/elanlar"><p>Elanlar</p> </a>
+                    <a href="/ustalar"><p>Ustalar</p> </a>
+                    <a href="/shirketler"> <p>Şirkətlər</p> </a>
                     <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
                     <Link to="/reklam"><p>Reklam</p> </Link>
                     <Link to="/elaqe"><p>Əlaqə</p> </Link>
-                    <button className="login" onClick={() => handleOpen()}  ><p ><img src={human} alt=""/> <p>Daxil ol</p></p></button>
+                    <button className="login" onClick={() => handleOpen()}><p><img src={human} alt=""/> { UserData?.user?.id !== undefined ?<p>{UserData?.user?.name}</p> : <p>Daxil ol</p> }</p></button>
                     <Link to="/istifadeci-qeydiyyati"><button className="putAd"><span>+</span> Elan Yerləşdir</button></Link> 
                 </div>
             </navbar>
@@ -116,9 +121,6 @@ function Header() {
             </div>
 
           <Switch>
-              <Route path="/member-area">
-                  <MemberArea/>
-              </Route>
               <Route path={`/elanlar/secilmish-son-elan/:id`}>
                 <SelectedAd/>
               </Route>
@@ -164,7 +166,7 @@ function Header() {
               <Route path="/">
                 <HomePage hideVip={hideVip} numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
               </Route>
-              </Switch>
+            </Switch>
               
             <Footer/>
             </div>

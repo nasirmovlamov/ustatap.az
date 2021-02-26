@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    background: url('../../images/page/background/loginBg3.jpg');
+    background: url('../../images/page/background/login1.png');
     background-position: top;
     background-size: cover;
     form 
@@ -37,6 +37,19 @@
     .errors
     {
         color: red;
+        align-self: flex-start;
+        margin-top: 10px;
+        margin-left: 15px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .errorsDown
+    {
+        align-self: center;
+        color: red;
+        font-size: 18px;
+        font-weight: 700;
+
     }
     input
     {

@@ -14,8 +14,8 @@ function Button(props) {
     const clickHandler = () =>{
         if(props.function !== undefined)
         {
-        props.function()
-
+            props.function()
+            console.log("Hello");
         }
     }
     

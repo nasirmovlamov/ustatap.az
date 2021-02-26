@@ -62,6 +62,7 @@ function Ad3(props) {
         }
         
     }
+    
     const viewHandler = () => {
         axios.post('http://ustatap.testjed.me/', {increase:props.view+1})
              .then(res => console.log(res))

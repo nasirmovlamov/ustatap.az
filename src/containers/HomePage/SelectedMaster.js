@@ -45,8 +45,6 @@ function SelectedMaster(props) {
 
         axios.get("http://ustatap.testjed.me/public/api/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
-
-        
     } , [])
 
 

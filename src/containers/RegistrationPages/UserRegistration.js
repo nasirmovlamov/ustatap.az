@@ -33,12 +33,12 @@ function UserRegistration() {
     }
       
     const validationSchema = Yup.object({
-        name: Yup.string().required('Required'),
-        email: Yup.string().email('Invalid email format').required('Required'),
-        phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
-        password: Yup.string().required('Required'),
+        name: Yup.string().required('Adınızı daxil edin'),
+        email: Yup.string().email('Invalid email format').required('Emailinizi daxil edin'),
+        phone:  Yup.string().matches(phoneRegExp, 'Daxil etdiyiniz nömrə yanlışdır').required('Telefon nömrənizi daxil edin'),
+        password: Yup.string().required('Şifrəni daxil edin'),
         confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .oneOf([Yup.ref('password'), null], 'Şifrələr uyğun deyil')
     })
 
     return (
@@ -51,7 +51,7 @@ function UserRegistration() {
                     <Form action="" method="post" >
                         <Field type="text" placeholder="Ad və Soyad" name="name"/>
                         <div className="errors"><ErrorMessage name="name"/></div>
-                        <Field type="mail" placeholder="Elektron poçt ünvanı" name="email"/>
+                        <Field type="mail" placeholder="Elektron poçt ünvanı" name="email"/>    
                         <div className="errors"><ErrorMessage name="email"/></div>
                         <Field type="text" placeholder="Telefon nömrəsi" name="phone"/>
                         <div className="errors"><ErrorMessage name="phone"/></div>

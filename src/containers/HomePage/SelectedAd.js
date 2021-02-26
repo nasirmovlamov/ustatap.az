@@ -29,16 +29,28 @@ function SelectedAd(props) {
     const [latestAdApi, setlatestAdApi] = useState([0])
     const latestAd = []
     latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
+    
+    const [UserData, setUserData] = useState(0)
+    useEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+    })
+
     useEffect(() => 
     {
         axios.get(`http://ustatap.testjed.me/public/api/singlead/${id}`) 
              .then((res) =>  (setSelectedAd(res.data)))
 
         axios.get("http://ustatap.testjed.me/ad") 
-            .then((res) =>  (setlatestAdApi(res.data) ))
-
-        
+            .then((res) =>  (setlatestAdApi(res.data) ))        
     } , [])
+
+    const functionApply = () => {
+        axios.post("http://ustatap.testjed.me/public/api/offer" , {user_id : UserData?.user?.id , vacancy_id:SelectedAd.id} ,  ) 
+             .then((res) =>  (console.log(res.data)))  
+    }
     return (
 
         <div className="selectedAd">
@@ -72,7 +84,7 @@ function SelectedAd(props) {
                             <p>Elan yerləşdirilib: <pre className="date">{SelectedAd.created_at}</pre></p> 
                             <p><img src={selectedAdEye} alt=""/> <span>100</span></p> 
                             <p><img src={heart} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
-                            <Button name="Mən bu işi Görərəm" />
+                            <Button type="button" function={() => functionApply()} name="Mən bu işi Görərəm"/> 
                         </div>
                         <div className="bottomLines"><hr/> <img src={mainLogo} alt="" /> <hr/></div>
                     </div>

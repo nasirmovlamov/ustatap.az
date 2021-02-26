@@ -69,7 +69,6 @@ function Companies(props) {
         } 
     )
 
-
     return (
         <div className="companiesPage">
              <div className="generalCont">

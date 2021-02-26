@@ -8,17 +8,19 @@ import areaImg5 from '../../assets/images/component/element/memberAreaImg (5).pn
 import areaImg6 from '../../assets/images/component/element/memberAreaImg (6).png'
 import areaImg7 from '../../assets/images/component/element/memberAreaImg (7).png'
 import CardMemberArea from '../../components/CardMemberArea'
+import MyAds from '../../components/MyAds'
+import Profile from '../../components/Profile'
 
-function UserMemberArea() {
+function UserMemberArea(props) {
     let match = useRouteMatch();
     return (
         <div className="userMember">
             <Switch>
                 <Route path="/member-area/profile">
-                    profile
+                    <Profile UserData={props.UserData}/>
                 </Route>
                 <Route path="/member-area/my-ads">
-                    ads
+                    <MyAds UserData={props.UserData}/>
                 </Route>
                 <Route path="/member-area/requests">
                     requests
@@ -36,7 +38,6 @@ function UserMemberArea() {
                     <div className="gridCont">
                         <CardMemberArea img={areaImg1} link={`${match.path}profile`} title="Şəxsi Məlumatlar"/>
                         <CardMemberArea img={areaImg2} link={`${match.path}my-ads`} title="Elanlarım"/>
-                        <CardMemberArea img={areaImg3} link={`${match.path}requests`} title="Gələn Təkliflər"/>
                         <CardMemberArea img={areaImg4} link={`${match.path}selected-masters`} title="Seçilmiş Ustalarım"/>
                         <CardMemberArea img={areaImg5} link={`${match.path}selected-companies`} title="Seçilmiş Şirkətlərim"/>
                         <CardMemberArea img={areaImg6} link={`${match.path}security`} title="Təhlükəsizlik"/>

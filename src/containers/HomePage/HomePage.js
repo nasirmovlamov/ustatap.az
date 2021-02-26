@@ -38,7 +38,6 @@ import {Link} from "react-router-dom"
 function HomePage(props) {
 
     document.title = " Ustatap.net Əsas Səhifə"
-
     const latestAd = []
     const masters = []
     const vipMasters = []
@@ -52,8 +51,6 @@ function HomePage(props) {
     const [MasterApi, setMasterApi] = useState([0])
     const [CompanyApi, setCompanyApi] = useState([0])
     
-   
-
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/public/api/ad") 
@@ -66,14 +63,8 @@ function HomePage(props) {
              .then((res) =>  (setJobCategoryApi(res.data) ))
 
     },[] )
-
-  
     
-    
-    
-
     latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view={1258} image={ad.images} id={ad.id}/>)  ) 
-    
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
@@ -88,16 +79,14 @@ function HomePage(props) {
             </div>
         </button>
     ))
-
-
+        
     latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
     latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
-    
     MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)}})
     MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating}/> )}})
     CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
     CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
-    
+
     const  clickHandler = (number) => {
         if (document.getElementById("wD" + number).style.display === "block") {
             document.getElementById("wD" + number).setAttribute("style" , "display:nonne")
@@ -212,14 +201,6 @@ function HomePage(props) {
                             </div>  
                             <Link to="/elanlar"> <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
-
-                       
-
-                
-                       
-
-                
-
 
                     </div> 
                 {/* All Grids  All Grids  All Grids  All Grids  All Grids  All Grids  All Grids */}
