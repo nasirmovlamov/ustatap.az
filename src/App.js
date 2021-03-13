@@ -1,5 +1,5 @@
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react"
 import Header from './components/Header'
 import SearchBox from './components/SearchBox'
@@ -20,9 +20,7 @@ function App() {
             <ScrolltoTop />
 
           <Switch>
-            <Route  path={`/member-area/`}>
-              { UserData?.user?.id === undefined  ?  <Redirect to="/"/>  :  <MemberArea loginId={UserData?.user?.user_type} UserData={UserData}/> }
-            </Route>
+            
               
             <Route  path="/">
               <div className="topContainer">

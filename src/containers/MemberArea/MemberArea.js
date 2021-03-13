@@ -14,13 +14,55 @@ import {
     useRouteMatch,
     useParams
   } from "react-router-dom";
+import { useEffect } from 'react'
 function MemberArea(props) {
+
     const imgHandler =  {
         backgroundImage: `url(${cabinetTop})`,
         backgroundSize: 'cover',
         backgroundPosition: 'top'
     }
     let match = useRouteMatch();
+    const logOut = () => {
+        localStorage.clear()
+    }
+    var url = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+    
+    for (let index = 0; index < 8; index++) {
+        document?.querySelector(`.btn${index}`)?.setAttribute("style" , "background-color:white;color:rgba(0, 0, 0, 0.5);border-radius:10px;")
+    }
+    
+    useEffect(() => {
+        if (url === "member-area" || url === "") {
+            document?.getElementById("categoryName")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+            console.log(url)
+        }
+        else if (url === "profile")
+        {
+            document?.getElementById("categoryProfile")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+        }
+        else if (url === "my-ads")
+        {
+            document?.getElementById("myads")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+        }
+        else if (url === "add-elan")
+        {
+            document?.getElementById("addelan")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+        }
+        else if (url === "selected-masters")
+        {
+            document?.getElementById("selectedMasters")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+        }
+        else if (url === "selected-companies")
+        {
+            document?.getElementById("selectedCompanies")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+        }
+        else if (url === "security")
+        {
+            document?.getElementById("security")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+        }
+    })
+
     return (
         <div className="memberArea">
             <div className="memberAreaCont">
@@ -34,15 +76,16 @@ function MemberArea(props) {
                         <aside className="asideCateg">
                             {
                                 props.loginId === 'user' &&
-                                <div className="outlineAside">  
-                                    <Link to={`${match.path}`} className="categoryLink"><button className="category">{props.UserData.user.name.toUpperCase()}</button></Link>
-                                    <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
-                                    <Link to={`${match.path}my-ads`} className="categoryLink"><button className="category">ELANLARIM</button></Link>
-                                    <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category">SEÇİLMİŞ USTALAR</button></Link>
-                                    <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
-                                    <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
-                                    <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
-                                    <Link to={`/`} className="categoryLink"><button className="category">HESABDAN ÇIX</button></Link>
+                                <div className="outlineAside" id="outlineAside">  
+                                    <Link to={`${match.path}`} className="categoryLink" ><button className="category btn1" id="categoryName" >{props.UserData.user.name.toUpperCase()}</button></Link>
+                                    <Link to={`${match.path}profile`} className="categoryLink" ><button className="category btn2 "  id="categoryProfile">ŞƏXSİ MƏLUMATLAR</button></Link>
+                                    <Link to={`${match.path}add-elan`} className="categoryLink" ><button className="category btn3"  id="addelan">ELAN ƏLAVƏ ET</button></Link>
+                                    <Link to={`${match.path}my-ads`} className="categoryLink" ><button className="category btn4"  id="myads">ELANLARIM</button></Link>
+                                    <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category btn5" id="selectedMasters">SEÇİLMİŞ USTALAR</button></Link>
+                                    <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category btn6" id="selectedCompanies">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
+                                    <Link to={`${match.path}security`} className="categoryLink"><button className="category btn7" id="security">TƏHLÜKƏSİZLİK</button></Link>
+                                    <Link to={`/`} className="categoryLink"><button className="category btn7">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                                    <a href='/' className="categoryLink"><button onClick={logOut} className="category btn8">HESABDAN ÇIX</button></a>
                                 </div>
                             }
                             {
@@ -55,7 +98,7 @@ function MemberArea(props) {
                                     <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
                                     <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
                                     <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
-                                    <Link to={`/`} className="categoryLink"><button className="category">HESABDAN ÇIX</button></Link>
+                                    <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
                                 </div>
                             }
                             {
@@ -69,13 +112,12 @@ function MemberArea(props) {
                                     <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
                                     <Link to={`${match.path}ad-website`} className="categoryLink"><button className="category">REKLAM YERLƏŞDİR</button></Link>
                                     <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
-                                    <Link to={`/`} className="categoryLink"><button className="category">HESABDAN ÇIX</button></Link>
+                                    <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
                                 </div>
                             }
                         </aside>        
                 </div>
             </div>
-            <Footer/>
         </div>
 
     )

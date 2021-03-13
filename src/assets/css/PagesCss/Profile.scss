@@ -4,7 +4,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    .errors
+        {
+            margin-bottom: 10px;
+            height: 30px;
+            margin-top: 5px;
+            width: 403px;
+            color: red;
+            align-self:flex-start;
+        }
     form 
         {
             display: flex;
@@ -12,15 +20,8 @@
             width: 530px;
             margin-top: 50px;
             align-items: center;
-            row-gap: 50px;
-            .errors
-            {
-                margin-bottom: 10px;
-                height: 30px;
-                margin-top: 5px;
-                width: 403px;
-                color: red;
-            }
+            row-gap: 25px;
+            
             input 
             {
                 width: 100%;

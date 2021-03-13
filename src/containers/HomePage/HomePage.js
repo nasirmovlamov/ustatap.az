@@ -35,7 +35,88 @@ import VipAd3 from '../../components/VipAd3'
 import Masters from '../MastersPage/Masters'
 import Companies from '../Companies/Companies'
 import {Link} from "react-router-dom"
+import { css } from "@emotion/core";
+import PulseLoader from "react-spinners/PulseLoader";
+import { useMediaQuery } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import { Sling as Hamburger } from 'hamburger-react'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import clsx from 'clsx';
+import { withStyles } from '@material-ui/core/styles';
+import MuiAccordion from '@material-ui/core/Accordion';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
+const stylesForSwiper1 = makeStyles({
+  list: {
+    width: "auto",
+  },
+  fullList: {
+    width: "auto",
+  },
+}); 
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+const Accordion = withStyles({
+    root: {
+      border: '1px solid rgba(0, 0, 0, .125)',
+      boxShadow: 'none',
+      '&:not(:last-child)': {
+        borderBottom: 0,
+      },
+      '&:before': {
+        display: 'none',
+      },
+      '&$expanded': {
+        margin: 'auto',
+      },
+    },
+    expanded: {},
+  })(MuiAccordion);
+  
+  const AccordionSummary = withStyles({
+    root: {
+      backgroundColor: 'rgba(0, 0, 0, .03)',
+      borderBottom: '1px solid rgba(0, 0, 0, .125)',
+      marginBottom: -1,
+      minHeight: 56,
+      '&$expanded': {
+        minHeight: 56,
+      },
+    },
+    content: {
+      '&$expanded': {
+        margin: '12px 0',
+      },
+    },
+    expanded: {},
+  })(MuiAccordionSummary);
+  
+  const AccordionDetails = withStyles((theme) => ({
+    root: {
+    },
+  }))(MuiAccordionDetails);
+
+
+
 function HomePage(props) {
+    const asideMQ = useMediaQuery('(max-width:1064px)');
+    let [loading, setLoading] = useState(true);
+    let [color, setColor] = useState("#5aba42");
+
 
     document.title = " Ustatap.net Əsas Səhifə"
     const latestAd = []
@@ -54,7 +135,7 @@ function HomePage(props) {
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/public/api/ad") 
-             .then((res) =>  (setlatestAdApi(res.data)  ))
+             .then((res) =>  (console.log(res.data)  ))
         axios.get("http://ustatap.testjed.me/public/api/handymen") 
              .then((res) =>  (setMasterApi(res.data) ))
         axios.get("http://ustatap.testjed.me/public/api/company") 
@@ -63,8 +144,7 @@ function HomePage(props) {
              .then((res) =>  (setJobCategoryApi(res.data) ))
 
     },[] )
-    
-    latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view={1258} image={ad.images} id={ad.id}/>)  ) 
+    latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} desc={ad.description} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
@@ -73,15 +153,15 @@ function HomePage(props) {
                 <button ><img  src={arrDown} alt=""/></button>
             </div>
             <div className="workDescCont" id={`wD${category.id}`} >
-                <p><Link to={`/ustalar/${category.id}`}>Ustalar <span>({23})</span></Link> </p>
-                <p><Link to={`/elanlar/${category.id}`}>Elanlar <span>({22})</span></Link></p>
-                <p><Link to={`/shirketler/${category.id}`}>Şirkətlər <span>({11})</span></Link></p>
+                <p><Link to={`/elanlar/${category.id}`}>Elanlar <span>({category.post_count})</span></Link></p>
+                <p><Link to={`/ustalar/${category.id}`}>Ustalar <span>({category.hand_count})</span></Link> </p>
+                <p><Link to={`/shirketler/${category.id}`}>Şirkətlər <span>({category.comp_count})</span></Link></p>
             </div>
         </button>
     ))
         
-    latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} costumer={ad.description} address={"Baku"} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
-    latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)}}) 
+    latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} desc={ad.description} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
+    latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} desc={ad.description} address={ad.city} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
     MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)}})
     MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating}/> )}})
     CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
@@ -97,37 +177,106 @@ function HomePage(props) {
         }  
     }
 
+    const [expanded, setExpanded] = React.useState('panel1');
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
 
 
+
+    const stylesForSwiper = stylesForSwiper1();
+    const [state2, setState2] = React.useState({
+      right: false,
+    });
+
+    const toggleDrawer2 = (anchor, open) => (event) => {
+      if (event?.type === 'keydown' && (event?.key === 'Tab' || event?.key === 'Shift')) {
+        return;
+      }
+
+      setState2({ ...state2, [anchor]: open });
+    };
+
+    const list = (anchor) => (
+        <div
+        className={clsx(stylesForSwiper1.list, {
+          [stylesForSwiper1.fullList]: anchor === 'top' || anchor === 'bottom',
+        })}
+        role="presentation"
+        >
+          <div className="swiperTitle"> <p>Kategoriyalar</p> <button className="btnMenu" onClick={toggleDrawer2(anchor, false)} onKeyDown={toggleDrawer2(anchor, false)}>X</button></div>
+          <Divider />
+          <div >
+          {jobCategoryApi.map( category => 
+            <Accordion square >
+                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                    <Typography>{category.name}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <List>
+                    <ListItem button >
+                        <p><Link to={`/elanlar/${category.id}`}>Elanlar <span>({category.post_count})</span></Link></p>
+                    </ListItem>
+                    <ListItem button >
+                        <p><Link to={`/ustalar/${category.id}`}>Ustalar <span>({category.hand_count})</span></Link> </p>
+                    </ListItem>
+                    <ListItem button >
+                        <p><Link to={`/shirketler/${category.id}`}>Şirkətlər <span>({category.comp_count})</span></Link></p>    
+                    </ListItem>
+                </List>
+                </AccordionDetails>
+            </Accordion>
+            
+            )}
+        </div>
+          
+        </div>
+      );
+    
+    
     return (
         <div className="homePage">
             
 
 
-            <div className="mainBanner">Banner</div>
             
             
             
             <main className="main"> 
             
-                <aside className="aside" id="aside">
-                    {jobCategory.reverse()}
-                </aside>
-
+                {
+                !asideMQ && 
+                    <aside className="aside" id="aside">
+                        {jobCategory.length > 1 ? jobCategory.reverse() : <PulseLoader color={color} loading={loading} css={override} size={25} />}
+                    </aside>
+                }
 
 
                 {/* All Grids  All Grids  All Grids  All Grids  All Grids  All Grids  All Grids */}
                     <div className="allAdsContainer">
-
-
-                        <div className="typeAddContainer"> 
-                            <p className="title">Son Elanlar</p>
-                            <div className="line1"></div>
-                            <div className="adsContainer">
-                                {latestAd}
-                            </div>    
-                            <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
-                        </div>
+                            
+                            {asideMQ && 
+                                <React.Fragment >
+                                    <Button function={toggleDrawer2('right', true)} name="Kategoriyalar" width="100%" height="40px"/>
+                                    <Drawer anchor={'right'} open={state2['right']} onClose={toggleDrawer2('right', false)}>
+                                        {list('right')}
+                                    </Drawer>
+                                </React.Fragment>
+                            }
+                            <div className="typeAddContainer"> 
+                                <p className="title">Son Elanlar</p>
+                                <div className="line1"></div>
+                                <div className="adsContainer">
+                                    {
+                                        latestAd.length !== 0 ?
+                                            (latestAd.length >= 1 ? latestAd :  <PulseLoader color={color} loading={loading} css={override} size={25} />) : 
+                                            ""
+                                    }
+                                </div>    
+                                <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
+                            </div>
+                            
                     
 
                         <SubBanner marginTop="60px" marginBottom="78px"/>
@@ -139,9 +288,11 @@ function HomePage(props) {
                             <p className="title">Vip Ustalar</p>
                             <div className="line2"></div>
                             <div className="adsContainer">
-                                
-                                {vipMasters}
-                                
+                            {
+                                vipMasters.length !== 0 ?
+                                (vipMasters.length >= 0 ? vipMasters :  <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                : ""
+                            }
                             </div>  
                             <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
@@ -153,30 +304,41 @@ function HomePage(props) {
                             <p className="title">Ustalar</p>
                             <div className="line2"></div>
                             <div className="adsContainer">
-                                {masters}
-                            </div>  
+                                {
+                                    masters.length !== 0 &&
+                                    (masters.length >= 1 ? masters : <PulseLoader className="mastersLoader" color={color} loading={loading} css={override} size={25} />)
+                                }
+                            </div>
                             <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
 
                         <SubBanner marginTop="60px" marginBottom="78px"/>
                     
                         {
-                        props.hideVip &&
-                        <div className="typeAddContainer"> 
-                            <p className="title">Vip Şirkətlər</p>
-                            <div className="line3"></div>
-                            <div className="adsContainer">
-                                {vipCompanies}
-                            </div>     
-                            <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
-                        </div>
+                            props.hideVip &&
+                            <div className="typeAddContainer"> 
+                                <p className="title">Vip Şirkətlər</p>
+                                <div className="line3"></div>
+                                <div className="adsContainer">
+                                    {
+                                        vipCompanies.length !== 0 ?
+                                            (vipCompanies.length >= 1 ? vipCompanies : <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                        :""
+                                    }
+                                </div>     
+                                <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
+                            </div>
                         }
 
                         <div className="typeAddContainer"> 
                             <p className="title">Şirkətlər</p>
                             <div className="line3"></div>
                             <div className="adsContainer">
-                                {companies}
+                                {
+                                        vipCompanies.length !== 0 ?
+                                            (companies.length > 1 ? companies : <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                        :""
+                                }
                             </div>     
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
@@ -184,20 +346,24 @@ function HomePage(props) {
                             <p className="title">Santexnika elanları</p>
                             <div className="line4"></div>
                             <div className="adsContainer">
-                                {santexnika}
+                                {
+                                        santexnika.length !== 0 ?
+                                            (santexnika.length >= 1 ? santexnika : <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                        : ""
+                                }
                             </div>      
                             <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
                         </div>
-
-
-                        <SubBanner marginTop="60px" marginBottom="78px"/>
-
 
                         <div className="typeAddContainer"> 
                             <p className="title">Elektrik elanları</p>
                             <div className="line5"></div>
                             <div className="adsContainer">
-                                {electric}
+                                {
+                                        electric.length !== 0 ?
+                                            (electric.length >= 1 ? electric : <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                        : ""
+                                }
                             </div>  
                             <Link to="/elanlar"> <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>

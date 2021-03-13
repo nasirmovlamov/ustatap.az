@@ -12,10 +12,9 @@ function Button(props) {
         fontSize: props.fontSize
     }
     const clickHandler = () =>{
-        if(props.function !== undefined)
+        if(props.function   !== undefined)
         {
             props.function()
-            console.log("Hello");
         }
     }
     

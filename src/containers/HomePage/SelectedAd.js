@@ -36,21 +36,21 @@ function SelectedAd(props) {
         {
             setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
         }
-    })
+    } )
 
     useEffect(() => 
     {
         axios.get(`http://ustatap.testjed.me/public/api/singlead/${id}`) 
              .then((res) =>  (setSelectedAd(res.data)))
 
-        axios.get("http://ustatap.testjed.me/ad") 
+        axios.get("http://ustatap.testjed.me/public/api/ad") 
             .then((res) =>  (setlatestAdApi(res.data) ))        
     } , [])
 
     const functionApply = () => {
         axios.post("http://ustatap.testjed.me/public/api/offer" , {user_id : UserData?.user?.id , vacancy_id:SelectedAd.id} ,  ) 
              .then((res) =>  (console.log(res.data)))  
-    }
+    }   
     return (
 
         <div className="selectedAd">

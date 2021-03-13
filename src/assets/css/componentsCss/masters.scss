@@ -5,10 +5,7 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 100px;
-    .categoryCont .ctgryGrid .part2
-    {
-        width: 600px;
-    }
+    
     .mastersCont
     {
         width: 378px;
@@ -16,7 +13,7 @@
         .aboutText
         {
             width: 165px;
-            height:185px;
+            height:100%;
         }
     }
     .linkAndButton

@@ -1,0 +1,132 @@
+.searchPage 
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+    
+    .categoryCont .ctgryGrid .part2
+    {
+        width: 600px;
+    }
+    .mastersCont
+    {
+        width: 378px;
+        height: 214px;
+        .aboutText
+        {
+            width: 165px;
+            height:185px;
+        }
+    }
+    .linkAndButton
+    {
+        width: 1185px;
+        height: 130px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        .link
+        {
+            margin-top: 52.5px;
+            margin-bottom: 52.5px;
+            p 
+            {
+                margin: 0;
+            }
+        }
+        .topButton
+        {
+            align-self: center;
+            justify-self: center;
+            padding: 0px;
+            margin: 0px;
+            width: 210px;
+            height: 70px;
+            border: none;
+            background-color: lightblue;
+            color: #F6F7FB;
+            font-family: "ComfortaaRegular";
+            background: url("../../images/component/element/animatedButton.svg") no-repeat;
+            background-size: auto auto;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    
+    .categoryCont
+    {
+        width: 100%;
+    }
+    .subBanner
+    {
+        width: 887px;
+        margin-top: 100px;
+    }
+        .adsContainer
+        {
+            margin-top: 66px;
+            width: 100%;
+            align-content: center;
+            justify-items: center;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            .searchNresult
+            {
+                margin-top: 50px;
+                margin-bottom: -60px;
+                font-size: 18px;
+            }
+            .Vipmasters
+            {
+                margin-top: 66px;
+                width: 100%;
+                align-content: center;
+                justify-items: center;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 50px;
+            }
+            .masters
+            {
+                margin-top: 66px;
+                width: 100%;
+                align-content: center;
+                justify-items: center;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 50px;
+            }
+            .ad
+            {
+                .mainImg
+                {
+                    height: 264px;
+                }
+                width: 376px;
+                height: 445px;
+                .flexCont1
+                {
+                    font-size: 19px;
+                }
+                .nameCostumer
+                {
+                    font-size: 12px;
+                    margin-top:-16px;
+                } 
+                .flexCont2
+                {
+                    margin-top: 30px; 
+                    p 
+                    {
+                        &:nth-child(1)
+                        {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    
+}

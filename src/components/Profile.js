@@ -14,7 +14,7 @@ function Profile(props) {
 
     const onSubmit =  (values) => {
             axios.post('http://ustatap.testjed.me/public/api/user/info', {id: props.UserData.user.id, name: values.name  ,  phone: values.phone} , headers)
-             .then(res => console.log(res))
+             .then(res => window.location.reload() , localStorage.clear())
              .catch(err => console.log(err))
     }
     
@@ -22,7 +22,7 @@ function Profile(props) {
         name:'',
         phone:'',
     }
-      
+    
     const validationSchema = Yup.object({
         name: Yup.string().required('Adınızı daxil edin'),
         phone:  Yup.string().matches(phoneRegExp, 'Daxil etdiyiniz nömrə yanlışdır').required('Telefon nömrənizi daxil edin'),

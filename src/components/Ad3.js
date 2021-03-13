@@ -16,14 +16,12 @@ import axios from 'axios'
 function Ad3(props) {
     const stars = []
     if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
-        
         for (var i=0;i<props.numberStar;i++) {
             stars.push(<img src={fullStar} alt="ulduz" /> )
           }
         for (var j=(props.numberStar);j<5;j++) {
             stars.push(<img src={emptyStar} alt="ulduz" /> )
         }
-
     }
     else 
     {
@@ -36,40 +34,38 @@ function Ad3(props) {
             stars.push(<img src={emptyStar} alt="ulduz" /> )
           }
     }
-    const bgImg = {
-        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`,
-    }
 
+    const bgImg = {
+        background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`,
+    }
+    
     const [checker , setChecker] = useState(false)
     
     const heartPost = () => {
         if(!checker)
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('http://ustatap.testjed.me/', {addFavorite:true})
+            axios.post('http://ustatap.testjed.me/public/api/select', {elan_Id:props.id , user_id:props.userId})
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(true)
         }
         else 
         {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:white;')
+            document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
             axios.post('http://ustatap.testjed.me/', {addFavorite:false})
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(false)
 
         }
-        
     }
     
     const viewHandler = () => {
-        axios.post('http://ustatap.testjed.me/', {increase:props.view+1})
+        axios.post('http://ustatap.testjed.me/public/api/increment', {id:props.id})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
-
-
 
     return (
 

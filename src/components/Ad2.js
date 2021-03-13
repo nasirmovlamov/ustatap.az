@@ -35,7 +35,7 @@ function Ad2(props) {
           }
     }
     const bgImg = {
-        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`,
+        background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`,
     }
 
     const [checker , setChecker] = useState(false)
@@ -44,7 +44,7 @@ function Ad2(props) {
         if(!checker)
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('http://ustatap.testjed.me/', {addFavorite:true})
+            axios.post('http://ustatap.testjed.me/public/api/select', {elan_Id:props.id , user_id:props.userId})
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(true)
@@ -61,7 +61,7 @@ function Ad2(props) {
         
     }
     const viewHandler = () => {
-        axios.post('http://ustatap.testjed.me/', {increase:props.view+1})
+        axios.post('http://ustatap.testjed.me/public/api/increment', {id:props.id})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }

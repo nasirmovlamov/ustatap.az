@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../../assets/css/PagesCss/masterRegistration.css"
-import master from "../../assets/images/page/background/masterReg.png"
+import master from "../../assets/images/page/background/MasterReg.png"
 import TopSelection from '../../components/TopSelection';
 import {Formik , Form , Field, ErrorMessage} from "formik"
 import * as Yup from "yup"
@@ -31,17 +31,20 @@ function MasterRegistration() {
     
 
     const onSubmit =  (values) => {
-            const postValues = {
-                name: values.name , 
-                email: values.email,
-                phone: values.phone,
-                password: values.password,
-                categories:selectedTag,
-                city: 1,
-                district:1
-            }
-            axios.post('http://ustatap.testjed.me/public/api/reghandyman',postValues , headers)
-             .then(res => console.log(res))
+            
+            const FD = new FormData()
+            FD.append('name' , values.name)
+            FD.append('email' , values.email)
+            FD.append('phone' , values.phone)
+            FD.append('password' , values.password)
+            FD.append('categories' , values.selectedTag)
+            FD.append('city' , 1)
+            FD.append('district' , 1)
+            FD.append('profilePhoto' , profilePhoto)
+            FD.append('profilePhotoName' , profilePhoto.name)
+
+            axios.post('http://ustatap.testjed.me/public/api/reghandyman', FD , headers)
+             .then(res => console.log(res.data))
              .catch(err => console.log(err))
             
     }
@@ -58,12 +61,12 @@ function MasterRegistration() {
     }
       
     const validationSchema = Yup.object({
-        name: Yup.string().required('Required'),
-        email: Yup.string().email('Invalid email format').required('Required'),
-        phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
-        password: Yup.string().required('Required'),
+        name: Yup.string().required('Adınızı daxil edin'),
+        email: Yup.string().email('E-lektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
+        phone:  Yup.string().matches(phoneRegExp, 'Telefon nömrənizi düzgün daxil edin').required('Telefon nömrənizi daxil edin'),
+        password: Yup.string().required('Şifrəni daxil edin'),
         confirmPassword:    Yup.string()
-                            .oneOf([Yup.ref('password'), null], 'Passwords must match')
+                            .oneOf([Yup.ref('password'), null], 'Şifrələr uyğun deyil')
     })
 
     const [tagsApi, settagsApi] = useState([0])
@@ -112,7 +115,31 @@ function MasterRegistration() {
 
     }
 
+    const [profilePhoto, setprofilePhoto] = useState(null)
     
+    const [{alt, src}, setImg] = useState({
+        src: "",
+        alt: 'Upload an Image'
+    });
+    const ppchanger = (e) => {
+        if(e.target.files[0]) {
+            document.getElementById('imgPreview').setAttribute('style' , 'height:100px;border:1px solid gray;')
+            setImg({
+                src: URL.createObjectURL(e.target.files[0]),
+                alt: e.target.files[0].name
+            });    
+        }   
+        setprofilePhoto(e.target.files[0])
+    }
+
+    const [city, setcity] = useState("Bakı")
+    const citySelect = (e) => {
+        setcity(e.target.value)
+    }
+    const [district, setdistrict] = useState("Ağdərə")
+    const districtSelect = (e) => {
+        setdistrict(e.target.value)
+    }
     return (
         <div className="masterRegistrationCont">
             
@@ -127,14 +154,13 @@ function MasterRegistration() {
                             <Field type="text" name="name" placeholder="Ad və soyad"/>
                             <div className="errors"><ErrorMessage name="name"/></div>
 
-                            <Field as="select" name="city" >
+                            <select onChange={citySelect} value={city}  name="city" >
                                 <option selected value="Bakı">Bakı</option>
                                 <option value="Şuşa">Şuşa</option>
-                            </Field>
-                            <Field as="select" name="district"  placeholder="Rayon">
-                                <option selected value="İsmayıllı">İsmayıllı</option>
-                                <option value="Ağdərə">Ağdərə</option>
-                            </Field>
+                            </select>
+
+                            
+
                             <Field placeholder="Elektron poçt ünvanı" name="email" />
                             <div className="errors"><ErrorMessage name="email"/></div>
 
@@ -154,8 +180,9 @@ function MasterRegistration() {
 
                             <Field name="confirmPassword" type="password" placeholder="Təkrar şifrə" />
                             <div className="errors"><ErrorMessage name="confirmPassword"/></div>
+                            <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Şəklinizi yükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
 
-                            <Button type="submit" name="Qeydiyyatdan kecin" />
+                            <div className="btnAndImg"><img className="imgPreview" id="imgPreview" src={src} width="auto" height="100px" alt=""/>  <Button type="submit" name="Qeydiyatdan keç"/></div>
                         </Form>
                     </Formik>
                     </div>

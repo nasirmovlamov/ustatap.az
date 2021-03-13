@@ -6,7 +6,8 @@ import {
     Switch,
     Route,
     Link,
-    useLocation
+    useLocation,
+    Redirect
   } from "react-router-dom";
 import "../assets/css/componentsCss/header.css"
 import HomePage from './../containers/HomePage/HomePage';
@@ -22,6 +23,7 @@ import Footer from './Footer';
 import Addvertise from '../containers/AdvertisePage/Addvertise';
 import Contact from '../containers/Contact/Contact';
 import Page404 from '../containers/ErrorsPage/Page404';
+import SearchListing from '../containers/HomePage/SearchListing';
 import MasterRegistration from '../containers/RegistrationPages/MasterRegistration';
 import TopSelection from './TopSelection';
 import CompanyRegistration from '../containers/RegistrationPages/CompanyRegistration';
@@ -30,22 +32,60 @@ import Slider from './Slider';
 import ScrolltoTop from './ScrolltoTop';
 import Modal from '@material-ui/core/Modal';
 import { withStyles } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles';
 import LoginModal from './LoginModal'
 import MemberArea from '../containers/MemberArea/MemberArea';
 import { useHistory } from "react-router-dom";
+import Cookies from 'js-cookie';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Dropdown, DropdownButton, NavDropdown } from 'react-bootstrap';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import { Sling as Hamburger } from 'hamburger-react'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SearchIcon from '@material-ui/icons/Search';
+import { FormControl, MenuItem } from '@material-ui/core';
+import { Select } from '@tensorflow/tfjs-core';
+const stylesForSwiper = makeStyles({
+  list: {
+    width: "auto",
+  },
+  fullList: {
+    width: "auto",
+  },
+}); 
+
+
 
 function Header() {
-    
-  const [UserData, setUserData] = useState(0)
-  
-  useEffect(() => {
-    if (UserData?.id !== undefined) 
-    {
-      setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
-    }
-  },[])
+    const navTextMQ = useMediaQuery('(min-width:1150px)');
+    const navDropdownMQ = useMediaQuery('(max-width:1150px)');
+    const elanAddBtnMQ = useMediaQuery('(max-width:1150px)');
+    const loginMQ = useMediaQuery('(max-width:1150px)');
+    const searchMQ = useMediaQuery('(max-width:646px)');
+    const navLogoMQ = useMediaQuery('(max-width:1150px)');
+    const menuMQ = useMediaQuery('(max-width:1150px)');
 
+    var SelectedThings = ['salam']
+    Cookies.set('SelectedThings' , SelectedThings)
+    const [UserData, setUserData] = useState(0)
+
+    useEffect(() => {
+      if (UserData?.user?.id === undefined) 
+      {
+          setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+      }
+    } )
+  console.log(UserData)
     const [Ad, setAd] = useState([12,12])
     const [Master, setMaster] = useState([12,12])
     const [Company, setCompany] = useState([12,12])
@@ -64,7 +104,7 @@ function Header() {
           padding: theme.spacing(2, 4, 3),
         },
     }));
-    const classes = useStyles();
+    
     const [open, setOpen] = useState(false);
     const history = useHistory();
     const handleClose = () => {
@@ -86,13 +126,128 @@ function Header() {
     const handleOpen = () => {
           UserData?.user?.id !== undefined ? history.push('/member-area')  : setOpen(true)  
     };
+    const putAd = () => {
+         UserData?.user?.id !== undefined ? history.push('/member-area/elan-add')  : window.location.href = "/login"  
+    }
+    useEffect(() => {
+      if(window.location.href.substring(window.location.href.lastIndexOf('/') + 1) === "login")
+      {
+        handleOpen()
+      }
+    }, [])
+    const [type, settype] = useState('elan');
+    const [jobcategory, setjobcategory] = useState('12');
+    const [city, setcity] = useState('1');
+
+
+    const userImg = {
+      backgroundImage: `url(http://ustatap.testjed.me/${UserData?.user?.image})`,
+      backgroundRepeat: 'no-repeat',  
+      backgroundSize: 'cover',  
+      backgroundPosition: 'top center',  
+  }
+
+
+    const classes = stylesForSwiper();
+    const [state, setState] = React.useState({
+      left: false,
+    });
+
+    const toggleDrawer = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+
+      setState({ ...state, [anchor]: open });
+    };
+    const list = (anchor) => (
+      <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+      >
+        <div className="swiperTitle"><button className="login" onClick={() => handleOpen()}>{ UserData?.user?.image === undefined ? <img src={human } alt=""/> : <div className="userImgCont" style={userImg}></div> }   { UserData?.user?.id !== undefined ?<p className="nameL">{UserData?.user?.name}</p> : <p >Daxil ol</p> }</button>  <button className="btnMenu">x</button></div>
+        <Divider />
+        <List>
+            <ListItem button >
+                <Link to="/"><p>Əsas Səhifə</p></Link>
+            </ListItem>
+            <ListItem button >
+                <a href="/elanlar"><p>Elanlar</p> </a>
+            </ListItem>
+            <ListItem button >
+                <a href="/ustalar"><p>Ustalar</p> </a>
+            </ListItem>
+            <ListItem button >
+                <a href="/shirketler"> <p>Şirkətlər</p> </a>
+            </ListItem>
+            <ListItem button >
+                <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
+            </ListItem>
+            <ListItem button >
+                <Link to="/reklam"><p>Reklam</p> </Link>
+            </ListItem>
+            <ListItem button >
+                <Link to="/elaqe"><p>Əlaqə</p> </Link>
+            </ListItem>
+            { UserData?.user?.image === undefined ? "" :
+            <ListItem button >
+                <a href="/"><button onClick={logOut}> <ExitToAppIcon/> Çıxış</button> </a>
+            </ListItem>}
+
+        </List>
+        
+      </div>
+    );
+    
+    
+
+
+    const searchDrawer = stylesForSwiper();
+    const [state3, setState3] = React.useState({
+      top: false,
+    });
+
+    const toggleDrawer3 = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+
+      setState3({ ...state3, [anchor]: open });
+    };
+    const listSearch = (anchor) => (
+      <div
+      className={clsx(searchDrawer.list, {
+        [searchDrawer.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      >
+         <div className="swiperTitle"> <p>Axtarış</p> <button className="btnMenu" onClick={toggleDrawer3(anchor, false)} onKeyDown={toggleDrawer3(anchor, false)}>X</button></div>
+        <Divider />
+        <div className="searchDW">
+            <SearchBox settype={settype} setjobcategory={setjobcategory} setcity={setcity} type={type} jobcategory={jobcategory} city={city}/>
+        </div>
+        
+      </div>
+    );
+    
+    
+    
+    
+    const logOut = () => {localStorage.clear()}
+
+
+
 
     return (
         
-      <div className="topContainer1" >
+      <>
           
         <ScrolltoTop />
-
+        
         <Modal  
                   style={{display:"flex", justifyContent:"center",overflow:"auto",backgroundColor:"rgba(0,0,0,0.5)",}}
                   open={open}
@@ -104,21 +259,52 @@ function Header() {
 
         <div className="topContainer" >
             <navbar className="navbar" id="navbar">
-                <Link to="/"><img className="navlogo" src={mainLogo} width="90px" alt=""/></Link>
-                <div className="text" >
-                    <Link to="/"><p>Əsas Səhifə</p></Link>
-                    <a href="/elanlar"><p>Elanlar</p> </a>
-                    <a href="/ustalar"><p>Ustalar</p> </a>
-                    <a href="/shirketler"> <p>Şirkətlər</p> </a>
-                    <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
-                    <Link to="/reklam"><p>Reklam</p> </Link>
-                    <Link to="/elaqe"><p>Əlaqə</p> </Link>
-                    <button className="login" onClick={() => handleOpen()}><p><img src={human} alt=""/> { UserData?.user?.id !== undefined ?<p>{UserData?.user?.name}</p> : <p>Daxil ol</p> }</p></button>
-                    <Link to="/istifadeci-qeydiyyati"><button className="putAd"><span>+</span> Elan Yerləşdir</button></Link> 
+                  <Link to="/" className="imgAndLink"><img className="navlogo" src={mainLogo} width="90px" alt=""/> {navLogoMQ && "Ustatap.net"}</Link>
+                   <div className="text" >
+                   { navTextMQ &&
+                    <>
+                      <Link to="/"><p>Əsas Səhifə</p></Link>
+                      <a href="/elanlar"><p>Elanlar</p> </a>
+                      <a href="/ustalar"><p>Ustalar</p> </a>
+                      <a href="/shirketler"> <p>Şirkətlər</p> </a>
+                      <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
+                      <Link to="/reklam"><p>Reklam</p> </Link>
+                      <Link to="/elaqe"><p>Əlaqə</p> </Link>
+                    </>
+                  }
+                  { searchMQ && 
+                          <div>
+                          {
+                            <React.Fragment key={'top'}>
+                              <button onClick={toggleDrawer3('top', true)} className="searchNavIco"><SearchIcon/></button>
+                              <Drawer anchor={'top'} open={state3['top']} onClose={toggleDrawer3('top', false)}>
+                                {listSearch('top')}
+                              </Drawer>
+                            </React.Fragment>
+                          }
+                        </div>
+                  }
+                  { menuMQ && 
+                          <div>
+                          {
+                            <React.Fragment key={'left'}>
+                              <Hamburger color="#FFFFFF" toggled={state['left']} toggle={toggleDrawer('left', true)} />
+                              <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
+                                {list('left')}
+                              </Drawer>
+                            </React.Fragment>
+                          }
+                        </div>
+                  }
+
+
+
+                  {!loginMQ && <button className="login" onClick={() => handleOpen()}><p>{ UserData?.user?.image === undefined ? <img src={human } alt=""/> : <div className="userImgCont" style={userImg}></div> }   { UserData?.user?.id !== undefined ?<p className="nameL">{UserData?.user?.name}</p> : <p >Daxil ol</p> }</p></button>}
+                  {!elanAddBtnMQ &&<button className="putAd" onClick={putAd}><span>+</span> Elan Yerləşdir</button> }
                 </div>
             </navbar>
-            <SearchBox/>
-            </div>
+            {window.location.href === "http://localhost:3000/member-area" ? "" :  (!searchMQ && <SearchBox settype={settype} setjobcategory={setjobcategory} setcity={setcity} type={type} jobcategory={jobcategory} city={city}/>)}
+          </div>
 
           <Switch>
               <Route path={`/elanlar/secilmish-son-elan/:id`}>
@@ -132,6 +318,9 @@ function Header() {
               </Route>
               <Route path="/elanlar">
                 <AddsPage/>
+              </Route>
+              <Route path="/search">
+                <SearchListing type={type} jobcategory={jobcategory} city={city}/>
               </Route>
               <Route path="/ustalar">
                 <Masters hideVip={hideVip}/>
@@ -157,6 +346,9 @@ function Header() {
               <Route path="/shirket-qeydiyyati">
                 <CompanyRegistration/>
               </Route>
+              <Route  path={`/member-area/`}>
+                { UserData?.user?.id === undefined  ?  <Redirect to="/login"/>  :  <MemberArea loginId={UserData?.user?.user_type} UserData={UserData}/> }
+              </Route>
               <Route path="/istifadeci-qeydiyyati">
                 <UserRegistration/>
               </Route>
@@ -164,12 +356,12 @@ function Header() {
                 <Slider/>
               </Route>
               <Route path="/">
-                <HomePage hideVip={hideVip} numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
+                <HomePage hideVip={hideVip} UserData={UserData?.user} numberOfLatestAd={Ad[0]} numberOfMasters={Master[0]} numberOfCompanies={Company[0]}/>
               </Route>
             </Switch>
               
             <Footer/>
-            </div>
+            </>
 
     )
 }

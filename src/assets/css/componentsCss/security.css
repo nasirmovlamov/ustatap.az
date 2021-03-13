@@ -1,0 +1,94 @@
+.security {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.security .errors {
+  font-family: "MsR";
+  font-size: 14px;
+  color: red;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+.security .title {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.security .gridContt {
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 205px (1fr)[1];
+      grid-template-columns: 205px repeat(1, 1fr);
+  -ms-flex-line-pack: center;
+      align-content: center;
+  row-gap: 23px;
+  -webkit-column-gap: 50px;
+          column-gap: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  height: auto;
+  padding: 30px;
+}
+
+.security .gridContt .key {
+  font-size: 24px;
+  font-family: "ComfortaaRegular";
+}
+
+.security .gridContt .redMaker {
+  color: red;
+}
+
+.security .gridContt .value {
+  padding-left: 24px;
+  width: 446px;
+  height: 54px;
+  font-size: 18px;
+  border: 1px solid #C4C4C4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.security .gridContt .value::-webkit-input-placeholder {
+  color: #C4C4C4 !important;
+}
+
+.security .gridContt .value:-ms-input-placeholder {
+  color: #C4C4C4 !important;
+}
+
+.security .gridContt .value::-ms-input-placeholder {
+  color: #C4C4C4 !important;
+}
+
+.security .gridContt .value::placeholder {
+  color: #C4C4C4 !important;
+}
+
+.security .button {
+  margin-top: 66px;
+  width: 333px;
+  height: 59px;
+  font-size: 18px;
+}
+/*# sourceMappingURL=security.css.map */

@@ -9,17 +9,29 @@ import {
     Link
 } from "react-router-dom";
   import axios from 'axios'
+import Cookies from 'js-cookie'
 function Ad(props) {
     const [checker , setChecker] = useState(false)
+    const [UserData, setUserData] = useState(0)
+    
+    useEffect(() => {
+      if (UserData?.user?.id === undefined) 
+      {
+          setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+      }
+    })
     const bgImg = {
-        backgroundImage: `url(http://ustatap.testjed.me/storage/app/public/${props.image})`,
+        backgroundImage: `url(http://ustatap.testjed.me/${props.image})`,
         backgroundRepeat: 'no-repeat',  
+        backgroundSize: 'cover',  
+        backgroundPosition: 'top center',  
     }
+    
     const heartPost = () => {
         if(!checker)
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('http://ustatap.testjed.me/', {addFavorite:true})
+            axios.post('http://ustatap.testjed.me/public/api/select', {elan_id:props.id , user_id:props.userId , type:UserData?.user?.user_type  })
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(true)
@@ -27,7 +39,7 @@ function Ad(props) {
         else 
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-            axios.post('http://ustatap.testjed.me/', {addFavorite:false})
+            axios.post('http://ustatap.testjed.me/public/api/select', {elan_id:props.id , user_id:props.userId})
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(false)
@@ -46,9 +58,9 @@ function Ad(props) {
                 <Link to={"/elanlar/secilmish-son-elan/" + props.id}>  <button  onClick={() => viewHandler()} style={bgImg} className="mainImg"> </button> </Link>
                 <div className="lineAd"></div>
                 <div className="subCont">
-                    <div className="flexCont1">  <p>{props.name}</p>  <button className="btnHeart" onClick={() => heartPost()}><FavoriteIcon  id={props.id}/></button></div>
-                    <p className="nameCostumer">{props.costumer}</p>
-                    <div className="flexCont2">   <p>{props.address}</p>        <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props.date} </pre></p>    <p><img src={eye}  alt=""/>{props.view}</p> </div>
+                    <div className="flexCont1">  <p>{props.name}</p>  {UserData?.user?.user_type !== "user" ? <button className="btnHeart" onClick={() => heartPost()}><FavoriteIcon  id={props.id}/></button> : ""}</div>
+                    <p className="nameCostumer">Sifarişçi {props.desc}</p>
+                    <div className="flexCont2">   <p>Ünvan: {props.address} </p>        <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props.date} </pre></p>    <p><img src={eye}  alt=""/>{props.view}</p> </div>
                 </div>
             </div>
             

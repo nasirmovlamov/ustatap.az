@@ -28,27 +28,27 @@ function Masters(props) {
     const [MasterApi, setMasterApi] = useState([0])
     var masters = []
     var vipMasters = []
-    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}})
-    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}})
+    
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}else{}})
+    MasterApi.map(master =>  {})
     useEffect(() => 
     {   
-        if(numId === "ustalar")
-        {
             axios.get("http://ustatap.testjed.me/public/api/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
-            axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
-            .then((res) =>  (setJobCategoryApi(res.data) ))
-        } 
-        else
-        {
-           
-            axios.get(`https://ustatap.testjed.me/public/api/usta/${numId}`) 
-            .then((res) =>  (setMasterApi(res.data))) 
-        }
-
     } , [])
     
-    
+    const [filter, setfilter] = useState(0)
+    const ListingResult = JSON.parse(localStorage.getItem("ListingResult"))
+
+    if (filter) {
+        masters = []
+        vipMasters = []
+        setfilter(0)
+        axios.post("http://ustatap.testjed.me/public/api/ustafilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip } ) 
+        .then((res) =>  (setMasterApi(res.data) ))
+        MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}else{}})
+
+    }
 
 
        
@@ -71,9 +71,8 @@ function Masters(props) {
                     <button className="topButton">Ustalar üzrə Axtarış</button>
                 </div>
 
-                    <Category  type4={1}  color="#F27B29" btnCollor="green"/>
-
-                    <div className="adsContainer">
+                    <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>
+                        <div className="adsContainer">
                         { props.hideVip &&
                                     <><img src={vipTopImg} alt=""/>
                                     <div className="Vipmasters"> {vipMasters} </div></>
@@ -81,7 +80,6 @@ function Masters(props) {
                         <SubBanner/>
                         <div className="masters"> {masters} </div>
                     </div>    
-
 
             </div>
         </div>

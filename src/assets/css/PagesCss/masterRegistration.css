@@ -49,8 +49,68 @@
   height: auto;
 }
 
+.masterRegistrationCont .registration .formContReg form .btnAndImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  height: 30px;
+  width: 100%;
+}
+
+.masterRegistrationCont .registration .formContReg form .imgPreview {
+  border: 0px solid gray;
+  border-radius: 10px;
+  height: 0px;
+  width: 150px !important;
+  border: none;
+}
+
+.masterRegistrationCont .registration .formContReg form .addFile {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background-color: white;
+  border: 1px solid gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.masterRegistrationCont .registration .formContReg form .addFile .textPhoto {
+  margin: 0px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: black;
+  font-size: 18px;
+  font-family: "ComfortaaRegular";
+  position: absolute;
+}
+
+.masterRegistrationCont .registration .formContReg form .addFile .addFileInput {
+  opacity: 0;
+  width: 528px;
+}
+
+.masterRegistrationCont .registration .formContReg form .errors {
+  margin-bottom: 10px;
+  height: 30px;
+  margin-top: 5px;
+  width: 403px;
+  color: red;
+}
+
 .masterRegistrationCont .registration .formContReg form .button {
-  margin-top: 30px;
   width: 240px;
   height: 50px;
 }

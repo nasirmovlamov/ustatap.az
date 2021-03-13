@@ -7,12 +7,18 @@ import areaImg4 from '../../assets/images/component/element/memberAreaImg (4).pn
 import areaImg5 from '../../assets/images/component/element/memberAreaImg (5).png'
 import areaImg6 from '../../assets/images/component/element/memberAreaImg (6).png'
 import areaImg7 from '../../assets/images/component/element/memberAreaImg (7).png'
+import areaImg8 from '../../assets/images/component/element/elanadd.png'
 import CardMemberArea from '../../components/CardMemberArea'
 import MyAds from '../../components/MyAds'
 import Profile from '../../components/Profile'
+import Security from '../../components/Security'
+import AddElan from '../../components/AddElan'
 
 function UserMemberArea(props) {
     let match = useRouteMatch();
+    const logout = () => {
+        localStorage.clear()
+    }
     return (
         <div className="userMember">
             <Switch>
@@ -32,7 +38,10 @@ function UserMemberArea(props) {
                     companies
                 </Route>
                 <Route path="/member-area/security">
-                    security
+                    <Security/>
+                </Route>
+                <Route path="/member-area/elan-add">
+                    <AddElan UserData={props.UserData}/>
                 </Route>
                 <Route  path="/member-area/">
                     <div className="gridCont">
@@ -41,7 +50,8 @@ function UserMemberArea(props) {
                         <CardMemberArea img={areaImg4} link={`${match.path}selected-masters`} title="Seçilmiş Ustalarım"/>
                         <CardMemberArea img={areaImg5} link={`${match.path}selected-companies`} title="Seçilmiş Şirkətlərim"/>
                         <CardMemberArea img={areaImg6} link={`${match.path}security`} title="Təhlükəsizlik"/>
-                        <CardMemberArea img={areaImg7} link={`/`} title="Hesabdan çıx"/>
+                        <CardMemberArea img={areaImg8} link={`${match.path}elan-add`} title="Elan əlavə et"/>
+                        <CardMemberArea img={areaImg7} link={`/`} func={logout} title="Hesabdan çıx"/>
                     </div>
                 </Route>
 

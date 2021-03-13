@@ -36,6 +36,57 @@
   width: 530px;
 }
 
+.userRegCont .formAndImg form .btnAndImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  height: 30px;
+}
+
+.userRegCont .formAndImg form .imgPreview {
+  border: 0px solid lightgray;
+  border-radius: 10px;
+  height: 0px;
+  border: none;
+}
+
+.userRegCont .formAndImg form .addFile {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background-color: white;
+  border: 1px solid gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.userRegCont .formAndImg form .addFile .textPhoto {
+  margin: 0px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: black;
+  font-size: 18px;
+  font-family: "ComfortaaRegular";
+  position: absolute;
+}
+
+.userRegCont .formAndImg form .addFile .addFileInput {
+  opacity: 0;
+  width: 528px;
+}
+
 .userRegCont .formAndImg form .errors {
   margin-bottom: 10px;
   height: 30px;

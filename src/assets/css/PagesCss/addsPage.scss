@@ -44,43 +44,15 @@
         
         .adsContainer
         {
-            margin-top: 66px;
+            margin-top: 50px;
             width: 100%;
             align-content: center;
             justify-items: center;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             margin-bottom: 50px;
-            .ad
-            {
-                .mainImg
-                {
-                    height: 264px;
-                }
-                width: 376px;
-                height: 445px;
-                .flexCont1
-                {
-                    font-size: 19px;
-                }
-                .nameCostumer
-                {
-                    font-size: 12px;
-                    margin-top:-15px;
-                } 
-                .flexCont2
-                {
-                    margin-top: 30px; 
-                    p 
-                    {
-                        &:nth-child(1)
-                        {
-                            font-size: 10px;
-                        }
-                    }
-                }
-            }
+            
         }
     
 }

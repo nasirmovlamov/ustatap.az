@@ -11,6 +11,35 @@
           justify-content: center;
 }
 
+.categoryCont .MuiInput-underline:before {
+  border-bottom: none !important;
+}
+
+.categoryCont .MuiSvgIcon-root {
+  display: none;
+}
+
+.categoryCont .MuiInputBase-input {
+  color: black;
+  font-family: "ComfortaaRegular";
+}
+
+.categoryCont .MuiSelect-select.MuiSelect-select {
+  padding: 0px;
+  width: 170px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.categoryCont .categCont {
+  background-color: white;
+  border-radius: 10px;
+}
+
 .categoryCont .button {
   margin-bottom: -30px;
   margin-left: 64.5px;

@@ -6,12 +6,23 @@
     align-items: center;
     flex-direction: column;
     padding-top: 210px;
-
+    
+    .MuiInput-underline:before
+    {
+        border-bottom: none !important;
+    }
+    .MuiSvgIcon-root
+    {
+      display: none;
+    }
+    .MuiInputBase-input
+    {
+      color: gray;
+    }
     p 
     {
         margin: 0;
     }
-}
 .title
 {
     font-size: 51px;
@@ -29,7 +40,7 @@
 .searchCont
 {
   margin-top:55px;
-  width: 744px;
+  width: 644px;
   height: 52px;
   background: white;
   display: flex;
@@ -78,10 +89,10 @@
 .dropbtn {
     color: white;
     font-size: 16px;
+    margin-left: 20px;
     border: none;
     cursor: pointer;
     height: 100%;
-    padding-right: 19.5px;
     background-color: transparent;
     color: #969696;
     display:flex;
@@ -97,8 +108,9 @@
     }
     img 
     {
-      margin-right: 10px;
+      margin-left: 15px;
     }
+    
   }
   .dropbtn1
   {
@@ -107,7 +119,6 @@
   .dropbtn3 , .dropbtn2
   {
     margin-left:13px;
-
   }
   .dropbtn3 
   {
@@ -194,3 +205,4 @@
   
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
+}

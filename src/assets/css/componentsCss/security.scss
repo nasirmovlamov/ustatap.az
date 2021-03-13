@@ -1,0 +1,66 @@
+.security
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    .errors
+    {
+        font-family: "MsR";
+        font-size: 14px;
+        color: red;
+        margin-left: 10px;
+        margin-top: -10px;
+    }
+    .title
+    {
+        align-self: flex-start;   
+    }
+        .gridContt
+        {
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+            display: grid;
+            grid-template-columns: 205px repeat(1,1fr);
+            align-content:center ;
+            row-gap: 23px;
+            column-gap: 50px;
+            align-items: center;
+            justify-content: start;
+            height: auto;
+            padding: 30px;
+            .key 
+            {
+                font-size: 24px;
+                font-family: "ComfortaaRegular";
+            }
+            .redMaker
+            {
+                color: red;
+            }
+            .value 
+            {
+                padding-left: 24px;
+                width: 446px;
+                height: 54px;
+                font-size: 18px;
+                border: 1px solid #C4C4C4;
+                box-sizing: border-box;
+                border-radius: 10px;
+                &::placeholder
+                {
+                color: #C4C4C4 !important;
+
+                }
+            }
+        }
+        
+    .button 
+    {
+        margin-top:66px ;
+        width: 333px;
+        height: 59px;
+        font-size: 18px;
+    }
+}

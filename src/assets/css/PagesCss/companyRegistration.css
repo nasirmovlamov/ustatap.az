@@ -15,6 +15,58 @@
           align-items: center;
 }
 
+.companyRegCont .addFile {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background-color: white;
+  border: 1px solid gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.companyRegCont .addFile .textPhoto {
+  margin: 0px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: black;
+  font-size: 18px;
+  font-family: "ComfortaaRegular";
+  position: absolute;
+}
+
+.companyRegCont .addFile .addFileInput {
+  opacity: 0;
+  width: 528px;
+}
+
+.companyRegCont .btnAndImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  height: 30px;
+  width: 100%;
+}
+
+.companyRegCont .imgPreview {
+  border: 0px solid gray;
+  border-radius: 10px;
+  height: 0px;
+  border: none;
+}
+
 .companyRegCont form {
   width: 80%;
   display: -webkit-box;
@@ -58,7 +110,7 @@
   border: none;
   border-bottom: 1px solid lightgray;
   height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .companyRegCont input:focus {
@@ -97,6 +149,10 @@
 
 .companyRegCont .formPart1 option[value=""][disabled] {
   display: none;
+}
+
+.companyRegCont .formPart1 input {
+  margin-top: 5px;
 }
 
 .companyRegCont .formPart2 {

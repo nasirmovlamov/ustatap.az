@@ -8,7 +8,12 @@ import {Formik , Form , Field, ErrorMessage} from "formik"
 import * as Yup from "yup"
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
 function LoginModal(props) {
+    const notify = () => toast.info("Hesabınıza daxil oldunuz!");
+   
     const clickHandler = () => {
         props.modalCloser()
     }
@@ -26,9 +31,10 @@ function LoginModal(props) {
     const [Error, setError] = useState(false)
     const onSubmit =  (values) => {
             axios.post('http://ustatap.testjed.me/public/api/check', {email: values.email , password:values.password} , headers)
-            .then((res) => (localStorage.setItem("LoginUserData" , JSON.stringify(res.data))  , clickHandlerForClose() ))
+            .then((res) => (res.status ===200 && notify() , localStorage.setItem("LoginUserData" , JSON.stringify(res.data))  , clickHandlerForClose()))
             .catch((err) => setError(true))
     }
+
     const initialValues = {
         email:'',
         password:'',
@@ -36,7 +42,7 @@ function LoginModal(props) {
     
     return (
         <div className="loginModal" >
-               <button onClick={() => clickHandlerForClose()} className="closeImg" ><img  src={x} alt="" width="19" height="auto" /></button>
+               <a href="/"><button onClick={() => clickHandlerForClose()} className="closeImg" ><img  src={x} alt="" width="19" height="auto" /></button></a>
                <p className="title">Daxil Olun</p> 
                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={true}>
                     <Form action="" method="post" >
@@ -48,7 +54,7 @@ function LoginModal(props) {
                         <p className="errorsDown">{Error && "Daxil etdiyiniz Məlumatlar yanlışdır"}</p>
                     </Form>
                </Formik>
-               <p className="link"> Hesabınız yoxdur ? <Link to="/istifadeci-qeydiyyati"><button onClick={() => clickHandler()}>Qeydiyyatdan Keçin</button></Link></p>
+               <p className="link"> Hesabınız yoxdur ? <a href="/istifadeci-qeydiyyati"><button onClick={() => clickHandler()}>Qeydiyyatdan Keçin</button></a></p>
         </div>
     )
 }

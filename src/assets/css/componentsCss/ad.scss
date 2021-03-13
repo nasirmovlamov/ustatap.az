@@ -8,6 +8,10 @@ a
     transition: 1s box-shadow;
     border-radius: 5px;
     overflow: hidden;
+    p 
+    {
+        margin:0px
+    }
     &:hover 
     {
         box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -35,7 +39,7 @@ a
     .mainImg 
     {
         width: 100%;
-        height: 156px;
+        height: 186px;
         border: none;
         display:flex;
         justify-content:center;
@@ -59,7 +63,7 @@ a
     .subCont
     {
         background-color: #FFFFFF;
-        height:133.5px;
+        height:90.5px;
         display:flex;
         flex-direction: column;
         justify-content: space-between;
@@ -86,9 +90,8 @@ a
             color: rgba(150,150,150,0.83) ;
             font-size: 14px;
             height: 300px !important; 
-            overflow: hidden;
             margin-bottom: 0px;
-            margin-left: 3px;
+            margin-top: 10px;
         }
         .flexCont2
         {

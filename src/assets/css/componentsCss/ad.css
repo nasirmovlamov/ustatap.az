@@ -3,17 +3,29 @@ a {
 }
 
 .ad {
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
   border-radius: 5px;
   overflow: hidden;
   width: 281px;
   height: 290px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.ad p {
+  margin: 0px;
 }
 
 .ad:hover {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  -webkit-box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+          box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
 }
 
 .ad .btnHeart {
@@ -33,18 +45,26 @@ a {
 
 .ad .mainImg {
   width: 100%;
-  height: 156px;
+  height: 186px;
   border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #fff;
   background-size: cover;
+  -webkit-transition: 1s  background-size;
   transition: 1s  background-size;
   background-position: center;
 }
 
 .ad .mainImg:hover {
+  -webkit-transition: 1s  background-size;
   transition: 1s  background-size;
 }
 
@@ -57,18 +77,31 @@ a {
 
 .ad .subCont {
   background-color: #FFFFFF;
-  height: 133.5px;
+  height: 90.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .ad .subCont .flexCont1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: "FuturicaRegular";
   font-style: normal;
   font-weight: normal;
@@ -85,15 +118,20 @@ a {
   color: rgba(150, 150, 150, 0.83);
   font-size: 14px;
   height: 300px !important;
-  overflow: hidden;
   margin-bottom: 0px;
-  margin-left: 3px;
+  margin-top: 10px;
 }
 
 .ad .subCont .flexCont2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: Futurica;
   font-style: normal;
   font-weight: normal;
@@ -103,9 +141,15 @@ a {
 .ad .subCont .flexCont2 p {
   font-family: Futurica;
   font-style: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: normal;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.5);
@@ -114,3 +158,4 @@ a {
 .ad .subCont .flexCont2 p img {
   margin-right: 3px;
 }
+/*# sourceMappingURL=ad.css.map */

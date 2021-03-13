@@ -1,3 +1,16 @@
+@media only screen and (max-width: 1120px) {
+    footer 
+    {
+        .upSide
+        {
+            flex-wrap: wrap;
+            column-gap: 5%;
+            row-gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
 .footer
 {
     width: 100%;
@@ -6,7 +19,7 @@
     flex-direction: column;
     background-color: #313131;
     align-items: center;
-}
+    margin-top: 100px;
 .social
 {
     display: flex;
@@ -99,12 +112,15 @@
 {   
     width: 85%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: auto;
     height: auto;
     padding-top: 71px;
     padding-bottom: 62px;
     .number 
     {
+        margin: auto;
+
         margin-top: 10px;
         p 
         {
@@ -133,6 +149,8 @@
     }
     .elements1
     {
+        margin: auto;
+
         font-size: 19px;
         color: white;
         font-family: "ComfortaaRegular";
@@ -151,6 +169,8 @@
     }
     .elements2
     {
+        margin: auto;
+
         font-size: 19px;
         color: white;
         font-family: "ComfortaaRegular";
@@ -173,6 +193,7 @@
 {   
     height: 51px;
     width: 100%;
+    margin-bottom: 10px;
     hr 
     {
         width: 99.9%;
@@ -192,3 +213,6 @@
         
     }
 }
+}
+
+

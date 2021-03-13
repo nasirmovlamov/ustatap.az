@@ -1,0 +1,120 @@
+.addElan
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .errors
+    {
+        height: auto;
+        width: 403px;
+        color: red;
+        align-self:flex-start;
+    }
+    .btnAndImg
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+        height: 30px;
+        width: 100%;
+    }
+    .imgPreview
+    {
+        border: 0px solid gray;
+        border-radius:10px;
+        height: 0px;
+        border: none;
+    }
+    .imgGrid
+    {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .addFile
+    {
+        margin: 0px;
+        padding: 0px;
+        margin-top: 20px;
+        border: none;
+        background-color: white;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid lightgray; 
+        display: flex;
+        justify-content: center;
+        width: 120px;
+        height: 120px;
+        background: url(../../images/component/background/backgroundForLogin.png);
+        background-position: center;
+        background-size:cover ;
+        .textPhoto
+        {
+            margin: 0px ;
+            align-self: center;
+            color: white;
+            font-size: 13px;
+            width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+            position: absolute;
+            background: #58bc41;
+            white-space: nowrap;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .addFileInput
+        {
+            opacity: 0;
+            width: 528px;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+    form 
+    {
+        .selectMaterial
+        {
+            margin-top: 10px;
+        }
+        select 
+        {
+            width: 100.8%;
+            font-family: "FuturicaRegular";
+            font-size: 17px;
+            border: none;
+            border-bottom: 1px solid #d3d3d3;
+            margin-bottom: 28px;
+            color: rgba(0,0,0,.6);
+        }
+        display: flex;
+        flex-direction: column;
+        width: 530px;
+        align-items: center;
+        
+        .input 
+        {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            font-family: "FuturicaRegular";
+            font-size: 18px;
+            border: none;
+            border-bottom: 1px solid lightgray;
+            height: 30px;
+            margin-top: 20px;
+            &:focus {
+                outline: none;
+            }
+        }
+        .button 
+        {
+            width: 210.89px;
+            margin-top: 35px;
+            height: 40px;
+            border-radius: 30px;
+        }
+    }
+}

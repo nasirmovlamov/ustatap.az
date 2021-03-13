@@ -1,11 +1,197 @@
+@media only screen and (max-width: 1160px) {
+  .navbar .text {
+    width: 100px !important;
+  }
+}
+
+.swiperTitle {
+  width: 100%;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "ComfortaaBold";
+}
+
+.swiperTitle p {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swiperTitle .login {
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  font-family: "FuturicaRegular";
+}
+
+.swiperTitle .login img {
+  margin-right: 14.5px;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.swiperTitle .login .userImgCont {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  margin-right: 10px;
+  background-color: black;
+  margin-bottom: 4px;
+}
+
+.swiperTitle .login:focus {
+  outline: none;
+}
+
+.swiperTitle .login p {
+  margin: 0px;
+}
+
+.btnMenu {
+  height: 36px;
+  padding: 0px;
+  margin: 0px;
+  width: 35px;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+
+.MuiListItem-button a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-weight: 700;
+}
+
+.MuiListItem-button a p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.MuiListItem-button button {
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-weight: 700;
+}
+
+.searchDW .searchbox {
+  padding-top: 0px;
+}
+
+.searchDW .searchbox .title, .searchDW .searchbox .subTitle {
+  display: none;
+}
+
+.searchDW .searchbox .searchCont {
+  border-radius: 0px;
+  background-color: white;
+  margin-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.searchDW .searchbox .searchCont .dropdownCont {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.searchDW .searchbox .searchCont .dropdownCont .dropbtn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 90px;
+  width: auto;
+  border-right: 0px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.searchDW .searchbox .searchCont .dropdownCont .dropbtn .makeStyles-formControl-3 {
+  width: 150px !important;
+}
+
+.searchDW .searchbox .searchButton {
+  height: 40px;
+  width: 200px;
+}
+
+.MuiDrawer-paper {
+  width: 100% !important;
+}
+
 .topContainer {
   width: 100%;
   height: 730px;
   background: url(../../images/page/background/HomePageBG.png) no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 
-.navbar {
+.topContainer .navbar {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,6 +203,7 @@
           align-items: center;
   position: fixed;
   height: 80px;
+  row-gap: 20px;
   top: 0;
   background-color: transparent;
   z-index: 30;
@@ -24,12 +211,40 @@
           box-shadow: transparent;
 }
 
-.navbar .navlogo {
+.topContainer .navbar .searchNavIco {
+  border: none;
+  background-color: transparent;
+}
+
+.topContainer .navbar .searchNavIco svg {
+  width: 35px;
+  height: 35px;
+  color: #F97922;
+}
+
+.topContainer .navbar p {
+  margin-bottom: 0px;
+}
+
+.topContainer .navbar .navlogo {
   width: 70px;
 }
 
-.navbar .text {
-  width: 75%;
+.topContainer .navbar .imgAndLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-size: 18px;
+}
+
+.topContainer .navbar .text {
+  width: 85%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,15 +254,27 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   font-family: "FuturicaRegular";
 }
 
-.navbar .text a {
+.topContainer .navbar .text a {
   text-decoration: none;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.navbar .text p {
+.topContainer .navbar .text a p {
+  margin: 0px;
+}
+
+.topContainer .navbar .text p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,8 +287,14 @@
   color: white;
 }
 
-.navbar .text .login {
+.topContainer .navbar .text .login {
   background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: none;
   padding-left: 10px;
   padding-right: 10px;
@@ -69,15 +302,29 @@
   font-family: "FuturicaRegular";
 }
 
-.navbar .text .login img {
+.topContainer .navbar .text .login img {
   margin-right: 14.5px;
 }
 
-.navbar .text .login:focus {
+.topContainer .navbar .text .login .userImgCont {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  margin-right: 10px;
+  background-color: black;
+  margin-bottom: 4px;
+}
+
+.topContainer .navbar .text .login:focus {
   outline: none;
 }
 
-.navbar .text .putAd {
+.topContainer .navbar .text .login p {
+  margin: 0px;
+}
+
+.topContainer .navbar .text .putAd {
   width: 132px;
   height: 41px;
   background-color: #5ABA42;
@@ -98,12 +345,12 @@
   font-family: "ComfortaaBold";
 }
 
-.navbar .text .putAd span {
+.topContainer .navbar .text .putAd span {
   margin-right: 5px;
   font-size: 24px;
 }
 
-.navbar .text .putAd:focus {
+.topContainer .navbar .text .putAd:focus {
   outline: none;
 }
 /*# sourceMappingURL=header.css.map */

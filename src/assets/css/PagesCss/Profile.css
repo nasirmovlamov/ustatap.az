@@ -1,25 +1,41 @@
 .profileUser {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.profileUser form {
-  display: flex;
-  flex-direction: column;
-  width: 530px;
-  margin-top: 50px;
-  align-items: center;
-  row-gap: 50px;
-}
-
-.profileUser form .errors {
+.profileUser .errors {
   margin-bottom: 10px;
   height: 30px;
   margin-top: 5px;
   width: 403px;
   color: red;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.profileUser form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 530px;
+  margin-top: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 25px;
 }
 
 .profileUser form input {
@@ -42,3 +58,4 @@
   height: 40px;
   border-radius: 30px;
 }
+/*# sourceMappingURL=Profile.css.map */

@@ -16,6 +16,45 @@
             flex-direction: column;
             margin-top: 150px;
             width: 530px;
+            .btnAndImg
+            {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 50px;
+                height: 30px;
+            }
+            .imgPreview
+            {
+                border: 0px solid lightgray;
+                border-radius:10px;
+                height: 0px;
+                border: none;
+            }
+            .addFile
+            {
+                margin: 0px;
+                padding: 0px;
+                border: none;
+                background-color: white;
+                border: 1px solid gray; 
+                display: flex;
+                justify-content: center;
+                .textPhoto
+                {
+                    margin: 0px ;
+                    align-self: center;
+                    color: black;
+                    font-size: 18px;
+                    font-family: "ComfortaaRegular";
+                    position: absolute;
+                }
+                .addFileInput
+                {
+                    opacity: 0;
+                    width: 528px;
+                }
+            }
             .errors
             {
                 margin-bottom: 10px;
@@ -49,4 +88,5 @@
             }
         }
     }
+    
 }

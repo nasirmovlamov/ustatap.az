@@ -29,9 +29,59 @@
                 align-items: center;
                 width: 540px;
                 height: auto;
+                
+                .btnAndImg
+                {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 50px;
+                    height: 30px;
+                    width: 100%;
+                }
+                .imgPreview
+                {
+                    border: 0px solid gray;
+                    border-radius:10px;
+                    height: 0px;
+                    width: 150px !important;
+                    border: none;
+                }
+                .addFile
+            {
+                margin: 0px;
+                padding: 0px;
+                border: none;
+                background-color: white;
+                border: 1px solid gray; 
+                display: flex;
+                justify-content: center;
+                .textPhoto
+                {
+                    margin: 0px ;
+                    align-self: center;
+                    color: black;
+                    font-size: 18px;
+                    font-family: "ComfortaaRegular";
+                    position: absolute;
+                }
+                .addFileInput
+                {
+                    opacity: 0;
+                    width: 528px;
+                }
+            }
+            .errors
+            {
+                margin-bottom: 10px;
+                height: 30px;
+                margin-top: 5px;
+                width: 403px;
+                color: red;
+
+            }
                 .button 
                 {
-                    margin-top: 30px;
                     width: 240px;
                     height: 50px;
                     p 

@@ -1,3 +1,19 @@
+@media only screen and (max-width: 1120px) {
+  footer .upSide {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-column-gap: 5%;
+            column-gap: 5%;
+    row-gap: 30px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .footer {
   width: 100%;
   height: auto;
@@ -12,9 +28,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 100px;
 }
 
-.social {
+.footer .social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,16 +44,16 @@
           align-items: center;
 }
 
-.socialImgs {
+.footer .socialImgs {
   margin-top: 29px;
   margin-right: -5px;
 }
 
-.socialImgs img {
+.footer .socialImgs img {
   margin-right: 8.5px;
 }
 
-.mailSubs {
+.footer .mailSubs {
   background: url("../../images/component/background/footerBG.jpg") no-repeat;
   width: 291px;
   height: 185px;
@@ -61,7 +78,7 @@
   text-align: center;
 }
 
-.mailSubs .aboutPart {
+.footer .mailSubs .aboutPart {
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -80,11 +97,11 @@
   margin-right: 10%;
 }
 
-.mailSubs .aboutPart p {
+.footer .mailSubs .aboutPart p {
   margin: 0;
 }
 
-.mailSubs .aboutPart .button {
+.footer .mailSubs .aboutPart .button {
   width: 71px;
   height: 16px;
   background: -webkit-gradient(linear, left top, right top, from(#68A735), to(#58BC40));
@@ -105,7 +122,7 @@
   padding: 0.5px;
 }
 
-.mailSubs .aboutPart .button .text {
+.footer .mailSubs .aboutPart .button .text {
   border: 1px solid white;
   width: 66px !important;
   height: 80%;
@@ -124,7 +141,7 @@
   font-family: "FuturicaRegular";
 }
 
-.mailSubs .aboutPart .button .text .img {
+.footer .mailSubs .aboutPart .button .text .img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,32 +153,35 @@
   width: 2px;
 }
 
-.mailSubs .aboutPart .button .text .img:nth-child(1) {
+.footer .mailSubs .aboutPart .button .text .img:nth-child(1) {
   margin-left: 5px;
 }
 
-.mailSubs .aboutPart .button:focus {
+.footer .mailSubs .aboutPart .button:focus {
   outline: none;
 }
 
-.upSide {
+.footer .upSide {
   width: 85%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: auto;
+          column-gap: auto;
   height: auto;
   padding-top: 71px;
   padding-bottom: 62px;
 }
 
-.upSide .number {
+.footer .upSide .number {
+  margin: auto;
   margin-top: 10px;
 }
 
-.upSide .number p {
+.footer .upSide .number p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,7 +195,7 @@
   margin-top: 24px;
 }
 
-.upSide .number p a {
+.footer .upSide .number p a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -185,62 +205,65 @@
   color: white;
 }
 
-.upSide .number p:nth-child(1) {
+.footer .upSide .number p:nth-child(1) {
   margin: 0;
 }
 
-.upSide .number p img {
+.footer .upSide .number p img {
   margin-right: 8px;
 }
 
-.upSide .elements1 {
+.footer .upSide .elements1 {
+  margin: auto;
   font-size: 19px;
   color: white;
   font-family: "ComfortaaRegular";
 }
 
-.upSide .elements1 a {
+.footer .upSide .elements1 a {
   color: white;
 }
 
-.upSide .elements1 p {
+.footer .upSide .elements1 p {
   margin: 0;
   letter-spacing: 4.5px;
   margin-top: 10px;
 }
 
-.upSide .elements2 {
+.footer .upSide .elements2 {
+  margin: auto;
   font-size: 19px;
   color: white;
   font-family: "ComfortaaRegular";
 }
 
-.upSide .elements2 a {
+.footer .upSide .elements2 a {
   color: white;
 }
 
-.upSide .elements2 p {
+.footer .upSide .elements2 p {
   margin: 0;
   letter-spacing: 4.5px;
   margin-top: 10px;
 }
 
-.downSide {
+.footer .downSide {
   height: 51px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
-.downSide hr {
+.footer .downSide hr {
   width: 99.9%;
   opacity: 0.5;
 }
 
-.downSide p {
+.footer .downSide p {
   margin: 0;
   margin-top: 12px;
 }
 
-.downSide .text {
+.footer .downSide .text {
   font-size: 17px;
   color: rgba(229, 229, 229, 0.5);
   font-family: "ComfortaaRegular";

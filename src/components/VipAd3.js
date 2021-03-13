@@ -65,7 +65,7 @@ function VipAd3(props) {
         
     }
     const viewHandler = () => {
-        axios.post('http://ustatap.testjed.me/', {increase:props.view+1})
+        axios.post('http://ustatap.testjed.me/public/api/increment', {id:props.id})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }

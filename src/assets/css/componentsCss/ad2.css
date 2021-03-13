@@ -16,6 +16,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .mastersCont:hover {
@@ -72,7 +75,7 @@
 .mastersCont .aboutText {
   padding-left: 20px;
   padding-top: 30px;
-  height: 130px;
+  height: 100%;
   width: 143px;
   display: -webkit-box;
   display: -ms-flexbox;

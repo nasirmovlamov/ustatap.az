@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CACN;EACI,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "MyAds.scss"
+    ],
+    "names": [],
+    "file": "MyAds.css"
+}

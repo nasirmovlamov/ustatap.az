@@ -25,8 +25,8 @@ function Companies(props) {
     var numId = url.substring(url.lastIndexOf('/') + 1 );
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
 
-    const companies = []
-    const vipCompanies = []
+    var companies = []
+    var vipCompanies = []
     const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
@@ -46,29 +46,19 @@ function Companies(props) {
 
     } , [])
     console.log(numId);
-    CompanyApi.map( 
-        company =>
-        {
-            
-                if(company.vip !== 1 )
-                { 
-                    console.log('alo');
-                    companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)
-                }
-            
-        }
-    )
+    CompanyApi.map(  company => { if(company.vip === 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}else{}} )
+    const [filter, setfilter] = useState(0)
+    const ListingResult = JSON.parse(localStorage.getItem("ListingResult"))
 
-    CompanyApi.map( 
-        company =>  
-        {
-            if(company.vip === 1)
-            { 
-                vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)
-            }
-        } 
-    )
-
+    if (filter) {
+        companies = []
+        vipCompanies = []
+        setfilter(0)
+        axios.post("http://ustatap.testjed.me/public/api/sirketfilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip , } ) 
+        .then((res) =>  (setCompanyApi(res.data) ))
+        CompanyApi.map(  company => { if(company.vip === 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}else{}} )
+    }
+            
     return (
         <div className="companiesPage">
              <div className="generalCont">
@@ -88,7 +78,7 @@ function Companies(props) {
                     <button className="topButton">Şirkətlər üzrə Axtarış</button>
                 </div>
 
-                <Category  type4={1} type3={1}  btnColor="#F97922"/>
+                <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>
 
                     <div className="adsContainer">
                         {

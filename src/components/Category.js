@@ -4,18 +4,48 @@ import "../assets/css/componentsCss/category.css"
 import Button from './Button'
 import lupa from "../assets/images/component/element/lupa2.svg"
 import {Link} from 'react-router-dom'
+import { FormControl, MenuItem } from '@material-ui/core'
+import Select from '@material-ui/core/Select';
+
+import { makeStyles } from '@material-ui/core/styles';
+import { SettingsVoiceTwoTone } from '@material-ui/icons'
+
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: "auto",
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  }));
+
 function Category(props) {
-    const styleForBg = {
-        backgroundColor: props.color ,
-    }
+    
+    const [type, settype] = useState('elan');
+    const [jobcategory, setjobcategory] = useState('12');
+    const [city, setcity] = useState('1');
+    const [date, setdate] = useState('0');
+    const [vip, setvip] = useState('1');
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [cityCategoryApi, setCityCategoryApi] = useState([0])
     const [districtCategoryApi, setDistrictCategoryApi] = useState([0])
-    const [dateCategoryApi, setDateCategoryApi] = useState([0])
-    const jobCategory = []
-    const cityCategory = []
-    const districtCategory = []
-    const dateCategory = []
+    const classes = useStyles();
+    const dateAr = [{id:0 , name:"Bütün tarixlər"} , {id:30 , name:"Son 30 gün"} , {id:90 , name:"Son 90 gün"}]
+    const vipAr = [{vip:0 , name:"Sadə"} , {vip:1 , name:"Vip"} ]
+
+    const handleChangeJ = (event) => {
+        setjobcategory(event.target.value);
+    };
+    const handleChangeC = (event) => {
+        setcity(event.target.value);
+    };
+    const handleChangeD = (event) => {
+        setdate(event.target.value);
+    };
+    const handleChangeV = (event) => {
+        setvip(event.target.value);
+    };
 
     useEffect(() => 
     {
@@ -23,45 +53,19 @@ function Category(props) {
              .then((res) =>  (setJobCategoryApi(res.data) ))
         axios.get("http://ustatap.testjed.me/public/api/cities") 
              .then((res) =>  (setCityCategoryApi(res.data) ))
-        axios.get("http://ustatap.testjed.me/public/api/districts") 
-             .then((res) =>  (setDistrictCategoryApi(res.data) ))
-
     } , [])
-    
-    cityCategoryApi.map((category) => jobCategory.push(category.name))
-    districtCategoryApi.map((category) => jobCategory.push(category.name))
 
-
-    const clickCategoryCont = (num) =>{
-        if( document.getElementById(`categories${num}`).style.display === 'flex')
-        {
-            document.getElementById(`categories${num}`).setAttribute('style' , 'display:none;')
-        }
-        else 
-        {
-            document.getElementById(`categories${num}`).setAttribute('style' , 'display:flex;')
-
-        }
+    const styleForBg = {
+        backgroundColor: props.color ,
+        
     }
 
-    const changeValue = (value , id) => {
-        if(value === 'category' )
-        {
-            props.setFilterCategory(id)
-        }
-        else if (value === 'city')
-        {
-            props.setFilterCity(id)
-        }
-        else if (value === 'district' )
-        {
-            props.setFilterDistrict(id)
-        }
-        else if (value === 'date' )
-        {
-            props.setFilterDate(id)
-        }
-    } 
+    const searchClick = () => {
+        props.setfilter(1)
+        const obj =  {date:date , jobcategory:jobcategory , city:city , vip:vip  } 
+        localStorage.setItem("ListingResult" , JSON.stringify(obj))
+    }
+
 
     return (
         <div className="categoryCont" style={styleForBg}>
@@ -72,42 +76,48 @@ function Category(props) {
                             <p>Kateqoriya</p>
                         </p>    
                         <p>Şəhər</p>    
-                        { props.type3 === undefined && <p>Rayon</p>    }
-                        { props.type4 === undefined && <p>Tarixə Görə</p>}
+                        { props.type3 === 1 && <p>Tarixə Görə</p>}
+                        { props.type4 === 1 && <p>Elanın növü</p>}
                     </div>
 
                     <div className="part2">
                         <div className="categCont">
-                            <button className="categoryButton" id="categoryBtn1" onClick={() => clickCategoryCont(1)}>Bütün Kateqoriyalar</button>
-                            <div className="categories" id="categories1">{jobCategoryApi.map((category) =>  <button id={category.id} onClick={() => changeValue('category' , category.id)} className="catBtn">{category.name}</button>)}</div>
+                            <FormControl className={classes.formControl}>
+                                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={jobcategory} onChange={handleChangeJ}>
+                                    {jobCategoryApi.map(category =>  <MenuItem value={category.id}>{category.name}</MenuItem> )}
+                                </Select>
+                            </FormControl>
                         </div>
                         
                         <div className="categCont">
-                            <button className="categoryButton" id="categoryBtn2"  onClick={() => clickCategoryCont(2)}>Bütün Şəhər</button>
-                            <div className="categories" id="categories2">{cityCategoryApi.map((category) => <button  id={category.id} onClick={() => changeValue('city' , category.id)} className="catBtn">{category.name}</button>)}</div>
+                            <FormControl className={classes.formControl}>
+                                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={city} onChange={handleChangeC}>
+                                    {cityCategoryApi.map(city =>  <MenuItem value={city.id}>{city.name}</MenuItem> )}
+                                </Select>
+                            </FormControl>
                         </div>
                         
-                        { props.type3 === undefined &&
+                        { props.type3 === 1 &&
                             <div className="categCont">
-                                 <button className="categoryButton" id="categoryBtn3"  onClick={() => clickCategoryCont(3)}>Bütün Rayon</button>
-                            <div className="categories" id="categories3">{ districtCategoryApi.map((category) =>  <button id={category.id} onClick={() => changeValue('district' , category.id)} className="catBtn">{category.name}</button>)}</div>
+                                <FormControl className={classes.formControl}>
+                                    <Select labelId="demo-simple-select-label" id="demo-simple-select" value={date} onChange={handleChangeD}>
+                                        {dateAr.map(date =>  <MenuItem value={date.id}>{date.name}</MenuItem> )}
+                                    </Select>
+                                </FormControl>
                             </div>
                         }
-                        { props.type4 === undefined &&
+                        { props.type4 === 1 &&
                             <div className="categCont">
-                                <div className="categCont">
-                                    <button className="categoryButton" id="categoryBtn4"  onClick={() => clickCategoryCont(4)}>Bütün Tarixlər</button>
-                                    <div className="categories" id="categories4">
-                                        <button className="catBtn"  onClick={() => changeValue('date' , 1)}>Son 7 gün</button>
-                                        <button className="catBtn"  onClick={() => changeValue('date' , 2)}>Son 30 gün</button>
-                                    </div>
-                                </div>
-                            <div className="categories">{   }</div>
+                                <FormControl className={classes.formControl}>
+                                    <Select labelId="demo-simple-select-label" id="demo-simple-select" value={vip} onChange={handleChangeV}>
+                                        {vipAr.map(vip =>  <MenuItem value={vip.vip}>{vip.name}</MenuItem> )}
+                                    </Select>
+                                </FormControl>
                             </div>
                         }
                     </div>
                 </div>
-                <Button function={props.function} name="axtar"  image2={lupa} color={props.btnColor}/>
+                <Button function={searchClick} name="axtar"  image2={lupa} color={props.btnColor}/>
             </div> 
         </div>
     )

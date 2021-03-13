@@ -18,33 +18,24 @@ function CompanyRegistration() {
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     
-    const city = [
-        { key: 'Şəhər seçin', value: '' },
-        { key: 'Option 1', value: 'Baku' },
-        { key: 'Option 2', value: 'Şuşa' }
-      ]
-    const district = [
-        { key: 'Rayon seçin', value: '' },
-        { key: 'Option 1', value: 'Baku' },
-        { key: 'Option 2', value: 'Şuşa' }
-      ]
+   
 
     const onSubmit =  (values) => {
 
-                const postValues = {
-                    name:values.name,
-                    email:values.email,
-                    phone:values.phone,
-                    password:values.phone,
-                    voen: values.voen,
-                    city:1,
-                    district:1,
-                    address:values.address,
-                    categories:selectedTag
-                }
-                axios.post('http://ustatap.testjed.me/public/api/regcompany',  postValues, headers)
-                 .then(res => console.log(res))
-                 .catch(err => console.log(err))
+                const FD = new FormData()
+                FD.append('name' , values.name)
+                FD.append('email' , values.email)
+                FD.append('phone' , values.phone)
+                FD.append('password' , values.password)
+                FD.append('voen' , values.voen)
+                FD.append('categories' , values.selectedTag)
+                FD.append('address' , values.address)
+                FD.append('city' , 1)
+                FD.append('district' , 1)
+                FD.append('profilePhoto' , profilePhoto)
+                axios.post('http://ustatap.testjed.me/public/api/regcompany',  FD, headers)
+                    .then(res => console.log(res))
+                    .catch(err => console.log(err))
             
     }
     
@@ -52,26 +43,24 @@ function CompanyRegistration() {
     const initialValues = {
         name:'',
         email:'',
+        address:'',
         phone:'',
         password:'',
         confirmPassword:'',
         voen: '',
-        city:'',
-        district:'',
         address:'',
 
     }
       
     const validationSchema = Yup.object({
-        name: Yup.string().required('Required'),
-        city: Yup.string().required('Required'),
-        district: Yup.string().required('Required'),
-        voen: Yup.string().required('Required'),
-        email: Yup.string().email('Invalid email format').required('Required'),
-        phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
-        password: Yup.string().required('Required'),
+        name: Yup.string().required('Şirkət adını daxil edin'),
+        address: Yup.string().required('Ünvanı daxil edin'),
+        voen: Yup.string().required('Voen daxil edin'),
+        email: Yup.string().email('Elektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
+        phone:  Yup.string().matches(phoneRegExp, 'Telefon nömrənizi dügün daxil edin').required('Telefon nömrənizi daxil edin'),
+        password: Yup.string().required('Şifrənizi  daxil edin'),
         confirmPassword:    Yup.string()
-                            .oneOf([Yup.ref('password'), null], 'Passwords must match')
+                            .oneOf([Yup.ref('password'), null], 'Şifrələr uyğun deyil')
     })
 
 
@@ -122,7 +111,31 @@ function CompanyRegistration() {
 
 
     }
+    const [profilePhoto, setprofilePhoto] = useState(null)
+    
+    const [{alt, src}, setImg] = useState({
+        src: "",
+        alt: 'Upload an Image'
+    });
+    const ppchanger = (e) => {
+        if(e.target.files[0]) {
+            document.getElementById('imgPreview').setAttribute('style' , 'height:100px;border:1px solid gray;')
+            setImg({
+                src: URL.createObjectURL(e.target.files[0]),
+                alt: e.target.files[0].name
+            });    
+        }   
+        setprofilePhoto(e.target.files[0])
+    }
 
+    const [city, setcity] = useState("Bakı")
+    const citySelect = (e) => {
+        setcity(e.target.value)
+    }
+    const [district, setdistrict] = useState("Ağdərə")
+    const districtSelect = (e) => {
+        setdistrict(e.target.value)
+    }
 
 
     return (
@@ -137,15 +150,11 @@ function CompanyRegistration() {
                             <Field type="text" name="name" placeholder="Şirkətin adı" />
                             <div className="errors"><ErrorMessage name="name"/></div>
                             
-                            <Field as='select' name="city" >
-                                {city.map(city => {
-                                return (
-                                    <option key={city.value} value={city.value}>
-                                    {city.key}
-                                    </option>
-                                )
-                                })}
-                            </Field>
+                            <select onChange={citySelect} value={city}  name="city" >
+                                <option selected value="Bakı">Bakı</option>
+                                <option value="Şuşa">Şuşa</option>
+                            </select>
+
                             <Field type="text" name="address" placeholder="Ünvanı"/>
                             <div className="errors"><ErrorMessage name="address"/></div>
 
@@ -153,7 +162,7 @@ function CompanyRegistration() {
                             <div className="errors"><ErrorMessage name="phone"/></div>
                             <Field type="password" name="password" placeholder="Şifrə"/>
                             <div className="errors"><ErrorMessage name="password"/></div>
-
+                            <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Klikləyin və yaxud Şəklinizi buraya sürükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
                         </div>
 
                         <div className="formPart2">
@@ -161,15 +170,10 @@ function CompanyRegistration() {
                             <div className="errors"><ErrorMessage name="voen"/></div>
 
                             
-                            <Field as='select' name="district" >
-                                {district.map(district => {
-                                return (
-                                    <option key={district.value} value={district.value}>
-                                    {district.key}
-                                    </option>
-                                )
-                                })}
-                            </Field>
+                            <select onChange={districtSelect} value={district}  name="district"  placeholder="Rayon">
+                                <option selected value="İsmayıllı">İsmayıllı</option>
+                                <option value="Ağdərə">Ağdərə</option>
+                            </select>
                             <div className="selections">
                                 <p className="titleSelections">Hansı işləri görürsünüz ? (maksimum 3 ədəd seçə bilərsiniz)</p>
                                 <p className="buttons">
@@ -185,7 +189,8 @@ function CompanyRegistration() {
 
                         </div>
                         </div>
-                        <Button type="submit" name="Qeydiyyatdan keç"/>
+                        <div className="btnAndImg"><img className="imgPreview" id="imgPreview" src={src} width="auto" height="100px" alt=""/>  <Button type="submit" name="Qeydiyatdan keç"/></div>
+
                 </Form>
             </Formik>
 
