@@ -9,7 +9,7 @@ function SingleComment(props) {
     const inputRef = useRef(null)
     
     const clickHandler = () => {
-        document.getElementById("inputMain").className = "inputClick";
+        document.getElementById(`inputMain${props.nameMainComment}`).className = "inputClick";
     }
     return (
         <div className="singleCommentCont">
@@ -19,7 +19,7 @@ function SingleComment(props) {
                     <p className="name">{props.nameMainComment} <span><img src={calendar} alt="" /> 13.03.2020</span> </p>  
                     <hr className="lineForMain"/> 
                     <div className="mainComment"><p>{props.mainComment} </p></div>
-                    <div className="replyForm"><form><input ref={inputRef} id="inputMain" className="input"/></form> <button onClick={() => clickHandler()}>Cavabla</button></div>
+                    <div className="replyForm"><form><textarea ref={inputRef} id={`inputMain${props.nameMainComment}`} className="input"/></form> <button onClick={() => clickHandler()}>Cavabla</button></div>
                 </div>
             </div>
             {props.subComment.map((comment,index) => <ReplyComment  namesubComment={props.namesubComment.map(name => name)} subComment={comment}/>)}

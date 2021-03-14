@@ -13,7 +13,7 @@
 }
 
 .aboutUs .generalCont {
-  width: 1239px;
+  width: 100%;
   height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,7 +40,14 @@
 }
 
 .aboutUs .linkAndButton {
-  width: 1185px;
+  width: 96%;
+  padding-left: 2%;
+  padding-right: 2%;
+  height: 130px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
 }
 
 .aboutUs .linkAndButton .link {
@@ -50,6 +57,50 @@
 
 .aboutUs .linkAndButton .link p {
   margin: 0;
+}
+
+.aboutUs .linkAndButton .topButton {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 0px;
+  margin: 0px;
+  width: 229px;
+  height: 98px;
+  border: none;
+  color: #F6F7FB;
+  font-family: "ComfortaaRegular";
+  background-image: url("../../images/component/element/animatedButton.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+}
+
+.aboutUs .linkAndButton .topButton:focus {
+  outline: none;
+}
+
+.aboutUs .linkAndButton .topButtonHover {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 0px;
+  margin: 0px;
+  width: 229px;
+  height: 98px;
+  border: none;
+  color: #F6F7FB;
+  font-family: "ComfortaaRegular";
+  background-image: url("../../images/component/element/animatedButton.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
 }
 
 .aboutUs .statistica {

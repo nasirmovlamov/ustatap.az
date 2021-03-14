@@ -5,10 +5,29 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 100px;
-    
+    .generalCont
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contForBtnImg
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .topButton
+        {
+            z-index: 3;
+        }
+        
+    }
     .linkAndButton
     {
-        width: 1185px;
+        width: 96%;
+        padding-left: 2%;
+        padding-right: 2%;
         height: 130px;
         display: grid;
         grid-template-columns: repeat(3,1fr);
@@ -27,18 +46,57 @@
             justify-self: center;
             padding: 0px;
             margin: 0px;
-            width: 210px;
-            height: 70px;
+            width: 229px;
+            height: 98px;
             border: none;
-            background-color: lightblue;
             color: #F6F7FB;
             font-family: "ComfortaaRegular";
-            background: url("../../images/component/element/animatedButton.svg") no-repeat;
-            background-size: auto auto;
+            background-image: url("../../images/component/element/animatedButton.svg") ;
+            background-size:100%;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            background-position:  center;
             &:focus {
                 outline: none;
             }
+            
         }
+        .topButtonHover
+        {
+            align-self: center;
+            justify-self: center;
+            padding: 0px;
+            margin: 0px;
+            width: 229px;
+            height: 98px;
+            border: none;
+            color: #F6F7FB;
+            font-family: "ComfortaaRegular";
+            background-image: url("../../images/component/element/animatedButton.svg") ;
+            background-size:100%;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            background-position:  center;
+            
+        }
+    }
+    
+    
+    
+    .subBanner
+    {
+        width: 90%;
+        margin-top: 30px;
+    }
+        
+
+    .topButtonHover:hover
+    {
+        background-image: url('../../images/component/element/butonPainted2.svg') ;
+        background-size: cover;
+        background-position: center;
+        width: 229px;
+        height: 98px;
     }
     
         
@@ -49,37 +107,37 @@
             {
                 margin-bottom: 30px;
             }
-            margin-top: 36px;
+            margin-top: 50px;
             width: 100%;
-            align-content: center;
-            justify-items: center;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 30px;
+            gap: 30px;
+            margin-bottom: 50px;
             .companiesVipCont
             {
-                margin-top: 66px;
+                margin-top: 50px;
                 width: 100%;
-                align-content: center;
-                justify-items: center;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 100px;
+                justify-content: center;
+                display: flex;
+                flex-wrap: wrap;
+                row-gap: 30px;
+                gap: 30px;
+                margin-bottom: 50px;
             }
             .companiesCont
             {
-                margin-top: 66px;
+                margin-top: 50px;
                 width: 100%;
-                align-content: center;
-                justify-items: center;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 100px;
+                justify-content: center;
+                display: flex;
+                flex-wrap: wrap;
+                row-gap: 30px;
+                gap: 30px;
+                margin-bottom: 50px;
             }
-            .subBanner
-            {
-                width: 887px;
-                margin-top: 100px;
-            }
+            
             .ad
             {
                 .mainImg

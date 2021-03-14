@@ -6,7 +6,7 @@
     align-items: center;
     .generalCont
     {
-        width: 1239px;
+        width: 100%;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -26,7 +26,12 @@
     }
     .linkAndButton
     {
-        width: 1185px;
+        width: 96%;
+        padding-left: 2%;
+        padding-right: 2%;
+        height: 130px;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
         .link
         {
             margin-top: 52.5px;
@@ -36,8 +41,47 @@
                 margin: 0;
             }
         }
-        
+        .topButton
+        {
+            align-self: center;
+            justify-self: center;
+            padding: 0px;
+            margin: 0px;
+            width: 229px;
+            height: 98px;
+            border: none;
+            color: #F6F7FB;
+            font-family: "ComfortaaRegular";
+            background-image: url("../../images/component/element/animatedButton.svg") ;
+            background-size:100%;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            background-position:  center;
+            &:focus {
+                outline: none;
+            }
+            
+        }
+        .topButtonHover
+        {
+            align-self: center;
+            justify-self: center;
+            padding: 0px;
+            margin: 0px;
+            width: 229px;
+            height: 98px;
+            border: none;
+            color: #F6F7FB;
+            font-family: "ComfortaaRegular";
+            background-image: url("../../images/component/element/animatedButton.svg") ;
+            background-size:100%;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            background-position:  center;
+            
+        }
     }
+    
 
     .statistica
     {

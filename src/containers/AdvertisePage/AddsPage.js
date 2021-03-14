@@ -8,8 +8,28 @@ import Category from '../../components/Category';
 import Button from '../../components/Button';
 import adImage from "../../assets/images/component/element/adImage.png"
 import Ad from '../../components/Ad';
+import { useMediaQuery } from '@material-ui/core';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';  
+const stylesForSwiper = makeStyles({
+    list: {
+      width: "auto",
+    },
+    fullList: {
+      width: "auto",
+    },
+  }); 
+
+
 
 function AddsPage(props) {
+    const btnFilter = useMediaQuery('(max-width:1030px)');
 
     document.title = " Ustatap.net Elanlar"
     const [Adds, setAdds] = useState([])
@@ -46,6 +66,42 @@ function AddsPage(props) {
         latestAdApi.map(ad => { AllAd.push(<Ad name={ ad.title} desc={ad.description} address={ad.city} date={ad.created_at} view={ad.views} image={ad.images} id={ad.id}/>)   } ) 
     }
 
+
+
+
+    
+    const searchDrawer = stylesForSwiper();
+    const [stateFiltr, setStateFiltr] = React.useState({
+      top: false,
+    });
+
+    const toggleDrawer3 = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+
+      setStateFiltr({ ...stateFiltr, [anchor]: open });
+    };
+    const listSearch = (anchor) => (
+      <div
+      className={clsx(searchDrawer.list, {
+        [searchDrawer.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      >
+         <div className="swiperTitle"> <p>Filtirlə</p> <button className="btnMenu" onClick={toggleDrawer3(anchor, false)} onKeyDown={toggleDrawer3(anchor, false)}>X</button></div>
+        <Divider />
+        <div className="filtrDW">
+            <Category type3={1} setfilter={setfilter}   setFilterCategory={setFilterCategory} setFilterDistrict={setFilterDistrict} setFilterCity={setFilterCity} setFilterDate={setFilterDate} type4={undefined} btnColor="#F27B29"/>
+        </div>
+        
+      </div>
+    );
+    
+    
+    
+
+
     return (
         <div className="addsPage">
             <div className="generalCont">
@@ -62,10 +118,22 @@ function AddsPage(props) {
                             
                         </p>
                     </div>
-                    <button className="topButton" >Elanlar üzrə Axtarış</button>
+                   {!btnFilter && <button className="topButton" disabled>Elanlar üzrə Axtarış</button>}
+                   { btnFilter && 
+                        <>
+                          {
+                            <React.Fragment key={'top'}>
+                              <div className="contForBtnImg"><button onClick={toggleDrawer3('top', true)} className="topButtonHover" >Filtrlə</button> <div></div></div>
+                              <Drawer anchor={'top'} open={stateFiltr['top']} onClose={toggleDrawer3('top', false)}>
+                                {listSearch('top')}
+                              </Drawer>
+                            </React.Fragment>
+                          }
+                        </>
+                  }
                 </div>
 
-                <Category type3={1} setfilter={setfilter}   setFilterCategory={setFilterCategory} setFilterDistrict={setFilterDistrict} setFilterCity={setFilterCity} setFilterDate={setFilterDate} type4={undefined} btnColor="#F27B29"/>
+                {!btnFilter && <Category type3={1} setfilter={setfilter}   setFilterCategory={setFilterCategory} setFilterDistrict={setFilterDistrict} setFilterCity={setFilterCity} setFilterDate={setFilterDate} type4={undefined} btnColor="#F27B29"/>}
 
                     <div className="adsContainer">
                         {AllAd}

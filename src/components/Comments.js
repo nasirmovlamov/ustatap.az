@@ -10,7 +10,7 @@ function Comments(props) {
     return (
         <div className="commentsCont">
 
-            <p className="titleComments">Rəylər {props.id}</p>
+            <p className="titleComments">Rəylər </p>
             {nameMainComment.map(( name,index )=> <SingleComment  nameMainComment={name} mainComment={mainComment[index]} namesubComment={[namesubComment[index]]} subComment={[subComments[index]]} />)}
             
         </div>

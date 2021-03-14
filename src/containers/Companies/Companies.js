@@ -15,7 +15,34 @@ import master from "../../assets/images/component/element/master.png"
 import VipAd3 from '../../components/VipAd3';
 import companyLogo from "../../assets/images/component/element/companyLogo.png"
 import vipCompaniesTop from "../../assets/images/component/element/vipCompaniesTop.svg"
+import vipTopImg1 from "../../assets/images/component/element/vipTopPartCrown.jpg"
+import vipTopImg from "../../assets/images/component/element/vipMastersTop.png"
+import { useMediaQuery } from '@material-ui/core';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';  
+
+
+
+const stylesForSwiper = makeStyles({
+    list: {
+      width: "auto",
+    },
+    fullList: {
+      width: "auto",
+    },
+  }); 
+
+
+
 function Companies(props) {
+    const btnFilter = useMediaQuery('(max-width:1030px)');
+    const crownTopPart = useMediaQuery('(max-width:450px)');
 
     document.title = " Ustatap.net Şirkətlər"
 
@@ -58,7 +85,38 @@ function Companies(props) {
         .then((res) =>  (setCompanyApi(res.data) ))
         CompanyApi.map(  company => { if(company.vip === 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}else{}} )
     }
-            
+           
+    
+          
+    const searchDrawer = stylesForSwiper();
+    const [stateFiltr, setStateFiltr] = React.useState({
+      top: false,
+    });
+
+    const toggleDrawer3 = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+
+      setStateFiltr({ ...stateFiltr, [anchor]: open });
+    };
+    const listSearch = (anchor) => (
+      <div
+      className={clsx(searchDrawer.list, {
+        [searchDrawer.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      >
+         <div className="swiperTitle"> <p>Filtirlə</p> <button className="btnMenu" onClick={toggleDrawer3(anchor, false)} onKeyDown={toggleDrawer3(anchor, false)}>X</button></div>
+        <Divider />
+        <div className="filtrDW">
+            <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>
+        </div>
+        
+      </div>
+    );
+
+
     return (
         <div className="companiesPage">
              <div className="generalCont">
@@ -69,21 +127,35 @@ function Companies(props) {
                             <a href=""> ustaTap.net</a> 
                         </Link>
                             -&gt;
-                        <Link to="/elanlar">
+                        <Link to="/shirketler">
                             <a href="">şirkətlər</a> 
                         </Link>
                             
                         </p>
                     </div>
-                    <button className="topButton">Şirkətlər üzrə Axtarış</button>
+                    
+                    { btnFilter && 
+                        <>
+                          {
+                            <React.Fragment key={'top'}>
+                              <div className="contForBtnImg"><button onClick={toggleDrawer3('top', true)} className="topButtonHover" >Filtrlə</button> <div></div></div>
+                              <Drawer anchor={'top'} open={stateFiltr['top']} onClose={toggleDrawer3('top', false)}>
+                                {listSearch('top')}
+                              </Drawer>
+                            </React.Fragment>
+                          }
+                        </>
+                  }
+                    {!btnFilter && <button className="topButton" disabled>Şirkətlər üzrə Axtarış</button>}
                 </div>
 
-                <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>
+                {!btnFilter && <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>}
 
                     <div className="adsContainer">
                         {
                             props.hideVip && <>
-                                    <img src={vipCompaniesTop} className="topImgVIP" alt=""/>
+                                    {!crownTopPart && <img src={vipCompaniesTop} alt=""/>}
+                                    {crownTopPart && <img src={vipTopImg1} alt=""/>}
                                     <div className="companiesVipCont">
                                         {vipCompanies}
                                     </div>

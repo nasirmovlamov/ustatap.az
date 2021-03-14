@@ -13,8 +13,40 @@
   margin-bottom: 100px;
 }
 
+.companiesPage .generalCont {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.companiesPage .contForBtnImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.companiesPage .contForBtnImg .topButton {
+  z-index: 3;
+}
+
 .companiesPage .linkAndButton {
-  width: 1185px;
+  width: 96%;
+  padding-left: 2%;
+  padding-right: 2%;
   height: 130px;
   display: -ms-grid;
   display: grid;
@@ -39,30 +71,69 @@
       justify-self: center;
   padding: 0px;
   margin: 0px;
-  width: 210px;
-  height: 70px;
+  width: 229px;
+  height: 98px;
   border: none;
-  background-color: lightblue;
   color: #F6F7FB;
   font-family: "ComfortaaRegular";
-  background: url("../../images/component/element/animatedButton.svg") no-repeat;
-  background-size: auto auto;
+  background-image: url("../../images/component/element/animatedButton.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
 }
 
 .companiesPage .linkAndButton .topButton:focus {
   outline: none;
 }
 
+.companiesPage .linkAndButton .topButtonHover {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 0px;
+  margin: 0px;
+  width: 229px;
+  height: 98px;
+  border: none;
+  color: #F6F7FB;
+  font-family: "ComfortaaRegular";
+  background-image: url("../../images/component/element/animatedButton.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+}
+
+.companiesPage .subBanner {
+  width: 90%;
+  margin-top: 30px;
+}
+
+.companiesPage .topButtonHover:hover {
+  background-image: url("../../images/component/element/butonPainted2.svg");
+  background-size: cover;
+  background-position: center;
+  width: 229px;
+  height: 98px;
+}
+
 .companiesPage .adsContainer {
-  margin-top: 36px;
+  margin-top: 50px;
   width: 100%;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  justify-items: center;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[1];
-      grid-template-columns: repeat(1, 1fr);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 30px;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .companiesPage .adsContainer .topImgVIP {
@@ -70,34 +141,35 @@
 }
 
 .companiesPage .adsContainer .companiesVipCont {
-  margin-top: 66px;
+  margin-top: 50px;
   width: 100%;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  justify-items: center;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  grid-gap: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 30px;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .companiesPage .adsContainer .companiesCont {
-  margin-top: 66px;
+  margin-top: 50px;
   width: 100%;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  justify-items: center;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  grid-gap: 100px;
-}
-
-.companiesPage .adsContainer .subBanner {
-  width: 887px;
-  margin-top: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 30px;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .companiesPage .adsContainer .ad {

@@ -65,6 +65,7 @@ function MemberArea(props) {
 
     return (
         <div className="memberArea">
+            n
             <div className="memberAreaCont">
                 <div className="topSide"><img src={logo} alt="" width="92" height="auto" /> <div className="cabinetTop" style={imgHandler}>Şəxsi kabinet <div  className="nameDiv"> <p> {props.UserData.user.name}  </p></div>  </div> </div>
                 <div className="generalPart">

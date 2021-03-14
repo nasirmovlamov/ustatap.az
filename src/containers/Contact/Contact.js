@@ -66,16 +66,26 @@ function Contact(props) {
                     <div className="formCont">
                         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}>
                             <Form action="" method="post" >
-                                <Field  type="text" placeholder="Ad və soyad" name="name"/>
-                                <div className="errors"><ErrorMessage name="name"/></div>
-                                <Field  type="email" placeholder="Elektron poçt ünvanı" name="email"  />
-                                <div className="errors"><ErrorMessage name="email"/></div> 
-                                <Field  type="text" placeholder="Müraciətin mövzusu" name="topic"  />
-                                <div className="errors"><ErrorMessage name="topic"/></div> 
-                                <Field  type="text" placeholder="050XXXXXXX" name="phone"  />
-                                <div className="errors"><ErrorMessage name="phone"/></div> 
-                                <Field as="textarea" name="description" id="" cols="30" rows="10" placeholder="Müraciət Mətn"  />
-                                <div className="errors"><ErrorMessage name="description"/></div>                             
+                                <div className="errors">
+                                    <Field  type="text" placeholder="Ad və soyad" name="name"/>
+                                    <ErrorMessage name="name"/>
+                                </div>
+                                <div className="errors">
+                                    <Field  type="email" placeholder="Elektron poçt ünvanı" name="email"  />
+                                    <ErrorMessage name="email"/>
+                                </div> 
+                                <div className="errors">
+                                    <Field  type="text" placeholder="Müraciətin mövzusu" name="topic"  />
+                                    <ErrorMessage name="topic"/>
+                                </div> 
+                                <div className="errors">
+                                    <Field  type="text" placeholder="050XXXXXXX" name="phone"  />
+                                    <ErrorMessage name="phone"/>
+                                </div> 
+                                <div className="errors">
+                                    <Field as="textarea" name="description" id="" cols="30" rows="10" placeholder="Müraciət Mətn"  />
+                                    <ErrorMessage name="description"/>
+                                </div>                             
                                 <Button name="Göndər"/>
                             </Form>
                         </Formik>

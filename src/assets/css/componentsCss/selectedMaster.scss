@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 100px;
     .generalCont
     {
         width: 90%;
@@ -18,6 +19,18 @@
         }
     }
 
+    .FrameCont
+    {
+        
+        .frame
+        {
+            .imgCont
+            {
+                background-color: #fff !important;
+            }
+        }
+
+    }
 
 .frameAndText
 {
@@ -34,10 +47,12 @@
         }
         .subTitle
         {
+            max-height:155px ;
+            overflow: hidden;
             p 
             {
                 font-family: "FuturicaRegular";
-                font-size: 14px;
+                font-size: 16px;
                 color: #616161;
                 opacity: 0.63;
             }
@@ -52,8 +67,9 @@
         {
             display: flex;
             height: 46px;
-            width: 100px;
             align-items: center;
+            margin-top: 15px;
+
             p
             {
                 display: flex;
@@ -66,20 +82,23 @@
                 display: flex;
                 flex-direction: column;
                 margin-left: 7px;
-                font-size: 10px;
+                font-size: 17px;
                 color: #969696;
                 opacity: 0.83;
+                a
+                {
+                    color: black;
+                } 
+
             }
         }
         .aboutLinks
         {
             display: flex;  
             margin-top: 29px;
-            border-bottom: 1px solid rgba(150,150,150,0.28);
-            
+            flex-wrap: wrap;
             a
             {
-                border-right: 1px solid rgba(150,150,150,0.28);
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -87,7 +106,7 @@
                 margin-left: 15px;
                 padding-right: 15px;
                 color: #7B7C7E;
-                font-size: 12px;
+                font-size: 16px;
                 p 
                 {
                     display: flex;
@@ -99,6 +118,7 @@
                 }
                 &:nth-child(1)
                 {
+                    border-right: 1px solid rgba(150,150,150,0.28);
                     margin-left: 0px;
                 }
                 &:nth-child(3)
@@ -112,8 +132,9 @@
         {
             display: flex;
             font-size: 10px;
-            margin-top: 36px;
+            margin-top: 16px;
             width: 100%;
+            flex-wrap: wrap;
             p 
             {
                 display: flex;
@@ -121,7 +142,7 @@
                 align-items: center;
                 color: #000000;
                 opacity: 0.5;
-
+                font-size: 15px;
                 img 
                 {
                     margin-right: 5px;
@@ -158,4 +179,115 @@
         }
     } 
 }
+}
+
+
+
+//Mobile 
+@media only screen and (max-width: 1132px) {
+    
+    .selectedMaster
+    {
+        .generalCont
+        {
+            width: 95% !important;
+            .FrameCont
+            {
+                height: 450px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                .frame
+                {
+                    height: auto;
+                    .overlay 
+                    {
+                        height: 450px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+//Mobile 
+@media only screen and (max-width: 564px) {
+    
+    .selectedMaster
+    {
+        .generalCont
+        {
+            width: 95% !important;
+            .aboutAd
+            {
+                margin: 0px;
+                margin-top: 30px;
+            }
+            .link
+            {
+                margin-left: 20px;
+            }
+            .FrameCont
+            {
+                height: 450px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                .frame
+                {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    .imgCont
+                    {
+                        width: 100% !important;
+                    }
+                    .imgAndBullet
+                    {
+                        margin-left: 0px;
+                        width: 100%;
+                    }
+                    .overlay 
+                    {
+                        height: 450px !important;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+//Mobile 
+@media only screen and (max-width: 576px) {
+    
+    .selectedMaster
+    {
+        .generalCont
+        {
+            width: 95% !important;
+            .aboutAd
+            {
+                margin: 0px;
+                margin-top: 30px;
+            }
+            .aboutLinks
+            {
+                a
+                {
+                    border: none !important;
+                    margin-left: 0px !important;
+                }
+            }
+            .numbers
+            {
+                flex-direction: row !important;
+                column-gap: 30px;
+            }
+            .link
+            {
+                margin-left: 20px;
+            }
+            
+        }
+    }
 }

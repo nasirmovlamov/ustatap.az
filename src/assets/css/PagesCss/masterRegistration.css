@@ -11,7 +11,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 100px;
 }
 
 .masterRegistrationCont .registration {
@@ -26,7 +25,7 @@
 
 .masterRegistrationCont .registration .masterImg {
   width: auto;
-  height: 579px;
+  height: 879px;
 }
 
 .masterRegistrationCont .registration .formContReg {
@@ -195,5 +194,30 @@
   background-color: transparent;
   border-radius: 10px;
   font-family: "FuturicaRegular";
+}
+
+@media only screen and (max-width: 1240px) {
+  .masterRegistrationCont {
+    margin-bottom: 100px;
+  }
+  .masterRegistrationCont .formContReg {
+    width: 90%;
+    margin-left: 0px !important;
+  }
+  .masterRegistrationCont .formContReg form {
+    width: 100% !important;
+  }
+  .masterRegistrationCont .formContReg form .errors {
+    width: 100% !important;
+  }
+  .masterRegistrationCont .formContReg form .addFile {
+    width: 100%;
+  }
+  .masterRegistrationCont .formContReg form .addFileInput {
+    width: 100% !important;
+  }
+  .masterRegistrationCont .formContReg form .addFileInput input {
+    width: 100% !important;
+  }
 }
 /*# sourceMappingURL=masterRegistration.css.map */

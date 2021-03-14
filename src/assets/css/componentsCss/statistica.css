@@ -21,6 +21,12 @@
   margin-bottom: 100px;
 }
 
+.statistica .title {
+  font-size: 35px;
+  color: white;
+  font-family: "DaxlinePro";
+}
+
 .statistica p {
   margin: 0px;
 }
@@ -30,7 +36,7 @@
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  width: 90%;
+  width: 95%;
   height: 129px;
   -ms-flex-line-pack: center;
       align-content: center;
@@ -111,5 +117,41 @@
   background: #FFFFFF;
   opacity: 0.5;
   margin-top: 31px;
+}
+
+@media only screen and (max-width: 1146px) {
+  .statistica .gridCont1 {
+    -ms-grid-columns: 1.2fr 0.8fr !important;
+        grid-template-columns: 1.2fr 0.8fr !important;
+    width: 95% !important;
+    height: auto !important;
+  }
+  .statistica .gridCont1 p {
+    text-align: center;
+  }
+  .statistica .gridCont2 {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-column-gap: 40px;
+            column-gap: 40px;
+    width: 100% !important;
+    height: auto !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+  }
+  .statistica .gridCont2 .whiteImg1 {
+    width: 23px !important;
+  }
+  .statistica .gridCont2 p {
+    width: 250px;
+    text-align: center;
+  }
+  .statistica .mainLogo {
+    margin-top: 40px !important;
+  }
 }
 /*# sourceMappingURL=statistica.css.map */

@@ -1,3 +1,4 @@
+
 .masterRegistrationCont
 {
     width: 100%;
@@ -5,7 +6,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 100px;
     
     .registration
     {
@@ -16,7 +16,7 @@
         .masterImg
         {
             width: auto;
-            height: 579px;
+            height: 879px;
         }
         .formContReg {
         margin-left: 30px;
@@ -159,6 +159,39 @@
 
                             
                         }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+//Mobile 
+@media only screen and (max-width: 1240px) {
+    .masterRegistrationCont
+    {
+        margin-bottom: 100px;
+        .formContReg
+        {
+            width: 90%;
+            margin-left: 0px !important;
+            form 
+            {
+                width: 100% !important; 
+                .errors
+                {
+                    width: 100% !important; 
+                }
+                .addFile
+                {
+                    width: 100%;
+                }
+                .addFileInput
+                {
+                    width: 100% !important; 
+                    input 
+                    {
+                        width: 100% !important;
                     }
                 }
             }

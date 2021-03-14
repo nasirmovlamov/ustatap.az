@@ -28,7 +28,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 100px;
 }
 
 .footer .social {
@@ -182,6 +181,7 @@
 }
 
 .footer .upSide .number p {
+  font-family: "ComfortaaRegular";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -189,8 +189,7 @@
       -ms-flex-align: center;
           align-items: center;
   color: white;
-  font-family: "FuturicaRegular";
-  width: 210px;
+  width: 240px;
   font-size: 16px;
   margin-top: 24px;
 }
@@ -226,7 +225,6 @@
 
 .footer .upSide .elements1 p {
   margin: 0;
-  letter-spacing: 4.5px;
   margin-top: 10px;
 }
 
@@ -243,7 +241,6 @@
 
 .footer .upSide .elements2 p {
   margin: 0;
-  letter-spacing: 4.5px;
   margin-top: 10px;
 }
 
@@ -264,9 +261,9 @@
 }
 
 .footer .downSide .text {
-  font-size: 17px;
+  font-size: 12px;
   color: rgba(229, 229, 229, 0.5);
   font-family: "ComfortaaRegular";
-  margin-left: 10%;
+  text-align: center;
 }
 /*# sourceMappingURL=footer.css.map */

@@ -1,5 +1,6 @@
 .singleCommentCont {
   height: auto;
+  margin-top: 10px;
 }
 
 .singleCommentCont .singleCommentAbout {
@@ -10,8 +11,8 @@
 
 .singleCommentCont .singleCommentAbout .name {
   font-size: 21px;
-  margin-bottom: 10px;
   margin-top: 0px;
+  margin-bottom: 1px;
 }
 
 .singleCommentCont .singleCommentAbout .name img {
@@ -30,6 +31,7 @@
 .singleCommentCont .singleCommentAbout .mainComment {
   color: #616161;
   opacity: 0.83;
+  margin-top: 7px;
 }
 
 .singleCommentCont .singleCommentAbout .mainComment p {
@@ -59,15 +61,22 @@
   height: 0px;
   pointer-events: none;
   border: none;
+  resize: none;
 }
 
 .singleCommentCont .singleCommentAbout .replyForm form .inputClick {
-  height: 150px;
+  height: 100px;
+  overflow: hidden;
   border: 1px solid gray;
   width: 96%;
-  border: 1px solid gray;
-  pointerEvents: all;
-  text-align: center;
+  pointer-events: all;
+  resize: none;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.singleCommentCont .singleCommentAbout .replyForm form textarea {
+  resize: none;
 }
 
 .singleCommentCont .singleCommentAbout button {

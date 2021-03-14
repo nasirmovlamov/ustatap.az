@@ -1,12 +1,142 @@
+
+//Mobile 
+@media only screen and (max-width: 1240px) {
+    .selectedCompany
+    {
+        .aboutAd
+        {
+            margin-top: 50px ;
+        }
+    }
+    
+}
+
+//Mobile 
+@media only screen and (max-width: 628px) {
+    .selectedCompany
+    {
+        .aboutAd
+        {
+            margin: 0px !important;
+            margin-top: 50px !important ;
+            width: 100% !important;
+        }
+    }
+    
+}
+//Mobile 
+@media only screen and (max-width: 568px) {
+    .selectedCompany
+    {
+        .generalCont 
+        {
+            width: 100% !important;
+        }
+        .link
+        {
+            margin-left: 20px;
+        }
+        .aboutAd
+        {
+            margin: 0px !important;
+            margin-top: 50px !important ;
+            width: 95% !important;
+            .aboutLinks
+            {
+                justify-content: center;
+                row-gap: 25px;
+                a 
+                {
+                    border: none !important;
+                    margin-left: 0px !important;
+                }
+                
+            }
+            .aboutButtons 
+            {
+                justify-content: center;
+                flex-direction: column;
+                row-gap: 35px;
+            }
+            .bottomPart
+            {
+                margin-top: 25px !important;
+                .phoneOfMaster
+                {
+                    justify-content: center;
+                    border: none !important;
+
+                }
+                .social
+                {
+                    margin-left: 0px !important;
+                    justify-content: center !important;
+                    column-gap: 20px !important;
+                }
+                .mailOfMaster
+                {
+                    margin-left: 0px !important;
+                    border: none !important;
+                }
+                a 
+                {
+                    border: none !important;
+                    margin-left: 0px !important;
+                }
+                flex-direction: column;
+                row-gap: 35px;
+            }
+        }
+        .frameAndText
+        {
+            width: 100% !important;
+        }
+       
+        .FrameCont
+        {
+            width: 100% !important;
+            .frame
+            {
+                width: 100% !important;
+                justify-content: center;
+                .imgCont
+                {
+                    width: 100% !important;
+                }
+                .imgAndBullet
+                {
+                    margin: 0px;
+                    width: 95% !important;
+                
+                }
+                .overlay
+                {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+    
+}
 .selectedCompany
 {
+    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    video 
+    .stars
     {
-        
+        img 
+        {
+            width: 28px;
+        }
+    }
+    .imgCont
+    {
+        background-position: center !important;
+        background-color: #fff !important;
+        box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.25);
     }
     .generalCont
     {
@@ -37,7 +167,7 @@
         }
         .subTitle
         {
-            height: 100px;
+            max-height: 100px;
             overflow: hidden;
             p 
             {
@@ -45,6 +175,7 @@
                 font-size: 14px;
                 color: #616161;
                 opacity: 0.63;
+                margin: 0px;
             }
 
         }
@@ -56,10 +187,13 @@
         .phoneOfMaster
         {
             display: flex;
-            height: 46px;
+            height: 36px;
             align-items: center;
-            width: 203px;
-            padding-left: 15px;
+            width: auto;
+            img 
+            {
+                width: 16px;
+            }
             p
             {
                 display: flex;
@@ -67,12 +201,16 @@
                 margin-top: 0px;
                 margin-bottom: 0;
             }
+            a 
+            {
+                color: gray;
+            }
             .numbers 
             {
                 display: flex;
                 flex-direction: column;
-                margin-left: 5px;
-                font-size: 12px;
+                margin-left: 10px;
+                font-size: 18px;
                 color: #969696;
                 opacity: 0.83;
             }
@@ -82,10 +220,11 @@
         {
             display: flex;  
             margin-top: 29px;
-            width: 752px;
+            flex-wrap: wrap;
+            width: auto;
             .worksCanDo
             {
-                width: 345px;
+                width: auto;
             }
             a
             {
@@ -97,16 +236,13 @@
                 margin-left: 15px;
                 padding-right: 15px;
                 color: #7B7C7E;
-                font-size: 12px;
+                font-size: 16px;
                 
                 .district
                 {
-                    font-size: 12px;
+                    font-size: 16px;
                 }
-                &:nth-child(1)
-                {
-                    width: 206px;
-                }
+                
                 .imgAndText 
                 {
                     display: flex;
@@ -121,19 +257,24 @@
                 &:nth-child(1)
                 {
                     margin-left: 0px;
-                    font-size: 12px;
+                    font-size: 16px;
+                    width: auto;
                 }
-                &:nth-child(3)
+                &:nth-child(2)
                 {
-                    border: none;
-                    width: 250px;
+                    margin-left: 0px;
+                    font-size: 16px;
+                    width: auto;
                 }
+                
                 &:nth-child(2)
                 {
                     padding: 0px;
                     margin: 0px;
-                    width: 255px;
+                    width: auto;
                     justify-content: center;
+                    border: none;
+                    margin-left: 15px;
                     span 
                     {
                         width: 80px;
@@ -146,7 +287,7 @@
         {
             display: flex;
             font-size: 10px;
-            margin-top: 36px;
+            margin-top: 26px;
             width: 100%;
             p 
             {
@@ -174,7 +315,8 @@
         .bottomPart
         {
             display: flex;
-            width: 732px;
+            width: auto;
+            margin-top: 20px;
             .phoneOfMaster
             {
                 border-right: 1px solid rgba(150,150,150,0.28);
@@ -183,14 +325,16 @@
                     margin: 0px;
                     font-size: 12px;
                 }
-                min-width: 187px;
+                min-width: 157px;
             }
             .mailOfMaster
             {
                 display: flex;
-                height: 46px;
+                height: 36px;
                 align-items: center;
-                width: 252px;
+                width: auto;
+                margin-left: 20px;
+                padding-right: 20px;
                 justify-content: center;
                 border-right: 1px solid rgba(150,150,150,0.28);
                 p
@@ -199,27 +343,34 @@
                     align-items: center;
                     margin-top: 0px;
                     margin-bottom: 0;
+                    margin-left: 5px;
+                }
+                a 
+                {
+                    color: gray;
                 }
                 img 
                 {
-                    width: 17px;
+                    height: 20px;
                 }
                 .mail 
                 {
                     display: flex;
                     flex-direction: column;
                     margin-left: 5px;
-                    font-size: 11px;
+                    font-size: 16px;
                     color: #969696;
                     opacity: 0.83;
                 }
             }
             .social
             {
-                height: 46px;
-                width: 100px;
+                height: 36px;
+                width: auto;
                 margin-left: 15px;
                 display: flex;
+                cursor: pointer;
+                column-gap: 10px;
                 align-items: center;
                 justify-content: space-between;
                 flex-direction: row;
@@ -251,3 +402,5 @@
     } 
 }
 }
+
+

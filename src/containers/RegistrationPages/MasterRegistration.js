@@ -7,8 +7,11 @@ import * as Yup from "yup"
 import axios from 'axios'
 import Button from '../../components/Button'
 import Cookies from 'js-cookie';
+import { useMediaQuery } from '@material-ui/core';
 
 function MasterRegistration() {
+    const masterImgMQ = useMediaQuery('(min-width:1240px)');
+
     var expanded = false;
     const token = Cookies.get('XSRF-TOKEN') // => 'value'
     const headers = {
@@ -147,7 +150,7 @@ function MasterRegistration() {
 
 
             <div className="registration">
-                <img src={master} alt="" width="200" height="auto" className="masterImg"/>
+                {masterImgMQ && <img src={master} alt="" width="200" height="auto" className="masterImg"/>}
                 <div className="formContReg">
                     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}>
                         <Form action="" method="post">

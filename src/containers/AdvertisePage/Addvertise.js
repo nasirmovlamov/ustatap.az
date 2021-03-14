@@ -13,13 +13,15 @@ import Statistica from '../../components/Statistica';
 import manForReklam from "../../assets/images/component/element/manForReklam.jpg"
 import Button from '../../components/Button';
 import img from '../../assets/images/component/element/manForReklam.jpg'
+import { useMediaQuery } from '@material-ui/core'
 function Addvertise() {
+    const controlImgMQ = useMediaQuery('(max-width:1170px)');
 
 
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     const validationSchema = Yup.object({
-        name: Yup.string().required('Required'),
+        name: Yup.string().required('Adınızı daxil edin'),
         nameOfCompany: Yup.string().required('Required'),
         email: Yup.string().email('Invalid email format').required('Required'),
         phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
@@ -64,7 +66,7 @@ function Addvertise() {
                 </div>
 
                 <div className="reklamCont"> 
-                    <img src={img} alt=""/>
+                    {!controlImgMQ && <img src={img} alt=""/>}
                     <div className="reklamText">
                         <p className="reklamTitle">UstaTap.net saytında reklam</p>
                         <p className="reklamDescription">
@@ -102,8 +104,8 @@ function Addvertise() {
                                     <ErrorMessage name="nameOfCompany"/>
                                 </div>
                             </div>
-                            <Field as="textarea" name="description" id="" cols="30" rows="10" placeholder="Müraciət Mətn"/>
                             <div className="errors">
+                                <Field as="textarea" name="description" id="" cols="30" rows="10" placeholder="Müraciət Mətn"/>
                                 <ErrorMessage name="nameOfCompany"/>
                             </div>
                             

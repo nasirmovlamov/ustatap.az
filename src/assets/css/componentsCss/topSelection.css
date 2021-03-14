@@ -2,8 +2,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 80%;
-  height: 100px;
+  width: 100%;
+  height: auto;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -17,7 +17,15 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 80%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-column-gap: 3%;
+          column-gap: 3%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  margin-top: 50px;
 }
 
 .topSelection .regSelection p {
@@ -34,5 +42,25 @@
 
 .topSelection .regSelection p img {
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .topSelection {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .regSelection {
+    width: 320px !important;
+    row-gap: 30px;
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
 }
 /*# sourceMappingURL=topSelection.css.map */

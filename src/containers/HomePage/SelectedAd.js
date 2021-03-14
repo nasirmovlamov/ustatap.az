@@ -21,7 +21,63 @@ import mainLogo from "../../assets/images/component/element/mainLogo.svg"
 import Comments from '../../components/Comments';
 import OurSlider from '../../components/OurSlider';
 import Ad from '../../components/Ad';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import MobileStepper from '@material-ui/core/MobileStepper';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import ButtonM from '@material-ui/core/Button';
+import { useMediaQuery } from '@material-ui/core';
+
+const tutorialSteps = [
+  {
+    label: 'San Francisco – Oakland Bay Bridge, United States',
+    imgPath:
+      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+  },
+  {
+    label: 'Bird',
+    imgPath:
+      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+  },
+  {
+    label: 'Bali, Indonesia',
+    imgPath:
+      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+  },
+  {
+    label: 'NeONBRAND Digital Marketing, Las Vegas, United States',
+    imgPath:
+      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
+  },
+  {
+    label: 'Goč, Serbia',
+    imgPath:
+      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+  },
+];
+
+const stpperSytle = makeStyles((theme) => ({
+  root: {
+    maxWidth: "100%",
+    flexGrow: 1,
+  },
+  
+  img: {
+    height: "auto",
+    maxWidth: "100%",
+    overflow: 'hidden',
+    display: 'block',
+    width: '100%',
+  },
+}));
+
+
+
 function SelectedAd(props) {
+    const frameContMQ = useMediaQuery('(min-width:566px)');
+
     const [image, setimage] = useState([selectedAd1,selectedAd2,selectedAd3,selectedAd4,selectedAd5 ])
     var url = window.location.href;
     var id = url.substring(url.lastIndexOf('/') + 1 );
@@ -51,6 +107,20 @@ function SelectedAd(props) {
         axios.post("http://ustatap.testjed.me/public/api/offer" , {user_id : UserData?.user?.id , vacancy_id:SelectedAd.id} ,  ) 
              .then((res) =>  (console.log(res.data)))  
     }   
+
+
+    const stpperSytle1 = stpperSytle();
+    const theme = useTheme();
+    const [activeStep, setActiveStep] = React.useState(0);
+    const maxSteps = tutorialSteps.length;
+
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    };
+
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
     return (
 
         <div className="selectedAd">
@@ -64,25 +134,56 @@ function SelectedAd(props) {
                     <Link to="/elanlar">
                         <a href="">elanlar</a> 
                     </Link>
-                        -&gt;
-                        <a href="">santexnika</a> 
+                    
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame image={image} mainImg={ `http://ustatap.testjed.me/storage/app/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>
+                    {!frameContMQ &&<Frame image={image} mainImg={ `http://ustatap.testjed.me/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>}
+
+                    {/* Mobile Slider */}
+                    {frameContMQ && <div className={stpperSytle1.root}>
+                        
+                        <img
+                            className={stpperSytle1.img}
+                            src={tutorialSteps[activeStep].imgPath}
+                            alt={tutorialSteps[activeStep].label}
+                        />
+                        <MobileStepper
+                            steps={maxSteps}
+                            position="static"
+                            variant="text"
+                            activeStep={activeStep}
+                            nextButton={
+                            <ButtonM size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+                                Irəli
+                                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                            </ButtonM>
+                            }
+                            backButton={
+                            <ButtonM size="small" onClick={handleBack} disabled={activeStep === 0}>
+                                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                                Geri
+                            </ButtonM>
+                            }
+                        />
+                    </div>}
+                    {/* Mobile Slider */}
+
+
+
+
                     <div className="aboutAd">
                         <p className="title">{SelectedAd.title}</p>
                         <div className="subTitle">
                            {SelectedAd.description}
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: {SelectedAd.city}</span></p></a>
-                            <a href="#"><p><img src={locationDistrict} alt=""/> <span>Rayon: {SelectedAd.district}</span></p></a>
-                            <a href="#"><p><img src={humanSelectedAd} alt=""/> <span>Sifarişçi: Kənan Bağırov</span></p></a>   
+                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: Bakı {SelectedAd.city}</span></p></a>
+                            <a href="#"><p><img src={humanSelectedAd} alt=""/> <span>Sifarişçi: Nasir Movlamov {SelectedAd?.costumer}</span></p></a>   
                         </div>
                         <div className="aboutButtons">
-                            <p>Elan yerləşdirilib: <pre className="date">{SelectedAd.created_at}</pre></p> 
-                            <p><img src={selectedAdEye} alt=""/> <span>100</span></p> 
+                            <p>Elan yerləşdirilib: <pre className="date">{SelectedAd?.created_at?.slice(0 , 10)}</pre></p> 
+                            <p><img src={selectedAdEye} alt=""/> <span>{SelectedAd.views}</span></p> 
                             <p><img src={heart} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
                             <Button type="button" function={() => functionApply()} name="Mən bu işi Görərəm"/> 
                         </div>
@@ -91,7 +192,6 @@ function SelectedAd(props) {
                 </div>
                 <Comments id={id}/>
 
-                <OurSlider elements={latestAd}/>
             </div>
 
         </div>

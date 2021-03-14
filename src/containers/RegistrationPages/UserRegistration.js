@@ -12,8 +12,10 @@ import Cookies from 'js-cookie'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react'
+import { useMediaQuery } from '@material-ui/core'
 toast.configure()
 function UserRegistration() {
+    const controlImg = useMediaQuery('(min-width:1028px)');
 
     const notify = () => toast.success("Hesabınız müvəffəqiyyətlə yaradıldı!");
     const notifyW = () => toast.error("Daxil etdiyiniz məlumatları yanlışdır!");
@@ -74,12 +76,16 @@ function UserRegistration() {
         .oneOf([Yup.ref('password'), null], 'Şifrələr uyğun deyil')
     })
 
+    const uploadedImg = {
+        backgroundImage: `url(${src})`,
+    }
+
     return (
         <div className="userRegCont">
             <TopSelection  value1="1"/>
             
             <div className="formAndImg">
-                <img src={user} width="auto" height="750" alt="" />
+               {controlImg && <img src={user} width="auto" height="750" alt="" />}
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}>
                     <Form action="" method="post" >
                         <Field type="text" placeholder="Ad və Soyad" name="name"/>
@@ -93,7 +99,7 @@ function UserRegistration() {
                         <Field type="password" type="password" placeholder="Təkrar şifrə" name="confirmPassword"/>
                         <div className="errors"><ErrorMessage name="confirmPassword"/></div>
                         <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Şəklinizi yükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
-                        <div className="btnAndImg"><img className="imgPreview" id="imgPreview" src={src} width="auto" height="100px" alt=""/>  <Button type="submit" name="Qeydiyatdan keç"/></div>
+                        <div className="btnAndImg"><div className="imgPreview" id="imgPreview" style={uploadedImg}></div>  <Button type="submit" name="Qeydiyatdan keç"/></div>
                     </Form>
                 </Formik>
 

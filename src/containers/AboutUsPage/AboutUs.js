@@ -18,8 +18,8 @@ function aboutUs() {
                             <a href=""> ustaTap.net</a> 
                         </Link>
                             -&gt;
-                        <Link to="/elanlar">
-                            <a href="">elanlar</a> 
+                        <Link to="/haqqimizda">
+                            <a href="">haqqımızda</a> 
                         </Link>
                             
                         </p>

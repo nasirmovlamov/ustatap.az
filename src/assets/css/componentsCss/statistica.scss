@@ -1,3 +1,5 @@
+
+        
 .statistica
     {
         width: 100%;
@@ -12,6 +14,12 @@
         background: url("../../images/component/background/statisticBg.jpg") no-repeat;
         background-size: cover;
         background-position: center;
+        .title
+        {
+            font-size: 35px;
+            color: white;
+            font-family: "DaxlinePro";
+        }
         p 
         {
             margin: 0px;
@@ -20,7 +28,7 @@
         {
             display: grid;
             grid-template-columns: repeat(4,1fr);
-            width: 90%;
+            width: 95% ;
             height: 129px;
             align-content: center;
             justify-items: center;
@@ -95,3 +103,45 @@
             opacity: 0.5;
             margin-top: 31px;
         }
+
+
+//Mobile 
+@media only screen and (max-width: 1146px) {
+
+    .statistica
+    {
+        
+        .gridCont1
+        {
+            grid-template-columns: 1.2fr 0.8fr !important;
+            width: 95% !important;
+            height: auto !important; 
+            p 
+            {
+                text-align: center;
+            }
+        }
+        .gridCont2
+        {
+            display: flex !important;
+            justify-content: center;
+            column-gap: 40px;
+            width: 100% !important;
+            height: auto !important; 
+            flex-wrap: wrap !important;
+            .whiteImg1
+            {
+                width: 23px !important;
+            }
+            p 
+            {
+                width: 250px;
+                text-align: center;
+            }
+        }
+        .mainLogo
+        {
+            margin-top: 40px !important;
+        }
+    }
+}

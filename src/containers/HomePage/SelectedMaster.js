@@ -78,30 +78,28 @@ function SelectedMaster(props) {
                 <div className="link">
                     <p>
                     <Link to="/">
-                        <a href=""> ustaTap.net</a> 
+                        <a href="/"> ustaTap.net</a> 
                     </Link>
                         -&gt;
                     <Link to="/ustalar">
-                        <a href="">ustalar</a> 
+                        <a >ustalar</a> 
                     </Link>
-                        -&gt;
-                        <a href="">elektrik</a> 
+                        
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame mainImg={`http://ustatap.testjed.me/storage/app/public/${SelectedMaster.image}`} image={0} color="#F27B29" height="550px" heightImg="382px" widthImg="458px"/>
+                    <Frame mainImg={`http://ustatap.testjed.me/${SelectedMaster.image}`} image={0} color="#F27B29" height="550px" heightImg="382px" widthImg="458px"/>
                     <div className="aboutAd">
                         <p className="title">{SelectedMaster.name}</p>
                         <div className="subTitle">
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p><img src={locationCity} alt=""/> <span>Şəhər: {SelectedMaster.city}</span></p></a>
-                            <a href="#"><p><img src={locationDistrict} alt=""/> <span>Rayon: Yasamal</span></p></a>
-                            <a href="#"><p><img src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür:{SelectedMaster.categories}</span></p></a>   
+                            <a ><p><img width="16px" src={locationCity} alt=""/> <span>Şəhər: Bakı{SelectedMaster.city}</span></p></a>
+                            <a ><p><img width="18px" src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: Bənna , Elektrik , Santexnik{SelectedMaster.categories}</span></p></a>   
                         </div>
-                        <div href="#" className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><span>{SelectedMaster.phone}</span> <span>{SelectedMaster.phone}</span></div></p></div>   
+                        <div href="#" className="phoneOfMaster"><p><img width="24px" src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a> <a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a></div></p></div>   
 
                         <div className="aboutButtons">
                             <div className="stars">{stars}</div>
@@ -114,7 +112,6 @@ function SelectedMaster(props) {
                 </div>
                 <Comments/>
 
-                <OurSlider elements={masters}/>
             </div>
 
         </div>

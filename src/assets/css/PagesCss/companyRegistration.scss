@@ -5,6 +5,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 100px;
     .addFile
     {
         margin: 0px;
@@ -58,6 +59,7 @@
             display: flex;
             justify-content: center;
             column-gap: 25px;
+            flex-wrap: wrap;
             margin-top: 50px;
         }
         .button 
@@ -177,3 +179,29 @@
          }
          
     }
+
+
+    //Mobile 
+@media only screen and (max-width: 794px) {
+    .companyRegCont
+    {
+        form 
+        {
+            margin-top: 0px;
+            .inputSelectCont
+            {
+                
+                .formPart1 , .formPart2
+                {
+                    width: 100%;
+                }
+                .formPart2 
+                {
+                    margin-top: 30px;
+                }
+            }
+        }
+
+    }
+    
+}

@@ -40,6 +40,8 @@
   font-family: "FuturicaRegular";
   -webkit-transition: 1s border-radius;
   transition: 1s border-radius;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 .button .text .img {

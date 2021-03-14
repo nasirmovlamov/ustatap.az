@@ -9,7 +9,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 0px;
+  margin-bottom: 100px;
 }
 
 .userRegCont .formAndImg {
@@ -55,6 +55,11 @@
   border-radius: 10px;
   height: 0px;
   border: none;
+  width: 100px;
+  heigh: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
 .userRegCont .formAndImg form .addFile {
@@ -116,5 +121,27 @@
   width: 210.89px;
   height: 40px;
   border-radius: 30px;
+}
+
+@media only screen and (max-width: 1028px) {
+  .userRegCont .formAndImg {
+    width: 90%;
+  }
+  .userRegCont .formAndImg form {
+    width: 100%;
+    margin-top: 0px;
+  }
+  .userRegCont .formAndImg form .errors {
+    width: 100%;
+  }
+  .userRegCont .formAndImg form .addFile {
+    width: 100%;
+  }
+  .userRegCont .formAndImg form .addFileInput {
+    width: 100% !important;
+  }
+  .userRegCont .formAndImg form .addFileInput input {
+    width: 100% !important;
+  }
 }
 /*# sourceMappingURL=userRegistration.css.map */

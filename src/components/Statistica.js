@@ -5,19 +5,34 @@ import mailWhite from "../assets/images/component/element/mailWhite.svg"
 import www from "../assets/images/component/element/wwwWhite.svg"
 import homePhoneWhite from "../assets/images/component/element/homePhoneWhite.svg"
 import mainLogo from "../assets/images/component/element/mainLogo.svg"
+import { useMediaQuery } from '@material-ui/core'
 function Statistica() {
+    const gridItemMQ = useMediaQuery('(max-width:1170px)');
+
     return (
         <div className="statistica">
                 <p className="title"> Statistika</p>
                 <div className="gridCont1">
                     <p>Elanların sayı</p>
+                    {gridItemMQ && <p>1547</p>}
                     <p>Ustaların sayı</p>
+                    {gridItemMQ && <p>1547</p>}
+
                     <p>Şirkətlərin sayı</p>
+                    {gridItemMQ && <p>1547</p>}
+
                     <p>Günlük Ziyarətçi Sayı</p>
-                    <p>1547</p>
-                    <p>754</p>
-                    <p>129</p>
-                    <p>754</p>
+                    {gridItemMQ && <p>1547</p>}
+
+                    {
+                    !gridItemMQ &&
+                        <>
+                        <p>1547</p>
+                        <p>754</p>
+                        <p>129</p>
+                        <p>754</p>
+                        </>
+                    }
                 </div>
                 
                 <hr className="underLine"/>

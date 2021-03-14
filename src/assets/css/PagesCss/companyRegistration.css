@@ -13,6 +13,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 100px;
 }
 
 .companyRegCont .addFile {
@@ -92,6 +93,8 @@
           justify-content: center;
   -webkit-column-gap: 25px;
           column-gap: 25px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-top: 50px;
 }
 
@@ -217,5 +220,17 @@
 
 .companyRegCont select:focus {
   outline: none;
+}
+
+@media only screen and (max-width: 794px) {
+  .companyRegCont form {
+    margin-top: 0px;
+  }
+  .companyRegCont form .inputSelectCont .formPart1, .companyRegCont form .inputSelectCont .formPart2 {
+    width: 100%;
+  }
+  .companyRegCont form .inputSelectCont .formPart2 {
+    margin-top: 30px;
+  }
 }
 /*# sourceMappingURL=companyRegistration.css.map */

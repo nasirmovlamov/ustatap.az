@@ -162,7 +162,7 @@ function CompanyRegistration() {
                             <div className="errors"><ErrorMessage name="phone"/></div>
                             <Field type="password" name="password" placeholder="Şifrə"/>
                             <div className="errors"><ErrorMessage name="password"/></div>
-                            <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Klikləyin və yaxud Şəklinizi buraya sürükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
+                            <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Şəklinizi yükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
                         </div>
 
                         <div className="formPart2">

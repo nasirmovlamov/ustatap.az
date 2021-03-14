@@ -8,10 +8,13 @@
     margin-top: 125px;
     .contactCont
     {
-        width: 80%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 30px;
     }
+    
     .FrameCont2
     {
         width: 629px;
@@ -88,24 +91,24 @@
 
     .formCont
     {
-        width: 50%;
+        width: auto;
         margin-top: 100px;
-        margin-left: 30px;
         form 
         {
-            width: 450px;
+            width: auto;
             height: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
             .errors
             {
-                margin-bottom: 10px;
-                height: 30px;
-                margin-top: 5px;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+                height: auto;
+                margin-top: 15px;
                 width: 403px;
                 color: red;
-
             }
             input 
             {
@@ -132,7 +135,7 @@
             textarea
             {
                 padding: 20px;
-                width: 81%;
+                width: 100%;
                 border: 2px solid gray;
                 height: 150px;
                 resize: none;
@@ -164,4 +167,72 @@
             
         }
     }
+}
+
+
+
+//Mobile 
+@media only screen and (max-width: 1146px) {
+
+    .contact 
+    {
+        .FrameCont2
+        {
+            width: 100%;
+            .frame
+            {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                .contDetail
+                {
+                    margin-left: 0px;
+                    width: 90%;
+                }
+                .overlay
+                {
+                    width: 100%;
+                }
+            }
+        }
+        .formCont
+        {
+            form 
+            {
+                height: auto;
+            }
+        }
+    }
+
+}
+//Mobile 
+@media only screen and (max-width: 448px) {
+
+    .contact 
+    {
+        .formCont
+        {
+            width: 100%;
+            form 
+            {
+                width: 98%;
+                margin: 0px;
+                padding: 0px;
+                height: auto;
+                .errors 
+                {
+                    width: 90%;
+                }
+                input 
+                {
+                    width: 100% ;
+                }
+                textarea 
+                {
+                    width: 100% ;
+                }
+            }
+        }
+    }
+
 }

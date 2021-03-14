@@ -15,13 +15,17 @@
 }
 
 .contact .contactCont {
-  width: 80%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
 }
 
 .contact .FrameCont2 {
@@ -113,13 +117,12 @@
 }
 
 .contact .formCont {
-  width: 50%;
+  width: auto;
   margin-top: 100px;
-  margin-left: 30px;
 }
 
 .contact .formCont form {
-  width: 450px;
+  width: auto;
   height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -134,9 +137,16 @@
 }
 
 .contact .formCont form .errors {
-  margin-bottom: 10px;
-  height: 30px;
-  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 15px;
+  height: auto;
+  margin-top: 15px;
   width: 403px;
   color: red;
 }
@@ -183,7 +193,7 @@
 
 .contact .formCont form textarea {
   padding: 20px;
-  width: 81%;
+  width: 100%;
   border: 2px solid gray;
   height: 150px;
   resize: none;
@@ -230,5 +240,51 @@
 .contact .formCont form .button p {
   font-size: 16px;
   border: none;
+}
+
+@media only screen and (max-width: 1146px) {
+  .contact .FrameCont2 {
+    width: 100%;
+  }
+  .contact .FrameCont2 .frame {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .contact .FrameCont2 .frame .contDetail {
+    margin-left: 0px;
+    width: 90%;
+  }
+  .contact .FrameCont2 .frame .overlay {
+    width: 100%;
+  }
+  .contact .formCont form {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 448px) {
+  .contact .formCont {
+    width: 100%;
+  }
+  .contact .formCont form {
+    width: 98%;
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+  }
+  .contact .formCont form .errors {
+    width: 90%;
+  }
+  .contact .formCont form input {
+    width: 100%;
+  }
+  .contact .formCont form textarea {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=contact.css.map */

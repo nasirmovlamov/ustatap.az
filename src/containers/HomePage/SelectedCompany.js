@@ -74,7 +74,6 @@ function SelectedCompany(props) {
             .then((res) =>  (setSelectedCompany(res.data)))
 
     } , [])
-    CompanyApi1.map( company => Company1.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.company_description}/>)  )
     return (
         <div className="selectedCompany">
             <div className="generalCont">
@@ -87,42 +86,38 @@ function SelectedCompany(props) {
                     <Link to="/companies">
                         <a href="">şirketler</a> 
                     </Link>
-                        -&gt;
-                        <a href="">bmg</a> 
+                        
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame overlayImg={overlay} image={0} mainImg={"http://ustatap.testjed.me/storage/app/public/" + SelectedCompany.image} height="420px" heightImg="282px" widthImg="458px"/>
+                    <Frame overlayImg={overlay} image={0} mainImg={"http://ustatap.testjed.me/" + SelectedCompany.image} height="420px" heightImg="282px" widthImg="458px"/>
                     <div className="aboutAd">
-                        <p className="title">{SelectedCompany.company_name}</p>
+                        <p className="title">{SelectedCompany.name}</p>
                         <div className="subTitle">
-                            <p>{SelectedCompany.description}</p>
+                            <p>{SelectedCompany.description} Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai </p>
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p className="imgAndText"><img src={locationCity} alt=""/> <p>Şəhər: {SelectedCompany.company_adress}</p></p></a>
-                            <a href="#"><p className="imgAndText"><img src={locationDistrict} alt=""/> <p className="district">Rayon:{SelectedCompany.company_adress}</p></p></a>
-                            <a href="#"><p className="imgAndText"><img src={tools} alt=""/> <p className="worksCanDo">Hansı işləri görür: {SelectedCompany.categories}</p></p></a>   
+                            <a href="#"><p className="imgAndText"><img width="18" src={locationCity} alt=""/> <p>Şəhər: {SelectedCompany.adres}</p></p></a>
+                            <a href="#"><p className="imgAndText"><img width="22" src={tools} alt=""/> <p className="worksCanDo">Hansı işləri görür: Malyar , Dülgər{SelectedCompany.categories}</p></p></a>   
                         </div>
                         
                         <div className="bottomPart">
-                            <div  className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><span>{SelectedCompany.phone}</span> <span>{SelectedCompany.contac_person_phone}</span></div></p></div>   
-                            <div  className="mailOfMaster"><p><img src={mail} alt=""/> <div className="mail"><span>{SelectedCompany.email}</span></div></p></div>   
-                            <div  className="social"><img src={facebookForMaster} alt=""/> <img src={instagramForMaster} alt=""/>  <img src={linkedinForMaster} alt=""/> <img src={twitterForMaster} alt=""/></div>   
+                            <div  className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedCompany}`}>{SelectedCompany.phone}</a> </div></p></div>   
+                            <div  className="mailOfMaster"><p><img src={mail} alt=""/> <div className="mail"><a href={`mailto:${SelectedCompany}`}> {SelectedCompany.email}</a></div></p></div>   
+                            <div  className="social"><img width="15" src={facebookForMaster} alt=""/> <img  width="25" src={instagramForMaster} alt=""/>  <img width="25" src={linkedinForMaster} alt=""/> <img width="25" src={twitterForMaster} alt=""/></div>   
                         </div>
                         <div className="aboutButtons">
                             <div className="stars">{stars}</div>
-                            <p><img src={selectedAdEye} alt=""/> <span>53</span></p> 
+                            <p><img width="20" src={selectedAdEye} alt=""/> <span>53</span></p> 
                             <p><img src={heart} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
                             <Button name="Elanı VIP-et" image2={diamond} color="#58BC40"/>
                         </div>
                         
                     </div>
                 </div>
-                <video   width="1250" height="440" controls>
-                    <source src="movie.mp4" type="video/mp4"></source>
-                </video>
+                
                 <Comments/>
-                    <OurSlider elements={Company1}/></div>
+                    </div>
                 <div>
 
             </div>

@@ -1,16 +1,20 @@
 .topSelection
 {
     display: flex;
-    width: 80%;
-    height: 100px;
+    width: 100%;
+    height: auto;
     justify-content: space-around;
     align-items: center;
+    
     .regSelection
     {
         display: flex;
         justify-content: space-around;
-        width: 80%;
-        
+        align-items: flex-start;
+        column-gap: 3%;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 50px;
         p    
         {
             font-family: "FuturicaRegular";
@@ -24,4 +28,21 @@
             }
         }
     }
+}
+
+//Mobile 
+@media only screen and (max-width: 800px) {
+    .topSelection
+    {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .regSelection 
+    {
+        width: 320px !important;
+        row-gap: 30px;
+        justify-content: flex-start !important;
+    }
+    
 }

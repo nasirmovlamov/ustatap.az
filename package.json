@@ -29,6 +29,7 @@
     "react-scripts": "4.0.1",
     "react-slick": "^0.27.13",
     "react-spinners": "^0.10.6",
+    "react-swipeable-views": "^0.13.9",
     "react-toastify": "^7.0.3",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^0.2.4",

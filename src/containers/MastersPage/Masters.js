@@ -11,11 +11,34 @@ import Ad from '../../components/Ad';
 import Ad2 from '../../components/Ad2';
 import master from "../../assets/images/component/element/master.png"
 import vipTopImg from "../../assets/images/component/element/vipMastersTop.png"
+import vipTopImg1 from "../../assets/images/component/element/vipTopPartCrown.jpg"
 import VipAd2 from '../../components/VipAd2';
 import SubBanner from '../../components/SubBanner';
 import axios from 'axios';
+import { useMediaQuery } from '@material-ui/core';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';  
+const stylesForSwiper = makeStyles({
+    list: {
+      width: "auto",
+    },
+    fullList: {
+      width: "auto",
+    },
+  }); 
+
+
+
 
 function Masters(props) {
+    const btnFilter = useMediaQuery('(max-width:1030px)');
+    const crownTopPart = useMediaQuery('(max-width:450px)');
 
     document.title = " Ustatap.net Ustalar"
     var url = window.location.href;
@@ -51,7 +74,35 @@ function Masters(props) {
     }
 
 
-       
+         
+    const searchDrawer = stylesForSwiper();
+    const [stateFiltr, setStateFiltr] = React.useState({
+      top: false,
+    });
+
+    const toggleDrawer3 = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+
+      setStateFiltr({ ...stateFiltr, [anchor]: open });
+    };
+    const listSearch = (anchor) => (
+      <div
+      className={clsx(searchDrawer.list, {
+        [searchDrawer.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      >
+         <div className="swiperTitle"> <p>Filtirlə</p> <button className="btnMenu" onClick={toggleDrawer3(anchor, false)} onKeyDown={toggleDrawer3(anchor, false)}>X</button></div>
+        <Divider />
+        <div className="filtrDW">
+            <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>
+        </div>
+        
+      </div>
+    );
+    
     return (
         <div className="mastersPage">
              <div className="generalCont">
@@ -62,23 +113,47 @@ function Masters(props) {
                             <a href=""> ustaTap.net</a> 
                         </Link>
                             -&gt;
-                        <Link to="/elanlar">
-                            <a href="">elanlar</a> 
+                        <Link to="/ustalar">
+                            <a href="#">ustalar</a> 
                         </Link>
                             
                         </p>
                     </div>
-                    <button className="topButton">Ustalar üzrə Axtarış</button>
+                    { btnFilter && 
+                        <>
+                          {
+                            <React.Fragment key={'top'}>
+                              <div className="contForBtnImg"><button onClick={toggleDrawer3('top', true)} className="topButtonHover" >Filtrlə</button> <div></div></div>
+                              <Drawer anchor={'top'} open={stateFiltr['top']} onClose={toggleDrawer3('top', false)}>
+                                {listSearch('top')}
+                              </Drawer>
+                            </React.Fragment>
+                          }
+                        </>
+                  }
+                    {!btnFilter && <button className="topButton">Ustalar üzrə Axtarış</button>}
                 </div>
 
-                    <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>
+                    {!btnFilter && <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>}
                         <div className="adsContainer">
                         { props.hideVip &&
-                                    <><img src={vipTopImg} alt=""/>
-                                    <div className="Vipmasters"> {vipMasters} </div></>
+                                    (
+                                        vipMasters.length > 0 ?
+                                        <>
+                                            {!crownTopPart && <img src={vipTopImg} alt=""/>}
+                                            {crownTopPart && <img src={vipTopImg1} alt=""/>}
+                                            <div className="Vipmasters"> {vipMasters} </div>
+                                        </>
+                                        : ""
+                                    )
                         }
                         <SubBanner/>
-                        <div className="masters"> {masters} </div>
+                        {
+                            masters.length > 0 ?
+                            <>
+                                <div className="masters"> {masters} </div>
+                            </> : ""
+                        }
                     </div>    
 
             </div>

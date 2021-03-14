@@ -12,6 +12,10 @@ a
     {
         margin:0px
     }
+    pre 
+    {
+        margin: 0px ;
+    }
     &:hover 
     {
         box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -35,6 +39,8 @@ a
         width: 73px;
         font-size: 12px;
         overflow: hidden;
+        margin: 0px;
+        padding: 0px;
     }
     .mainImg 
     {
@@ -91,7 +97,6 @@ a
             font-size: 14px;
             height: 300px !important; 
             margin-bottom: 0px;
-            margin-top: 10px;
         }
         .flexCont2
         {
