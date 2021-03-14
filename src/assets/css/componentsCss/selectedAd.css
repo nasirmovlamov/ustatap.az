@@ -178,4 +178,33 @@
     width: 100% !important;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .selectedAd .aboutAd {
+    margin-top: 10px !important;
+  }
+  .selectedAd .aboutAd .aboutLinks {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 0px !important;
+    row-gap: 10px;
+  }
+  .selectedAd .aboutAd .aboutLinks a {
+    border: none !important;
+  }
+  .selectedAd .aboutAd .aboutButtons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .selectedAd .bottomLines {
+    margin-top: 45px !important;
+  }
+  .selectedAd .bottomLines img {
+    width: 35px !important;
+  }
+}
 /*# sourceMappingURL=selectedAd.css.map */

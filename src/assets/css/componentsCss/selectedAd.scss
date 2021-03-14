@@ -160,8 +160,35 @@
 }
 
 //Mobile 
-@media only screen and (max-width: 572px) {
-    
-        
+@media only screen and (max-width: 400px) {
+    .selectedAd
+    {
+        .aboutAd
+        {
+            margin-top: 10px !important;
+            .aboutLinks
+            {
+                flex-direction: column;
+                margin-top: 0px !important;
+                row-gap: 10px;
+                a 
+                {
+                    border: none !important;
+                }
+            }
+            .aboutButtons
+            {
+                flex-direction: column;
+            }
+        }
+        .bottomLines
+        {
+            margin-top: 45px !important;
+            img 
+            {
+                width: 35px !important;
+            }
+        }
+    }
     
 }
