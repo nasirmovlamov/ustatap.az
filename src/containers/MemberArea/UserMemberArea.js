@@ -13,6 +13,7 @@ import MyAds from '../../components/MyAds'
 import Profile from '../../components/Profile'
 import Security from '../../components/Security'
 import AddElan from '../../components/AddElan'
+import '../../assets/css/PagesCss/userMemberArea.css'
 
 function UserMemberArea(props) {
     let match = useRouteMatch();

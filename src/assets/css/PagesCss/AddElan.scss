@@ -30,6 +30,7 @@
     .imgGrid
     {
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
         justify-content: space-between;
     }
@@ -78,6 +79,7 @@
         .selectMaterial
         {
             margin-top: 10px;
+            width: 100%;
         }
         select 
         {
@@ -117,4 +119,60 @@
             border-radius: 30px;
         }
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Mobile 
+@media only screen and (max-width: 1000px) {
+    .addElan
+    {
+        width: 100% !important;
+        form 
+        {
+            width: 100%;
+        }
+        .errors
+        {
+            width: 100%;
+        }
+        .selectMaterial
+        {
+            width: 100%;
+        }
+        .addFile
+        {
+            .addFileInput
+            {
+                opacity: 0;
+                width: 100%;
+            }
+        }
+
+    }
+    
+}
+
+
+//Mobile 
+@media only screen and (max-width: 406px) {
+    .addElan
+    {
+        .imgGrid
+        {
+            justify-content: space-around;
+        }
+
+    }
+    
 }

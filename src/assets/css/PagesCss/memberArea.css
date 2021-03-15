@@ -1,6 +1,41 @@
+.asideSW .outlineAside {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.asideSW .outlineAside .categoryLink {
+  width: 100%;
+}
+
+.asideSW .outlineAside .category {
+  width: 100%;
+  height: 58px;
+  border-radius: 9px;
+  border: none;
+  background: none;
+  text-align: start;
+  padding-left: 20px;
+  font-family: "ComfortaaRegular";
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .memberArea {
   width: 100%;
-  height: 1005px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,9 +49,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 0px;
 }
 
-.memberAreaCont {
+.memberArea .memberAreaCont {
   width: 1150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,7 +68,11 @@
   margin-bottom: 200px;
 }
 
-.memberAreaCont .topSide {
+.memberArea .memberAreaCont .hamburger-react {
+  margin-top: -10px;
+}
+
+.memberArea .memberAreaCont .topSide {
   height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -42,9 +82,10 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  height: auto;
 }
 
-.memberAreaCont .topSide .cabinetTop {
+.memberArea .memberAreaCont .topSide .cabinetTop {
   width: 553px;
   height: 89px;
   background: none;
@@ -67,7 +108,7 @@
           align-items: center;
 }
 
-.memberAreaCont .topSide .nameDiv {
+.memberArea .memberAreaCont .topSide .nameDiv {
   background: #58bc40;
   border-radius: 35px 0px 35px 0px;
   position: absolute;
@@ -90,11 +131,11 @@
   color: white;
 }
 
-.memberAreaCont .topSide .nameDiv p {
+.memberArea .memberAreaCont .topSide .nameDiv p {
   margin: 0px;
 }
 
-.memberAreaCont .gridCont {
+.memberArea .memberAreaCont .gridCont {
   width: 773px;
   row-gap: 30px;
   display: -ms-grid;
@@ -104,18 +145,18 @@
   margin-left: 50px;
 }
 
-.memberAreaCont .generalPart {
+.memberArea .memberAreaCont .generalPart {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 76px;
 }
 
-.memberAreaCont .generalPart .memberCont {
+.memberArea .memberAreaCont .generalPart .memberCont {
   width: 823px;
 }
 
-.memberAreaCont .generalPart .asideCateg {
+.memberArea .memberAreaCont .generalPart .asideCateg {
   width: 281px;
   height: 548px;
   background: white;
@@ -126,7 +167,7 @@
   padding: 9px;
 }
 
-.memberAreaCont .generalPart .asideCateg .outlineAside {
+.memberArea .memberAreaCont .generalPart .asideCateg .outlineAside {
   width: 100%;
   height: 100%;
   border: 1px dashed #58bc40;
@@ -145,11 +186,11 @@
       justify-content: space-around;
 }
 
-.memberAreaCont .generalPart .asideCateg .outlineAside .categoryLink {
+.memberArea .memberAreaCont .generalPart .asideCateg .outlineAside .categoryLink {
   width: 100%;
 }
 
-.memberAreaCont .generalPart .asideCateg .outlineAside .category {
+.memberArea .memberAreaCont .generalPart .asideCateg .outlineAside .category {
   width: 100%;
   height: 58px;
   border-radius: 9px;
@@ -160,5 +201,113 @@
   font-family: "ComfortaaRegular";
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 1064px) {
+  .memberArea .memberAreaCont {
+    width: 100%;
+  }
+  .memberArea .memberAreaCont .topSide {
+    width: 100%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-column-gap: 0px;
+            column-gap: 0px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .memberArea .memberAreaCont .generalPart {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .memberArea .memberAreaCont .generalPart .memberCont {
+    width: 100% !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 824px) {
+  .memberArea .memberAreaCont .userMember .gridCont {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-column-gap: 3%;
+            column-gap: 3%;
+    row-gap: 30px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  .memberArea .hamburger-react {
+    margin-top: 40px !important;
+  }
+  .memberArea .generalPart {
+    margin-top: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .memberArea .cabinetTop {
+    width: 300px !important;
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+    height: 49px !important;
+    background: none;
+    font-size: 25px !important;
+    font-family: "ComfortaaRegular";
+    color: rgba(49, 49, 49, 0.65);
+    font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .memberArea .nameDiv {
+    background: #58bc40;
+    border-radius: 35px 0px 35px 0px;
+    position: absolute;
+    margin-left: 70px !important;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 31px !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 16px !important;
+    color: white;
+    margin-top: 70px !important;
+  }
+  .memberArea .nameDiv p {
+    margin: 0px;
+  }
 }
 /*# sourceMappingURL=memberArea.css.map */

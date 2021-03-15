@@ -58,4 +58,62 @@
   height: 40px;
   border-radius: 30px;
 }
+
+@media only screen and (max-width: 538px) {
+  .profileUser {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .profileUser .errors {
+    margin-bottom: 10px;
+    height: 30px;
+    margin-top: 5px;
+    width: 100%;
+    color: red;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .profileUser form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    margin-top: 50px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    row-gap: 25px;
+  }
+  .profileUser form input {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: "FuturicaRegular";
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    height: 30px;
+  }
+  .profileUser form input:focus {
+    outline: none;
+  }
+  .profileUser form .button {
+    width: 210.89px;
+    height: 40px;
+    border-radius: 30px;
+  }
+}
 /*# sourceMappingURL=Profile.css.map */

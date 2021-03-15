@@ -40,7 +40,7 @@ function VipAd3(props) {
           }
     }
     const backgroundImgHuman = {
-        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`
+        background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`
     }
     const [checker , setChecker] = useState(false)
     

@@ -64,3 +64,73 @@
         font-size: 18px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Mobile 
+@media only screen and (max-width: 766px) {
+    .security
+    {
+        width: 100% !important;
+        .errors
+        {
+            width: 100% !important;
+        }
+        .gridContt
+        {
+            width: 100% !important;
+        }
+        .key 
+        {
+            width: 95%;
+        }
+        .value 
+        {
+            width: 100% !important;
+        }
+    }
+    
+}
+//Mobile 
+@media only screen and (max-width: 566px) {
+    .security
+    {
+        width: 100% !important;
+        .errors
+        {
+            width: 100% !important;
+        }
+        .gridContt
+        {
+            width: 100% !important;
+            grid-template-columns: repeat(1 , 1fr);
+        }
+        .key 
+        {
+            width: 95%;
+        }
+        .value 
+        {
+            width: 100% !important;
+        }
+    }
+    
+}

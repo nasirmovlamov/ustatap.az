@@ -135,7 +135,7 @@ function HomePage(props) {
     useEffect(() => 
     {
         axios.get("http://ustatap.testjed.me/public/api/ad") 
-             .then((res) =>  (console.log(res.data)  ))
+             .then((res) =>  (setlatestAdApi(res.data)  ))
         axios.get("http://ustatap.testjed.me/public/api/handymen") 
              .then((res) =>  (setMasterApi(res.data) ))
         axios.get("http://ustatap.testjed.me/public/api/company") 
@@ -335,7 +335,7 @@ function HomePage(props) {
                             <div className="line3"></div>
                             <div className="adsContainer">
                                 {
-                                        vipCompanies.length !== 0 ?
+                                        companies.length !== 0 ?
                                             (companies.length > 1 ? companies : <PulseLoader color={color} loading={loading} css={override} size={25} />)
                                         :""
                                 }

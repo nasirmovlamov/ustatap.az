@@ -15,7 +15,30 @@ import {
     useParams
   } from "react-router-dom";
 import { useEffect } from 'react'
+import { useMediaQuery } from '@material-ui/core';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';  
+import Hamburger from 'hamburger-react'
+const stylesForSwiper = makeStyles({
+    list: {
+      width: "auto",
+    },
+    fullList: {
+      width: "auto",
+    },
+  }); 
+
+
+
 function MemberArea(props) {
+    const asideMQ = useMediaQuery('(max-width:1170px)');
+    const cabinetLogoMQ = useMediaQuery('(max-width:852px)');
 
     const imgHandler =  {
         backgroundImage: `url(${cabinetTop})`,
@@ -63,60 +86,157 @@ function MemberArea(props) {
         }
     })
 
+
+
+     
+    const searchDrawer = stylesForSwiper();
+    const [stateFiltr, setStateFiltr] = React.useState({
+      top: false,
+    });
+
+    const toggleDrawer3 = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+
+      setStateFiltr({ ...stateFiltr, [anchor]: open });
+    };
+    const listSearch = (anchor) => (
+      <div
+      className={clsx(searchDrawer.list, {
+        [searchDrawer.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer3(anchor, false)}
+      onKeyDown={toggleDrawer3(anchor, false)}
+      >
+         <div className="swiperTitle"> <p>Filtirlə</p> <button className="btnMenu" onClick={toggleDrawer3(anchor, false)} onKeyDown={toggleDrawer3(anchor, false)}>X</button></div>
+        <Divider />
+        <div className="asideSW">
+            
+            {
+                props.loginId === 'user' &&
+                <div className="outlineAside" id="outlineAside">  
+                    <Link to={`${match.path}`} className="categoryLink" ><button className="category btn1" id="categoryName" >{props.UserData.user.name.toUpperCase()}</button></Link>
+                    <Link to={`${match.path}profile`} className="categoryLink" ><button className="category btn2 "  id="categoryProfile">ŞƏXSİ MƏLUMATLAR</button></Link>
+                    <Link to={`${match.path}elan-add`} className="categoryLink" ><button className="category btn3"  id="addelan">ELAN ƏLAVƏ ET</button></Link>
+                    <Link to={`${match.path}my-ads`} className="categoryLink" ><button className="category btn4"  id="myads">ELANLARIM</button></Link>
+                    <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category btn5" id="selectedMasters">SEÇİLMİŞ USTALAR</button></Link>
+                    <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category btn6" id="selectedCompanies">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
+                    <Link to={`${match.path}security`} className="categoryLink"><button className="category btn7" id="security">TƏHLÜKƏSİZLİK</button></Link>
+                    <Link to={`/`} className="categoryLink"><button className="category btn7">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                    <a href='/' className="categoryLink"><button onClick={logOut} className="category btn8">HESABDAN ÇIX</button></a>
+                </div>
+            }
+            {
+                props.loginId === 'handyman' &&
+                <div className="outlineAside">  
+                    <Link to={`${match.path}`} className="categoryLink"><button className="category">NASİR  MOVLAMOV</button></Link>
+                    <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
+                    <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GƏLƏN TƏKLİFLƏR</button></Link>
+                    <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
+                    <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
+                    <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
+                    <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                    <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
+                </div>
+            }
+            {
+                props.loginId === 'company' &&
+                <div className="outlineAside">  
+                    <Link to={`${match.path}`} className="categoryLink"><button className="category">JEDAI</button></Link>
+                    <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
+                    <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GÖNDƏRİLƏN TƏKLİFLƏR</button></Link>
+                    <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
+                    <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category">SEÇİLMİŞ USTALAR</button></Link>
+                    <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
+                    <Link to={`${match.path}ad-website`} className="categoryLink"><button className="category">REKLAM YERLƏŞDİR</button></Link>
+                    <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                    <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
+                </div>
+            }
+        </div>
+        
+      </div>
+    );
+    
+
+
+
+
+
+
+
+
     return (
         <div className="memberArea">
-            n
+            
             <div className="memberAreaCont">
-                <div className="topSide"><img src={logo} alt="" width="92" height="auto" /> <div className="cabinetTop" style={imgHandler}>Şəxsi kabinet <div  className="nameDiv"> <p> {props.UserData.user.name}  </p></div>  </div> </div>
+                <div className="topSide">
+                   {!cabinetLogoMQ && <img src={logo} alt="" width="92" height="auto" /> }
+                    <div className="cabinetTop" style={imgHandler}>Şəxsi kabinet <div  className="nameDiv"> <p> {props.UserData?.user?.name}  </p></div>  </div> 
+                    {
+                            <React.Fragment key={'top'}>
+                            <Hamburger color="#58bc41" toggled={stateFiltr['left']} toggle={toggleDrawer3('top', true)} />
+                            <Drawer anchor={'top'} open={stateFiltr['top']} onClose={toggleDrawer3('top', false)}>
+                                {listSearch('top')}
+                            </Drawer>
+                            </React.Fragment>
+                    }    
+                </div>
                 <div className="generalPart">
                         <div className="memberCont">
                             {  props.loginId === 'user'        &&     <UserMemberArea UserData={props.UserData}/>       }
                             {  props.loginId === 'handyman'    &&     <MasterMemberArea UserData={props.UserData}/>     }
                             {  props.loginId === 'company'     &&     <CompanyMemberArea UserData={props.UserData}/>    }
                         </div>
-                        <aside className="asideCateg">
-                            {
-                                props.loginId === 'user' &&
-                                <div className="outlineAside" id="outlineAside">  
-                                    <Link to={`${match.path}`} className="categoryLink" ><button className="category btn1" id="categoryName" >{props.UserData.user.name.toUpperCase()}</button></Link>
-                                    <Link to={`${match.path}profile`} className="categoryLink" ><button className="category btn2 "  id="categoryProfile">ŞƏXSİ MƏLUMATLAR</button></Link>
-                                    <Link to={`${match.path}add-elan`} className="categoryLink" ><button className="category btn3"  id="addelan">ELAN ƏLAVƏ ET</button></Link>
-                                    <Link to={`${match.path}my-ads`} className="categoryLink" ><button className="category btn4"  id="myads">ELANLARIM</button></Link>
-                                    <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category btn5" id="selectedMasters">SEÇİLMİŞ USTALAR</button></Link>
-                                    <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category btn6" id="selectedCompanies">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
-                                    <Link to={`${match.path}security`} className="categoryLink"><button className="category btn7" id="security">TƏHLÜKƏSİZLİK</button></Link>
-                                    <Link to={`/`} className="categoryLink"><button className="category btn7">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
-                                    <a href='/' className="categoryLink"><button onClick={logOut} className="category btn8">HESABDAN ÇIX</button></a>
-                                </div>
-                            }
-                            {
-                                props.loginId === 'handyman' &&
-                                <div className="outlineAside">  
-                                    <Link to={`${match.path}`} className="categoryLink"><button className="category">NASİR  MOVLAMOV</button></Link>
-                                    <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
-                                    <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GƏLƏN TƏKLİFLƏR</button></Link>
-                                    <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
-                                    <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
-                                    <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
-                                    <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
-                                    <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
-                                </div>
-                            }
-                            {
-                                props.loginId === 'company' &&
-                                <div className="outlineAside">  
-                                    <Link to={`${match.path}`} className="categoryLink"><button className="category">JEDAI</button></Link>
-                                    <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
-                                    <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GÖNDƏRİLƏN TƏKLİFLƏR</button></Link>
-                                    <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
-                                    <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category">SEÇİLMİŞ USTALAR</button></Link>
-                                    <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
-                                    <Link to={`${match.path}ad-website`} className="categoryLink"><button className="category">REKLAM YERLƏŞDİR</button></Link>
-                                    <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
-                                    <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
-                                </div>
-                            }
-                        </aside>        
+                        
+                        {
+                            !asideMQ &&
+                                <aside className="asideCateg">
+                                    {
+                                        props.loginId === 'user' &&
+                                        <div className="outlineAside" id="outlineAside">  
+                                            <Link to={`${match.path}`} className="categoryLink" ><button className="category btn1" id="categoryName" >{props.UserData.user.name.toUpperCase()}</button></Link>
+                                            <Link to={`${match.path}profile`} className="categoryLink" ><button className="category btn2 "  id="categoryProfile">ŞƏXSİ MƏLUMATLAR</button></Link>
+                                            <Link to={`${match.path}elan-add `} className="categoryLink" ><button className="category btn3"  id="addelan">ELAN ƏLAVƏ ET</button></Link>
+                                            <Link to={`${match.path}my-ads`} className="categoryLink" ><button className="category btn4"  id="myads">ELANLARIM</button></Link>
+                                            <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category btn5" id="selectedMasters">SEÇİLMİŞ USTALAR</button></Link>
+                                            <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category btn6" id="selectedCompanies">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
+                                            <Link to={`${match.path}security`} className="categoryLink"><button className="category btn7" id="security">TƏHLÜKƏSİZLİK</button></Link>
+                                            <Link to={`/`} className="categoryLink"><button className="category btn7">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                                            <a href='/' className="categoryLink"><button onClick={logOut} className="category btn8">HESABDAN ÇIX</button></a>
+                                        </div>
+                                    }
+                                    {
+                                        props.loginId === 'handyman' &&
+                                        <div className="outlineAside">  
+                                            <Link to={`${match.path}`} className="categoryLink"><button className="category">NASİR  MOVLAMOV</button></Link>
+                                            <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
+                                            <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GƏLƏN TƏKLİFLƏR</button></Link>
+                                            <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
+                                            <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
+                                            <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
+                                            <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                                            <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
+                                        </div>
+                                    }
+                                    {
+                                        props.loginId === 'company' &&
+                                        <div className="outlineAside">  
+                                            <Link to={`${match.path}`} className="categoryLink"><button className="category">JEDAI</button></Link>
+                                            <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
+                                            <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GÖNDƏRİLƏN TƏKLİFLƏR</button></Link>
+                                            <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
+                                            <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category">SEÇİLMİŞ USTALAR</button></Link>
+                                            <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
+                                            <Link to={`${match.path}ad-website`} className="categoryLink"><button className="category">REKLAM YERLƏŞDİR</button></Link>
+                                            <Link to={`/`} className="categoryLink"><button className="category">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                                            <a href={`/`} className="categoryLink"><button onClick={logOut}  className="category">HESABDAN ÇIX</button></a>
+                                        </div>
+                                    }
+                                </aside>       
+                        } 
                 </div>
             </div>
         </div>

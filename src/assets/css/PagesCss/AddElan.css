@@ -46,6 +46,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -114,6 +116,7 @@
 
 .addElan form .selectMaterial {
   margin-top: 10px;
+  width: 100%;
 }
 
 .addElan form select {
@@ -147,5 +150,31 @@
   margin-top: 35px;
   height: 40px;
   border-radius: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .addElan {
+    width: 100% !important;
+  }
+  .addElan form {
+    width: 100%;
+  }
+  .addElan .errors {
+    width: 100%;
+  }
+  .addElan .selectMaterial {
+    width: 100%;
+  }
+  .addElan .addFile .addFileInput {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 406px) {
+  .addElan .imgGrid {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 /*# sourceMappingURL=AddElan.css.map */

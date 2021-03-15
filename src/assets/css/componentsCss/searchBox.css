@@ -51,10 +51,15 @@
   margin-top: 15px;
 }
 
+.searchbox .selectMaterial {
+  margin-left: 10px;
+  width: auto;
+}
+
 .searchbox .searchCont {
   margin-top: 55px;
   width: 644px;
-  height: 52px;
+  height: 55px;
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -79,8 +84,8 @@
 
 .searchbox .searchButton {
   width: 151px;
-  height: 51.46px;
-  border-radius: 47px;
+  height: 55px;
+  border-radius: 40px;
   border: none;
   background: #F27B29;
   display: -webkit-box;

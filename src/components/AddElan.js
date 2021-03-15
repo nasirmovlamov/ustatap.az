@@ -201,7 +201,7 @@ useEffect(() =>
                         id="combo-box-demo"
                         options={categoriesOptions}
                         getOptionLabel={(option) => (option.title)}
-                        style={{ width: 530 }}
+                        style={{ width: "auto" }}
                         renderInput={(params) => <TextField {...params}  label="Kategoriya seçin"  />}
                       />  
                   </div>
@@ -221,7 +221,7 @@ useEffect(() =>
                         id="combo-box-demo"
                         options={cityOptions}
                         getOptionLabel={(option) => (option.title)}
-                        style={{ width: "530px" }}
+                        style={{ width: "auto" }}
                         renderInput={(params) => <TextField {...params} label="Şəhər seçin"  />}
                       />  
                   </div>

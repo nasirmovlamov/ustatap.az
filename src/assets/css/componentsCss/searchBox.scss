@@ -36,12 +36,16 @@
     color: white;
     margin-top:15px
 }
-
+.selectMaterial
+{
+  margin-left: 10px;
+  width: auto;
+}
 .searchCont
 {
   margin-top:55px;
   width: 644px;
-  height: 52px;
+  height: 55px;
   background: white;
   display: flex;
   border-radius:50px;
@@ -57,8 +61,8 @@
 .searchButton 
 {
     width: 151px;
-    height:51.46px;
-    border-radius: 47px;
+    height: 55px;
+    border-radius: 40px;
     border: none;
     background: #F27B29;
     display: flex;

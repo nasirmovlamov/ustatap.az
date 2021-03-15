@@ -67,13 +67,13 @@ const stylesForSwiper = makeStyles({
 
 
 function Header() {
-    const navTextMQ = useMediaQuery('(min-width:1150px)');
-    const navDropdownMQ = useMediaQuery('(max-width:1150px)');
-    const elanAddBtnMQ = useMediaQuery('(max-width:1150px)');
-    const loginMQ = useMediaQuery('(max-width:1150px)');
-    const searchMQ = useMediaQuery('(max-width:646px)');
-    const navLogoMQ = useMediaQuery('(max-width:1150px)');
-    const menuMQ = useMediaQuery('(max-width:1150px)');
+    const navTextMQ = useMediaQuery('(min-width:1175px)');
+    const navDropdownMQ = useMediaQuery('(max-width:1170px)');
+    const elanAddBtnMQ = useMediaQuery('(max-width:1170px)');
+    const loginMQ = useMediaQuery('(max-width:1170px)');
+    const searchMQ = useMediaQuery('(max-width:650px)');
+    const navLogoMQ = useMediaQuery('(max-width:1170px)');
+    const menuMQ = useMediaQuery('(max-width:1170px)');
 
     var SelectedThings = ['salam']
     Cookies.set('SelectedThings' , SelectedThings)
@@ -303,7 +303,7 @@ function Header() {
                   {!elanAddBtnMQ &&<button className="putAd" onClick={putAd}><span>+</span> Elan Yerləşdir</button> }
                 </div>
             </navbar>
-            {window.location.href === "http://localhost:3000/member-area" ? "" :  (!searchMQ && <SearchBox settype={settype} setjobcategory={setjobcategory} setcity={setcity} type={type} jobcategory={jobcategory} city={city}/>)}
+            {!searchMQ && <SearchBox settype={settype} setjobcategory={setjobcategory} setcity={setcity} type={type} jobcategory={jobcategory} city={city}/>}
           </div>
 
           <Switch>
@@ -347,7 +347,7 @@ function Header() {
                 <CompanyRegistration/>
               </Route>
               <Route  path={`/member-area/`}>
-                { UserData?.user?.id === undefined  ?  <Redirect to="/login"/>  :  <MemberArea loginId={UserData?.user?.user_type} UserData={UserData}/> }
+                { JSON.parse(localStorage.getItem('LoginUserData'))?.user?.id === undefined  ?  <Redirect to="/login"/>  :  <MemberArea loginId={UserData?.user?.user_type} UserData={UserData}/> }
               </Route>
               <Route path="/istifadeci-qeydiyyati">
                 <UserRegistration/>

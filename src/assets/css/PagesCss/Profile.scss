@@ -45,3 +45,56 @@
             }
         }
 }
+
+
+//Mobile 
+@media only screen and (max-width: 538px) {
+    .profileUser
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .errors
+        {
+            margin-bottom: 10px;
+            height: 30px;
+            margin-top: 5px;
+            width: 100%;
+            color: red;
+            align-self:flex-start;
+        }
+    form 
+        {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 50px;
+            align-items: center;
+            row-gap: 25px;
+            
+            input 
+            {
+                width: 100%;
+                margin: 0px;
+                padding: 0px;
+                font-family: "FuturicaRegular";
+                font-size: 16px;
+                border: none;
+                border-bottom: 1px solid lightgray;
+                height: 30px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            .button 
+            {
+                width: 210.89px;
+                height: 40px;
+                border-radius: 30px;
+            }
+        }
+}
+    
+}

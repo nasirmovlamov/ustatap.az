@@ -12,6 +12,9 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Cookies from 'js-cookie'
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -65,7 +68,14 @@ function SearchBox(props) {
         window.location.href = '/search'
     }
 
-
+    const categoriesOptions = [];
+    const cityOptions = [];
+    jobCategoryApi.map(element => categoriesOptions.push({title:element.name , id:element.id}))
+    cityCategoryApi.map(element => cityOptions.push({title:element.name , id:element.id})) 
+    const [inputValue, setInputValue] = React.useState('');
+    const [inputValue2, setInputValue2] = React.useState('');
+    const [jobcategory, setjobcategory] = useState(categoriesOptions[0].id);
+    const [city, setcity] = useState(cityOptions[0].id);
 
 
     
@@ -87,24 +97,52 @@ function SearchBox(props) {
                                     <MenuItem value={"company"}>Şirkət</MenuItem>
                                 </Select>
                             </FormControl>
+                            
                         </div>
 
                         <div class="dropbtn" >
                             <img src={drpLogo2} alt=""/>
-                            <FormControl className={classes.formControl}>
-                                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={props.jobcategory} onChange={handleChangeJ}>
-                                    {jobCategoryApi.map(category =>  <MenuItem value={category.id}>{category.name}</MenuItem> )}
-                                </Select>
-                            </FormControl>
+                            <div className="selectMaterial">
+                                <Autocomplete
+                                    value={jobcategory}
+                                    onChange={(event, newValue , newValue2 , category) => {
+                                        setjobcategory(category?.option?.id);
+                                    }}
+                                    inputValue={inputValue}
+                                    onInputChange={(event, newInputValue) => {
+                                    setInputValue(newInputValue);
+                                    console.log(newInputValue)
+                                    }}
+                                    id="combo-box-demo"
+                                    options={categoriesOptions}
+                                    getOptionLabel={(option) => (option.title)}
+                                    style={{ width: "130px", height: "60px" }}
+                                    renderInput={(params) => <TextField {...params}  label="Kategoriya seçin"  />}
+                                />  
+                            </div>
+                            
                         </div>
 
                         <div  class="dropbtn dropbtn3">
                             <img src={drpLogo3} alt=""/>
-                            <FormControl className={classes.formControl}>
-                                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={props.city} onChange={handleChangeC}>
-                                    {cityCategoryApi.map(city =>  <MenuItem value={city.id}>{city.name}</MenuItem> )}
-                                </Select>
-                            </FormControl>
+                            <div className="selectMaterial">
+                                <Autocomplete
+                                    value={jobcategory}
+                                    onChange={(event, newValue , newValue2 , category) => {
+                                        setcity(category?.option?.id);
+                                        console.log(category?.option?.id)
+                                    }}
+                                    inputValue={inputValue2}
+                                    onInputChange={(event, newInputValue) => {
+                                    setInputValue2(newInputValue);
+                                    }}
+                                    id="combo-box-demo"
+                                    options={cityOptions}
+                                    getOptionLabel={(option) => (option.title)}
+                                    style={{ width: "130px" , height: "60px"}}
+                                    renderInput={(params) => <TextField {...params} label="Şəhər seçin"  />}
+                                />  
+                            </div>
                         </div>
                     </div>
                     <button onClick={() => searchClick()} class="searchButton"> <img src={lupa} />axtar</button>

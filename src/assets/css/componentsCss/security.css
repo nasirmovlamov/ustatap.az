@@ -91,4 +91,42 @@
   height: 59px;
   font-size: 18px;
 }
+
+@media only screen and (max-width: 766px) {
+  .security {
+    width: 100% !important;
+  }
+  .security .errors {
+    width: 100% !important;
+  }
+  .security .gridContt {
+    width: 100% !important;
+  }
+  .security .key {
+    width: 95%;
+  }
+  .security .value {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 566px) {
+  .security {
+    width: 100% !important;
+  }
+  .security .errors {
+    width: 100% !important;
+  }
+  .security .gridContt {
+    width: 100% !important;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .security .key {
+    width: 95%;
+  }
+  .security .value {
+    width: 100% !important;
+  }
+}
 /*# sourceMappingURL=security.css.map */

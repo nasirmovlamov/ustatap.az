@@ -13,7 +13,9 @@ import  carona    from  "../assets/images/component/element/carona.svg"
 import  vipMaster    from  "../assets/images/component/element/vipMaster.png"
 import axios from 'axios'
 import FavoriteIcon from '@material-ui/icons/Favorite';
-
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 function VipAd2(props) {
     const stars = []
     if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
@@ -39,7 +41,7 @@ function VipAd2(props) {
     }
 
     const backgroundImgHuman = {
-        background: `url(http://ustatap.testjed.me/storage/app/public/${props.image})  no-repeat`
+        background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`
     }
 
 
@@ -71,7 +73,7 @@ function VipAd2(props) {
              .catch(err => console.log(err))
     }
 
-
+    const [Rating, setRating] = useState(2);
     return (
         
             <div className="Vipad">
@@ -81,7 +83,9 @@ function VipAd2(props) {
                     <div className="flexCont1">  <p>{props.name}</p>  <button onClick={() => heartPost()} className="heartBtn"><FavoriteIcon id={props.id}/></button></div>
                     <p className="jobTitle">{props.job}</p>
                     <div className="flexCont2">   <p className="address">{props.address}</p></div>
-                    <div className="stars">{stars}</div>
+                    <div className="stars">
+                    
+                    </div>
                 </div>
             </div>
     )
