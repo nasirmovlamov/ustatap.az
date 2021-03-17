@@ -116,7 +116,7 @@ function Header() {
     window.addEventListener("scroll", function(){
       if (window.scrollY > 50 &&  document.getElementById('navbar') !== null)
       {
-        document.getElementById('navbar').setAttribute('style' , 'background:rgba(0,0,0,0.8);transition:0.5s background;box-shadow: 10px 10px 10px rgba(0,0,0,0.3);')
+        document.getElementById('navbar').setAttribute('style' , 'background:rgba(0,0,0,0.5);transition:0.5s background;box-shadow: 10px 10px 10px rgba(0,0,0,0.3);')
       }
       else if (window.scrollY < 50 && document.getElementById('navbar') !== null)
       {

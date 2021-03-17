@@ -167,6 +167,7 @@ function HomePage(props) {
     CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
     CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
 
+    
     const  clickHandler = (number) => {
         if (document.getElementById("wD" + number).style.display === "block") {
             document.getElementById("wD" + number).setAttribute("style" , "display:nonne")

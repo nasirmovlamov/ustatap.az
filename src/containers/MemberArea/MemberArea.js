@@ -25,6 +25,18 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';  
 import Hamburger from 'hamburger-react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Alert from '@material-ui/lab/Alert';
+import { useState } from 'react'
+const alertStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+      },
+    },
+  }));
 const stylesForSwiper = makeStyles({
     list: {
       width: "auto",
@@ -39,7 +51,14 @@ const stylesForSwiper = makeStyles({
 function MemberArea(props) {
     const asideMQ = useMediaQuery('(max-width:1170px)');
     const cabinetLogoMQ = useMediaQuery('(max-width:852px)');
-
+    const [UserData, setUserData] = useState(0)
+    useEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+        
+      } )
     const imgHandler =  {
         backgroundImage: `url(${cabinetTop})`,
         backgroundSize: 'cover',
@@ -54,6 +73,7 @@ function MemberArea(props) {
     for (let index = 0; index < 8; index++) {
         document?.querySelector(`.btn${index}`)?.setAttribute("style" , "background-color:white;color:rgba(0, 0, 0, 0.5);border-radius:10px;")
     }
+    const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
     
     useEffect(() => {
         if (url === "member-area" || url === "") {
@@ -170,8 +190,8 @@ function MemberArea(props) {
 
     return (
         <div className="memberArea">
-            
             <div className="memberAreaCont">
+            { parseInt(UserData?.user?.status) === 0 ? <Alert className="alertVerify"  severity="error">Hesabınızı gmailə daxil olaraq aktiv edin</Alert> : ""}
                 <div className="topSide">
                    {!cabinetLogoMQ && <img src={logo} alt="" width="92" height="auto" /> }
                     <div className="cabinetTop" style={imgHandler}>Şəxsi kabinet <div  className="nameDiv"> <p> {props.UserData?.user?.name}  </p></div>  </div> 

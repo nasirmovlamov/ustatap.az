@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {
     Link
   } from "react-router-dom";
@@ -10,32 +10,19 @@ import axios from 'axios'
 import location from "../assets/images/component/element/location.svg"
 import heart from "../assets/images/component/element/heart.svg"
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import Rating from '@material-ui/lab/Rating';
+import { useLayoutEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import StarIcon from '@material-ui/icons/Star';
 
 function Ad2(props) {
-    const stars = []
-    if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
-        
-        for (var i=0;i<props.numberStar;i++) {
-            stars.push(<img src={fullStar} width="25px" alt="ulduz" /> )
-          }
-        for (var j=(props.numberStar);j<5;j++) {
-            stars.push(<img src={emptyStar} alt="ulduz" width="25px"/> )
-        }
-
-    }
-    else 
-    {
-        for (var i=0;i<Math.floor(props.numberStar);i++) {
-            stars.push(<img src={fullStar} alt="ulduz" width="25px"/> )
-          }
-        stars.push(<img src={halfStar} alt="ulduz" width="25px"/>)
-
-        for (var i=Math.floor(props.numberStar) + 1;i<5;i++) {
-            stars.push(<img src={emptyStar} alt="ulduz" width="25px"/> )
-          }
-    }
+    const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
+    
     const bgImg = {
-        background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`,
+        backgroundImage: `url(http://ustatap.testjed.me/storage/app/public/${props.image})`,
+        backgroundSize: "cover !important" ,
+        backgroundRepeat: 'no-repeat'
     }
 
     const [checker , setChecker] = useState(false)
@@ -65,16 +52,35 @@ function Ad2(props) {
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
-
-
+    const [UserData, setUserData] = useState(0)
+    useLayoutEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+        
+      } )
+    const ratingHandler = (rate) => {
+        if (UserData?.user?.id === undefined) {
+            window.location.href = "/login"
+        }
+        else 
+        {
+            axios.post('http://ustatap.testjed.me/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
+                .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
+                .catch(err => console.log(err))
+        }
+        
+    }
     return (
+        
             <div className="mastersCont">
                 <Link to={"/masters/" + props.id} className="masterImg"  style={bgImg}><button className="masterImgBtn" onClick={() => viewHandler()}   ></button></Link>
                 <div className="aboutText">
                     <p className="name">{props.name}</p>
                     <p className="job">{props.job}</p>
                     <p className="location"><img src={location} alt="location"/> {props.address}</p>
-                    <div className="stars">{stars}</div>
+                    <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
                     <p className="rating">Reyting sayı {props.rating} </p>
                     <button className="heartBtn"  onClick={() => heartPost()}><FavoriteIcon id={props.id}/></button>
                 </div> 

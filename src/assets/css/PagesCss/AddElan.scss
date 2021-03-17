@@ -81,6 +81,7 @@
             margin-top: 10px;
             width: 100%;
         }
+        
         select 
         {
             width: 100.8%;
@@ -110,6 +111,11 @@
             &:focus {
                 outline: none;
             }
+        }
+        .textarea 
+        {
+            resize: none;
+            height: 100px;
         }
         .button 
         {

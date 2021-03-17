@@ -113,12 +113,11 @@
 
     .main
     {
-        width: 97%;
+        width: 95%;
         display: flex;
-        margin-left: 3%;
+        justify-content: start;
         margin-top: 80px;
-        align-self: flex-start;
-
+        column-gap: 50px;
         .aside 
         {
             &::-webkit-scrollbar
@@ -135,7 +134,7 @@
                 height: 10px;
 
             }
-            width: 314px;
+            width: 334px;
             height: 780px;
             background-color: red;
             background: #F6F7FB;
@@ -173,6 +172,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                column-gap: 5px;
                 p 
                 {
                     width: 65%;
@@ -235,11 +235,12 @@
         } 
         .allAdsContainer
         {
-            margin-left: 3%;
             width: auto;
             display:flex;
             flex-direction: column;
             align-items:center;
+            justify-content: flex-start;
+            width: 100%;
             .css-1g85zfd, .css-1g85zfd
             {
                 grid-column: 1/5;
@@ -250,8 +251,8 @@
                 display:flex;
                 align-self: flex-start;
                 flex-direction: column;
-                align-items: center;
-                padding-bottom: 100px;
+                align-items: flex-start;
+                padding-bottom: 30px;
             }
             p 
             {
@@ -323,7 +324,6 @@
                 display: flex;
                 flex-wrap: wrap;
                 gap: 35px;
-                justify-content: center;
                 margin-bottom: 50px;
             }
         }  
@@ -338,11 +338,17 @@
         {
             width: 93%;
              margin-top: 30px;
+             justify-content: center;
             .allAdsContainer
             {
                 width: 100% ;
                 .typeAddContainer
                 {
+                    .adsContainer
+                    {
+                        justify-content: center;
+
+                    }
                     width: 100%;
                     margin-top: 30px;
                 }
