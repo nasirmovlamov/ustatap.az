@@ -8,17 +8,15 @@ function ReplyComment(props) {
         backgroundImage: `url(${humanImg})`
     }
     return (
-        props.subComment.map((name1 ,index) => 
-        (
             <div className="replyCommentCont">
                 <div className="avatar" style={avatar}></div>
                 <div  className="replyCommentAbout"> 
-                        <p className="name">{props.namesubComment.map(name2 => name2[index] )}<img src={calendar} alt="" /> 25.03.2020 </p>
+                        <p className="name">{props.namesubComment}<img src={calendar} alt="" /> {props.date} </p>
                         <hr className="lineForMain"/> 
-                        <p className="mainComment"> {name1}</p>
+                        <p className="mainComment"> {props.textsubComment}</p>
                 </div>
             </div>
-        )))
+    )
 }
 
 export default ReplyComment

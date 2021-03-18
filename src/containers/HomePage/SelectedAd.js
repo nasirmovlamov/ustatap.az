@@ -77,7 +77,6 @@ const stpperSytle = makeStyles((theme) => ({
 
 function SelectedAd(props) {
     const frameContMQ = useMediaQuery('(min-width:566px)');
-
     const [image, setimage] = useState([selectedAd1,selectedAd2,selectedAd3,selectedAd4,selectedAd5 ])
     var url = window.location.href;
     var id = url.substring(url.lastIndexOf('/') + 1 );

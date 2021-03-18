@@ -3,6 +3,82 @@
     width: 1073px;
     align-self: flex-start;
     margin-top: 50px;
+    .replyForm
+        {
+            display: flex;
+            column-gap: 20px;
+            
+            width: 100%;
+            margin-top: 10px;
+            .button 
+            {
+                float: right;
+                width: 200px;
+                height: 40px;
+                color: white ;
+                background: none;
+                background-color: #58BC40;
+                border: none;
+                &:focus
+                {
+                    outline: none;
+                }
+            }
+            form 
+            {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                row-gap: 10px;
+                .submitBtn
+                {
+                    height: 0px;
+                    display: none;
+                }
+                .submitBtnShow
+                {
+                    display: block;
+                    float: right;
+                    align-self: flex-end;
+                    width: 200px;
+                    height: 40px;
+                    color: white ;
+                    background: none;
+                    background-color: #58BC40;
+                    border: none;
+                    &:focus
+                    {
+                        outline: none;
+                    }
+                }
+                .input 
+                {
+                    width: 86%;
+                    height: 0px;
+                    pointer-events: none;
+                    border: none;
+                    resize: none;
+                    display: none;
+                 }
+                .inputClick 
+                {
+                    height: 100px;
+                    overflow: hidden;
+                    border: 1px solid gray;
+                    width: 100%;
+                    pointer-events: all;
+                    resize: none;
+                    display: block;
+                    padding-left: 15px;
+                    padding-top: 10px;
+                }
+                textarea 
+                {
+                    resize: none;
+                }
+                
+            }
+        }
 }
 .titleComments 
 {

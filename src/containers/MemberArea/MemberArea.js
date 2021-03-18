@@ -70,7 +70,7 @@ function MemberArea(props) {
     }
     var url = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
     
-    for (let index = 0; index < 8; index++) {
+    for (let index = 0; index < 9; index++) {
         document?.querySelector(`.btn${index}`)?.setAttribute("style" , "background-color:white;color:rgba(0, 0, 0, 0.5);border-radius:10px;")
     }
     const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
@@ -88,13 +88,17 @@ function MemberArea(props) {
         {
             document?.getElementById("myads")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
         }
-        else if (url === "add-elan")
+        else if (url === "elan-add")
         {
             document?.getElementById("addelan")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
         }
         else if (url === "selected-masters")
         {
             document?.getElementById("selectedMasters")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
+        }
+        else if (url === "requests-ad")
+        {
+            document?.getElementById("requestToElan")?.setAttribute("style" , "background-color:#58bc40;color:white;border-radius:10px;")
         }
         else if (url === "selected-companies")
         {
@@ -191,7 +195,7 @@ function MemberArea(props) {
     return (
         <div className="memberArea">
             <div className="memberAreaCont">
-            { parseInt(UserData?.user?.status) === 0 ? <Alert className="alertVerify"  severity="error">Hesabınızı gmailə daxil olaraq aktiv edin</Alert> : ""}
+            { parseInt(UserData?.user?.status) === 0 ? <Alert className="alertVerify"  severity="error">Hesabınızı elektron poçtunuza daxil olaraq aktiv edin</Alert> : ""}
                 <div className="topSide">
                    {!cabinetLogoMQ && <img src={logo} alt="" width="92" height="auto" /> }
                     <div className="cabinetTop" style={imgHandler}>Şəxsi kabinet <div  className="nameDiv"> <p> {props.UserData?.user?.name}  </p></div>  </div> 
@@ -219,13 +223,14 @@ function MemberArea(props) {
                                         <div className="outlineAside" id="outlineAside">  
                                             <Link to={`${match.path}`} className="categoryLink" ><button className="category btn1" id="categoryName" >{props.UserData.user.name.toUpperCase()}</button></Link>
                                             <Link to={`${match.path}profile`} className="categoryLink" ><button className="category btn2 "  id="categoryProfile">ŞƏXSİ MƏLUMATLAR</button></Link>
-                                            <Link to={`${match.path}elan-add `} className="categoryLink" ><button className="category btn3"  id="addelan">ELAN ƏLAVƏ ET</button></Link>
-                                            <Link to={`${match.path}my-ads`} className="categoryLink" ><button className="category btn4"  id="myads">ELANLARIM</button></Link>
-                                            <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category btn5" id="selectedMasters">SEÇİLMİŞ USTALAR</button></Link>
-                                            <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category btn6" id="selectedCompanies">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
-                                            <Link to={`${match.path}security`} className="categoryLink"><button className="category btn7" id="security">TƏHLÜKƏSİZLİK</button></Link>
-                                            <Link to={`/`} className="categoryLink"><button className="category btn7">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
-                                            <a href='/' className="categoryLink"><button onClick={logOut} className="category btn8">HESABDAN ÇIX</button></a>
+                                            <Link to={`${match.path}elan-add`} className="categoryLink" ><button className="category btn3"  id="addelan">ELAN ƏLAVƏ ET</button></Link>
+                                            <Link to={`${match.path}requests-ad`} className="categoryLink" ><button className="category btn4"  id="requestToElan">GƏLƏN SORĞULAR</button></Link>
+                                            <Link to={`${match.path}my-ads`} className="categoryLink" ><button className="category btn5"  id="myads">ELANLARIM</button></Link>
+                                            <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category btn6" id="selectedMasters">SEÇİLMİŞ USTALAR</button></Link>
+                                            <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category btn7" id="selectedCompanies">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
+                                            <Link to={`${match.path}security`} className="categoryLink"><button className="category btn8" id="security">TƏHLÜKƏSİZLİK</button></Link>
+                                            <Link to={`/`} className="categoryLink"><button className="category btn9">ƏSAS SƏHİFƏYƏ KEÇ</button></Link>
+                                            <a href='/' className="categoryLink"><button onClick={logOut} className="category btn10">HESABDAN ÇIX</button></a>
                                         </div>
                                     }
                                     {
@@ -233,7 +238,7 @@ function MemberArea(props) {
                                         <div className="outlineAside">  
                                             <Link to={`${match.path}`} className="categoryLink"><button className="category">NASİR  MOVLAMOV</button></Link>
                                             <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
-                                            <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GƏLƏN TƏKLİFLƏR</button></Link>
+                                            <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GÖNDƏRİLƏN SORĞULAR</button></Link>
                                             <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
                                             <Link to={`${match.path}selected-companies`} className="categoryLink"><button className="category">SEÇİLMİŞ ŞİRKƏTLƏR</button></Link>
                                             <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>
@@ -246,7 +251,7 @@ function MemberArea(props) {
                                         <div className="outlineAside">  
                                             <Link to={`${match.path}`} className="categoryLink"><button className="category">JEDAI</button></Link>
                                             <Link to={`${match.path}profile`} className="categoryLink"><button className="category">ŞƏXSİ MƏLUMATLAR</button></Link>
-                                            <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GÖNDƏRİLƏN TƏKLİFLƏR</button></Link>
+                                            <Link to={`${match.path}sended-requests`} className="categoryLink"><button className="category">GÖNDƏRİLƏN SORĞULAR</button></Link>
                                             <Link to={`${match.path}selected-ads`} className="categoryLink"><button className="category">SEÇİLMİŞ ELANLAR</button></Link>
                                             <Link to={`${match.path}selected-masters`} className="categoryLink"><button className="category">SEÇİLMİŞ USTALAR</button></Link>
                                             <Link to={`${match.path}security`} className="categoryLink"><button className="category">TƏHLÜKƏSİZLİK</button></Link>

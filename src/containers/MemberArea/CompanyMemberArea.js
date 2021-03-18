@@ -10,31 +10,37 @@ import areaImg3 from '../../assets/images/component/element/memberAreaImg (3).pn
 import areaImg4 from '../../assets/images/component/element/memberAreaImg (4).png'
 import areaImg5 from '../../assets/images/component/element/memberAreaImg (5).png'
 import areaImg6 from '../../assets/images/component/element/memberAreaImg (6).png'
+import areaImg9 from '../../assets/images/component/element/sorgular.png'
 import areaImg7 from '../../assets/images/component/element/memberAreaImg (7).png'
 import CardMemberArea from '../../components/CardMemberArea'
-function CompanyMemberArea() {
+import SelectedMAMasters from '../../components/SelectedMAMasters'
+import MySelectedAds from '../../components/MySelectedAds'
+import RequestsToElans from '../../components/RequestsToElans'
+import Profile from '../../components/Profile'
+import Security from '../../components/Security'
+function CompanyMemberArea(props) {
     let match = useRouteMatch();
     console.log(match.path);
     return (
-        <div className="companyMember">
+        <div className="userMember">
             <Switch>
                 <Route path={`${match.path}profile`}>
-                    profile
+                    <Profile UserData={props.UserData}/>
                 </Route>
                 <Route path={`${match.path}selected-ads`}>
                     ads
                 </Route>
                 <Route path={`${match.path}sended-requests`}>
-                    requests
+                    <RequestsToElans/>
                 </Route>
                 <Route path={`${match.path}selected-masters`}>
-                    masters
+                    <SelectedMAMasters UserData={props.UserData}/>
                 </Route>
-                <Route path={`${match.path}selected-companies`}>
-                    companies
+                <Route path={`${match.path}selected-ads`}>
+                    <MySelectedAds  UserData={props.UserData}/>
                 </Route>
                 <Route path={`${match.path}security`}>
-                    securityy
+                    <Security UserData={props.UserData}/>
                 </Route>
                 <Route path={`${match.path}ad-website`}>
                     ad website
@@ -47,6 +53,7 @@ function CompanyMemberArea() {
                         <CardMemberArea img={companySelectedMasters} link={`${match.path}selected-masters`} title="Seçilmiş Ustalarım"/>
                         <CardMemberArea img={areaImg6} link={`${match.path}security`} title="Təhlükəsizlik"/>
                         <CardMemberArea img={onlineAdvertising} link={`${match.path}selected-companies`} title="Saytda Reklam yerləşdir"/>
+                        <CardMemberArea img={areaImg9} link={`${match.path}requests-ad`} title="Gələn Sorğular"/>
                         <CardMemberArea img={areaImg7} link={`/`} title="Hesabdan çıx"/>
                     </div>
                 </Route>

@@ -5,6 +5,89 @@
   margin-top: 50px;
 }
 
+.commentsCont .replyForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.commentsCont .replyForm .button {
+  float: right;
+  width: 200px;
+  height: 40px;
+  color: white;
+  background: none;
+  background-color: #58BC40;
+  border: none;
+}
+
+.commentsCont .replyForm .button:focus {
+  outline: none;
+}
+
+.commentsCont .replyForm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+}
+
+.commentsCont .replyForm form .submitBtn {
+  height: 0px;
+  display: none;
+}
+
+.commentsCont .replyForm form .submitBtnShow {
+  display: block;
+  float: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  width: 200px;
+  height: 40px;
+  color: white;
+  background: none;
+  background-color: #58BC40;
+  border: none;
+}
+
+.commentsCont .replyForm form .submitBtnShow:focus {
+  outline: none;
+}
+
+.commentsCont .replyForm form .input {
+  width: 86%;
+  height: 0px;
+  pointer-events: none;
+  border: none;
+  resize: none;
+  display: none;
+}
+
+.commentsCont .replyForm form .inputClick {
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid gray;
+  width: 100%;
+  pointer-events: all;
+  resize: none;
+  display: block;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.commentsCont .replyForm form textarea {
+  resize: none;
+}
+
 .titleComments {
   color: black;
   text-align: center;

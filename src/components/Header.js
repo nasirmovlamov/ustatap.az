@@ -74,7 +74,6 @@ function Header() {
     const searchMQ = useMediaQuery('(max-width:650px)');
     const navLogoMQ = useMediaQuery('(max-width:1170px)');
     const menuMQ = useMediaQuery('(max-width:1170px)');
-
     var SelectedThings = ['salam']
     Cookies.set('SelectedThings' , SelectedThings)
     const [UserData, setUserData] = useState(0)

@@ -2,17 +2,60 @@ import React from 'react'
 import ReplyComment from './ReplyComment'
 import SingleComment from './SingleComment'
 import "../assets/css/componentsCss/comments.css"
+import { useEffect } from 'react'
+import axios from 'axios'
+import { useState } from 'react'
+import {Formik , Form , Field, ErrorMessage} from "formik"
+import * as Yup from "yup"
+import { useRef } from 'react'
 function Comments(props) {
-    const mainComment = ["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type book.", "mainComment2", "mainComment3"]
-    const nameMainComment = ["Nasir", "Vusal", "Davud"]
-    const namesubComment = [["NasirSub1" ,"Vusalsub1" ,"Davudsub1"] , ["Nasirsub2" ,"Vusalsub2"] , ["Davudsub3"]]
-    const subComments = [["sub1" , "sub12" , "sub13"]  ,   ["sub21", "sub22"]   ,   ["sub31"]]
+    const inputRef = useRef(null)
+    const clickHandler = () => {
+        document.getElementById(`inputMain${props.id}`).className = "inputClick";
+        document.getElementById(`submitBtn${props.id}`).className = "submitBtnShow";
+    }
+    console.log(props.id);
+    const [UserData, setUserData] = useState(0)
+
+    useEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+    })
+    const [CommentsUser, setCommentsUser] = useState([0])
+    useEffect(() => {
+            axios.post("http://ustatap.testjed.me/public/api/getcomments" , {elan_id: props.id}) 
+            .then((res) =>  setCommentsUser(res.data) )
+    }, [])
+    
+    const [commentText, setcommentText] = useState("")
+    const validationSchema = Yup.object({
+        comment: Yup.string().required('').max(500 ,"Şərh limitini keçmə ay eşşək 🦓!"),
+    })
+    const [Error, setError] = useState(false)
+    const onSubmit =  (values) => {
+        axios.post("http://ustatap.testjed.me/public/api/postcomment" , {user_id:UserData?.user?.id, elan_id:props.id, text:values.comment}) 
+        .then((res) =>  (res.status === 200 && window.location.reload() ))
+    }
+
+    const initialValues = {
+        comment:'',
+    }
     return (
         <div className="commentsCont">
-
             <p className="titleComments">Rəylər </p>
-            {nameMainComment.map(( name,index )=> <SingleComment  nameMainComment={name} mainComment={mainComment[index]} namesubComment={[namesubComment[index]]} subComment={[subComments[index]]} />)}
-            
+            {CommentsUser.map(( name,index )=> <SingleComment image={name.user_image}  nameMainComment={name.user_name} id={name.id} mainComment={name.text} subComments={name.subcomments} date={name?.created_at?.slice(0,10)}/>)}
+            <div className="replyForm">
+                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={true}>
+                    <Form action="" method="post" >
+                        <Field  as="textarea"  name="comment" ref={inputRef} id={`inputMain${props.id}`} className="input"/>
+                        <ErrorMessage name="comment"/>
+                        <button className="button submitBtn" id={`submitBtn${props.id}`} type="submit">Göndər</button>
+                    </Form> 
+                </Formik>
+                <button className="button" type="button" onClick={() => clickHandler()}>Rəy bildir</button>
+            </div>
         </div>
     )
 }

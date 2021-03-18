@@ -12,8 +12,28 @@ import whiteHeart from "../assets/images/component/element/whiteHeart.svg"
 import whiteLocation from "../assets/images/component/element/whiteLocation.svg"
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import axios from 'axios'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react'
 function Ad3(props) {
+    const [UserData, setUserData] = useState(0)
+    useEffect(() => {
+        if(props.userId !== undefined)
+        {axios.post('http://ustatap.testjed.me/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
+             .then(res => setChecker(res.data))
+             .catch(err => console.log(err))
+             console.log(checker);}
+    }, [])
+    useEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+        
+      } )
+    const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
+    const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+    const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
     const stars = []
     if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
         for (var i=0;i<props.numberStar;i++) {
@@ -36,28 +56,41 @@ function Ad3(props) {
     }
 
     const bgImg = {
-        background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`,
+        backgroundImage: `url(http://ustatap.testjed.me/${props.image})`,
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: 'white'
     }
     
     const [checker , setChecker] = useState(false)
     
     const heartPost = () => {
+        if(UserData?.user?.id !== undefined)
+        {    
         if(!checker)
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('http://ustatap.testjed.me/public/api/select', {elan_Id:props.id , user_id:props.userId})
+            axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId , type: 3 })
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(true)
+            const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+
         }
         else 
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-            axios.post('http://ustatap.testjed.me/', {addFavorite:false})
+            axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId, type: 3 })
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(false)
-
+            const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+        }
+        }
+        else 
+        {
+            window.location.href = "/login"
         }
     }
     

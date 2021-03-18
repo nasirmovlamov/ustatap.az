@@ -84,7 +84,7 @@ function AddElan(props) {
       fd.append("thumb" , thumb)
       fd.append("sliderImages" , [profilePhoto2 ,profilePhoto3 , profilePhoto4 ])
       axios.post('http://ustatap.testjed.me/public/api/postad', fd , headers)
-      .then(res => (console.log(res) , setloaderSubmit(false) , () => {if(res.status === 200){notify() , window.location.href = "/member-area/my-ads"  }}))
+      .then(res => (console.log(res) , setloaderSubmit(false) ))
       .catch(err => console.log(err))
       
     }

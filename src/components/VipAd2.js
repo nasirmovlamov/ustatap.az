@@ -16,7 +16,28 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 function VipAd2(props) {
+    const [UserData, setUserData] = useState(0)
+    useEffect(() => {
+        if(props.userId !== undefined)
+        {axios.post('http://ustatap.testjed.me/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
+             .then(res => setChecker(res.data))
+             .catch(err => console.log(err))
+             console.log(checker);}
+    }, [])
+    useEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+        
+      } )
+    const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
+    const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+    const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
     const stars = []
     if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
         
@@ -48,22 +69,31 @@ function VipAd2(props) {
     const [checker , setChecker] = useState(false)
     
     const heartPost = () => {
-        if(!checker)
-        {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('http://ustatap.testjed.me/', {addFavorite:true})
-             .then(res => (console.log(res) ))
-             .catch(err => console.log(err))
-             setChecker(true)
+        if(UserData?.user?.id !== undefined)
+        {    
+            if(!checker)
+            {
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+                axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId })
+                .then(res => (console.log(res) ))
+                .catch(err => console.log(err))
+                setChecker(true)
+                const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+
+            }
+            else 
+            {
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
+                axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId })
+                .then(res => (console.log(res) ))
+                .catch(err => console.log(err))
+                setChecker(false)
+                const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+            }
         }
         else 
         {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-            axios.post('http://ustatap.testjed.me/', {addFavorite:false})
-             .then(res => (console.log(res) ))
-             .catch(err => console.log(err))
-             setChecker(false)
-
+            window.location.href = "/login"
         }
         
     }
