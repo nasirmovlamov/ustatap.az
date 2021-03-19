@@ -14,19 +14,14 @@
     background: rgba(0, 0, 0, 0.6);
   }
   .topContainer .navbar {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
   .topContainer .navbar .navlogo {
     width: 45px;
   }
   .topContainer .navbar .text {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 
@@ -63,27 +58,15 @@
 
 .MuiListItem-button {
   height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .MuiListItem-button a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   color: black;
@@ -98,22 +81,13 @@
 }
 
 .MuiAccordionSummary-content {
-  -webkit-box-pack: center !important;
-      -ms-flex-pack: center !important;
-          justify-content: center !important;
+  justify-content: center !important;
 }
 
 .homePage {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .homePage .topContainer {
@@ -125,15 +99,10 @@
 
 .homePage .main {
   width: 95%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  justify-content: start;
   margin-top: 80px;
-  -webkit-column-gap: 50px;
-          column-gap: 50px;
+  column-gap: 50px;
 }
 
 .homePage .main .aside {
@@ -142,23 +111,17 @@
   background-color: red;
   background: #F6F7FB;
   position: sticky;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   overflow-y: auto;
   overflow-x: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   position: -webkit-sticky;
   top: 100px;
   padding-left: 2%;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 2%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   z-index: 3;
 }
 
@@ -168,8 +131,7 @@
 }
 
 .homePage .main .aside::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .homePage .main .aside::-webkit-scrollbar-thumb {
@@ -194,36 +156,24 @@
 }
 
 .homePage .main .aside .workTypeCont {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 5px;
-          column-gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 5px;
 }
 
 .homePage .main .aside .workTypeCont p {
   width: 65%;
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   font-family: "ComfortaaRegular";
 }
 
 .homePage .main .aside .workTypeCont button {
   background: none;
   border: none;
-  -webkit-transform: scale(0.5);
-          transform: scale(0.5);
+  transform: scale(0.5);
 }
 
 .homePage .main .aside .workTypeCont button:focus {
@@ -233,8 +183,7 @@
 .homePage .main .aside .workTypeCont .threeDots {
   width: 30px;
   height: 30px;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   padding: 0 0 0 0 !important;
 }
 
@@ -252,16 +201,9 @@
 }
 
 .homePage .main .aside .workDescCont {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
   display: none;
   background-color: none;
 }
@@ -269,7 +211,7 @@
 .homePage .main .aside .workDescCont p {
   margin: 0;
   margin-top: 20px;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
 }
 
 .homePage .main .aside .workDescCont p a {
@@ -278,41 +220,22 @@
 
 .homePage .main .allAdsContainer {
   width: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
 }
 
 .homePage .main .allAdsContainer .css-1g85zfd, .homePage .main .allAdsContainer .css-1g85zfd {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
   grid-column: 1/5;
 }
 
 .homePage .main .allAdsContainer .typeAddContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-self: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   padding-bottom: 30px;
 }
 
@@ -326,8 +249,7 @@
   font-weight: normal;
   font-size: 37px;
   line-height: 41px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   color: black;
 }
 
@@ -337,8 +259,7 @@
   background-color: #5ABA42;
   margin-left: 65px;
   margin-top: 2px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .homePage .main .allAdsContainer .line2 {
@@ -347,8 +268,7 @@
   background-color: #F97922;
   margin-top: 2px;
   margin-left: 45px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .homePage .main .allAdsContainer .line3 {
@@ -357,8 +277,7 @@
   background-color: #F97922;
   margin-top: 2px;
   margin-left: 60px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .homePage .main .allAdsContainer .line4 {
@@ -366,8 +285,7 @@
   height: 2px;
   background-color: #5ABA42;
   margin-left: 65px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .homePage .main .allAdsContainer .line5 {
@@ -375,17 +293,13 @@
   height: 2px;
   background-color: #F97922;
   margin-left: 65px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .homePage .main .allAdsContainer .adsContainer {
   margin-top: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 35px;
   margin-bottom: 50px;
 }
@@ -394,9 +308,7 @@
   .homePage .main {
     width: 93%;
     margin-top: 30px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
   .homePage .main .allAdsContainer {
     width: 100%;
@@ -406,9 +318,6 @@
     margin-top: 30px;
   }
   .homePage .main .allAdsContainer .typeAddContainer .adsContainer {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
 }
-/*# sourceMappingURL=HomePage.css.map */

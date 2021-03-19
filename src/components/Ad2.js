@@ -38,7 +38,7 @@ function Ad2(props) {
     const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
 
     const bgImg = {
-        backgroundImage: `url(http://ustatap.testjed.me/${props.image})`,
+        backgroundImage: `url(http://ustatap.testjed.me/storage/app/public/${props.image})`,
         backgroundSize: "cover !important" ,
         backgroundRepeat: 'no-repeat',
         backgroundColor: 'white'

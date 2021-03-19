@@ -2,23 +2,15 @@
   width: 280px;
   height: 270px;
   background-color: #58BC40;
-  -webkit-box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
-  -webkit-transition: 1s -webkit-box-shadow;
-  transition: 1s -webkit-box-shadow;
+  box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
   transition: 1s box-shadow;
-  transition: 1s box-shadow, 1s -webkit-box-shadow;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .vipCompany:hover {
-  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
-          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
-  -webkit-transition: 1s -webkit-box-shadow;
-  transition: 1s -webkit-box-shadow;
+  box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
   transition: 1s box-shadow;
-  transition: 1s box-shadow, 1s -webkit-box-shadow;
 }
 
 .vipCompany .crown {
@@ -27,123 +19,98 @@
   margin-left: -35px;
 }
 
+.vipCompany .logoCont {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  background-size: cover !important;
+}
+
 .vipCompany .logoContVipAd1 {
   width: 100%;
   height: 156px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   background-size: cover !important;
   border: none;
 }
 
-.vipCompany .aboutText {
+.vipCompany .aboutTextMaster {
   padding-left: 16px;
-  padding-top: 30px;
   padding-right: 18px;
+  padding-top: 15px;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  height: 65.5px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: space-around;
+  height: 60px;
+  flex-direction: column;
+  text-align: start;
 }
 
-.vipCompany .aboutText p {
+.vipCompany .aboutTextMaster p {
   margin: 0px;
 }
 
-.vipCompany .aboutText .name {
+.vipCompany .aboutTextMaster .name {
   font-size: 15px;
   color: white;
-  font-family: "FuturicaRegular";
-}
-
-.vipCompany .aboutText .description {
-  font-size: 6px;
-  color: white;
   font-family: "ComfortaaRegular";
 }
 
-.vipCompany .aboutText .bottomImgCont {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.vipCompany .aboutTextMaster .description {
+  font-size: 10px;
+  color: white;
+  font-family: "ComfortaaRegular";
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.vipCompany .aboutTextMaster .bottomImgCont {
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.vipCompany .aboutText .bottomImgCont .address {
+.vipCompany .aboutTextMaster .bottomImgCont .address {
   font-family: "ComfortaaRegular";
-  font-size: 6px;
+  font-size: 10px;
   color: white;
 }
 
-.vipCompany .aboutText .bottomImgCont .address img {
+.vipCompany .aboutTextMaster .bottomImgCont .address img {
+  width: 12px;
   margin-right: 3px;
 }
 
-.vipCompany .aboutText .bottomImgCont .stars {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.vipCompany .aboutTextMaster .bottomImgCont .stars {
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-bottom: -5px;
 }
 
-.vipCompany .aboutText .bottomImgCont p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.vipCompany .aboutText .heartBtn {
+.vipCompany .aboutTextMaster .bottomImgCont .heartBtn {
   width: 20px;
   margin: 0px;
   border: none;
   background: transparent;
   padding: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.vipCompany .aboutText .heartBtn svg {
+.vipCompany .aboutTextMaster .bottomImgCont .heartBtn svg {
   color: white;
 }
-/*# sourceMappingURL=vipAd3.css.map */
+
+.vipCompany .aboutTextMaster .bottomImgCont p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

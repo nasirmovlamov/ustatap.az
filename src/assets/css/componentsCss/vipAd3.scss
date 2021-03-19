@@ -20,6 +20,17 @@
         margin-left: -35px;   
     }
     
+    .logoCont
+    {
+        width: 100%;
+        height: 200px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color: #fff;
+        background-size: cover !important;
+
+    }
     .logoContVipAd1
     {
         width: 100%;
@@ -31,61 +42,57 @@
     background-size: cover !important;
     border: none;
     }
-    .aboutText
+    .aboutTextMaster
+{
+    padding-left: 16px;
+    padding-right:18px;
+    padding-top: 15px;
+    overflow: hidden;
+    display:flex;
+    justify-content:space-around;
+    height:60px;
+    flex-direction: column;
+    text-align: start;
+    p 
     {
-        padding-left: 16px;
-        padding-top: 30px;
-        padding-right:18px;
+        margin: 0px;
+    }
+    .name 
+    {
+        font-size: 15px;
+        color: white;
+        font-family: "ComfortaaRegular";
+    }
+    .description 
+    {
+        font-size: 10px;
+        color: white; 
+        font-family: "ComfortaaRegular";
         overflow: hidden;
+        opacity: 0.5;
+    }
+    .bottomImgCont
+    {
         display:flex;
+        align-items:center;
         justify-content:space-between;
-        height:65.5px;
-        flex-direction: column;
-        p 
+        .address
         {
-            margin: 0px;
-        }
-        .name 
-        {
-            font-size: 15px;
-            color: white;
-            font-family: "FuturicaRegular";
-        }
-        .description 
-        {
-            font-size: 6px;
-            color: white; 
             font-family: "ComfortaaRegular";
+            font-size: 10px;
+            color: white;
+            img 
+            {
+                width: 12px;
+                margin-right: 3px;
+            }
         }
-        .bottomImgCont
+        .stars
         {
-            display:flex;
+            display: flex;
+            justify-content:center;
             align-items:center;
-            justify-content:space-between;
-            margin-top: 10px;
-            .address
-            {
-                font-family: "ComfortaaRegular";
-                font-size: 6px;
-                color: white;
-                img 
-                {
-                    margin-right: 3px;
-                }
-            }
-            .stars
-            {
-                display: flex;
-                justify-content:center;
-                align-items:center;
-                margin-bottom: -5px;
-            }
-            p 
-            {
-                display: flex;
-                justify-content:center;
-                align-items:center;
-            }
+            margin-bottom: -5px;
         }
         .heartBtn
         {
@@ -98,9 +105,17 @@
             justify-content: center;
             align-items:center ;
             svg
-        {
-            color: white;
+            {
+                color: white;
+            }
         }
+        p 
+        {
+            display: flex;
+            justify-content:center;
+            align-items:center;
         }
     }
+}
+
 }

@@ -7,7 +7,7 @@
     margin-bottom: 100px;
     .generalCont
     {
-        width: 100%;
+        width: 80%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -168,5 +168,15 @@
                 }
             }
         }
+    
+}
+
+//Mobile 
+@media only screen and (max-width: 612px) {
+    .generalCont
+    {
+        width: 100%;
+        
+    }
     
 }

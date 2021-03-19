@@ -28,14 +28,20 @@
         border: none;
 
     }
+    .name
+    {
+        font-size: 14px;
+        width: 255px;
+        overflow: hidden;
+    }
     p 
     {
         margin: 0px;
     }
     .subCont
     {
+        height: 155px;
         padding: 20px;
-        height: 100%;
         background: url("../../images/component/background/masterAboutBg.svg");
     }
     .flexCont1
@@ -43,24 +49,34 @@
         display: flex;
         justify-content: space-between;
     }
+    .flexCont2
+    {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+    }
     .jobTitle
     {
         color: #F97922;
+        margin-top: 10px;
     }
     .address
     {
         color: black;
         opacity: 0.5;
-        font-size: 12px;
-        margin-top: 20px;
-        }
+        font-size: 15px;
+    }
     .stars
     {
-        margin-top: 20px;
+        margin-top: 10px;
         img 
         {
             transform: scale(2);
         }
+    }
+    .rating
+    {
+        font-size: 12px;
     }
     .heartBtn
     {
@@ -73,7 +89,6 @@
         align-self: flex-end;
         border: none ;
         background-color: transparent;
-        margin-bottom: 10px;
         margin-right: -10px;
         svg
         {

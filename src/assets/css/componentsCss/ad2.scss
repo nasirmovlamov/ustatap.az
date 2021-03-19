@@ -44,7 +44,6 @@
         align-self: flex-end;
         border: none ;
         background-color: transparent;
-        margin-bottom: 15px;
         svg
         {
             color: gray;
@@ -53,20 +52,20 @@
     .aboutText
     {
         padding-left: 5px;
-        padding-top:10px;
-        height:100%;
-        width: 150px;
+        height:90%;
+        padding-top: 5%;
+        width: 200px;
         display: flex;
         flex-direction: column;
         background: url(../../images/component/background/masterAboutBg.svg);
         text-align: start;
-        row-gap: 10px;
+        row-gap: 5px;
         .name {
             font-size: 18px;
             color: black;
             text-align: start;
             margin: 0px;
-            max-height: 30px;
+            font-family: "ComfortaaRegular";
         }
         .job 
         {
@@ -80,26 +79,26 @@
             font-size: 15px;
             display: flex;
             align-items:center;
-            margin-top: 10px;
             img 
             {
                 margin-right: 5px;
-                width: 10px;
+                width: 15px;
                 height: auto;
             }
         }
         .rating
         {
             font-size: 11px;
-            margin-top: -9px;
+            font-family: "ComfortaaRegular";
+            margin-left: 10px !important;
+            margin-top: -10px !important;
+        }
+        .job
+        {
+            font-size: 12px;
         }
         .stars 
         {
-            margin-top: 15px;
-            img 
-            {
-                margin-left: -5px;
-            }
             display: flex;
         }
         .heart 

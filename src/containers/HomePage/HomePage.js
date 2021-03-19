@@ -144,7 +144,7 @@ function HomePage(props) {
              .then((res) =>  (setJobCategoryApi(res.data) ))
 
     },[] )
-    latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} desc={ad.description} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
+    latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} desc={ad.user_name} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
@@ -160,12 +160,12 @@ function HomePage(props) {
         </button>
     ))
         
-    latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} desc={ad.description} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
-    latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} desc={ad.description} address={ad.city} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
-    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)}})
-    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating}/> )}})
-    CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
-    CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}} )
+    latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} desc={ad.user_name} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
+    latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.email} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)}})
+    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.job} address={master.city} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating}/> )}})
+    CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)}} )
+    CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)}} )
 
     
     const  clickHandler = (number) => {
@@ -337,37 +337,13 @@ function HomePage(props) {
                             <div className="adsContainer">
                                 {
                                         companies.length !== 0 ?
-                                            (companies.length > 1 ? companies : <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                            (companies.length >= 1 ? companies : <PulseLoader color={color} loading={loading} css={override} size={25} />)
                                         :""
                                 }
                             </div>     
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
-                        <div className="typeAddContainer"> 
-                            <p className="title">Santexnika elanları</p>
-                            <div className="line4"></div>
-                            <div className="adsContainer">
-                                {
-                                        santexnika.length !== 0 ?
-                                            (santexnika.length >= 1 ? santexnika : <PulseLoader color={color} loading={loading} css={override} size={25} />)
-                                        : ""
-                                }
-                            </div>      
-                            <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
-                        </div>
-
-                        <div className="typeAddContainer"> 
-                            <p className="title">Elektrik elanları</p>
-                            <div className="line5"></div>
-                            <div className="adsContainer">
-                                {
-                                        electric.length !== 0 ?
-                                            (electric.length >= 1 ? electric : <PulseLoader color={color} loading={loading} css={override} size={25} />)
-                                        : ""
-                                }
-                            </div>  
-                            <Link to="/elanlar"> <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
-                        </div>
+                        
 
                     </div> 
                 {/* All Grids  All Grids  All Grids  All Grids  All Grids  All Grids  All Grids */}

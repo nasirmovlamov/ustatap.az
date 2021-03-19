@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
     justify-content: space-around;
-    font-family: "ComfortaaBold";
+    font-family: "ComfortaaRegular";
     p {
         margin: 0px;
         display: flex;
@@ -59,7 +59,7 @@
         {
             margin: 0px;
         }
-        font-family: "FuturicaRegular";
+        font-family: "ComfortaaRegular";
         
     }
 }
@@ -208,7 +208,7 @@
             justify-content:space-between; 
             align-items:center;
             flex-wrap: wrap;
-            font-family: "FuturicaRegular";
+            font-family: "ComfortaaRegular";
             a {
                 text-decoration: none;
                 color: white;
@@ -257,7 +257,8 @@
                 {
                     margin: 0px;
                 }
-                font-family: "FuturicaRegular";
+                font-family: "ComfortaaRegular";
+
                 
             }
             .putAd
@@ -273,7 +274,8 @@
                 justify-content:center;
                 align-items:center;
                 border-radius: 121px;
-                font-family: "ComfortaaBold";
+                font-family: "ComfortaaRegular";
+
                 span
                 {
                     margin-right: 5px;

@@ -36,11 +36,13 @@ a
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     .dateAd
     {
-        width: 73px;
+        width: 63px;
         font-size: 12px;
         overflow: hidden;
         margin: 0px;
+        font-family: "ComfortaaRegular";
         padding: 0px;
+        color: gray;
     }
     .mainImg 
     {
@@ -80,7 +82,8 @@ a
             display: flex;
             justify-content:space-between;
             align-items:center;
-            font-family: "FuturicaRegular";
+            font-family: "ComfortaaRegular";
+
             font-style: normal;
             font-weight: normal;
             font-size: 15px;
@@ -92,7 +95,8 @@ a
         }
         .nameCostumer
         {
-            font-family: "Futurica";
+            font-family: "ComfortaaRegular";
+
             color: rgba(150,150,150,0.83) ;
             font-size: 14px;
             height: 300px !important; 
@@ -103,13 +107,15 @@ a
             display: flex;
             justify-content:space-between;
             align-items:center;
-            font-family: Futurica;
+            font-family: "ComfortaaRegular";
+
             font-style: normal;
             font-weight: normal;
             font-size: 15px;
             p 
             {
-                font-family: Futurica;
+                font-family: "ComfortaaRegular";
+
                 font-style: normal;
                 display: flex;
                 justify-content:center;

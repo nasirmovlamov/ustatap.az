@@ -1,42 +1,22 @@
 .companiesPage {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 100px;
 }
 
 .companiesPage .generalCont {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  width: 80%;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .companiesPage .contForBtnImg {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .companiesPage .contForBtnImg .topButton {
@@ -48,10 +28,8 @@
   padding-left: 2%;
   padding-right: 2%;
   height: 130px;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .companiesPage .linkAndButton .link {
@@ -64,11 +42,8 @@
 }
 
 .companiesPage .linkAndButton .topButton {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  align-self: center;
+  justify-self: center;
   padding: 0px;
   margin: 0px;
   width: 229px;
@@ -88,11 +63,8 @@
 }
 
 .companiesPage .linkAndButton .topButtonHover {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  align-self: center;
+  justify-self: center;
   padding: 0px;
   margin: 0px;
   width: 229px;
@@ -123,14 +95,9 @@
 .companiesPage .adsContainer {
   margin-top: 50px;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: center;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   row-gap: 30px;
   gap: 30px;
   margin-bottom: 50px;
@@ -143,14 +110,9 @@
 .companiesPage .adsContainer .companiesVipCont {
   margin-top: 50px;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: center;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   row-gap: 30px;
   gap: 30px;
   margin-bottom: 50px;
@@ -159,14 +121,9 @@
 .companiesPage .adsContainer .companiesCont {
   margin-top: 50px;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: center;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   row-gap: 30px;
   gap: 30px;
   margin-bottom: 50px;
@@ -197,4 +154,9 @@
 .companiesPage .adsContainer .ad .flexCont2 p:nth-child(1) {
   font-size: 10px;
 }
-/*# sourceMappingURL=companies.css.map */
+
+@media only screen and (max-width: 612px) {
+  .generalCont {
+    width: 100%;
+  }
+}

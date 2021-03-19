@@ -1,18 +1,9 @@
 .companyRegCont {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 100px;
 }
 
@@ -22,19 +13,13 @@
   border: none;
   background-color: white;
   border: 1px solid gray;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .companyRegCont .addFile .textPhoto {
   margin: 0px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   color: black;
   font-size: 18px;
   font-family: "ComfortaaRegular";
@@ -47,15 +32,9 @@
 }
 
 .companyRegCont .btnAndImg {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 50px;
   height: 30px;
   width: 100%;
@@ -70,31 +49,18 @@
 
 .companyRegCont form {
   width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 50px;
 }
 
 .companyRegCont form .inputSelectCont {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-column-gap: 25px;
-          column-gap: 25px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 25px;
+  flex-wrap: wrap;
   margin-top: 50px;
 }
 
@@ -140,13 +106,8 @@
 }
 
 .companyRegCont .formPart1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 49.5%;
 }
 
@@ -160,13 +121,8 @@
 
 .companyRegCont .formPart2 {
   width: 49.5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .companyRegCont .formPart2 .selections {
@@ -174,7 +130,7 @@
 }
 
 .companyRegCont .formPart2 .selections .titleSelections {
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
   color: black;
   opacity: 0.5;
   font-size: 16px;
@@ -183,17 +139,10 @@
 
 .companyRegCont .formPart2 .selections .buttons {
   margin: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
@@ -233,4 +182,3 @@
     margin-top: 30px;
   }
 }
-/*# sourceMappingURL=companyRegistration.css.map */

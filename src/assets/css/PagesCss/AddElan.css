@@ -1,35 +1,21 @@
 .addElan {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .addElan .errors {
   height: auto;
   width: 403px;
   color: red;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .addElan .btnAndImg {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 50px;
   height: 30px;
   width: 100%;
@@ -43,15 +29,10 @@
 }
 
 .addElan .imgGrid {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .addElan .addFile {
@@ -63,12 +44,8 @@
   height: 40px;
   border-radius: 10px;
   border: 1px solid lightgray;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 120px;
   height: 120px;
   background: url(../../images/component/background/backgroundForLogin.png);
@@ -78,9 +55,7 @@
 
 .addElan .addFile .textPhoto {
   margin: 0px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   color: white;
   font-size: 13px;
   width: 80px;
@@ -101,17 +76,10 @@
 }
 
 .addElan form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 530px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .addElan form .selectMaterial {
@@ -121,7 +89,7 @@
 
 .addElan form select {
   width: 100.8%;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
   font-size: 17px;
   border: none;
   border-bottom: 1px solid #d3d3d3;
@@ -133,7 +101,7 @@
   width: 100%;
   margin: 0px;
   padding: 0px;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
   font-size: 18px;
   border: none;
   border-bottom: 1px solid lightgray;
@@ -178,8 +146,6 @@
 
 @media only screen and (max-width: 406px) {
   .addElan .imgGrid {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
   }
 }
-/*# sourceMappingURL=AddElan.css.map */

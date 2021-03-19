@@ -1,29 +1,16 @@
 .eror404Cont {
   width: 100%;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-bottom: -50px;
 }
 
 .eror404Cont .textSide {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin-left: 35px;
 }
 
@@ -41,7 +28,6 @@
 }
 
 .eror404Cont .textSide .button p {
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
   font-size: 26px;
 }
-/*# sourceMappingURL=error404.css.map */

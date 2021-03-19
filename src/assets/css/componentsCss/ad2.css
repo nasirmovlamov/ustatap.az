@@ -1,33 +1,19 @@
 .mastersCont {
-  -webkit-transition: 1s -webkit-box-shadow;
-  transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
-  transition: 1s box-shadow, 1s -webkit-box-shadow;
   border-radius: 3px;
   border-radius: 5px;
   overflow: hidden;
   width: auto;
   height: 200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  justify-content: space-between;
 }
 
 .mastersCont:hover {
-  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
-          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
-  -webkit-transition: 1s -webkit-box-shadow;
-  transition: 1s -webkit-box-shadow;
+  box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
   transition: 1s box-shadow;
-  transition: 1s box-shadow, 1s -webkit-box-shadow;
 }
 
 .mastersCont .masterImg {
@@ -48,23 +34,15 @@
 }
 
 .mastersCont .heartBtn {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   padding: 0px;
   margin: 0px;
   width: 45px;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   border: none;
   background-color: transparent;
-  margin-bottom: 15px;
 }
 
 .mastersCont .heartBtn svg {
@@ -73,19 +51,14 @@
 
 .mastersCont .aboutText {
   padding-left: 5px;
-  padding-top: 10px;
-  height: 100%;
-  width: 150px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  height: 90%;
+  padding-top: 5%;
+  width: 200px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   background: url(../../images/component/background/masterAboutBg.svg);
   text-align: start;
-  row-gap: 10px;
+  row-gap: 5px;
 }
 
 .mastersCont .aboutText .name {
@@ -93,7 +66,7 @@
   color: black;
   text-align: start;
   margin: 0px;
-  max-height: 30px;
+  font-family: "ComfortaaRegular";
 }
 
 .mastersCont .aboutText .job {
@@ -105,39 +78,31 @@
 
 .mastersCont .aboutText .location {
   font-size: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 10px;
+  align-items: center;
 }
 
 .mastersCont .aboutText .location img {
   margin-right: 5px;
-  width: 10px;
+  width: 15px;
   height: auto;
 }
 
 .mastersCont .aboutText .rating {
   font-size: 11px;
-  margin-top: -9px;
+  font-family: "ComfortaaRegular";
+  margin-left: 10px !important;
+  margin-top: -10px !important;
+}
+
+.mastersCont .aboutText .job {
+  font-size: 12px;
 }
 
 .mastersCont .aboutText .stars {
-  margin-top: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
-.mastersCont .aboutText .stars img {
-  margin-left: -5px;
-}
-
 .mastersCont .aboutText .heart {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
-/*# sourceMappingURL=ad2.css.map */

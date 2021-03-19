@@ -10,15 +10,17 @@ import  emptyStar from  "../assets/images/component/element/emptyStar.svg"
 import  fullStar  from  "../assets/images/component/element/fullStar.svg"
 import  halfStar  from  "../assets/images/component/element/halfStar.svg"
 import  carona    from  "../assets/images/component/element/carona.svg"
+import location from "../assets/images/component/element/location.svg"
 import  vipMaster    from  "../assets/images/component/element/vipMaster.png"
 import axios from 'axios'
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
+import Rating from '@material-ui/lab/Rating';
+
 function VipAd2(props) {
     const [UserData, setUserData] = useState(0)
     useEffect(() => {
@@ -38,28 +40,7 @@ function VipAd2(props) {
     const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
     const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
     const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
-    const stars = []
-    if ((props.numberStar - Math.floor(props.numberStar)) === 0) {
-        
-        for (var i=0;i<props.numberStar;i++) {
-            stars.push(<img src={fullStar} alt="ulduz" /> )
-          }
-        for (var j=(props.numberStar);j<5;j++) {
-            stars.push(<img src={emptyStar} alt="ulduz" /> )
-        }
-
-    }
-    else 
-    {
-        for (var i=0;i<Math.floor(props.numberStar);i++) {
-            stars.push(<img src={fullStar} alt="ulduz" /> )
-          }
-        stars.push(<img src={halfStar} alt="ulduz" />)
-
-        for (var i=Math.floor(props.numberStar) + 1;i<5;i++) {
-            stars.push(<img src={emptyStar} alt="ulduz" /> )
-          }
-    }
+    
 
     const backgroundImgHuman = {
         background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`
@@ -78,7 +59,7 @@ function VipAd2(props) {
                 .then(res => (console.log(res) ))
                 .catch(err => console.log(err))
                 setChecker(true)
-                const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+                notify1()
 
             }
             else 
@@ -88,7 +69,7 @@ function VipAd2(props) {
                 .then(res => (console.log(res) ))
                 .catch(err => console.log(err))
                 setChecker(false)
-                const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+                notify1()
             }
         }
         else 
@@ -102,20 +83,29 @@ function VipAd2(props) {
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
-
-    const [Rating, setRating] = useState(2);
+    const ratingHandler = (rate) => {
+        if (UserData?.user?.id === undefined) {
+            window.location.href = "/login"
+        }
+        else 
+        {
+            axios.post('http://ustatap.testjed.me/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
+                .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
+                .catch(err => console.log(err))
+        }
+        
+    }
     return (
         
             <div className="Vipad">
                 <img src={carona} alt="" className="crown"/>
                 <Link to={"/masters/" + props.id}><button className="mainImg" style={backgroundImgHuman}></button></Link>
                 <div className="subCont">
-                    <div className="flexCont1">  <p>{props.name}</p>  <button onClick={() => heartPost()} className="heartBtn"><FavoriteIcon id={props.id}/></button></div>
+                    <div className="flexCont1">  <p className="name">{props.name}</p>  <button onClick={() => heartPost()} className="heartBtn"><FavoriteIcon id={props.id}/></button></div>
                     <p className="jobTitle">{props.job}</p>
-                    <div className="flexCont2">   <p className="address">{props.address}</p></div>
-                    <div className="stars">
-                    
-                    </div>
+                    <div className="flexCont2">  <img src={location} width="15" alt="location"/> <p className="address">{props.address}</p></div>
+                    <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
+                    <p className="rating">Reyting sayı {props.rating} </p>
                 </div>
             </div>
     )

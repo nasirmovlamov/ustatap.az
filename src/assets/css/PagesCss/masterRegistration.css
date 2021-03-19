@@ -1,25 +1,14 @@
 .masterRegistrationCont {
   width: 100%;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .masterRegistrationCont .registration {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-top: 50px;
 }
 
@@ -34,30 +23,17 @@
 }
 
 .masterRegistrationCont .registration .formContReg form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   width: 540px;
   height: auto;
 }
 
 .masterRegistrationCont .registration .formContReg form .btnAndImg {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 50px;
   height: 30px;
   width: 100%;
@@ -77,19 +53,13 @@
   border: none;
   background-color: white;
   border: 1px solid gray;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .masterRegistrationCont .registration .formContReg form .addFile .textPhoto {
   margin: 0px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   color: black;
   font-size: 18px;
   font-family: "ComfortaaRegular";
@@ -122,7 +92,7 @@
   width: 100%;
   margin: 0px;
   padding: 0px;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
   font-size: 16px;
   border: none;
   border-bottom: 1px solid lightgray;
@@ -137,13 +107,12 @@
 .masterRegistrationCont .registration .formContReg form .errors {
   margin-bottom: 5px;
   color: red;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .masterRegistrationCont .registration .formContReg form select {
   width: 100.8%;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
   font-size: 17px;
   border: none;
   border-bottom: 1px solid lightgray;
@@ -160,7 +129,7 @@
 }
 
 .masterRegistrationCont .registration .formContReg form .selections .titleSelections {
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
   color: black;
   opacity: 0.5;
   font-size: 16px;
@@ -170,17 +139,10 @@
 
 .masterRegistrationCont .registration .formContReg form .selections .buttons {
   margin: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   margin-bottom: 25px;
 }
 
@@ -193,7 +155,7 @@
   border: 1px solid #58BC40;
   background-color: transparent;
   border-radius: 10px;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
 }
 
 @media only screen and (max-width: 1240px) {
@@ -220,4 +182,3 @@
     width: 100% !important;
   }
 }
-/*# sourceMappingURL=masterRegistration.css.map */

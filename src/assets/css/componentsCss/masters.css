@@ -1,42 +1,22 @@
 .mastersPage {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 100px;
 }
 
 .mastersPage .generalCont {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  width: 80%;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mastersPage .contForBtnImg {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .mastersPage .contForBtnImg .topButton {
@@ -58,10 +38,8 @@
   padding-left: 2%;
   padding-right: 2%;
   height: 130px;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .mastersPage .linkAndButton .link {
@@ -74,11 +52,8 @@
 }
 
 .mastersPage .linkAndButton .topButton {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  align-self: center;
+  justify-self: center;
   padding: 0px;
   margin: 0px;
   width: 229px;
@@ -98,11 +73,8 @@
 }
 
 .mastersPage .linkAndButton .topButtonHover {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  align-self: center;
+  justify-self: center;
   padding: 0px;
   margin: 0px;
   width: 229px;
@@ -133,14 +105,9 @@
 .mastersPage .adsContainer {
   margin-top: 50px;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: center;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   row-gap: 30px;
   gap: 30px;
   margin-bottom: 50px;
@@ -149,14 +116,9 @@
 .mastersPage .adsContainer .Vipmasters {
   margin-top: 50px;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: center;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   row-gap: 30px;
   gap: 30px;
   margin-bottom: 50px;
@@ -165,23 +127,20 @@
 .mastersPage .adsContainer .masters {
   margin-top: 50px;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: center;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   row-gap: 30px;
   gap: 30px;
   margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 612px) {
+  .generalCont {
+    width: 100%;
+  }
   .generalCont .linkAndButton {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     margin-bottom: 10px;
   }
   .generalCont .linkAndButton .link {
@@ -193,4 +152,3 @@
     margin-top: 30px;
   }
 }
-/*# sourceMappingURL=masters.css.map */

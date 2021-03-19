@@ -9,53 +9,35 @@
   font-size: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  font-family: "ComfortaaBold";
+  justify-content: center;
+  justify-content: space-around;
+  font-family: "ComfortaaRegular";
 }
 
 .swiperTitle p {
   margin: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiperTitle .login {
   background-color: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   border: none;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   cursor: pointer;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
 }
 
 .swiperTitle .login img {
   margin-right: 14.5px;
-  -webkit-filter: invert(1);
-          filter: invert(1);
+  filter: invert(1);
 }
 
 .swiperTitle .login .userImgCont {
@@ -82,26 +64,16 @@
   margin: 0px;
   width: 35px;
   font-size: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   border: none;
   background-color: transparent;
 }
 
 .MuiListItem-button a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   color: black;
@@ -109,15 +81,9 @@
 }
 
 .MuiListItem-button a p {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .MuiListItem-button button {
@@ -139,22 +105,14 @@
   border-radius: 0px;
   background-color: white;
   margin-top: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   height: auto;
   margin-bottom: 30px;
 }
 
 .searchDW .searchbox .searchCont .dropdownCont {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -164,11 +122,8 @@
   height: 90px;
   width: auto;
   border-right: 0px;
-  -webkit-column-gap: 20px;
-          column-gap: 20px;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  column-gap: 20px;
+  justify-content: flex-start;
 }
 
 .searchDW .searchbox .searchCont .dropdownCont .dropbtn .makeStyles-formControl-3 {
@@ -193,22 +148,16 @@
 
 .topContainer .navbar {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
   position: fixed;
   height: 80px;
   row-gap: 20px;
   top: 0;
   background-color: transparent;
   z-index: 30;
-  -webkit-box-shadow: transparent;
-          box-shadow: transparent;
+  box-shadow: transparent;
 }
 
 .topContainer .navbar .searchNavIco {
@@ -231,43 +180,27 @@
 }
 
 .topContainer .navbar .imgAndLink {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 10px;
-          column-gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  column-gap: 10px;
+  align-items: center;
   color: white;
   font-size: 18px;
 }
 
 .topContainer .navbar .text {
   width: 85%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  font-family: "FuturicaRegular";
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: "ComfortaaRegular";
 }
 
 .topContainer .navbar .text a {
   text-decoration: none;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .topContainer .navbar .text a p {
@@ -275,12 +208,8 @@
 }
 
 .topContainer .navbar .text p {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   color: white;
   font-size: 18px;
   text-decoration: none !important;
@@ -289,17 +218,13 @@
 
 .topContainer .navbar .text .login {
   background-color: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   border: none;
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
-  font-family: "FuturicaRegular";
+  font-family: "ComfortaaRegular";
 }
 
 .topContainer .navbar .text .login img {
@@ -332,17 +257,11 @@
   letter-spacing: 1px;
   font-size: 11px;
   border: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 121px;
-  font-family: "ComfortaaBold";
+  font-family: "ComfortaaRegular";
 }
 
 .topContainer .navbar .text .putAd span {
@@ -353,4 +272,3 @@
 .topContainer .navbar .text .putAd:focus {
   outline: none;
 }
-/*# sourceMappingURL=header.css.map */

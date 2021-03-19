@@ -15,6 +15,8 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react'
+import Rating from '@material-ui/lab/Rating';
+
 function Ad3(props) {
     const [UserData, setUserData] = useState(0)
     useEffect(() => {
@@ -56,7 +58,7 @@ function Ad3(props) {
     }
 
     const bgImg = {
-        backgroundImage: `url(http://ustatap.testjed.me/${props.image})`,
+        backgroundImage: `url(http://ustatap.testjed.me/storage/app/public/${props.image})`,
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         backgroundRepeat: 'no-repeat',
@@ -99,17 +101,27 @@ function Ad3(props) {
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
-
+    const ratingHandler = (rate) => {
+        if (UserData?.user?.id === undefined) {
+            window.location.href = "/login"
+        }
+        else 
+        {
+            axios.post('http://ustatap.testjed.me/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
+                .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
+                .catch(err => console.log(err))
+        }
+        
+    }
     return (
 
             <div className="companies">
                 <Link to={"/companies/" + props.id}>    <div className="logoCont" style={bgImg}></div></Link>
                 <div className="aboutTextMaster"> 
                     <p className="name">{props.name}</p>
-                    <p className="description">{props.description}</p>
                     <div className="bottomImgCont"> 
                         <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
-                        <div className="stars">{stars}</div>
+                        <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
                         <button className="heartBtn" onClick={() => heartPost()}><FavoriteIcon id={props.id}/></button>
                     </div>
                 </div>
