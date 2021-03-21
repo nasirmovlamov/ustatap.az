@@ -29,6 +29,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Alert from '@material-ui/lab/Alert';
 import { useState } from 'react'
+import axios from 'axios'
 const alertStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
@@ -57,8 +58,17 @@ function MemberArea(props) {
         {
             setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
         }
-        
-      } )
+    })
+    var [status, setstatus] = useState(0)
+    
+    useEffect(() => {
+        if ( props.UserData !== undefined ) {
+            axios.get(`http://ustatap.testjed.me/public/api/checkstatus/${props.userId}`) 
+                .then( (res) =>  setstatus(res.data)  )
+            localStorage.setItem("LoginUserData" , JSON.stringify(props.UserData))
+        }
+    }, [])
+
     const imgHandler =  {
         backgroundImage: `url(${cabinetTop})`,
         backgroundSize: 'cover',
@@ -137,7 +147,6 @@ function MemberArea(props) {
          <div className="swiperTitle"> <p>Filtirlə</p> <button className="btnMenu" onClick={toggleDrawer3(anchor, false)} onKeyDown={toggleDrawer3(anchor, false)}>X</button></div>
         <Divider />
         <div className="asideSW">
-            
             {
                 props.loginId === 'user' &&
                 <div className="outlineAside" id="outlineAside">  
@@ -195,7 +204,7 @@ function MemberArea(props) {
     return (
         <div className="memberArea">
             <div className="memberAreaCont">
-            { parseInt(UserData?.user?.status) === 0 ? <Alert className="alertVerify"  severity="error">Hesabınızı elektron poçtunuza daxil olaraq aktiv edin</Alert> : ""}
+            { parseInt(status) === 0 ? <Alert className="alertVerify"  severity="error">Hesabınızı elektron poçtunuza daxil olaraq aktiv edin</Alert> : ""}
                 <div className="topSide">
                    {!cabinetLogoMQ && <img src={logo} alt="" width="92" height="auto" /> }
                     <div className="cabinetTop" style={imgHandler}>Şəxsi kabinet <div  className="nameDiv"> <p> {props.UserData?.user?.name}  </p></div>  </div> 
@@ -210,9 +219,9 @@ function MemberArea(props) {
                 </div>
                 <div className="generalPart">
                         <div className="memberCont">
-                            {  props.loginId === 'user'        &&     <UserMemberArea UserData={props.UserData}/>       }
-                            {  props.loginId === 'handyman'    &&     <MasterMemberArea UserData={props.UserData}/>     }
-                            {  props.loginId === 'company'     &&     <CompanyMemberArea UserData={props.UserData}/>    }
+                            {  props.loginId === 'user'        &&     <UserMemberArea  status={status} UserData={props.UserData}/>       }
+                            {  props.loginId === 'handyman'    &&     <MasterMemberArea status={status} UserData={props.UserData}/>     }
+                            {  props.loginId === 'company'     &&     <CompanyMemberArea status={status} UserData={props.UserData}/>    }
                         </div>
                         
                         {

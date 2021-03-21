@@ -24,7 +24,7 @@ function VipAd3(props) {
     const [checker , setChecker] = useState(false)
     useEffect(() => {
         if(props.userId !== undefined)
-        {axios.post('http://ustatap.testjed.me/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
+        {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
              .then(res => setChecker(res.data))
              .catch(err => console.log(err))
              console.log(checker);}
@@ -63,7 +63,7 @@ function VipAd3(props) {
           }
     }
     const backgroundImgHuman = {
-        background: `url(http://ustatap.testjed.me/${props.image})  no-repeat`
+        background: `url(https://ustatap.net/${props.image})  no-repeat`
     }
     
     const heartPost = () => {
@@ -75,7 +75,7 @@ function VipAd3(props) {
         if(!checker)
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId })
+            axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId })
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(true)
@@ -85,7 +85,7 @@ function VipAd3(props) {
         else 
         {
             document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-            axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId })
+            axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId })
              .then(res => (console.log(res) ))
              .catch(err => console.log(err))
              setChecker(false)
@@ -99,7 +99,7 @@ function VipAd3(props) {
         
     }
     const viewHandler = () => {
-        axios.post('http://ustatap.testjed.me/public/api/increment', {id:props.id})
+        axios.post('https://ustatap.net/public/api/increment', {id:props.id})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
@@ -109,14 +109,14 @@ function VipAd3(props) {
         }
         else 
         {
-            axios.post('http://ustatap.testjed.me/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
+            axios.post('https://ustatap.net/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
                 .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
                 .catch(err => console.log(err))
         }
         
     }
     const bgImg = {
-        backgroundImage: `url(http://ustatap.testjed.me/storage/app/public/${props.image})`,
+        backgroundImage: `url(https://ustatap.net/storage/app/public/${props.image})`,
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         backgroundRepeat: 'no-repeat',

@@ -53,17 +53,15 @@ function SearchBox(props) {
 
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
+        axios.get("https://ustatap.net/public/api/jobcategory") 
              .then((res) =>  (setJobCategoryApi(res.data) ))
-        axios.get("http://ustatap.testjed.me/public/api/cities") 
+        axios.get("https://ustatap.net/public/api/cities") 
              .then((res) =>  (setCityCategoryApi(res.data) ))
     } , [])
 
     const searchClick = () => {
-        console.log(props.type)
-        console.log(props.jobcategory)
-        console.log(props.city)
-        const obj =  {type:props.type , jobcategory:props.jobcategory , city:props.city } 
+        
+        const obj =  {type:props.type , jobcategory:jobcategory , city:city } 
         localStorage.setItem("SearchResult" , JSON.stringify(obj))
         window.location.href = '/search'
     }
@@ -91,7 +89,7 @@ function SearchBox(props) {
                         <div class="dropbtn" >
                             <img src={drpLogo1} alt=""/>
                             <FormControl className={classes.formControl}>
-                                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={props.type} onChange={handleChange}>
+                                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={props.type} onChange={(value) => handleChange(value)}>
                                     <MenuItem value={"elan"}>Elan</MenuItem>
                                     <MenuItem value={"handyman"}>Usta</MenuItem>
                                     <MenuItem value={"company"}>Şirkət</MenuItem>
@@ -116,8 +114,8 @@ function SearchBox(props) {
                                     id="combo-box-demo"
                                     options={categoriesOptions}
                                     getOptionLabel={(option) => (option.title)}
-                                    style={{ width: "130px", height: "60px" }}
-                                    renderInput={(params) => <TextField {...params}  label="Kategoriya seçin"  />}
+                                    style={{ width: "140px", height: "35px" }}
+                                    renderInput={(params) => <TextField {...params}  placeholder="Kategoriya seçin"  />}
                                 />  
                             </div>
                             
@@ -139,8 +137,8 @@ function SearchBox(props) {
                                     id="combo-box-demo"
                                     options={cityOptions}
                                     getOptionLabel={(option) => (option.title)}
-                                    style={{ width: "130px" , height: "60px"}}
-                                    renderInput={(params) => <TextField {...params} label="Şəhər seçin"  />}
+                                    style={{ width: "120px" , height: "35px"}}
+                                    renderInput={(params) => <TextField {...params} placeholder="Şəhər seçin"  />}
                                 />  
                             </div>
                         </div>

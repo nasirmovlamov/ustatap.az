@@ -3,15 +3,23 @@
   width: 264px;
   font-family: "ComfortaaRegular";
   color: black;
-  box-shadow: 0px 0px 20px 5px lightgray;
+  -webkit-box-shadow: 0px 0px 20px 5px lightgray;
+          box-shadow: 0px 0px 20px 5px lightgray;
   border-radius: 5px;
   overflow: hidden;
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
 }
 
 .Vipad:hover {
-  box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
 }
 
 .Vipad .crown {
@@ -44,14 +52,23 @@
 }
 
 .Vipad .flexCont1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .Vipad .flexCont2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  column-gap: 10px;
-  align-items: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .Vipad .jobTitle {
@@ -70,7 +87,8 @@
 }
 
 .Vipad .stars img {
-  transform: scale(2);
+  -webkit-transform: scale(2);
+          transform: scale(2);
 }
 
 .Vipad .rating {
@@ -78,13 +96,20 @@
 }
 
 .Vipad .heartBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0px;
   margin: 0px;
   width: 45px;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   border: none;
   background-color: transparent;
   margin-right: -10px;
@@ -93,3 +118,4 @@
 .Vipad .heartBtn svg {
   color: gray;
 }
+/*# sourceMappingURL=vipAd2.css.map */

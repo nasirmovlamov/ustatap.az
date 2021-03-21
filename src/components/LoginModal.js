@@ -30,7 +30,7 @@ function LoginModal(props) {
     })
     const [Error, setError] = useState(false)
     const onSubmit =  (values) => {
-            axios.post('http://ustatap.testjed.me/public/api/check', {email: values.email , password:values.password} , headers)
+            axios.post('https://ustatap.net/public/api/check', {email: values.email , password:values.password} , headers)
             .then((res) => (res.status ===200 && notify() , localStorage.setItem("LoginUserData" , JSON.stringify(res.data))  , clickHandlerForClose()))
             .catch((err) => setError(true))
     }

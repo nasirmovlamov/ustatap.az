@@ -55,6 +55,13 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SearchIcon from '@material-ui/icons/Search';
 import { FormControl, MenuItem } from '@material-ui/core';
 import { Select } from '@tensorflow/tfjs-core';
+import HomeIcon from '@material-ui/icons/Home';
+import BusinessIcon from '@material-ui/icons/Business';
+import BuildIcon from '@material-ui/icons/Build';
+import NoteIcon from '@material-ui/icons/Note';
+import InfoIcon from '@material-ui/icons/Info';
+import WorkIcon from '@material-ui/icons/Work';
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 const stylesForSwiper = makeStyles({
   list: {
     width: "auto",
@@ -140,7 +147,7 @@ function Header() {
 
 
     const userImg = {
-      backgroundImage: `url(http://ustatap.testjed.me/${UserData?.user?.image})`,
+      backgroundImage: `url(https://ustatap.net/${UserData?.user?.image})`,
       backgroundRepeat: 'no-repeat',  
       backgroundSize: 'cover',  
       backgroundPosition: 'top center',  
@@ -172,29 +179,29 @@ function Header() {
         <Divider />
         <List>
             <ListItem button >
-                <Link to="/"><p>Əsas Səhifə</p></Link>
+                <Link to="/"><p  className="iconSwiper" > <HomeIcon/> Əsas Səhifə</p></Link>
             </ListItem>
             <ListItem button >
-                <a href="/elanlar"><p>Elanlar</p> </a>
+                <a href="/elanlar"><p className="iconSwiper" > <NoteIcon/> Elanlar</p> </a>
             </ListItem>
             <ListItem button >
-                <a href="/ustalar"><p>Ustalar</p> </a>
+                <a href="/ustalar"><p className="iconSwiper" ><BuildIcon/> Ustalar</p> </a>
             </ListItem>
             <ListItem button >
-                <a href="/shirketler"> <p>Şirkətlər</p> </a>
+                <a href="/shirketler"> <p className="iconSwiper" ><BusinessIcon/> Şirkətlər</p> </a>
             </ListItem>
             <ListItem button >
-                <Link to="/haqqimizda"><p>Haqqımızda</p> </Link>
+                <Link to="/haqqimizda"><p className="iconSwiper" ><InfoIcon/> Haqqımızda</p> </Link>
             </ListItem>
             <ListItem button >
-                <Link to="/reklam"><p>Reklam</p> </Link>
+                <Link to="/reklam"><p className="iconSwiper" > <WorkIcon/> Reklam</p> </Link>
             </ListItem>
             <ListItem button >
-                <Link to="/elaqe"><p>Əlaqə</p> </Link>
+                <Link to="/elaqe"><p className="iconSwiper" > <ContactPhoneIcon/> Əlaqə</p> </Link>
             </ListItem>
             { UserData?.user?.image === undefined ? "" :
             <ListItem button >
-                <a href="/"><button onClick={logOut}> <ExitToAppIcon/> Çıxış</button> </a>
+                <a href="/" ><button onClick={logOut} className="iconSwiper"> <ExitToAppIcon/> Çıxış</button> </a>
             </ListItem>}
 
         </List>
@@ -248,16 +255,28 @@ function Header() {
         <ScrolltoTop />
         
         <Modal  
-                  style={{display:"flex", justifyContent:"center",overflow:"auto",backgroundColor:"rgba(0,0,0,0.5)",}}
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="simple-modal-title"
-                  aria-describedby="simple-modal-description">
-                  {<LoginModal modalOpener={handleOpen} modalCloser={handleClose}/>}
+            style={{display:"flex", justifyContent:"center",overflow:"auto",backgroundColor:"rgba(0,0,0,0.5)",}}
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description">
+            {<LoginModal modalOpener={handleOpen} modalCloser={handleClose}/>}
         </Modal>
 
         <div className="topContainer" >
             <navbar className="navbar" id="navbar">
+                { searchMQ && 
+                          <div>
+                          {
+                            <React.Fragment key={'top'}>
+                              <button onClick={toggleDrawer3('top', true)} className="searchNavIco"><SearchIcon/></button>
+                              <Drawer anchor={'top'} open={state3['top']} onClose={toggleDrawer3('top', false)}>
+                                {listSearch('top')}
+                              </Drawer>
+                            </React.Fragment>
+                          }
+                        </div>
+                  }
                   <Link to="/" className="imgAndLink"><img className="navlogo" src={mainLogo} width="90px" alt=""/> {navLogoMQ && "Ustatap.net"}</Link>
                    <div className="text" >
                    { navTextMQ &&
@@ -271,23 +290,12 @@ function Header() {
                       <Link to="/elaqe"><p>Əlaqə</p> </Link>
                     </>
                   }
-                  { searchMQ && 
-                          <div>
-                          {
-                            <React.Fragment key={'top'}>
-                              <button onClick={toggleDrawer3('top', true)} className="searchNavIco"><SearchIcon/></button>
-                              <Drawer anchor={'top'} open={state3['top']} onClose={toggleDrawer3('top', false)}>
-                                {listSearch('top')}
-                              </Drawer>
-                            </React.Fragment>
-                          }
-                        </div>
-                  }
+                  
                   { menuMQ && 
                           <div>
                           {
                             <React.Fragment key={'left'}>
-                              <Hamburger color="#FFFFFF" toggled={state['left']} toggle={toggleDrawer('left', true)} />
+                              <Hamburger color="#65a936" toggled={state['left']} toggle={toggleDrawer('left', true)} />
                               <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
                                 {list('left')}
                               </Drawer>
@@ -309,11 +317,14 @@ function Header() {
               <Route path={`/elanlar/secilmish-son-elan/:id`}>
                 <SelectedAd/>
               </Route>
-              <Route path={`/masters/:id`}>
+              <Route path={`/masters/:asideId`}>
                 <SelectedMaster/>
               </Route>
-              <Route path={`/companies/:id`}>
+              <Route path={`/companies/:asideId`}>
                 <SelectedCompany/>
+              </Route>
+              <Route path="/elanlar/:asideId">
+                <AddsPage/>
               </Route>
               <Route path="/elanlar">
                 <AddsPage/>
@@ -345,8 +356,8 @@ function Header() {
               <Route path="/shirket-qeydiyyati">
                 <CompanyRegistration/>
               </Route>
-              <Route  path={`/member-area/`}>
-                { JSON.parse(localStorage.getItem('LoginUserData'))?.user?.id === undefined  ?  <Redirect to="/login"/>  :  <MemberArea loginId={UserData?.user?.user_type} UserData={UserData}/> }
+              <Route path={`/member-area/`}>
+                { JSON.parse(localStorage.getItem('LoginUserData'))?.user?.id === undefined  ?  <Redirect to="/login"/>  :  <MemberArea setUserData={setUserData} UserData={UserData} userId={UserData?.user?.id} loginId={UserData?.user?.user_type} UserData={UserData}/> }
               </Route>
               <Route path="/istifadeci-qeydiyyati">
                 <UserRegistration/>

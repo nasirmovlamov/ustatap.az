@@ -25,7 +25,7 @@ function Security(props) {
     const [Error, setError] = useState(false)
 
     const onSubmit =  (values) => {
-        axios.post('http://ustatap.testjed.me/public/api/user/pass', { id:141, password:values.password , oldPassword:values.oldPassword  } , headers )
+        axios.post('https://ustatap.net/public/api/user/pass', { id:141, password:values.password , oldPassword:values.oldPassword  } , headers )
         .then(res => console.log(res))
         .catch(err => setError(true))
     }

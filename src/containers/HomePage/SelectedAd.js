@@ -95,15 +95,15 @@ function SelectedAd(props) {
 
     useEffect(() => 
     {
-        axios.get(`http://ustatap.testjed.me/public/api/singlead/${id}`) 
+        axios.get(`https://ustatap.net/public/api/singlead/${id}`) 
              .then((res) =>  (setSelectedAd(res.data)))
 
-        axios.get("http://ustatap.testjed.me/public/api/ad") 
+        axios.get("https://ustatap.net/public/api/ad") 
             .then((res) =>  (setlatestAdApi(res.data) ))        
     } , [])
 
     const functionApply = () => {
-        axios.post("http://ustatap.testjed.me/public/api/offer" , {user_id : UserData?.user?.id , vacancy_id:SelectedAd.id} ,  ) 
+        axios.post("https://ustatap.net/public/api/offer" , {user_id : UserData?.user?.id , vacancy_id:SelectedAd.id} ,  ) 
              .then((res) =>  (setSelectedAd(res.data)))  
     }   
 
@@ -137,7 +137,7 @@ function SelectedAd(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    {frameContMQ &&<Frame image={image} mainImg={ `http://ustatap.testjed.me/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>}
+                    {frameContMQ &&<Frame image={image} mainImg={ `https://ustatap.net/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>}
 
                     {/* Mobile Slider */}
                     {!frameContMQ && <div className={stpperSytle1.root}>

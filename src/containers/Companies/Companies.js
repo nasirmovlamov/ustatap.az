@@ -3,7 +3,7 @@ import Ad3 from '../../components/Ad3'
 import axios from "axios"
 import  "../../assets/css/componentsCss/companies.css"
 import {
-    Link
+    Link, useParams
   } from "react-router-dom";
 import Category from '../../components/Category';
 import Button from '../../components/Button';
@@ -14,7 +14,7 @@ import SubBanner from '../../components/SubBanner';
 import master from "../../assets/images/component/element/master.png"
 import VipAd3 from '../../components/VipAd3';
 import companyLogo from "../../assets/images/component/element/companyLogo.png"
-import vipCompaniesTop from "../../assets/images/component/element/vipCompaniesTop.svg"
+import vipCompaniesTop from "../../assets/images/component/element/vipCompaniesTop.png"
 import vipTopImg1 from "../../assets/images/component/element/vipTopPartCrown.jpg"
 import vipTopImg from "../../assets/images/component/element/vipMastersTop.png"
 import { useMediaQuery } from '@material-ui/core';
@@ -41,6 +41,8 @@ const stylesForSwiper = makeStyles({
 
 
 function Companies(props) {
+    let { asideId } = useParams();
+
     const btnFilter = useMediaQuery('(max-width:1030px)');
     const crownTopPart = useMediaQuery('(max-width:450px)');
 
@@ -57,23 +59,23 @@ function Companies(props) {
     const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
-        if(numId === "shirketler")
+        if(asideId === undefined)
         {
-            axios.get("http://ustatap.testjed.me/public/api/company") 
+            axios.get("https://ustatap.net/public/api/company") 
             .then((res) =>  (setCompanyApi(res.data) )) 
            
-            axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
+            axios.get("https://ustatap.net/public/api/jobcategory") 
             .then((res) =>  (setJobCategoryApi(res.data) )) 
         }
         else 
         {
-            axios.get(`https://ustatap.testjed.me/public/api/shirket/${numId}`) 
+            axios.get(`httpss://ustatap.net/public/api/shirket/${asideId}`) 
             .then((res) =>  (setCompanyApi(res.data) )) 
         }
 
     } , [])
     console.log(numId);
-    CompanyApi.map(  company => { if(company.vip === 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}else{}} )
+    CompanyApi.map(  company => { if(company.vip !== 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)}else{}} )
     const [filter, setfilter] = useState(0)
     const ListingResult = JSON.parse(localStorage.getItem("ListingResult"))
 
@@ -81,7 +83,7 @@ function Companies(props) {
         companies = []
         vipCompanies = []
         setfilter(0)
-        axios.post("http://ustatap.testjed.me/public/api/sirketfilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip , } ) 
+        axios.post("https://ustatap.net/public/api/sirketfilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip , } ) 
         .then((res) =>  (setCompanyApi(res.data) ))
         CompanyApi.map(  company => { if(company.vip === 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}else{}} )
     }
@@ -155,7 +157,7 @@ function Companies(props) {
                         {
                             props.hideVip && <>
                                     {!crownTopPart && <img src={vipCompaniesTop} alt=""/>}
-                                    {crownTopPart && <img src={vipTopImg1} alt=""/>}
+                                    {crownTopPart && <img className="vipCompanyTopMobile" src={vipTopImg1} alt=""/>}
                                     <div className="companiesVipCont">
                                         {vipCompanies}
                                     </div>

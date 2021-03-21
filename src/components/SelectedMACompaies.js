@@ -8,7 +8,7 @@ function SelectedMACompaies(props) {
     console.log(props.UserData.user.id);
     useEffect(() => 
     {
-        axios.post("http://ustatap.testjed.me/public/api/getselectedshirket" , {user_id:props.UserData.user.id}) 
+        axios.post("https://ustatap.net/public/api/getselectedshirket" , {user_id:props.UserData.user.id}) 
              .then((res) =>  (setCompanies(res.data)  ))
     }, [])
     Companies?.map((company) => CompaniesArr.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)  ) 

@@ -28,7 +28,7 @@ function Ad2(props) {
 
     useEffect(() => {
     if(props.userId !== undefined)
-    {axios.post('http://ustatap.testjed.me/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
+    {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
             .then(res => setChecker(res.data))
             .catch(err => console.log(err))
             console.log(checker);}
@@ -38,9 +38,10 @@ function Ad2(props) {
     const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
 
     const bgImg = {
-        backgroundImage: `url(http://ustatap.testjed.me/storage/app/public/${props.image})`,
+        backgroundImage: `url(https://ustatap.net/${props.image})`,
         backgroundSize: "cover !important" ,
         backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top center',
         backgroundColor: 'white'
     }
 
@@ -49,25 +50,25 @@ function Ad2(props) {
     const heartPost = () => {
         if(UserData?.user?.id !== undefined)
         {    
-        if(!checker)
-        {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId , type: 2 })
-             .then(res => (console.log(res) ))
-             .catch(err => console.log(err))
-             setChecker(true)
-            const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+            if(!checker)
+            {
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+                axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId , type: 2 })
+                .then(res => (console.log(res) ))
+                .catch(err => console.log(err))
+                setChecker(true)
+                notify1()
 
-        }
-        else 
-        {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-            axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId , type: 2 })
-             .then(res => (console.log(res) ))
-             .catch(err => console.log(err))
-             setChecker(false)
-            const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
-        }
+            }
+            else 
+            {
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
+                axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId , type: 2 })
+                .then(res => (console.log(res) ))
+                .catch(err => console.log(err))
+                setChecker(false)
+                notify2()
+            }
         }
         else 
         {
@@ -76,7 +77,7 @@ function Ad2(props) {
         
     }
     const viewHandler = () => {
-        axios.post('http://ustatap.testjed.me/public/api/increment', {id:props.id})
+        axios.post('https://ustatap.net/public/api/increment', {id:props.id})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
@@ -86,7 +87,7 @@ function Ad2(props) {
         }
         else 
         {
-            axios.post('http://ustatap.testjed.me/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
+            axios.post('https://ustatap.net/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
                 .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
                 .catch(err => console.log(err))
         }

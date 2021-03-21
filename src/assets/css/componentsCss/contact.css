@@ -10,8 +10,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 150px;
-  margin-top: 125px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .contact .contactCont {
@@ -24,8 +24,8 @@
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-column-gap: 30px;
-          column-gap: 30px;
+  -webkit-column-gap: 90px;
+          column-gap: 90px;
 }
 
 .contact .FrameCont2 {

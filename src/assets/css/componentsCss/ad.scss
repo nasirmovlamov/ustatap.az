@@ -133,3 +133,87 @@ a
         }
     }
 }
+
+
+
+//Mobile 
+@media only screen and (max-width: 420px) {
+    
+.ad
+{
+    border-radius: 5px;
+    width: 48.5%;
+    height:290px;
+    .dateAd
+    {
+        width: 64.3px;
+        overflow: hidden;
+        color: gray;
+    }
+    .mainImg 
+    {
+        width: 100%;
+        height: 186px;
+        border: none;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color: #fff;
+        background-size: cover;
+        background-position: center;
+    }
+    .lineAd 
+    {
+        width:100%;
+        height: 3px;
+        margin-top:-4px;
+    }
+    .subCont
+    {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+        .flexCont1
+        {
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            font-family: "ComfortaaRegular";
+            font-size: 13px;
+            margin-top: 5px;
+            height: auto;
+            p
+            {
+                white-space: nowrap;
+                width: 120px;
+                height: 20px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        .nameCostumer
+        {
+            font-family: "ComfortaaRegular";
+            color: rgba(150,150,150,0.83) ;
+            font-size: 14px;
+            height: auto !important;
+            margin-bottom: 0px;
+            height: auto;
+        }
+        .flexCont2
+        {
+            display: flex;
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+            font-family: "ComfortaaRegular";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+        }
+    }
+}
+    
+}

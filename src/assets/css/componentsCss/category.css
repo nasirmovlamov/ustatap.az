@@ -19,9 +19,16 @@
   display: none;
 }
 
+.categoryCont .MuiAutocomplete-inputRoot {
+  padding-right: 0px !important;
+}
+
 .categoryCont .MuiInputBase-input {
   color: black;
   font-family: "ComfortaaRegular";
+  text-align: center;
+  padding-right: 0px;
+  width: 100%;
 }
 
 .categoryCont .MuiSelect-select.MuiSelect-select {
@@ -36,8 +43,13 @@
 }
 
 .categoryCont .categCont {
-  background-color: white;
+  margin-top: -5px;
   border-radius: 10px;
+  width: auto;
+  height: auto;
+  height: 40px;
+  padding: 5px;
+  background-color: #fff;
 }
 
 .categoryCont .button {

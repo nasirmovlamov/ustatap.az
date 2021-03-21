@@ -23,16 +23,7 @@
         }
         
     }
-    .mastersCont
-    {
-        width: 378px;
-        height: 214px;
-        .aboutText
-        {
-            width: 165px;
-            height:100%;
-        }
-    }
+    
     .linkAndButton
     {
         width: 96%;
@@ -112,33 +103,31 @@
     {
         margin-top: 50px;
         width: 100%;
-        justify-content: center;
-        display: flex;
+            justify-content: space-around;
+            display: flex;
         flex-wrap: wrap;
         row-gap: 30px;
         gap: 30px;
         margin-bottom: 50px;
         .Vipmasters
         {
-            margin-top: 50px;
             width: 100%;
             justify-content: center;
             display: flex;
             flex-wrap: wrap;
             row-gap: 30px;
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
         }
         .masters
         {
-            margin-top: 50px;
             width: 100%;
             justify-content: center;
             display: flex;
             flex-wrap: wrap;
             row-gap: 30px;
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
         }
         
     }

@@ -22,13 +22,13 @@ function Addvertise() {
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     const validationSchema = Yup.object({
         name: Yup.string().required('Adınızı daxil edin'),
-        nameOfCompany: Yup.string().required('Required'),
-        email: Yup.string().email('Invalid email format').required('Required'),
-        phone:  Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Required'),
-        description: Yup.string().required('Required'),
+        nameOfCompany: Yup.string().required('Şirkət adını daxil edin'),
+        email: Yup.string().email('Elektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
+        phone:  Yup.string().matches(phoneRegExp, 'Telefon nömrənizi düzgün daxil edin').required('Telefon nömrənizi düzgün daxil edin'),
+        description: Yup.string().required('Müraciət mətnini daxil edin'),
     })
     const onSubmit =  (values) => {
-            axios.post('http://ustatap.testjed.me/elaqe', {values: values})
+            axios.post('https://ustatap.net/elaqe', {values: values})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
@@ -60,7 +60,6 @@ function Addvertise() {
                         <Link to="/reklam">
                             <a href="">reklam</a> 
                         </Link>
-                            
                         </p>
                     </div>
                 </div>
@@ -87,30 +86,32 @@ function Addvertise() {
                         <Form action="" method="post">
                             <p className="formTitle">Reklam üçün müraciət edin</p>
                             <div className="gridContForm">
-                                <div className="errors">
-                                    <Field type="text" name="name" placeholder="Ad və soyad"/>
-                                    <ErrorMessage name="name"/>
+                                <div className="tg">
+                                    <div className="errors">
+                                        <Field type="text" name="name" placeholder="Ad və soyad"/>
+                                        <ErrorMessage name="name"/>
+                                    </div>
+                                    <div className="errors">
+                                        <Field type="text" name="phone" placeholder="Telefon nömrəsi"/>
+                                        <ErrorMessage name="phone"/>
+                                    </div>
                                 </div>
-                                <div className="errors">
-                                    <Field type="text" name="phone" placeholder="Telefon nömrəsi"/>
-                                    <ErrorMessage name="phone"/>
+                                <div className="tg">
+                                    <div className="errors">
+                                        <Field type="text" name="email" placeholder="Elektron poçt ünvanı"/>
+                                        <ErrorMessage name="email"/>
+                                    </div>
+                                    <div className="errors">
+                                        <Field type="text" name="nameOfCompany" placeholder="Şirkətin adı"/>
+                                        <ErrorMessage name="nameOfCompany"/>
+                                    </div>
                                 </div>
-                                <div className="errors">
-                                    <Field type="text" name="email" placeholder="Elektron poçt ünvanı"/>
-                                    <ErrorMessage name="email"/>
-                                </div>
-                                <div className="errors">
-                                    <Field type="text" name="nameOfCompany" placeholder="Şirkətin adı"/>
-                                    <ErrorMessage name="nameOfCompany"/>
-                                </div>
-                            </div>
-                            <div className="errors">
+                            <div className="errors errorsTx">
                                 <Field as="textarea" name="description" id="" cols="30" rows="10" placeholder="Müraciət Mətn"/>
                                 <ErrorMessage name="nameOfCompany"/>
                             </div>
-                            
+                            </div>
                             <Button name="Göndər"/>
-
                         </Form>
                     </Formik>
 

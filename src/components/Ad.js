@@ -12,14 +12,17 @@ import {
 import Cookies from 'js-cookie'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useMediaQuery } from '@material-ui/core'
 function Ad(props) {
     const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
     const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
     const [UserData, setUserData] = useState(0)
     const [checker , setChecker] = useState(0)
+    const ad = useMediaQuery('(max-width:420px)');
+
     useEffect(() => {
         if(props.userId !== undefined)
-        {axios.post('http://ustatap.testjed.me/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
+        {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
              .then(res => setChecker(res.data))
              .catch(err => console.log(err))
              console.log(checker);}
@@ -40,7 +43,7 @@ function Ad(props) {
       
     })
     const bgImg = {
-        backgroundImage: `url(http://ustatap.testjed.me/${props.image})`,
+        backgroundImage: `url(https://ustatap.net/${props.image})`,
         backgroundRepeat: 'no-repeat',  
         backgroundSize: 'cover',  
         backgroundPosition: 'top center',  
@@ -52,7 +55,7 @@ function Ad(props) {
             if(!checker)
             {
                 document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-                axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId , type: 1 })
+                axios.post('https://ustatap.net/public/net', {dynamic_id:props.id , user_id:props.userId , type: 1 })
                 .then(res => (console.log(res)))
                 .catch(err => console.log(err))
                 setChecker(true)
@@ -61,7 +64,7 @@ function Ad(props) {
             else 
             {
                 document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-                axios.post('http://ustatap.testjed.me/public/api/select', {dynamic_id:props.id , user_id:props.userId  , type: 1})
+                axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId  , type: 1})
                 .then(res => (console.log(res) ))
                 .catch(err => console.log(err))
                 setChecker(false)
@@ -75,7 +78,7 @@ function Ad(props) {
         
     }
     const viewHandler = () => {
-        axios.post('http://ustatap.testjed.me/public/api/increment' , {id:props.id})
+        axios.post('https://ustatap.net/public/api/increment' , {id:props.id})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
@@ -86,8 +89,8 @@ function Ad(props) {
                 <div className="lineAd"></div>
                 <div className="subCont">
                     <div className="flexCont1">  <p>{props.name}</p>  <button className="btnHeart" onClick={() => heartPost()}><FavoriteIcon  id={props.id}/></button> </div>
-                    <p className="nameCostumer">Sifarişçi {props.desc}</p>
-                    <div className="flexCont2">   <p>Ünvan: {props.address} </p>        <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props.date} </pre></p>    <p><img src={eye}  alt=""/>{props.view}</p> </div>
+                    <p className="nameCostumer">{!ad && "Sifarişçi"} {props.desc}</p>
+                    <div className="flexCont2">   <p>Ünvan: {props.address} </p>       {!ad && <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props.date} </pre></p> }   <p><img src={eye}  alt=""/>{props.view}</p> </div>
                 </div>
             </div>
             

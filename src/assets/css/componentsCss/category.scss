@@ -14,10 +14,17 @@
     {
       display: none;
     }
+    .MuiAutocomplete-inputRoot
+    {
+        padding-right: 0px !important;
+    }
     .MuiInputBase-input
     {
       color: black;
       font-family: "ComfortaaRegular";
+      text-align: center;
+      padding-right: 0px;
+      width: 100%;
     }
     .MuiSelect-select.MuiSelect-select
     {
@@ -29,8 +36,13 @@
     
     .categCont
     {
-        background-color: white;
+        margin-top: -5px;
         border-radius: 10px;
+        width: auto;
+        height: auto;
+        height: 40px;
+        padding: 5px;
+        background-color: #fff;
     }
     .button 
     {

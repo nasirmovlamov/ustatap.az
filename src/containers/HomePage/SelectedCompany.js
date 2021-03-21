@@ -67,10 +67,10 @@ function SelectedCompany(props) {
     const [SelectedCompany, setSelectedCompany] = useState([0])
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/public/api/company") 
+        axios.get("https://ustatap.net/public/api/company") 
             .then((res) =>  (setCompanyApi1(res.data) )) 
 
-        axios.get(`http://ustatap.testjed.me/public/api/company/${mainId}`) 
+        axios.get(`https://ustatap.net/public/api/company/${mainId}`) 
             .then((res) =>  (setSelectedCompany(res.data)))
 
     } , [])
@@ -90,7 +90,7 @@ function SelectedCompany(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame overlayImg={overlay} image={0} mainImg={"http://ustatap.testjed.me/" + SelectedCompany.image} height="420px" heightImg="282px" widthImg="458px"/>
+                    <Frame overlayImg={overlay} image={0} mainImg={"https://ustatap.net/" + SelectedCompany.image} height="420px" heightImg="282px" widthImg="458px"/>
                     <div className="aboutAd">
                         <p className="title">{SelectedCompany.name}</p>
                         <div className="subTitle">

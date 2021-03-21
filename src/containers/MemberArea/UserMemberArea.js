@@ -30,13 +30,13 @@ function UserMemberArea(props) {
         <div className="userMember">
             <Switch>
                 <Route path="/member-area/profile">
-                    <Profile UserData={props.UserData}/>
+                    <Profile  UserData={props.UserData}/>
                 </Route>
                 <Route path="/member-area/my-ads">
-                    <MyAds UserData={props.UserData}/>
+                    <MyAds  UserData={props.UserData}/>
                 </Route>
                 <Route path="/member-area/requests-ad/:id">
-                    <OneAdRequests UserData={props.UserData}/>
+                    <OneAdRequests  UserData={props.UserData}/>
                 </Route>
                 <Route path="/member-area/requests-ad">
                     <GettedRequests UserData={props.UserData}/>
@@ -51,7 +51,7 @@ function UserMemberArea(props) {
                     <Security UserData={props.UserData}/>
                 </Route>
                 <Route path="/member-area/elan-add">
-                    <AddElan UserData={props.UserData}/>
+                    <AddElan status={props.status} UserData={props.UserData}/>
                 </Route>
                 <Route  path="/member-area/">
                     <div className="gridCont">

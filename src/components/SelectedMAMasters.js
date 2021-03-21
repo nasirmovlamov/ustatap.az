@@ -7,7 +7,7 @@ function SelectedMAMasters(props) {
     const MastersArr = []
     useEffect(() => 
     {
-        axios.post("http://ustatap.testjed.me/public/api/getselecteds" , {user_id:props.UserData.user.id}) 
+        axios.post("https://ustatap.net/public/api/getselecteds" , {user_id:props.UserData.user.id}) 
              .then((res) =>  (setMasters(res.data)  ))
     }, [])
     Masters?.map((master) => MastersArr.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)  ) 

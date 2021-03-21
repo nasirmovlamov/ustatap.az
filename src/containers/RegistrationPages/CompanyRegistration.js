@@ -33,7 +33,7 @@ function CompanyRegistration() {
                 FD.append('city' , 1)
                 FD.append('district' , 1)
                 FD.append('profilePhoto' , profilePhoto)
-                axios.post('http://ustatap.testjed.me/public/api/regcompany',  FD, headers)
+                axios.post('https://ustatap.net/public/api/regcompany',  FD, headers)
                     .then(res => console.log(res))
                     .catch(err => console.log(err))
             
@@ -69,7 +69,7 @@ function CompanyRegistration() {
 
     useEffect(() => 
     {
-            axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
+            axios.get("https://ustatap.net/public/api/jobcategory") 
              .then((res) =>  (settagsApi(res.data)  ))
     } ,[])
     const [selectedTag,setSelectedTag] = useState([])

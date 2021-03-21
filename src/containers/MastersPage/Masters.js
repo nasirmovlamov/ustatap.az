@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 
 import  "../../assets/css/componentsCss/masters.css"
 import {
-    Link
+    Link, useParams
   } from "react-router-dom";
 import Category from '../../components/Category';
 import Button from '../../components/Button';
@@ -37,6 +37,8 @@ const stylesForSwiper = makeStyles({
 
 
 function Masters(props) {
+    let { asideId } = useParams();
+
     const btnFilter = useMediaQuery('(max-width:1030px)');
     const crownTopPart = useMediaQuery('(max-width:450px)');
 
@@ -55,9 +57,17 @@ function Masters(props) {
     MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}else{}})
     MasterApi.map(master =>  {})
     useEffect(() => 
-    {   
-            axios.get("http://ustatap.testjed.me/public/api/handymen") 
+    {  
+       if(asideId === undefined)
+        {
+            axios.get("https://ustatap.net/public/api/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
+        }
+        else 
+        {
+            axios.get(`https://ustatap.net/public/api/handymen/${asideId}`) 
+            .then((res) =>  (setMasterApi(res.data) ))
+        }
     } , [])
     
     const [filter, setfilter] = useState(0)
@@ -67,7 +77,7 @@ function Masters(props) {
         masters = []
         vipMasters = []
         setfilter(0)
-        axios.post("http://ustatap.testjed.me/public/api/ustafilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip } ) 
+        axios.post("https://ustatap.net/public/api/ustafilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip } ) 
         .then((res) =>  (setMasterApi(res.data) ))
         MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}else{}})
 

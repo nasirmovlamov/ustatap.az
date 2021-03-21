@@ -10,6 +10,26 @@
     }
     
 }
+//Mobile 
+@media only screen and (max-width: 500px) {
+    .navbar 
+    {
+        position: initial !important;
+        justify-content: space-between;
+        background-color: white !important;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        .imgAndLink
+        {
+            color: black !important;
+            font-family: "ComfortaaRegular";
+        }
+        .text
+        {
+            width: 60px !important;
+        } 
+    }
+    
+}
 
 .swiperTitle
 {
@@ -101,6 +121,23 @@
         background-color: transparent;
         color: black;
         font-weight: 700;
+    }
+}
+.iconSwiper
+{
+    display: grid !important;
+    column-gap: 10px !important;
+    width: 200px !important;
+    grid-template-columns: 30px 170px !important;
+    font-size: 25px !important;
+    align-content: center !important;
+    align-items: center !important;
+    justify-content:  center !important;
+    justify-items: start !important;
+    width: 100% !important;
+    svg 
+    {
+        height: 40px !important;
     }
 }
 .searchDW

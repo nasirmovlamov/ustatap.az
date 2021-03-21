@@ -1,21 +1,41 @@
 .addsPage {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .addsPage .generalCont {
   width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .addsPage .contForBtnImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .addsPage .contForBtnImg .topButton {
@@ -27,8 +47,10 @@
   padding-left: 2%;
   padding-right: 2%;
   height: 130px;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
 .addsPage .linkAndButton .link {
@@ -41,8 +63,11 @@
 }
 
 .addsPage .linkAndButton .topButton {
-  align-self: center;
-  justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   padding: 0px;
   margin: 0px;
   width: 229px;
@@ -62,8 +87,11 @@
 }
 
 .addsPage .linkAndButton .topButtonHover {
-  align-self: center;
-  justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   padding: 0px;
   margin: 0px;
   width: 229px;
@@ -81,9 +109,13 @@
 .addsPage .adsContainer {
   margin-top: 50px;
   width: 100%;
-  justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   row-gap: 30px;
   gap: 30px;
   margin-bottom: 50px;
@@ -98,7 +130,10 @@
 }
 
 .filtrDW .categoryCont {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: auto;
 }
 
@@ -109,7 +144,10 @@
 
 .filtrDW .categoryCont .divider {
   width: auto;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: 30px;
   margin-bottom: 30px;
   width: 96%;
@@ -118,13 +156,17 @@
 }
 
 .filtrDW .categoryCont .divider .ctgryGrid {
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
   height: auto;
   row-gap: 20px;
 }
 
 .filtrDW .categoryCont .divider .ctgryGrid .part1, .filtrDW .categoryCont .divider .ctgryGrid .part2 {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   row-gap: 20px;
   width: auto;
 }
@@ -138,7 +180,8 @@
     width: 100%;
   }
   .generalCont .linkAndButton {
-    grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
     margin-bottom: 10px;
   }
   .generalCont .linkAndButton .link {
@@ -150,3 +193,17 @@
     margin-top: 30px;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .addsPage .generalCont {
+    width: 98%;
+  }
+  .addsPage .adsContainer {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    grid-gap: 3%;
+    row-gap: 10px;
+  }
+}
+/*# sourceMappingURL=addsPage.css.map */

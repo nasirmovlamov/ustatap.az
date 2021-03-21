@@ -27,8 +27,9 @@ function aboutUs() {
                 </div>
 
                 <p className="aboutText"> 
+                    <p className="aboutTitle">Haqqımızda</p>
                     <p>UstaTap.net layihəsi Azərbaycanda özəl elanlar üçün universal meydança təşkil etmək məqsədi ilə yaradılıb.</p>
-                    Hər bir kəs saytdan istifadə etməklə temir-tikintiyle bağlı bütün problemlerini paylaşa bilər. İstediyiniz ustalar,hemçinin şirkətlər haqqında məlumat ala ve xidmətlərdən yararlana bilərsiniz. Siz istədiyiniz elanı paylasdıqdan sonra ustalar təkliflərini bildirdikdə istədiyinizi secə bilərsiz. Sizə uyğun təklifləri yenidən bildirdikdən sonra ustayla elaqələndireceyik. Tək hədəfimiz görülən işin keyfiyyətli və problemsiz görülməsidir
+                        Hər bir kəs saytdan istifadə etməklə temir-tikintiyle bağlı bütün problemlerini paylaşa bilər. İstediyiniz ustalar,hemçinin şirkətlər haqqında məlumat ala ve xidmətlərdən yararlana bilərsiniz. Siz istədiyiniz elanı paylasdıqdan sonra ustalar təkliflərini bildirdikdə istədiyinizi secə bilərsiz. Sizə uyğun təklifləri yenidən bildirdikdən sonra ustayla elaqələndireceyik. Tək hədəfimiz görülən işin keyfiyyətli və problemsiz görülməsidir
                 </p>
 
 

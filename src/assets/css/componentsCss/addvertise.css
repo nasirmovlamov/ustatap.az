@@ -10,7 +10,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
 .addvertise .generalCont {
@@ -29,7 +29,7 @@
 }
 
 .addvertise .generalCont .reklamCont {
-  width: 100%;
+  width: 60%;
   font-size: 21px;
   color: black;
   height: auto;
@@ -76,7 +76,7 @@
   margin-bottom: 10px;
   height: 30px;
   margin-top: 5px;
-  width: 403px;
+  width: 100%;
   color: red;
 }
 
@@ -134,10 +134,11 @@
 }
 
 .addvertise .formCont .gridContForm {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100%;
   grid-row-gap: 60px;
   -ms-flex-line-pack: center;
@@ -145,9 +146,29 @@
   justify-items: center;
 }
 
+.addvertise .formCont .gridContForm .tg {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 5%;
+          column-gap: 5%;
+}
+
 .addvertise .formCont .gridContForm .errors {
-  width: 75%;
+  width: 100%;
   color: red;
+}
+
+.addvertise .formCont .gridContForm .errorsTx {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .addvertise .formCont .gridContForm input {
@@ -179,8 +200,7 @@
 }
 
 .addvertise .formCont textarea {
-  width: 84%;
-  margin-top: 50px;
+  width: 100%;
   padding: 20px;
   border: 2px solid gray;
   font-family: "FuturicaRegular";
@@ -206,7 +226,7 @@
   width: 100%;
   height: auto;
   padding-bottom: 100px;
-  margin-top: 100px;
+  margin-top: 0px;
   background-color: crimson;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -349,8 +369,49 @@
         grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 25px;
   }
-  .addvertise .formCont form .errors {
-    width: 90% !important;
+  .addvertise .formCont form textarea {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 496px) {
+  .addvertise .reklamCont .reklamTitle {
+    margin-left: 0px !important;
+  }
+  .addvertise .reklamCont .reklamText {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    margin-left: 0px !important;
+    text-align: center;
+  }
+  .addvertise .formCont {
+    width: 100%;
+  }
+  .addvertise .formCont form {
+    width: 95%;
+  }
+  .addvertise .formCont form .gridContForm {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 25px;
+  }
+  .addvertise .formCont form .tg {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 20px;
   }
   .addvertise .formCont form textarea {
     width: 100%;

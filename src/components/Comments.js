@@ -25,7 +25,7 @@ function Comments(props) {
     })
     const [CommentsUser, setCommentsUser] = useState([0])
     useEffect(() => {
-            axios.post("http://ustatap.testjed.me/public/api/getcomments" , {elan_id: props.id}) 
+            axios.post("https://ustatap.net/public/api/getcomments" , {elan_id: props.id}) 
             .then((res) =>  setCommentsUser(res.data) )
     }, [])
     
@@ -35,7 +35,7 @@ function Comments(props) {
     })
     const [Error, setError] = useState(false)
     const onSubmit =  (values) => {
-        axios.post("http://ustatap.testjed.me/public/api/postcomment" , {user_id:UserData?.user?.id, elan_id:props.id, text:values.comment}) 
+        axios.post("https://ustatap.net/public/api/postcomment" , {user_id:UserData?.user?.id, elan_id:props.id, text:values.comment}) 
         .then((res) =>  (res.status === 200 && window.location.reload() ))
     }
 

@@ -10,7 +10,7 @@ function GettedRequests(props) {
     const UserAdsArr = []
     useEffect(() => 
     {
-        axios.post("http://ustatap.testjed.me/public/api/user/ads" , {id:props.UserData.user.id}) 
+        axios.post("https://ustatap.net/public/api/user/ads" , {id:props.UserData.user.id}) 
              .then((res) =>  (setUserAds(res.data.elan)))
     }, [])
     UserAds?.map((ad) => UserAdsArr.push(<AdSorguLink  name={ ad.title} desc={ad.description}  date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id} userId={props.UserData?.id}/>)  ) 

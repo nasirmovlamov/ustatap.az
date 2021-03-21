@@ -9,8 +9,17 @@ import Button from '../../components/Button'
 import Cookies from 'js-cookie';
 import { useMediaQuery } from '@material-ui/core';
 
+import PulseLoader from "react-spinners/PulseLoader";
+import { css } from "@emotion/core";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 function MasterRegistration() {
     const masterImgMQ = useMediaQuery('(min-width:1240px)');
+    const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+    const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
 
     var expanded = false;
     const token = Cookies.get('XSRF-TOKEN') // => 'value'
@@ -30,25 +39,46 @@ function MasterRegistration() {
     }
 
 
-    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     
-
+    const [tagError, settagError] = useState(false)
+    const [ImageError, setImageError] = useState(false)
+    const [UserExistError, setUserExistError] = useState(false)
+    const [loader, setloader] = useState(false)
+    
+    var data = {
+        user:""
+    }
     const onSubmit =  (values) => {
-            
-            const FD = new FormData()
-            FD.append('name' , values.name)
-            FD.append('email' , values.email)
-            FD.append('phone' , values.phone)
-            FD.append('password' , values.password)
-            FD.append('categories' , values.selectedTag)
-            FD.append('city' , 1)
-            FD.append('district' , 1)
-            FD.append('profilePhoto' , profilePhoto)
-            FD.append('profilePhotoName' , profilePhoto.name)
-
-            axios.post('http://ustatap.testjed.me/public/api/reghandyman', FD , headers)
-             .then(res => console.log(res.data))
-             .catch(err => console.log(err))
+            if(profilePhoto !== null)
+            {
+                setImageError(false)
+                if (selectedTag.length >= 1) 
+                {
+                    setUserExistError("")
+                    settagError(false)
+                    setloader(true)
+                    const FD = new FormData()
+                    FD.append('name' , values.name)
+                    FD.append('email' , values.email)
+                    FD.append('phone' , values.phone)
+                    FD.append('password' , values.password)
+                    FD.append('categories' , values.selectedTag)
+                    FD.append('city' , city)
+                    FD.append('district' , 1)
+                    FD.append('profilePhoto' , profilePhoto)
+                    axios.post('https://ustatap.net/public/api/reghandyman', FD , headers)
+                    .then(res => (res.status == 200 && (console.log(res) ,  data.user = res.data , localStorage.setItem("LoginUserData" , JSON.stringify(data))  , window.location.href = "/" ) , setloader(false)))
+                    .catch(err => (setUserExistError(err.response.data.message[0]) ,  setloader(false)))
+                }
+                else 
+                {
+                    settagError(true)
+                }
+            }
+            else 
+            {
+                setImageError(true)
+            }
             
     }
     
@@ -67,18 +97,22 @@ function MasterRegistration() {
         name: Yup.string().required('Adınızı daxil edin'),
         email: Yup.string().email('E-lektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
         phone:  Yup.string().matches(phoneRegExp, 'Telefon nömrənizi düzgün daxil edin').required('Telefon nömrənizi daxil edin'),
-        password: Yup.string().required('Şifrəni daxil edin'),
+        password: Yup.string().matches(passRegex ,'Şifrəniz ən az 8 simvol 1 böyük hərf 1 kiçik hərf və 1 rəqəm təşkil etməlidir').required('Şifrənizi daxil edin'),
         confirmPassword:    Yup.string()
                             .oneOf([Yup.ref('password'), null], 'Şifrələr uyğun deyil')
     })
 
     const [tagsApi, settagsApi] = useState([0])
+    const [cityCategoryApi, setCityCategoryApi] = useState([0])
     const tags = []
+    const cityCategory = []
 
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
+        axios.get("https://ustatap.net/public/api/jobcategory") 
              .then((res) =>  (settagsApi(res.data)  ))
+        axios.get("https://ustatap.net/public/api/cities") 
+            .then((res) =>  (setCityCategoryApi(res.data) ))
     } ,[])
 
 
@@ -87,7 +121,13 @@ function MasterRegistration() {
 
     
     const selectHandler = (num) => {
-        
+        if (selectedTag.length >= 1) {
+            settagError(false)
+        }
+        else 
+        {
+            settagError(true)
+        }
         if(selectedTag.includes(num))
         {
             document.getElementById(`btn${num}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
@@ -125,6 +165,7 @@ function MasterRegistration() {
         alt: 'Upload an Image'
     });
     const ppchanger = (e) => {
+        
         if(e.target.files[0]) {
             document.getElementById('imgPreview').setAttribute('style' , 'height:100px;border:1px solid gray;')
             setImg({
@@ -133,9 +174,13 @@ function MasterRegistration() {
             });    
         }   
         setprofilePhoto(e.target.files[0])
+        if(profilePhoto !== null)
+        {
+            setImageError(false)
+        }
     }
 
-    const [city, setcity] = useState("Bakı")
+    const [city, setcity] = useState(1)
     const citySelect = (e) => {
         setcity(e.target.value)
     }
@@ -154,21 +199,25 @@ function MasterRegistration() {
                 <div className="formContReg">
                     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}>
                         <Form action="" method="post">
-                            <Field type="text" name="name" placeholder="Ad və soyad"/>
-                            <div className="errors"><ErrorMessage name="name"/></div>
+                            <div className="errors">
+                                <Field type="text" name="name" placeholder="Ad və soyad"/>
+                                <ErrorMessage name="name"/>
+                            </div>
 
-                            <select onChange={citySelect} value={city}  name="city" >
-                                <option selected value="Bakı">Bakı</option>
-                                <option value="Şuşa">Şuşa</option>
+                            <select onChange={citySelect} name="city">
+                                {cityCategoryApi.map(element => <option selected value={element.id}>{element.name}</option> )}
                             </select>
 
                             
+                            <div className="errors">
+                                <Field placeholder="Elektron poçt ünvanı" name="email" />
+                                <ErrorMessage name="email"/>
+                            </div>
 
-                            <Field placeholder="Elektron poçt ünvanı" name="email" />
-                            <div className="errors"><ErrorMessage name="email"/></div>
-
-                            <Field placeholder="Telefon nömrəsi" name="phone" />
-                            <div className="errors"><ErrorMessage name="phone"/></div>
+                            <div className="errors">
+                                <Field placeholder="Telefon nömrəsi" name="phone" />
+                                <ErrorMessage name="phone"/>
+                            </div>
 
                         
 
@@ -178,14 +227,23 @@ function MasterRegistration() {
                                     {tags}
                                 </p>
                             </div>
-                            <Field name="password" type="password" placeholder="Şifrə"/>
-                            <div className="errors"><ErrorMessage name="password"/></div>
 
-                            <Field name="confirmPassword" type="password" placeholder="Təkrar şifrə" />
-                            <div className="errors"><ErrorMessage name="confirmPassword"/></div>
+                            <div className="errors">
+                                <Field name="password" type="password" placeholder="Şifrə"/>
+                                <ErrorMessage name="password"/>
+                            </div>
+
+                            <div className="errors">
+                                <Field name="confirmPassword" type="password" placeholder="Təkrar şifrə" />
+                                <ErrorMessage name="confirmPassword"/>
+                            </div>
+
                             <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Şəklinizi yükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
-
                             <div className="btnAndImg"><img className="imgPreview" id="imgPreview" src={src} width="auto" height="100px" alt=""/>  <Button type="submit" name="Qeydiyatdan keç"/></div>
+                            {UserExistError &&  <p className="errorsDown"> {UserExistError}</p> }
+                            {tagError && <p className="errorsDown"> Ən az 1 kategoriya seçin</p>}
+                            {ImageError &&<p className="errorsDown">  Profil şəkli yükləyin</p>}
+                            {loader && <div className="errorsDown"><PulseLoader  color={"#5aba42"} loading={loader} css={override} size={25} /></div>}
                         </Form>
                     </Formik>
                     </div>

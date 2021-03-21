@@ -2,13 +2,16 @@ import React from 'react'
 import "../assets/css/componentsCss/subBanner.css"
 import  bannerBg from "../assets/images/component/background/subBannerBg.jpg"
 function SubBanner(props) {
-    const margin = {
-        marginTop: props.marginTop,
-        marginBottom: props.marginBottom
+    
+    const bgImg = {
+        backgroundImage: `url(https://ustatap.net/storage/app/public/${props?.banner?.image})`,
+        backgroundRepeat: 'no-repeat',  
+        backgroundSize: '100%',  
+        backgroundPosition: 'center',  
     }
+    
     return (
-        <div className="subBanner" style={margin}>
-            Banner
+        <div className="subBanner" style={bgImg}>
         </div>
     )
 }

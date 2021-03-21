@@ -87,7 +87,7 @@
         {
             margin-top: 50px;
             width: 100%;
-            justify-content: center;
+            justify-content: space-around;
             display: flex;
             flex-wrap: wrap;
             row-gap: 30px;
@@ -166,6 +166,24 @@
             {
                 margin-top: 30px;
             }
+        }
+    }
+    
+}
+
+//Mobile 
+@media only screen and (max-width: 420px) {
+    .addsPage
+    {
+        .generalCont 
+        {
+            width: 98%;
+        }
+        .adsContainer
+        {
+            justify-content: space-between;
+            grid-gap: 3%;
+            row-gap: 10px;
         }
     }
     

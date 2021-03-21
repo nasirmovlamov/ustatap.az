@@ -25,7 +25,7 @@ function RequestsToElans() {
         if (UserData?.user?.id !== undefined) 
         {
             if (!regChecker) {
-                axios.post("http://ustatap.testjed.me/public/api/getsorgu" , {user_id: UserData?.user?.id  }) 
+                axios.post("https://ustatap.net/public/api/getsorgu" , {user_id: UserData?.user?.id  }) 
                 .then((res) =>  (setUserAds(res.data) , setregChecker(true) ))
             }
         }

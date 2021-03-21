@@ -40,10 +40,10 @@ function SelectedMaster(props) {
     masters.push( MasterApi.map(master =>  <Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)   ) 
     useEffect(() => 
     {
-        axios.get(`http://ustatap.testjed.me/public/api/handyman/${mainId}`) 
+        axios.get(`https://ustatap.net/public/api/handyman/${mainId}`) 
              .then((res) =>  (setSelectedMaster(res.data)))
 
-        axios.get("http://ustatap.testjed.me/public/api/handymen") 
+        axios.get("https://ustatap.net/public/api/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
     } , [])
 
@@ -88,7 +88,7 @@ function SelectedMaster(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame mainImg={`http://ustatap.testjed.me/${SelectedMaster.image}`} image={0} color="#F27B29" height="550px" heightImg="382px" widthImg="458px"/>
+                    <Frame mainImg={`https://ustatap.net/${SelectedMaster.image}`} image={0} color="#F27B29" height="550px" heightImg="382px" widthImg="458px"/>
                     <div className="aboutAd">
                         <p className="title">{SelectedMaster.name}</p>
                         <div className="subTitle">

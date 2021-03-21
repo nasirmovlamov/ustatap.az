@@ -1,28 +1,50 @@
 .userRegCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .userRegCont .formAndImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 50px;
-  column-gap: 40px;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
 }
 
 .userRegCont .formAndImg form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  margin-top: 150px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 100px;
   width: 530px;
 }
 
 .userRegCont .formAndImg form .btnAndImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 50px;
   height: 30px;
 }
@@ -42,16 +64,23 @@
 .userRegCont .formAndImg form .addFile {
   margin: 0px;
   padding: 0px;
+  margin-top: 20px;
   border: none;
   background-color: white;
   border: 1px solid gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .userRegCont .formAndImg form .addFile .textPhoto {
   margin: 0px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   color: black;
   font-size: 18px;
   font-family: "ComfortaaRegular";
@@ -65,10 +94,17 @@
 
 .userRegCont .formAndImg form .errors {
   margin-bottom: 10px;
-  height: 30px;
-  margin-top: 5px;
-  width: 403px;
+  margin-top: 25px;
+  width: 100%;
   color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 5px;
 }
 
 .userRegCont .formAndImg form input {
@@ -87,7 +123,8 @@
 }
 
 .userRegCont .formAndImg form .button {
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   width: 210.89px;
   height: 40px;
   border-radius: 30px;
@@ -114,3 +151,4 @@
     width: 100% !important;
   }
 }
+/*# sourceMappingURL=userRegistration.css.map */

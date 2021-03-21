@@ -2,15 +2,23 @@
   width: 280px;
   height: 270px;
   background-color: #58BC40;
-  box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .vipCompany:hover {
-  box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
+  -webkit-transition: 1s -webkit-box-shadow;
+  transition: 1s -webkit-box-shadow;
   transition: 1s box-shadow;
+  transition: 1s box-shadow, 1s -webkit-box-shadow;
 }
 
 .vipCompany .crown {
@@ -22,9 +30,15 @@
 .vipCompany .logoCont {
   width: 100%;
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #fff;
   background-size: cover !important;
 }
@@ -32,9 +46,15 @@
 .vipCompany .logoContVipAd1 {
   width: 100%;
   height: 156px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #fff;
   background-size: cover !important;
   border: none;
@@ -45,10 +65,16 @@
   padding-right: 18px;
   padding-top: 15px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   height: 60px;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: start;
 }
 
@@ -71,9 +97,15 @@
 }
 
 .vipCompany .aboutTextMaster .bottomImgCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .vipCompany .aboutTextMaster .bottomImgCont .address {
@@ -88,9 +120,15 @@
 }
 
 .vipCompany .aboutTextMaster .bottomImgCont .stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: -5px;
 }
 
@@ -100,9 +138,15 @@
   border: none;
   background: transparent;
   padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .vipCompany .aboutTextMaster .bottomImgCont .heartBtn svg {
@@ -110,7 +154,14 @@
 }
 
 .vipCompany .aboutTextMaster .bottomImgCont p {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+/*# sourceMappingURL=vipAd3.css.map */

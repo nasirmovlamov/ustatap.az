@@ -96,6 +96,12 @@
   margin-right: 10%;
 }
 
+.footer .mailSubs .aboutPart input {
+  font-size: 15px;
+  width: 120px;
+  height: 0px;
+}
+
 .footer .mailSubs .aboutPart p {
   margin: 0;
 }

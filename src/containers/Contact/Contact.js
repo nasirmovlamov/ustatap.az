@@ -19,7 +19,7 @@ function Contact(props) {
     })
     const onSubmit =  (values) => {
 
-            axios.post('http://ustatap.testjed.me/elaqe', {values: values})
+            axios.post('https://ustatap.net/elaqe', {values: values})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }

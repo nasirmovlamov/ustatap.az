@@ -18,7 +18,7 @@ function Ad(props) {
     
     
     const bgImg = {
-        backgroundImage: `url(http://ustatap.testjed.me/${props.image})`,
+        backgroundImage: `url(https://ustatap.net/${props.image})`,
         backgroundRepeat: 'no-repeat',  
         backgroundSize: 'cover',  
         backgroundPosition: 'top center',  

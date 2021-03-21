@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import  "../../assets/css/PagesCss/addsPage.css"
 import axios from "axios"
 import {
-    Link
+    Link, useParams
   } from "react-router-dom";
 import Category from '../../components/Category';
 import Button from '../../components/Button';
@@ -30,6 +30,9 @@ const stylesForSwiper = makeStyles({
 
 function AddsPage(props) {
     const btnFilter = useMediaQuery('(max-width:1030px)');
+    let { asideId } = useParams();
+
+
 
     document.title = " Ustatap.net Elanlar"
     const [Adds, setAdds] = useState([])
@@ -43,12 +46,21 @@ function AddsPage(props) {
 
     var AllAd = []
     jobCategoryApi.map((category) => jobCategory.push(category.category_id))
-    
+    console.log(asideId);
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/public/api/ad") 
-            .then((res) =>  (setlatestAdApi(res.data) ))
-        url = window.location.href;
+        if(asideId === undefined)
+        {
+              axios.get("https://ustatap.net/public/api/ad") 
+              .then((res) =>  (setlatestAdApi(res.data) ))
+              url = window.location.href;
+        }
+        else 
+        {
+          axios.get(`https://ustatap.net/public/api/elan/${asideId}`) 
+          .then((res) =>  (setlatestAdApi(res.data) ))
+          url = window.location.href;
+        }
     } , [])
     latestAdApi.map(ad => { AllAd.push(<Ad name={ ad.title} desc={ad.description} address={ad.city} date={ad.created_at} view={ad.views} image={ad.images} id={ad.id}/>)   } ) 
     const [filterCategory, setFilterCategory] = useState(0)
@@ -61,15 +73,11 @@ function AddsPage(props) {
     if (filter) {
         AllAd = []
         setfilter(0)
-        axios.post("http://ustatap.testjed.me/public/api/elanfilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , date:ListingResult.date , } ) 
+        axios.post("https://ustatap.net/public/api/elanfilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , date:ListingResult.date , } ) 
         .then((res) =>  (setlatestAdApi(res.data) ))
         latestAdApi.map(ad => { AllAd.push(<Ad name={ ad.title} desc={ad.description} address={ad.city} date={ad.created_at} view={ad.views} image={ad.images} id={ad.id}/>)   } ) 
     }
 
-
-
-
-    
     const searchDrawer = stylesForSwiper();
     const [stateFiltr, setStateFiltr] = React.useState({
       top: false,

@@ -13,7 +13,7 @@ function Profile(props) {
     }
 
     const onSubmit =  (values) => {
-            axios.post('http://ustatap.testjed.me/public/api/user/info', {id: props.UserData.user.id, name: values.name  ,  phone: values.phone} , headers)
+            axios.post('https://ustatap.net/public/api/user/info', {id: props.UserData.user.id, name: values.name  ,  phone: values.phone} , headers)
              .then(res => window.location.reload() , localStorage.clear())
              .catch(err => console.log(err))
     }

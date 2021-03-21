@@ -131,24 +131,27 @@ function HomePage(props) {
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [MasterApi, setMasterApi] = useState([0])
     const [CompanyApi, setCompanyApi] = useState([0])
+    const [Banners, setBanners] = useState([0])
     
     useEffect(() => 
     {
-        axios.get("http://ustatap.testjed.me/public/api/ad") 
+        axios.get("https://ustatap.net/public/api/ad") 
              .then((res) =>  (setlatestAdApi(res.data)  ))
-        axios.get("http://ustatap.testjed.me/public/api/handymen") 
+        axios.get("https://ustatap.net/public/api/handymen") 
              .then((res) =>  (setMasterApi(res.data) ))
-        axios.get("http://ustatap.testjed.me/public/api/company") 
+        axios.get("https://ustatap.net/public/api/company") 
              .then((res) =>  (setCompanyApi(res.data) ))
-        axios.get("http://ustatap.testjed.me/public/api/jobcategory") 
+        axios.get("https://ustatap.net/public/api/jobcategory") 
              .then((res) =>  (setJobCategoryApi(res.data) ))
-
+        axios.get("https://ustatap.net/public/api/banners") 
+             .then((res) =>  (setBanners(res.data) ))
     },[] )
+    
     latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} desc={ad.user_name} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
-                <img  width='30px' height='auto'  src={`http://ustatap.testjed.me/storage/app/public/${category.icon}`} alt={props.name}/>
+                <img  width='30px' height='auto'  src={`https://ustatap.net/storage/app/public/${category.icon}`} alt={props.name}/>
                 <p>{category.name}</p>
                 <button ><img  src={arrDown} alt=""/></button>
             </div>
@@ -212,7 +215,7 @@ function HomePage(props) {
           {jobCategoryApi.map( category => 
             <Accordion square >
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography>{category.name}</Typography>
+                    <Typography><img  width='30px' height='auto'  src={`http://ustatap.net/storage/app/public/${category.icon}`} alt={props.name}/> {category.name} <img  src={arrDown} alt="" /> </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <List>
@@ -280,7 +283,7 @@ function HomePage(props) {
                             
                     
 
-                        <SubBanner marginTop="60px" marginBottom="78px"/>
+                        <SubBanner banner={Banners.bannerone} marginTop="60px" marginBottom="78px"/>
 
 
                     {
@@ -313,7 +316,7 @@ function HomePage(props) {
                             <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
                         </div>
 
-                        <SubBanner marginTop="60px" marginBottom="78px"/>
+                        <SubBanner banner={Banners.bannertwo} marginTop="60px" marginBottom="78px"/>
                     
                         {
                             props.hideVip &&
@@ -343,7 +346,31 @@ function HomePage(props) {
                             </div>     
                             <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
                         </div>
-                        
+                        <div className="typeAddContainer"> 
+                            <p className="title">Santexnika elanları</p>
+                            <div className="line4"></div>
+                            <div className="adsContainer">
+                                {
+                                        santexnika.length !== 0 ?
+                                            (santexnika.length >= 1 ? santexnika : <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                        : ""
+                                }
+                            </div>      
+                            <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
+                        </div>
+
+                        <div className="typeAddContainer"> 
+                            <p className="title">Elektrik elanları</p>
+                            <div className="line5"></div>
+                            <div className="adsContainer">
+                                {
+                                        electric.length !== 0 ?
+                                            (electric.length >= 1 ? electric : <PulseLoader color={color} loading={loading} css={override} size={25} />)
+                                        : ""
+                                }
+                            </div>  
+                            <Link to="/elanlar"> <Button name="Bütün elanlara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
+                        </div>
 
                     </div> 
                 {/* All Grids  All Grids  All Grids  All Grids  All Grids  All Grids  All Grids */}

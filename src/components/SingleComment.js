@@ -13,7 +13,7 @@ import * as Yup from "yup"
 function SingleComment(props) {
     
     const imgHandler = {
-        backgroundImage: `url(http://ustatap.testjed.me/${props.image})` ,
+        backgroundImage: `url(https://ustatap.net/${props.image})` ,
         backgroundSize: 'cover',
         backgroundPosition: 'top center',
         backgroundRepeat: 'no-repeat'
