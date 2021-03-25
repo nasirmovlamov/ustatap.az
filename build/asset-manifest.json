@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.a289b172.chunk.css",
-    "main.js": "/static/js/main.ab52e15a.chunk.js",
-    "main.js.map": "/static/js/main.ab52e15a.chunk.js.map",
+    "main.css": "/static/css/main.0f4bfabe.chunk.css",
+    "main.js": "/static/js/main.38a21101.chunk.js",
+    "main.js.map": "/static/js/main.38a21101.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.46b0ddde.js",
     "runtime-main.js.map": "/static/js/runtime-main.46b0ddde.js.map",
     "static/css/2.8c351eba.chunk.css": "/static/css/2.8c351eba.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.44462760.chunk.js.map": "/static/js/3.44462760.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.8c351eba.chunk.css.map": "/static/css/2.8c351eba.chunk.css.map",
-    "static/css/main.a289b172.chunk.css.map": "/static/css/main.a289b172.chunk.css.map",
+    "static/css/main.0f4bfabe.chunk.css.map": "/static/css/main.0f4bfabe.chunk.css.map",
     "static/js/2.d5d91959.chunk.js.LICENSE.txt": "/static/js/2.d5d91959.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/Comfortaa-Regular.99567c98.ttf",
     "static/media/HomePage.css": "/static/media/HomePageBG.030d219c.png",
@@ -115,7 +115,7 @@
     "static/js/runtime-main.46b0ddde.js",
     "static/css/2.8c351eba.chunk.css",
     "static/js/2.d5d91959.chunk.js",
-    "static/css/main.a289b172.chunk.css",
-    "static/js/main.ab52e15a.chunk.js"
+    "static/css/main.0f4bfabe.chunk.css",
+    "static/js/main.38a21101.chunk.js"
   ]
 }

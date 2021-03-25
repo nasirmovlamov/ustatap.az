@@ -300,23 +300,22 @@
             }
             .putAd
             {
-                width: 132px;
-                height: 41px;
+                width: 152px;
+                height: 37px;
                 background-color: #5ABA42;
                 color:white;
                 letter-spacing: 1px;
-                font-size: 11px;
+                font-size: 12px;
                 border:none;
                 display:flex;
                 justify-content:center;
                 align-items:center;
                 border-radius: 121px;
                 font-family: "ComfortaaRegular";
-
                 span
                 {
                     margin-right: 5px;
-                    font-size: 24px;
+                    font-size: 18px;
                 }
                 &:focus {
                     outline:none;

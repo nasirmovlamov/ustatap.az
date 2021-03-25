@@ -59,7 +59,7 @@ function MemberArea(props) {
             setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
         }
     })
-    var [status, setstatus] = useState(0)
+    var [status, setstatus] = useState(null)
     
     useEffect(() => {
         if ( props.UserData !== undefined ) {

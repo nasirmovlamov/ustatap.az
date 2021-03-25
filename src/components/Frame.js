@@ -42,11 +42,11 @@ function Frame(props) {
                 </div>
             </div>
             {props.image !== 0 && (<div className="subImgCont">
-                <button id="subBtn1"  onClick={() => subButtonHandler(1)}><img src={props.image[0]} alt="" className="imgCont"/></button>
-                <button id="subBtn2"  onClick={() => subButtonHandler(2)}><img src={props.image[1]} alt="" className="imgCont"/></button>
-                <button id="subBtn3"  onClick={() => subButtonHandler(3)}><img src={props.image[2]} alt="" className="imgCont"/></button>
-                <button id="subBtn4"  onClick={() => subButtonHandler(4)}><img src={props.image[3]} alt="" className="imgCont"/></button>
-                <button id="subBtn5"  onClick={() => subButtonHandler(5)}><img src={props.image[4]} alt="" className="imgCont"/></button>
+                <button id="subBtn1"  onClick={() => subButtonHandler(1)}>{props?.image[0] && <img src={props?.image[0]} alt="" className="imgCont"/>}</button>
+                <button id="subBtn2"  onClick={() => subButtonHandler(2)}>{props?.image[1] && <img src={props?.image[1]} alt="" className="imgCont"/>}</button>
+                <button id="subBtn3"  onClick={() => subButtonHandler(3)}>{props?.image[2] && <img src={props?.image[2]} alt="" className="imgCont"/>}</button>
+                <button id="subBtn4"  onClick={() => subButtonHandler(4)}>{props?.image[3] && <img src={props?.image[3]} alt="" className="imgCont"/>}</button>
+                <button id="subBtn5"  onClick={() => subButtonHandler(5)}>{props?.image[4] && <img src={props?.image[4]} alt="" className="imgCont"/>}</button>
             </div>)}
         </div>
     )

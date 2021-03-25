@@ -84,7 +84,7 @@ function AddElan(props) {
       fd.append("thumb" , thumb)
       fd.append("sliderImages" , [profilePhoto2 ,profilePhoto3 , profilePhoto4 ])
       axios.post('https://ustatap.net/public/api/postad', fd , headers)
-      .then(res => (console.log(res) , setloaderSubmit(false) ))
+      .then(res => (console.log(res) , setloaderSubmit(false) , res.status === 200 ? window.location.href = "/" : console.log("")))
       .catch(err => console.log(err))
       
     }
@@ -211,9 +211,9 @@ function AddElan(props) {
             <h2>Elan əlavə edin</h2>
             <Formik initialValues={initialValues}  validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}>
                 <Form action="" method="post">
-                  <Field   disabled={parseInt(props.status) === 1 ? false : true}  type="text" className="input" placeholder={"Elan adını daxil edin"} name="elanname"/>
+                  <Field   disabled={parseInt(props.status) === 1 ? true : false}  type="text" className="input" placeholder={"Elan adını daxil edin"} name="elanname"/>
                   <div  className="errors"><ErrorMessage name="elanname"/></div>
-                  <Field as="textarea" disabled={parseInt(props.status) === 1 ? false : true} className="textarea input"  type="text"  placeholder={"Elan haqqında ətraflı daxil edin"} name="elandesc"/>
+                  <Field as="textarea" disabled={parseInt(props.status) === 1 ? true : false} className="textarea input"  type="text"  placeholder={"Elan haqqında ətraflı daxil edin"} name="elandesc"/>
                   <div className="errors"><ErrorMessage  name="elandesc" /></div>
                   <div className="selectMaterial">
                     <Autocomplete
@@ -221,7 +221,7 @@ function AddElan(props) {
                         onChange={(event, newValue , newValue2 , category) => {
                             setjobcategory(category?.option?.id);
                         }}
-                        disabled={parseInt(props.status) === 1 ? false : true}
+                        disabled={parseInt(props.status) === 1 ? true : false}
                         inputValue={inputValue}
                         onInputChange={(event, newInputValue) => {
                           setInputValue(newInputValue);
@@ -239,7 +239,7 @@ function AddElan(props) {
                   <div className="selectMaterial">
                     <Autocomplete
                         value={jobcategory}
-                        disabled={parseInt(props.status) === 1 ? false : true}
+                        disabled={parseInt(props.status) === 1 ? true : false}
                         onChange={(event, newValue , newValue2 , category) => {
                             setcity(category?.option?.id);
                             console.log(category?.option?.id)
@@ -256,13 +256,13 @@ function AddElan(props) {
                       />  
                   </div>
                   <div className="imgGrid">
-                      <button  type="button" className="addFile" style={btn1Bg}><p className="textPhoto">{thumb?.name !== undefined ? setprofilethumb.name  : "Əsas Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? false : true} multiple onChange={ppchanger1} type="file" className="addFileInput" name="profile" id=""/> </button>
-                      <button type="button" className="addFile" style={btn2Bg}> <p className="textPhoto">{profilePhoto2?.name !== undefined ? profilePhoto2.name  : "2ci Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? false : true} multiple onChange={ppchanger2} type="file" className="addFileInput" name="profile" id=""/></button>
-                      <button type="button" className="addFile" style={btn3Bg}> <p className="textPhoto">{profilePhoto3?.name !== undefined ? profilePhoto3.name  : "3cü Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? false : true} multiple onChange={ppchanger3} type="file" className="addFileInput" name="profile" id=""/></button>
-                      <button type="button" className="addFile" style={btn4Bg}> <p className="textPhoto">{profilePhoto4?.name !== undefined ? profilePhoto4.name  : "4cü Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? false : true} multiple onChange={ppchanger4} type="file" className="addFileInput" name="profile" id=""/></button>
+                      <button  type="button" className="addFile" style={btn1Bg}><p className="textPhoto">{thumb?.name !== undefined ? setprofilethumb.name  : "Əsas Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? true : false} multiple onChange={ppchanger1} type="file" className="addFileInput" name="profile" id=""/> </button>
+                      <button type="button" className="addFile" style={btn2Bg}> <p className="textPhoto">{profilePhoto2?.name !== undefined ? profilePhoto2.name  : "2ci Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? true : false} multiple onChange={ppchanger2} type="file" className="addFileInput" name="profile" id=""/></button>
+                      <button type="button" className="addFile" style={btn3Bg}> <p className="textPhoto">{profilePhoto3?.name !== undefined ? profilePhoto3.name  : "3cü Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? true : false} multiple onChange={ppchanger3} type="file" className="addFileInput" name="profile" id=""/></button>
+                      <button type="button" className="addFile" style={btn4Bg}> <p className="textPhoto">{profilePhoto4?.name !== undefined ? profilePhoto4.name  : "4cü Şəkil"}</p><input disabled={parseInt(props.status) === 1 ? true : false} multiple onChange={ppchanger4} type="file" className="addFileInput" name="profile" id=""/></button>
                   </div>
 
-                  <Button disabled={parseInt(props.status) === 1 ? false : true} type="submit" name="Elan əlavə et"/>
+                  <Button disabled={parseInt(props.status) === 1 ? true : false} type="submit" name="Elan əlavə et"/>
                   <PulseLoader color={"#5aba42"} loading={loaderSubmit} css={override} size={25} />
                   {ppError && <div className="errors">Elana ən az 1 şəkil əlavə edin</div>}
 

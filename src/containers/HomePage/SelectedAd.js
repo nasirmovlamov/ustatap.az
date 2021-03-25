@@ -137,7 +137,7 @@ function SelectedAd(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    {frameContMQ &&<Frame image={image} mainImg={ `https://ustatap.net/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>}
+                    {frameContMQ &&<Frame image={SelectedAd} mainImg={ `https://ustatap.net/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>}
 
                     {/* Mobile Slider */}
                     {!frameContMQ && <div className={stpperSytle1.root}>
