@@ -89,6 +89,10 @@
 
 .mastersCont .aboutText .name {
   font-size: 18px;
+  width: 190px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   color: black;
   text-align: start;
   margin: 0px;
@@ -96,6 +100,9 @@
 }
 
 .mastersCont .aboutText .job {
+  width: 195px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 17px;
   font-family: "ComfortaaRegular";
   color: #F97922;

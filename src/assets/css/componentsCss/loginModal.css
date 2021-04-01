@@ -25,6 +25,7 @@
 }
 
 .loginModal form {
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,7 +80,7 @@
   border: none;
   margin-top: 20px;
   height: 54px;
-  width: 400px;
+  width: 100%;
   padding-left: 30px;
   border-radius: 10px;
   font-size: 18px;

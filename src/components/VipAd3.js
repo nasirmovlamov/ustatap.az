@@ -104,6 +104,10 @@ function VipAd3(props) {
              .catch(err => console.log(err))
     }
     const ratingHandler = (rate) => {
+        if(rate===null)
+        {
+            rate = props.numberStar
+        }
         if (UserData?.user?.id === undefined) {
             window.location.href = "/login"
         }
@@ -132,7 +136,7 @@ function VipAd3(props) {
                     <p className="name">{props.name}</p>
                     <div className="bottomImgCont"> 
                         <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
-                        <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
+                        <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>  
                         <button className="heartBtn" onClick={() => heartPost()}><FavoriteIcon id={props.id}/></button>
                     </div>
                 </div>

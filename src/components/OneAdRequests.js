@@ -10,12 +10,11 @@ function OneAdRequests(props) {
     const [UserAds, setUserAds] = useState([0])
     const UserAdsArr = []
     let { id } = useParams();
-    useEffect(() => 
-    {
-        axios.post("https://ustatap.net/public/api/gethandysorgu" , {elan_id:id}) 
-             .then((res) =>  (setUserAds(res.data)))
+    useEffect(() => {
+        axios.post("https://ustatap.net/public/api/gethandysorgu", { elan_id: id })
+            .then((res) => (setUserAds(res.data)))
     }, [])
-    UserAds?.map((master) => UserAdsArr.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)  ) 
+    UserAds?.map((master) => UserAdsArr.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating} />))
     return (
         <div className="myAds">
             {UserAdsArr}

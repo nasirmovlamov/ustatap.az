@@ -45,6 +45,10 @@
         font-size: 15px;
         color: white;
         font-family: "ComfortaaRegular";
+        width: 246px;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
     }
     .description 
     {

@@ -107,12 +107,17 @@ function Ad3(props) {
         }
         else 
         {
+            if(rate===null)
+            {
+                rate = props.numberStar
+            }
+            console.log(rate);
             axios.post('https://ustatap.net/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
                 .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
                 .catch(err => console.log(err))
         }
-        
     }
+
     return (
 
             <div className="companies">

@@ -110,7 +110,12 @@
         background: url(../../images/page/background/HomePageBG.png) no-repeat;
         background-size: cover;
     }
+    
 
+    .button 
+    {
+        margin-top: 10px;
+    }
     .main
     {
         width: 95%;
@@ -236,24 +241,39 @@
         } 
         .allAdsContainer
         {
+            margin-bottom: 50px;
             width: auto;
             display:flex;
             flex-direction: column;
             align-items:center;
             justify-content: flex-start;
             width: 100%;
+            .mobileCatBtn
+            {
+                width: 40px;
+                height: 40px;
+                background-color: red;
+                border: none;
+                background-image: url('../../images/component/background/construction.svg');
+                background-position: center;
+                background-size: cover;
+            }
             .css-1g85zfd, .css-1g85zfd
             {
                 grid-column: 1/5;
             }
-
             .typeAddContainer
             {
                 display:flex;
                 align-self: flex-start;
                 flex-direction: column;
                 align-items: flex-start;
+                align-items: center;
                 padding-bottom: 30px;
+                .goToAll
+                {
+                    align-self: center;
+                }
             }
             p 
             {
@@ -373,9 +393,14 @@
                 width: 100% ;
                 .typeAddContainer
                 {
+                    .title 
+                    {
+                        width: 100%;
+                        text-align: center;
+                    }
                     .adsContainer
                     {
-                        justify-content: space-between;
+                        justify-content: center;
                         grid-gap: 3%;
                         row-gap: 10px;
                     }

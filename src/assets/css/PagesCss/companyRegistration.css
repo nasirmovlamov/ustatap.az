@@ -101,7 +101,6 @@
 .companyRegCont form .button {
   width: 238px;
   height: 53px;
-  border-radius: 30px;
 }
 
 .companyRegCont input {
@@ -121,8 +120,22 @@
 }
 
 .companyRegCont .errors {
-  margin-bottom: 30px;
   color: red;
+}
+
+.companyRegCont .errorsDown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 30px;
+  margin-top: 45px;
+  width: 100%;
+  color: red;
+  margin-bottom: 15px;
 }
 
 .companyRegCont select {
@@ -131,7 +144,6 @@
   font-size: 17px;
   border: none;
   border-bottom: 1px solid lightgray;
-  margin-bottom: 57px;
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -147,6 +159,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  row-gap: 20px;
   width: 49.5%;
 }
 
@@ -159,7 +172,9 @@
 }
 
 .companyRegCont .formPart2 {
+  margin-top: 20px;
   width: 49.5%;
+  row-gap: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,10 +182,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.companyRegCont .formPart2 .selections {
-  margin-top: -34px;
 }
 
 .companyRegCont .formPart2 .selections .titleSelections {

@@ -137,7 +137,7 @@ function SelectedAd(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    {frameContMQ &&<Frame image={SelectedAd} mainImg={ `https://ustatap.net/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>}
+                    {frameContMQ &&<Frame image={SelectedAd?.slider} mainImg={`https://ustatap.net/public/${SelectedAd.images}`} height="420px" heightImg="282px" widthImg="458px"/>}
 
                     {/* Mobile Slider */}
                     {!frameContMQ && <div className={stpperSytle1.root}>
@@ -177,12 +177,12 @@ function SelectedAd(props) {
                            {SelectedAd.description}
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p><img width="16" src={locationCity} alt=""/> <span>Şəhər: Bakı {SelectedAd.city}</span></p></a>
-                            <a href="#"><p><img width="16" src={humanSelectedAd} alt=""/> <span>Sifarişçi: Nasir Movlamov {SelectedAd?.costumer}</span></p></a>   
+                            <a href="#"><p><img width="16" src={locationCity} alt=""/> <span>Şəhər:  {SelectedAd.city_id}</span></p></a>
+                            <a href="#"><p><img width="16" src={humanSelectedAd} alt=""/> <span>Sifarişçi:  {SelectedAd?.user_data?.name}</span></p></a>   
                         </div>
                         <div className="aboutButtons">
-                            <p>Elan yerləşdirilib: <pre className="date"> 14.11.2021{SelectedAd?.created_at?.slice(0 , 10)}</pre></p> 
-                            <p><img src={selectedAdEye} alt=""/> <span> 180{SelectedAd.views}</span></p> 
+                            <p>Elan yerləşdirilib: <pre className="date"> {SelectedAd?.created_at?.slice(0 , 10)}</pre></p> 
+                            <p><img src={selectedAdEye} alt=""/> <span> {SelectedAd.views}</span></p> 
                             <p><img src={heart} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
                             <Button type="button" function={() => functionApply()} name="Mən bu işi Görərəm"/> 
                         </div>

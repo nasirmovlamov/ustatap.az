@@ -48,8 +48,8 @@ const stylesForSwiper = makeStyles({
   }); 
 
 
-
 function MemberArea(props) {
+
     const asideMQ = useMediaQuery('(max-width:1170px)');
     const cabinetLogoMQ = useMediaQuery('(max-width:852px)');
     const [UserData, setUserData] = useState(0)
@@ -59,14 +59,11 @@ function MemberArea(props) {
             setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
         }
     })
-    var [status, setstatus] = useState(null)
+    var [status, setstatus] = useState(0)
     
     useEffect(() => {
-        if ( props.UserData !== undefined ) {
-            axios.get(`http://ustatap.testjed.me/public/api/checkstatus/${props.userId}`) 
-                .then( (res) =>  setstatus(res.data)  )
-            localStorage.setItem("LoginUserData" , JSON.stringify(props.UserData))
-        }
+            axios.get(`http://ustatap.net/public/api/checkstatus/${props.userId}`) 
+                .then( (res) =>  console.log(res.data)  )
     }, [])
 
     const imgHandler =  {
@@ -204,7 +201,7 @@ function MemberArea(props) {
     return (
         <div className="memberArea">
             <div className="memberAreaCont">
-            { parseInt(status) === 0 ? <Alert className="alertVerify"  severity="error">Hesabınızı elektron poçtunuza daxil olaraq aktiv edin</Alert> : ""}
+                { parseInt(status) === 1 ?  "" : <Alert className="alertVerify"  severity="error">Hesabınızı elektron poçtunuza daxil olaraq aktiv edin. Spam qovluğunu yoxlamağı unutmayın</Alert> }
                 <div className="topSide">
                    {!cabinetLogoMQ && <img src={logo} alt="" width="92" height="auto" /> }
                     <div className="cabinetTop" style={imgHandler}>Şəxsi kabinet <div  className="nameDiv"> <p> {props.UserData?.user?.name}  </p></div>  </div> 

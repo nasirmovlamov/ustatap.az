@@ -6,7 +6,7 @@ import axios from 'axios'
 import { css } from "@emotion/core";
 import PulseLoader from "react-spinners/PulseLoader";
 import "../../assets/css/PagesCss/userRegistration.css"
-import user from "../../assets/images/page/background/userRegistration.svg"
+import user from "../../assets/images/page/background/userRegistration.jpg"
 import Button from '../../components/Button'
 import TopSelection from '../../components/TopSelection'
 import Cookies from 'js-cookie'

@@ -50,6 +50,10 @@
                 {
                     margin: 0px ;
                     align-self: center;
+                    width: 150px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
                     color: black;
                     font-size: 18px;
                     font-family: "ComfortaaRegular";

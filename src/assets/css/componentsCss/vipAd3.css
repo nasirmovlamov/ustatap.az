@@ -85,6 +85,10 @@
 .vipCompany .aboutTextMaster .name {
   font-size: 15px;
   color: white;
+  width: 246px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-family: "ComfortaaRegular";
 }
 

@@ -123,6 +123,10 @@
   background-size: cover;
 }
 
+.homePage .button {
+  margin-top: 10px;
+}
+
 .homePage .main {
   width: 95%;
   display: -webkit-box;
@@ -277,6 +281,7 @@
 }
 
 .homePage .main .allAdsContainer {
+  margin-bottom: 50px;
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -292,6 +297,16 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   width: 100%;
+}
+
+.homePage .main .allAdsContainer .mobileCatBtn {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border: none;
+  background-image: url("../../images/component/background/construction.svg");
+  background-position: center;
+  background-size: cover;
 }
 
 .homePage .main .allAdsContainer .css-1g85zfd, .homePage .main .allAdsContainer .css-1g85zfd {
@@ -313,7 +328,16 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-bottom: 30px;
+}
+
+.homePage .main .allAdsContainer .typeAddContainer .goToAll {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .homePage .main .allAdsContainer p {
@@ -427,10 +451,14 @@
     width: 100%;
     margin-top: 30px;
   }
+  .homePage .main .allAdsContainer .typeAddContainer .title {
+    width: 100%;
+    text-align: center;
+  }
   .homePage .main .allAdsContainer .typeAddContainer .adsContainer {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     grid-gap: 3%;
     row-gap: 10px;
   }

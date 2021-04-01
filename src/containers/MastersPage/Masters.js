@@ -58,6 +58,7 @@ function Masters(props) {
     MasterApi.map(master =>  {})
     useEffect(() => 
     {  
+      console.log(asideId);
        if(asideId === undefined)
         {
             axios.get("https://ustatap.net/public/api/handymen") 
@@ -65,7 +66,7 @@ function Masters(props) {
         }
         else 
         {
-            axios.get(`https://ustatap.net/public/api/handymen/${asideId}`) 
+            axios.get(`https://ustatap.net/public/api/ustalar/${asideId}`) 
             .then((res) =>  (setMasterApi(res.data) ))
         }
     } , [])

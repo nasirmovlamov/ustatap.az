@@ -7,6 +7,13 @@ import {Formik , Form , Field, ErrorMessage} from "formik"
 import * as Yup from "yup"
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import PulseLoader from "react-spinners/PulseLoader";
+import { css } from "@emotion/core";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 function CompanyRegistration() {
 
@@ -16,12 +23,22 @@ function CompanyRegistration() {
     }
 
 
-    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+    const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
+    const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
     
-   
-
+    const [tagError, settagError] = useState(false)
+    const [ImageError, setImageError] = useState(false)
+    const [UserExistError, setUserExistError] = useState(false)
+    const [loader, setloader] = useState(false)
+    var data = {
+        user:""
+    }
     const onSubmit =  (values) => {
-
+        if(profilePhoto !== null)
+        {
+            setImageError(false)
+            if (selectedTag.length >= 1) 
+            {
                 const FD = new FormData()
                 FD.append('name' , values.name)
                 FD.append('email' , values.email)
@@ -34,8 +51,18 @@ function CompanyRegistration() {
                 FD.append('district' , 1)
                 FD.append('profilePhoto' , profilePhoto)
                 axios.post('https://ustatap.net/public/api/regcompany',  FD, headers)
-                    .then(res => console.log(res))
-                    .catch(err => console.log(err))
+                .then(res => (res.status == 200 && (console.log(res) ,  data.user = res.data , localStorage.setItem("LoginUserData" , JSON.stringify(data))  , window.location.href = "/" ) , setloader(false)))
+                .catch(err => (setUserExistError(err.response.data.message[0]) ,  setloader(false)))
+            }
+            else 
+            {
+                settagError(true)
+            }
+        }
+        else 
+        {
+            setImageError(true)
+        }
             
     }
     
@@ -58,7 +85,7 @@ function CompanyRegistration() {
         voen: Yup.string().required('Voen daxil edin'),
         email: Yup.string().email('Elektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
         phone:  Yup.string().matches(phoneRegExp, 'Telefon nömrənizi dügün daxil edin').required('Telefon nömrənizi daxil edin'),
-        password: Yup.string().required('Şifrənizi  daxil edin'),
+        password: Yup.string().matches(passRegex ,'Şifrəniz ən az 8 simvol 1 böyük hərf 1 kiçik hərf və 1 rəqəm təşkil etməlidir').required('Şifrənizi daxil edin'),
         confirmPassword:    Yup.string()
                             .oneOf([Yup.ref('password'), null], 'Şifrələr uyğun deyil')
     })
@@ -66,11 +93,15 @@ function CompanyRegistration() {
 
     const [tagsApi, settagsApi] = useState([0])
     const tags = []
+    const [cityCategoryApi, setCityCategoryApi] = useState([0])
 
     useEffect(() => 
     {
             axios.get("https://ustatap.net/public/api/jobcategory") 
              .then((res) =>  (settagsApi(res.data)  ))
+
+             axios.get("https://ustatap.net/public/api/cities") 
+            .then((res) =>  (setCityCategoryApi(res.data) ))
     } ,[])
     const [selectedTag,setSelectedTag] = useState([])
     tagsApi.map((tag) => tags.push(<button  type="button" onClick={() => selectHandler(tag.id)} id={`btn${tag.id}`}>{tag.name}</button>)) 
@@ -143,53 +174,63 @@ function CompanyRegistration() {
             
             <TopSelection value3="1"/>
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}>
-
                 <Form action="" method="post">
                     <div className="inputSelectCont">
                         <div className="formPart1">
-                            <Field type="text" name="name" placeholder="Şirkətin adı" />
-                            <div className="errors"><ErrorMessage name="name"/></div>
+                            <div className="errors">
+                                <Field type="text" name="name" placeholder="Şirkətin adı" />
+                                <ErrorMessage name="name"/>
+                            </div>
                             
-                            <select onChange={citySelect} value={city}  name="city" >
-                                <option selected value="Bakı">Bakı</option>
-                                <option value="Şuşa">Şuşa</option>
+                            <select onChange={citySelect} name="city">
+                                {cityCategoryApi.map(element => <option selected value={element.id}>{element.name}</option> )}
                             </select>
 
-                            <Field type="text" name="address" placeholder="Ünvanı"/>
-                            <div className="errors"><ErrorMessage name="address"/></div>
+                            <div className="errors">
+                                <Field type="text" name="address" placeholder="Ünvanı"/>
+                                <ErrorMessage name="address"/>
+                            </div>
 
-                            <Field type="tel" name="phone" placeholder="Telefon nömrəsi"/>
-                            <div className="errors"><ErrorMessage name="phone"/></div>
-                            <Field type="password" name="password" placeholder="Şifrə"/>
-                            <div className="errors"><ErrorMessage name="password"/></div>
-                            <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Şəklinizi yükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
+                            <div className="errors">
+                                <Field type="tel" name="phone" placeholder="Telefon nömrəsi"/>
+                                <ErrorMessage name="phone"/>
+                            </div>
+                            
+                            <div className="errors">
+                                <Field type="password" name="password" placeholder="Şifrə"/>
+                                <ErrorMessage name="password"/>
+                            </div>
+
+                            <div className="errors">
+                                <Field type="password" name="confirmPassword" placeholder="Təkrar şifrə" />
+                                <ErrorMessage name="confirmPassword"/>
+                            </div>
                         </div>
 
                         <div className="formPart2">
+                            <div className="errors">
                             <Field type="text" name="voen" placeholder="VÖEN" />
-                            <div className="errors"><ErrorMessage name="voen"/></div>
-
-                            
-                            <select onChange={districtSelect} value={district}  name="district"  placeholder="Rayon">
-                                <option selected value="İsmayıllı">İsmayıllı</option>
-                                <option value="Ağdərə">Ağdərə</option>
-                            </select>
+                            <ErrorMessage name="voen"/>
+                            </div>
                             <div className="selections">
                                 <p className="titleSelections">Hansı işləri görürsünüz ? (maksimum 3 ədəd seçə bilərsiniz)</p>
                                 <p className="buttons">
                                     {tags}
                                 </p>
                             </div>
-
-                            <Field type="email" name="email" placeholder="Elektron poçt ünvanı"/>
-                            <div className="errors"><ErrorMessage name="email"/></div>
-
-                            <Field type="password" name="confirmPassword" placeholder="Təkrar şifrə" />
-                            <div className="errors"><ErrorMessage name="confirmPassword"/></div>
-
+                            <div className="errors">
+                                <Field type="email" name="email" placeholder="Elektron poçt ünvanı"/>
+                                <ErrorMessage name="email"/>
+                            </div>
+                            <button type="button" className="addFile"> <p className="textPhoto">{profilePhoto?.name !== undefined ? profilePhoto.name  : "Şəklinizi yükləyin"}</p><input onChange={ppchanger} type="file" className="addFileInput" name="profile" id=""/></button>
+                            
+                            <div className="btnAndImg"><img className="imgPreview" id="imgPreview" src={src} width="auto" height="100px" alt=""/>  <Button type="submit" name="Qeydiyatdan keç"/></div>
+                            {UserExistError &&  <p className="errorsDown"> {UserExistError}</p> }
+                            {tagError && <p className="errorsDown"> Ən az 1 kategoriya seçin</p>}
+                            {ImageError &&<p className="errorsDown">  Profil şəkli yükləyin</p>}
+                            {loader && <div className="errorsDown"><PulseLoader  color={"#5aba42"} loading={loader} css={override} size={25} /></div>}
                         </div>
                         </div>
-                        <div className="btnAndImg"><img className="imgPreview" id="imgPreview" src={src} width="auto" height="100px" alt=""/>  <Button type="submit" name="Qeydiyatdan keç"/></div>
 
                 </Form>
             </Formik>

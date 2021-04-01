@@ -20,13 +20,11 @@ function MasterRegistration() {
     const masterImgMQ = useMediaQuery('(min-width:1240px)');
     const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
     const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
-
     var expanded = false;
     const token = Cookies.get('XSRF-TOKEN') // => 'value'
     const headers = {
         "X-CSRF-TOKEN": token
     }
-
     function showCheckboxes() {
         var checkboxes = document.getElementById("checkboxes");
         if (!expanded) {
@@ -37,52 +35,45 @@ function MasterRegistration() {
             expanded = false;
         }
     }
-
-
-    
     const [tagError, settagError] = useState(false)
     const [ImageError, setImageError] = useState(false)
     const [UserExistError, setUserExistError] = useState(false)
     const [loader, setloader] = useState(false)
-    
     var data = {
         user:""
     }
     const onSubmit =  (values) => {
-            if(profilePhoto !== null)
+        if(profilePhoto !== null)
+        {
+            setImageError(false)
+            if (selectedTag.length >= 1) 
             {
-                setImageError(false)
-                if (selectedTag.length >= 1) 
-                {
-                    setUserExistError("")
-                    settagError(false)
-                    setloader(true)
-                    const FD = new FormData()
-                    FD.append('name' , values.name)
-                    FD.append('email' , values.email)
-                    FD.append('phone' , values.phone)
-                    FD.append('password' , values.password)
-                    FD.append('categories' , values.selectedTag)
-                    FD.append('city' , city)
-                    FD.append('district' , 1)
-                    FD.append('profilePhoto' , profilePhoto)
-                    axios.post('https://ustatap.net/public/api/reghandyman', FD , headers)
-                    .then(res => (res.status == 200 && (console.log(res) ,  data.user = res.data , localStorage.setItem("LoginUserData" , JSON.stringify(data))  , window.location.href = "/" ) , setloader(false)))
-                    .catch(err => (setUserExistError(err.response.data.message[0]) ,  setloader(false)))
-                }
-                else 
-                {
-                    settagError(true)
-                }
+                setUserExistError("")
+                settagError(false)
+                setloader(true)
+                const FD = new FormData()
+                FD.append('name' , values.name)
+                FD.append('email' , values.email)
+                FD.append('phone' , values.phone)
+                FD.append('password' , values.password)
+                FD.append('categories' , values.selectedTag)
+                FD.append('city' , city)
+                FD.append('district' , 1)
+                FD.append('profilePhoto' , profilePhoto)
+                axios.post('https://ustatap.net/public/api/reghandyman', FD , headers)
+                .then(res => (res.status == 200 && (console.log(res) ,  data.user = res.data , localStorage.setItem("LoginUserData" , JSON.stringify(data))  , window.location.href = "/" ) , setloader(false)))
+                .catch(err => (setUserExistError(err.response.data.message[0]) ,  setloader(false)))
             }
             else 
             {
-                setImageError(true)
+                settagError(true)
             }
-            
+        }
+        else 
+        {
+            setImageError(true)
+        }
     }
-    
-    
     const initialValues = {
         name:'',
         email:'',
@@ -92,7 +83,6 @@ function MasterRegistration() {
         city:'',
         district:''
     }
-      
     const validationSchema = Yup.object({
         name: Yup.string().required('Adınızı daxil edin'),
         email: Yup.string().email('E-lektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
@@ -101,24 +91,19 @@ function MasterRegistration() {
         confirmPassword:    Yup.string()
                             .oneOf([Yup.ref('password'), null], 'Şifrələr uyğun deyil')
     })
-
     const [tagsApi, settagsApi] = useState([0])
     const [cityCategoryApi, setCityCategoryApi] = useState([0])
     const tags = []
     const cityCategory = []
-
     useEffect(() => 
     {
         axios.get("https://ustatap.net/public/api/jobcategory") 
-             .then((res) =>  (settagsApi(res.data)  ))
+            .then((res) =>  (settagsApi(res.data)  ))
         axios.get("https://ustatap.net/public/api/cities") 
-            .then((res) =>  (setCityCategoryApi(res.data) ))
+            .then((res) =>  (setCityCategoryApi(res.data)))
     } ,[])
-
-
     const [selectedTag,setSelectedTag] = useState([])
     tagsApi.map((tag) => tags.push(<button  type="button" onClick={() => selectHandler(tag.id)} id={`btn${tag.id}`}>{tag.name}</button>)) 
-
     
     const selectHandler = (num) => {
         if (selectedTag.length >= 1) {
@@ -141,7 +126,6 @@ function MasterRegistration() {
                 document.getElementById(`btn${selectedTag[0]}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
                 selectedTag.shift()
             }
-
         }
         else
         {
@@ -159,13 +143,12 @@ function MasterRegistration() {
     }
 
     const [profilePhoto, setprofilePhoto] = useState(null)
-    
     const [{alt, src}, setImg] = useState({
         src: "",
         alt: 'Upload an Image'
     });
+
     const ppchanger = (e) => {
-        
         if(e.target.files[0]) {
             document.getElementById('imgPreview').setAttribute('style' , 'height:100px;border:1px solid gray;')
             setImg({
@@ -188,6 +171,7 @@ function MasterRegistration() {
     const districtSelect = (e) => {
         setdistrict(e.target.value)
     }
+
     return (
         <div className="masterRegistrationCont">
             

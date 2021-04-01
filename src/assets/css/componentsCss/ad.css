@@ -42,7 +42,7 @@ a {
 }
 
 .ad .dateAd {
-  width: 63px;
+  width: 69px;
   font-size: 12px;
   overflow: hidden;
   margin: 0px;
@@ -118,6 +118,10 @@ a {
 }
 
 .ad .subCont .flexCont1 p {
+  width: 225px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: black;
 }
 
@@ -127,6 +131,9 @@ a {
   font-size: 14px;
   height: 300px !important;
   margin-bottom: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ad .subCont .flexCont2 {
@@ -242,6 +249,7 @@ a {
     height: auto !important;
     margin-bottom: 0px;
     height: auto;
+    width: 225px;
   }
   .ad .subCont .flexCont2 {
     display: -webkit-box;

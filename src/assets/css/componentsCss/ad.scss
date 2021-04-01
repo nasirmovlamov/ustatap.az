@@ -36,7 +36,7 @@ a
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     .dateAd
     {
-        width: 63px;
+        width: 69px;
         font-size: 12px;
         overflow: hidden;
         margin: 0px;
@@ -90,6 +90,10 @@ a
             margin-top:17px;
             p 
             {
+                width: 225px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
                 color: black;
             }
         }
@@ -101,6 +105,9 @@ a
             font-size: 14px;
             height: 300px !important; 
             margin-bottom: 0px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
         .flexCont2
         {
@@ -201,8 +208,10 @@ a
             height: auto !important;
             margin-bottom: 0px;
             height: auto;
+            width: 225px;
+            
         }
-        .flexCont2
+        .flexCont2  
         {
             display: flex;
             height: auto;

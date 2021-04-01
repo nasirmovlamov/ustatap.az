@@ -60,18 +60,20 @@ function SearchBox(props) {
     } , [])
 
     const searchClick = () => {
-        
-        const obj =  {type:props.type , jobcategory:jobcategory , city:city } 
+        const obj =  {type:Type, jobcategory:jobcategory , city:city } 
         localStorage.setItem("SearchResult" , JSON.stringify(obj))
         window.location.href = '/search'
     }
 
     const categoriesOptions = [];
+    const typeOptions = [{title:"Elan" , id:"elan"} , {title:"Usta", id:"handyman" } , {title:'Şirkət', id: 'company'}];
     const cityOptions = [];
     jobCategoryApi.map(element => categoriesOptions.push({title:element.name , id:element.id}))
     cityCategoryApi.map(element => cityOptions.push({title:element.name , id:element.id})) 
     const [inputValue, setInputValue] = React.useState('');
     const [inputValue2, setInputValue2] = React.useState('');
+    const [inputValue3, setInputValue3] = React.useState('');
+    const [Type, setType] = useState(typeOptions[0].type);
     const [jobcategory, setjobcategory] = useState(categoriesOptions[0].id);
     const [city, setcity] = useState(cityOptions[0].id);
 
@@ -88,14 +90,26 @@ function SearchBox(props) {
                     <div className="dropdownCont">
                         <div class="dropbtn" >
                             <img src={drpLogo1} alt=""/>
-                            <FormControl className={classes.formControl}>
-                                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={props.type} onChange={(value) => handleChange(value)}>
-                                    <MenuItem value={"elan"}>Elan</MenuItem>
-                                    <MenuItem value={"handyman"}>Usta</MenuItem>
-                                    <MenuItem value={"company"}>Şirkət</MenuItem>
-                                </Select>
-                            </FormControl>
                             
+                            <div className="selectMaterial selectMaterialType">
+                                <Autocomplete
+                                    value={Type}
+                                    onChange={(event, newValue , newValue2 , category) => {
+                                        setType(category?.option?.id)
+                                    }}
+                                    inputValue={inputValue3}
+                                    onInputChange={(event, newInputValue) => {
+                                        console.log(newInputValue)
+                                        setInputValue3(newInputValue);
+                                    }}
+                                    id="combo-box-demo"
+                                    options={typeOptions}
+                                    getOptionLabel={(option) => (option.title)}
+                                    style={{ width: "140px", height: "35px" }}
+                                    renderInput={(params) => <TextField {...params}  placeholder="Elan , Usta , Şirkət"  />}
+                                />  
+
+                            </div>
                         </div>
 
                         <div class="dropbtn" >
@@ -108,8 +122,7 @@ function SearchBox(props) {
                                     }}
                                     inputValue={inputValue}
                                     onInputChange={(event, newInputValue) => {
-                                    setInputValue(newInputValue);
-                                    console.log(newInputValue)
+                                        setInputValue(newInputValue);
                                     }}
                                     id="combo-box-demo"
                                     options={categoriesOptions}

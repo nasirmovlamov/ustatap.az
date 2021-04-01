@@ -84,6 +84,10 @@ function VipAd2(props) {
              .catch(err => console.log(err))
     }
     const ratingHandler = (rate) => {
+        if(rate===null)
+            {
+                rate = props.numberStar
+            }
         if (UserData?.user?.id === undefined) {
             window.location.href = "/login"
         }

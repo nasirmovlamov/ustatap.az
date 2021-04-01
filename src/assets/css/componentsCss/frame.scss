@@ -1,7 +1,6 @@
 .FrameCont
 {
     width: 556px;
-}
 
 .frame
 {
@@ -18,6 +17,7 @@
     }
     
 }
+
 .overlay
 {
     width: 405px;
@@ -71,16 +71,21 @@
         border: none;
         padding: 0 !important;
         margin-left:6px;
+        width: 101px;
+        height: 90px;
         &:focus 
         {
             outline: none;
         }
     }
-    img 
+    .imgContDiv 
     {
         margin-left: 6px;
         width: 101px;
         height: 90px;
+        background-size: cover !important;
+        background-position: top center;
+        background-repeat: no-repeat;
         &:nth-child(1)
         {
             margin-left: 0px;
@@ -89,6 +94,10 @@
 }
 .imgCont 
 {
-    
-    background-size: 100% auto !important;
+    background-size: cover !important;
+        background-position: top center;
+        background-repeat: no-repeat;
+}
+
+
 }

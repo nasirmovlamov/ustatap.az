@@ -27,6 +27,7 @@ function Ad(props) {
              .catch(err => console.log(err))
              console.log(checker);}
     }, [])
+    
     if(checker)
     {
         document?.getElementById(`${props.id}`)?.setAttribute('style' , 'color:red;')
@@ -90,7 +91,7 @@ function Ad(props) {
                 <div className="subCont">
                     <div className="flexCont1">  <p>{props.name}</p>  <button className="btnHeart" onClick={() => heartPost()}><FavoriteIcon  id={props.id}/></button> </div>
                     <p className="nameCostumer">{!ad && "Sifarişçi"} {props.desc}</p>
-                    <div className="flexCont2">   <p>Ünvan: {props.address} </p>       {!ad && <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props.date} </pre></p> }   <p><img src={eye}  alt=""/>{props.view}</p> </div>
+                    <div className="flexCont2">   <p>Ünvan: {props.address} </p>       {!ad && <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props?.date?.slice(0,10)} </pre></p> }   <p><img src={eye}  alt=""/>{props.view}</p> </div>
                 </div>
             </div>
             

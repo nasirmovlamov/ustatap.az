@@ -39,7 +39,7 @@ function Ad2(props) {
 
     const bgImg = {
         backgroundImage: `url(https://ustatap.net/${props.image})`,
-        backgroundSize: "cover !important" ,
+        backgroundSize: "100%" ,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top center',
         backgroundColor: 'white'
@@ -81,12 +81,19 @@ function Ad2(props) {
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
+
+
     const ratingHandler = (rate) => {
         if (UserData?.user?.id === undefined) {
             window.location.href = "/login"
         }
         else 
         {
+            if(rate===null)
+            {
+                rate = props.numberStar
+            }
+            console.log(rate);
             axios.post('https://ustatap.net/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
                 .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
                 .catch(err => console.log(err))

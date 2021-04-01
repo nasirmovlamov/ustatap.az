@@ -62,6 +62,10 @@
                     margin: 0px ;
                     align-self: center;
                     color: black;
+                    width: 200px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
                     font-size: 18px;
                     font-family: "ComfortaaRegular";
                     position: absolute;
