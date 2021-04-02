@@ -82,33 +82,35 @@ function Ad2(props) {
              .catch(err => console.log(err))
     }
 
-
-    const ratingHandler = (rate) => {
+    console.log();
+    const { id } = props;
+    const idReturner = () => {
+        return id
+    }
+    const ratingHandler = (value , id ) => {
         if (UserData?.user?.id === undefined) {
             window.location.href = "/login"
         }
         else 
         {
-            if(rate===null)
+            if(value===null)
             {
-                rate = props.numberStar
+                value = props.numberStar
             }
-            console.log(rate);
-            axios.post('https://ustatap.net/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
-                .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
+            axios.post('https://ustatap.net/public/api/rate', {user_id:id , rate:value} )
+                .then(res => (console.log(res) , res.status === 200 && notify(value) ))
                 .catch(err => console.log(err))
         }
-        
     }
     return (
         
             <div className="mastersCont">
-                <Link to={"/masters/" + props.id} className="masterImg"  style={bgImg}><button className="masterImgBtn" onClick={() => viewHandler()}   ></button></Link>
+                <Link to={"/masters/" + id} className="masterImg"  style={bgImg}><button className="masterImgBtn" onClick={() => viewHandler()}   ></button></Link>
                 <div className="aboutText">
                     <p className="name">{props.name}</p>
                     <p className="job">{props.job}</p>
                     <p className="location"><img src={location} alt="location"/> {props.address}</p>
-                    <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
+                    <div className="stars"><Rating name="controlled"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue , id)}    /></div>
                     <p className="rating">Reyting sayı {props.rating} </p>
                     <button className="heartBtn"  onClick={() => heartPost()}><FavoriteIcon id={props.id}/></button>
                 </div> 

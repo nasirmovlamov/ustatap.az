@@ -211,7 +211,7 @@ function AddElan(props) {
         <Form action="" method="post">
           <Field disabled={parseInt(props.status) === 1 ? false : true} type="text" className="input" placeholder={"Elan adını daxil edin"} name="elanname" />
           <div className="errors"><ErrorMessage name="elanname" /></div>
-          <Field as="textarea" disabled={parseInt(props.status) === 1 ? true : false} className="textarea input" type="text" placeholder={"Elan haqqında ətraflı daxil edin"} name="elandesc" />
+          <Field as="textarea" disabled={parseInt(props.status) === 1 ? false : true} className="textarea input" type="text" placeholder={"Elan haqqında ətraflı daxil edin"} name="elandesc" />
           <div className="errors"><ErrorMessage name="elandesc" /></div>
           <div className="selectMaterial">
             <Autocomplete

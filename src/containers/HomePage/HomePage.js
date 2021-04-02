@@ -59,10 +59,16 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import {useTheme } from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-  
+import Slider1 from './Slider1'
+import Popper from '@material-ui/core/Popper';
+
+const PopperStyle = makeStyles((theme) => ({
+  paper: {
+    border: '1px solid',
+    padding: theme.spacing(1),
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const stylesForSwiper1 = makeStyles({
@@ -138,6 +144,7 @@ function HomePage(props) {
     const santexnika = []
     const electric = []
     const jobCategory = []
+    const jobCategory1 = []
     const [latestAdApi, setlatestAdApi] = useState([0])
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [MasterApi, setMasterApi] = useState([0])
@@ -178,13 +185,33 @@ function HomePage(props) {
             </div>  
         </button>
     ))
+
+    
+    const handleClickPopper = (event) => {
+        
+    };
+
+    jobCategoryApi.map((category) => jobCategory1.push(
+        <button className="contForAside"  type="button" onClick={() => handleClickPopper()}>
+            <div className="workTypeCont">
+                <img  width='30px' height='auto'  src={`https://ustatap.net/storage/app/public/${category.icon}`} alt={props.name}/>
+                <p>{category.name}</p>
+                <div><img  src={arrDown} alt=""/></div>
+            </div>
+            <div  className="wdCont" id={`wD${category.id}`} >
+                <p><Link to={`/elanlar/${category.id}`}>         Elanlar       <span>({category.post_count})</span>   </Link></p>
+                <p><Link to={`/ustalar/${category.id}`}>         Ustalar       <span>({category.hand_count})</span>   </Link></p>
+                <p><Link to={`/shirketler/${category.id}`}>      Şirkətlər     <span>({category.comp_count})</span>   </Link></p>
+            </div>  
+        </button>
+    ))
         
     latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} desc={ad.user_name} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
     latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
-    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.email} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating_count}/>)}})
-    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.job} address={master.city} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating_count}/> )}})
-    CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description} rating={company.rating_count}/>)}} )
-    CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description} rating={company.rating_count}/>)}} )
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.email} address={master.city?.name} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating_count}/>)}})
+    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.job} address={master.city?.name} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating_count}/> )}})
+    CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
+    CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
 
     
     const  clickHandler = (number) => {
@@ -257,30 +284,6 @@ function HomePage(props) {
         props.UserData?.id !== undefined ? history.push('/member-area/elan-add')  : window.location.href = "/login"  
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
-
     return (
         <div className="homePage">
 
@@ -296,24 +299,20 @@ function HomePage(props) {
 
                 {/* All Grids  All Grids  All Grids  All Grids  All Grids  All Grids  All Grids */}
                     <div className="allAdsContainer">
-                           
-                            
-                            {
-                                asideMQ && 
-                                <React.Fragment>
-                                    <SwipeableViews style={{width:"95%"}} axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'} index={activeStep} onChangeIndex={handleStepChange} enableMouseEvents>
-                                            <button className='mobileCatBtn' onClick={toggleDrawer2('right', true)}></button>
-                                            <img width="30px" src={adImage}  />
-                                            <img width="30px" src={adImage}  />
-                                            <img width="30px" src={adImage}  />
-                                            <img width="30px" src={adImage}  />
-                                    </SwipeableViews>
-                                    
-                                    <Drawer anchor={'right'} open={state2['right']} onClose={toggleDrawer2('right', false)}>
-                                        {list('right')}
-                                    </Drawer>
-                                </React.Fragment>
-                            }
+                                {
+                                    asideMQ && 
+                                    <>
+                                        {jobCategory1.length > 1 &&
+                                         <div className='sliderCont1'>
+                                            <Slider1 jobCategory={jobCategory1}/>
+                                        </div>}
+                                        <React.Fragment>
+                                            <Drawer anchor={'right'} open={state2['right']} onClose={toggleDrawer2('right', false)}>
+                                                {list('right')}
+                                            </Drawer>
+                                        </React.Fragment>
+                                    </>
+                                }
                             {
                                 asideMQ && 
                                 <Button name="+ Elan əlavə et" className="putAd" function={() => putAd()} width="100%" height="40px"/>

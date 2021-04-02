@@ -22,7 +22,6 @@ function Footer() {
 
     return (
         <footer className="footer">
-
             <div className="upSide">
                 <div className="number">
                     {titles && <p className="title">Əlaqə</p>}
@@ -34,23 +33,22 @@ function Footer() {
                 <hr className='mainHr' />
                 <div className="elements1">
                     {titles && <p className="title">Keçidlər</p>}
-                    <Link to="masters/Santexnik"><p>Santexnik</p></Link>
-                    <Link to="masters/elektrik"><p>Elektirik</p></Link>
-                    <Link to="masters/malyar"><p>Divar kağızı</p></Link>
-                    <Link to="masters/dulger"><p>Qapı pəncərə</p></Link>
-                    <Link to="masters/qaynaqci"><p>Qaynaqçı</p></Link>
-                    <Link to="masters/suvaqci"><p>Suvaqçı</p></Link>
-                    <Link to="masters/metlaq"><p>Metlaq</p></Link>
+                    <Link to="masters/"><p>Santexnik</p></Link>
+                    <Link to="masters/"><p>Elektirik</p></Link>
+                    <Link to="masters/"><p>Divar kağızı</p></Link>
+                    <Link to="masters/"><p>Qapı pəncərə</p></Link>
+                    <Link to="masters/"><p>Qaynaqçı</p></Link>
+                    <Link to="masters/"><p>Suvaqçı</p></Link>
+                    <Link to="masters/"><p>Metlaq</p></Link>
                 </div>
-
                 <div className="elements2">
-                    <Link to="masters/benna"><p>Bənna</p></Link>
-                    <Link to="masters/malyar"> <p>Malyar</p></Link>
-                    <Link to="masters/dosheme"> <p>Pol-Parket</p></Link>
-                    <Link to="masters/sushe-guzgu">  <p>Şüşə-Güzgü</p></Link>
-                    <Link to="masters/dulger">  <p>Dülgər</p></Link>
-                    <Link to="masters/dosheme">  <p>Döşəmə</p></Link>
-                    <Link to="masters/diger">  <p>Digər</p></Link>
+                    <Link to="masters/"><p>Bənna</p></Link>
+                    <Link to="masters/"> <p>Malyar</p></Link>
+                    <Link to="masters/"> <p>Pol-Parket</p></Link>
+                    <Link to="masters/">  <p>Şüşə-Güzgü</p></Link>
+                    <Link to="masters/">  <p>Dülgər</p></Link>
+                    <Link to="masters/">  <p>Döşəmə</p></Link>
+                    <Link to="masters/">  <p>Digər</p></Link>
                 </div>
                 <hr className='mainHr' />
 
@@ -66,9 +64,6 @@ function Footer() {
                     <div className="socialImgs"> <img src={facebook} alt="facebook" />  <img src={instagram} alt="instagram" />  <img src={linkedin} alt="linkedin" />  <img src={twitter} alt="twitter" /> </div>
                 </div>
             </div>
-
-
-
             <div className="downSide">
                 <hr className='mainHr' />
                 <p className="text">© Ustatap.net. Müəllif Hüquqları Qorunur.</p>

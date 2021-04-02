@@ -60,10 +60,11 @@ function MemberArea(props) {
         }
     })
     var [status, setstatus] = useState(0)
+    console.log(props.userId);
     
     useEffect(() => {
-            axios.get(`http://ustatap.net/public/api/checkstatus/${props.userId}`) 
-                .then( (res) =>  console.log(res.data)  )
+        axios.get(`https://ustatap.net/public/api/checkstatus/${JSON.parse(localStorage.getItem('LoginUserData'))?.user?.id}`) 
+            .then( (res) => ( setstatus(res.data)  , console.log(res.data)) )
     }, [])
 
     const imgHandler =  {

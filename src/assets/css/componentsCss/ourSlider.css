@@ -2,6 +2,10 @@
   color: black;
 }
 
+.sliderCont {
+  width: 500px;
+}
+
 .slick-track {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21,10 +25,5 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.slick-slider .slick-track, .slick-slider .slick-list {
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 /*# sourceMappingURL=ourSlider.css.map */

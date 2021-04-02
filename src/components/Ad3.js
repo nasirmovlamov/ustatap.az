@@ -58,7 +58,7 @@ function Ad3(props) {
     }
 
     const bgImg = {
-        backgroundImage: `url(https://ustatap.net/storage/app/public/${props.image})`,
+        backgroundImage: `url(https://ustatap.net/${props.image})`,
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         backgroundRepeat: 'no-repeat',
@@ -111,8 +111,8 @@ function Ad3(props) {
             {
                 rate = props.numberStar
             }
-            console.log(rate);
-            axios.post('https://ustatap.net/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
+            console.log(props.company_id);
+            axios.post('https://ustatap.net/public/api/rate', {user_id:props.id ,rate:rate} )
                 .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
                 .catch(err => console.log(err))
         }
