@@ -38,6 +38,7 @@
             flex-direction: column ;
             align-items: flex-start;
             justify-items: flex-start;
+            column-gap: 120px;
             p 
             {
                 margin: 0px;
@@ -173,13 +174,12 @@
     width: 85%;
     display: flex;
     justify-content: center;
-    column-gap: auto;
     height: auto;
     padding-top: 71px;
+    column-gap: 15%;
     padding-bottom: 62px;
     .number 
     {
-        margin: auto;
         margin-top: 10px;
         p 
         {
@@ -208,8 +208,6 @@
     }
     .elements1
     {
-        margin: auto;
-
         font-size: 19px;
         color: white;
         font-family: "ComfortaaRegular";
@@ -227,8 +225,6 @@
     }
     .elements2
     {
-        margin: auto;
-
         font-size: 19px;
         color: white;
         font-family: "ComfortaaRegular";
@@ -248,7 +244,9 @@
 
 .downSide
 {   
-    height: 51px;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 100%;
     margin-bottom: 10px;
     hr 
@@ -267,7 +265,22 @@
         color: rgba(229, 229, 229, 0.5);
         font-family: "ComfortaaRegular";
         text-align: center;
-
+    }
+    .downDown
+    {
+        display: flex;
+        justify-content: space-around;
+    }
+    .textCreator
+    {
+        font-size: 12px;
+        color: rgba(229, 229, 229, 0.5);
+        font-family: "ComfortaaRegular";
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        column-gap: 10px;
+        align-items: center;
     }
 }
 }

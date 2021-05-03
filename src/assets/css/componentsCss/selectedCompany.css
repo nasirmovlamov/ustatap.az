@@ -28,7 +28,14 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    row-gap: 25px;
+    row-gap: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .selectedCompany .aboutAd .aboutLinks a {
     border: none !important;
@@ -42,21 +49,40 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    row-gap: 35px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    row-gap: 10px;
+    margin-top: 15px !important;
+  }
+  .selectedCompany .aboutAd .aboutButtons .btnHeart {
+    padding-left: 0px;
+  }
+  .selectedCompany .aboutAd .aboutButtons .button {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-top: 10px;
   }
   .selectedCompany .aboutAd .bottomPart {
-    margin-top: 25px !important;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    row-gap: 35px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    flex-direction: column;
+    row-gap: 10px;
   }
   .selectedCompany .aboutAd .bottomPart .phoneOfMaster {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     border: none !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
   }
   .selectedCompany .aboutAd .bottomPart .social {
     margin-left: 0px !important;
@@ -70,9 +96,20 @@
     margin-left: 0px !important;
     border: none !important;
   }
+  .selectedCompany .aboutAd .bottomPart .mailOfMaster p {
+    margin-left: 0px !important;
+  }
+  .selectedCompany .aboutAd .bottomPart .mailOfMaster p a {
+    width: 250px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
   .selectedCompany .aboutAd .bottomPart a {
     border: none !important;
     margin-left: 0px !important;
+  }
+  .selectedCompany .aboutAd .bottomPart p {
+    margin-left: 0px;
   }
   .selectedCompany .frameAndText {
     width: 100% !important;
@@ -279,6 +316,13 @@
   width: auto;
 }
 
+.selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(1) p {
+  width: 300px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(2) {
   margin-left: 0px;
   font-size: 16px;
@@ -309,6 +353,15 @@
   width: 100%;
 }
 
+.selectedCompany .frameAndText .aboutAd .aboutButtons .btnHeart {
+  background-color: transparent;
+  border: none;
+}
+
+.selectedCompany .frameAndText .aboutAd .aboutButtons .btnHeart svg {
+  color: gray;
+}
+
 .selectedCompany .frameAndText .aboutAd .aboutButtons p {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -320,7 +373,6 @@
       -ms-flex-align: center;
           align-items: center;
   color: #000000;
-  opacity: 0.5;
 }
 
 .selectedCompany .frameAndText .aboutAd .aboutButtons p img {

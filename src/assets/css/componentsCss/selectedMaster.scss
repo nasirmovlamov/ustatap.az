@@ -135,13 +135,21 @@
             margin-top: 16px;
             width: 100%;
             flex-wrap: wrap;
+            .btnHeart
+            {
+                background-color: transparent;
+                border: none;
+                svg
+                {
+                    color: gray;
+                }
+            }
             p 
             {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 color: #000000;
-                opacity: 0.5;
                 font-size: 15px;
                 img 
                 {
@@ -267,20 +275,35 @@
             width: 95% !important;
             .aboutAd
             {
+                padding-left: 10px;
                 margin: 0px;
                 margin-top: 30px;
             }
             .aboutLinks
             {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 0px !important;
+                span
+                {
+                }
                 a
                 {
                     border: none !important;
                     margin-left: 0px !important;
                 }
             }
+            .aboutButtons
+            {
+                flex-direction: column;
+                align-items: flex-start;
+                .btnHeart
+                {
+                    padding-left: 0px;
+                }
+            }
             .numbers
             {
-                flex-direction: row !important;
                 column-gap: 30px;
             }
             .link

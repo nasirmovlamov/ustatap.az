@@ -44,7 +44,9 @@
             .aboutLinks
             {
                 justify-content: center;
-                row-gap: 25px;
+                row-gap: 10px;
+                flex-direction: column;
+                align-items: flex-start;
                 a 
                 {
                     border: none !important;
@@ -56,16 +58,28 @@
             {
                 justify-content: center;
                 flex-direction: column;
-                row-gap: 35px;
+                align-items: flex-start;
+                row-gap: 10px;
+                margin-top: 15px !important;
+                .btnHeart
+                {
+                    padding-left: 0px;
+                }
+                .button 
+                {
+                    align-self: flex-end;
+                    margin-top: 10px;
+                }
             }
             .bottomPart
             {
-                margin-top: 25px !important;
+                flex-direction: column;
+                align-items: flex-start;
                 .phoneOfMaster
                 {
-                    justify-content: center;
+                    flex-direction: column;
                     border: none !important;
-
+                    align-items: flex-start !important;
                 }
                 .social
                 {
@@ -77,6 +91,16 @@
                 {
                     margin-left: 0px !important;
                     border: none !important;
+                    p 
+                    {
+                        a 
+                        {
+                            width: 250px;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                        margin-left: 0px !important;
+                    }
                 }
                 a 
                 {
@@ -84,7 +108,11 @@
                     margin-left: 0px !important;
                 }
                 flex-direction: column;
-                row-gap: 35px;
+                row-gap: 10px;
+                p 
+                {
+                    margin-left: 0px;
+                }
             }
         }
         .frameAndText
@@ -98,7 +126,7 @@
             .frame
             {
                 width: 100% !important;
-                justify-content: center;
+                justify-content: center; 
                 .imgCont
                 {
                     width: 100% !important;
@@ -259,6 +287,14 @@
                     margin-left: 0px;
                     font-size: 16px;
                     width: auto;
+                    p 
+                    {
+                        width: 300px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+
+                    }
                 }
                 &:nth-child(2)
                 {
@@ -289,13 +325,21 @@
             font-size: 10px;
             margin-top: 26px;
             width: 100%;
+            .btnHeart
+            {
+                background-color: transparent;
+                border: none;
+                svg
+                {
+                    color: gray;
+                }
+            }
             p 
             {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 color: #000000;
-                opacity: 0.5;
 
                 img 
                 {

@@ -19,13 +19,13 @@ import Rating from '@material-ui/lab/Rating';
 
 function Ad3(props) {
     const [UserData, setUserData] = useState(0)
-    useEffect(() => {
-        if(props.userId !== undefined)
-        {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
-             .then(res => setChecker(res.data))
-             .catch(err => console.log(err))
-             console.log(checker);}
-    }, [])
+    // useEffect(() => {
+    //     if(props.userId !== undefined)
+    //     {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
+    //          .then(res => setChecker(res.data))
+    //          .catch(err => console.log(err))
+    //          console.log(checker);}
+    // }, [])
     useEffect(() => {
         if (UserData?.user?.id === undefined) 
         {
@@ -65,69 +65,95 @@ function Ad3(props) {
         backgroundColor: 'white'
     }
     
-    const [checker , setChecker] = useState(false)
     
-    const heartPost = () => {
-        if(UserData?.user?.id !== undefined)
-        {    
-        if(!checker)
-        {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-            axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId , type: 3 })
-             .then(res => (console.log(res) ))
-             .catch(err => console.log(err))
-             setChecker(true)
-            const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
-
-        }
-        else 
-        {
-            document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-            axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId, type: 3 })
-             .then(res => (console.log(res) ))
-             .catch(err => console.log(err))
-             setChecker(false)
-            const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
-        }
-        }
-        else 
-        {
-            window.location.href = "/login"
-        }
-    }
+    
     
     const viewHandler = () => {
         axios.post('https://ustatap.net/public/api/increment', {id:props.id})
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
-    const ratingHandler = (rate) => {
+    const ratingHandler = (value) => {
         if (UserData?.user?.id === undefined) {
             window.location.href = "/login"
         }
         else 
         {
-            if(rate===null)
+            if(value===null)
             {
-                rate = props.numberStar
+                value = props.numberStar
             }
-            console.log(props.company_id);
-            axios.post('https://ustatap.net/public/api/rate', {user_id:props.id ,rate:rate} )
-                .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
+            axios.post('https://ustatap.net/public/api/rate', {user_id:props.id , rate:value} )
+                .then(res => ( console.log(res.data) ,res.status === 200 && notify(value) ))
                 .catch(err => console.log(err))
         }
     }
 
+
+    useEffect(() => {
+        if (JSON.parse(sessionStorage.getItem('secilmishShirket') ) !== null )
+        {
+            var selecteds = JSON.parse(sessionStorage.getItem('secilmishShirket'))
+            var index = selecteds.findIndex(x=> x.id === props.id)
+            if (index !== -1) {
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+            }
+        }
+    }, [])
+
+    const selectItem = (num) => {
+        const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+        const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+        if(UserData?.user?.id !== undefined)
+        {  
+            if(sessionStorage.getItem('secilmishShirket') === null)
+            {
+                sessionStorage.setItem('secilmishShirket' , JSON.stringify(selecteds))
+                var selecteds = []
+                selecteds = [...selecteds , {id:num , numberStar: props.numberStar,  image:props.image ,  name:props.name ,  location:props.location , description: props.description, rating: props.rating}]
+                sessionStorage.setItem('secilmishShirket' , JSON.stringify(selecteds))
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+                notify1()
+                return 0 
+            }        
+            else 
+            {
+                var selecteds = JSON.parse(sessionStorage.getItem('secilmishShirket'))
+            }
+
+            var index = selecteds.findIndex(x=> x.id === num)
+            console.log(index);
+            if (index === -1) {
+                selecteds = [...selecteds , {id:num , numberStar: props.numberStar,  image:props.image ,  name:props.name ,  location:props.location , description: props.description, rating: props.rating}]
+                sessionStorage.setItem('secilmishShirket' , JSON.stringify(selecteds))
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+                notify1()
+            }
+            else 
+            {
+                var newArr = selecteds.filter((item) => item.id !== num)
+                sessionStorage.setItem('secilmishShirket' , JSON.stringify(newArr))
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:white;')
+                notify2()
+            }
+        }
+        else 
+        {
+            window.location.href = "/login"
+        }
+    }
+    const [valueR, setvalueR] = useState(props.numberStar)
+
     return (
 
-            <div className="companies">
+            <div key={props.id} className="companies">
                 <Link to={"/companies/" + props.id}>    <div className="logoCont" style={bgImg}></div></Link>
                 <div className="aboutTextMaster"> 
-                    <p className="name">{props.name}</p>
+                    <Link to={"/companies/" + props.id}><p className="name">{props.name} </p></Link>
                     <div className="bottomImgCont"> 
                         <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
-                        <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
-                        <button className="heartBtn" onClick={() => heartPost()}><FavoriteIcon id={props.id}/></button>
+                        <div className="stars"><Rating     value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
+                        <button className="heartBtn" onClick={() => selectItem(props.id)}><FavoriteIcon id={props.id}/></button>
                     </div>
                 </div>
             </div>

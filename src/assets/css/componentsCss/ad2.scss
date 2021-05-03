@@ -7,13 +7,13 @@
     width:auto;
     height:200px;
     display:flex;
-    box-shadow: 0px 4px 24px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     align-items: center;
     justify-content: space-between;
     &:hover 
     {
-        box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
-        transition: 1s box-shadow;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+        transition: 0.5s box-shadow;
 
     }
     .masterImg 
@@ -51,9 +51,11 @@
     }
     .aboutText
     {
+
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
         padding-left: 5px;
-        height:90%;
-        padding-top: 5%;
+        height:100%;
         width: 200px;
         display: flex;
         flex-direction: column;
@@ -68,15 +70,13 @@
             overflow: hidden;
             color: black;
             text-align: start;
-            margin: 0px;
+            margin: 0px;height: 27px !important;
             font-family: "ComfortaaRegular";
         }
         .job 
         {
             width: 195px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 17px;
+            font-size: 18px !important;
             font-family: "ComfortaaRegular";
             color: #F97922;
             margin: 0px;
@@ -86,6 +86,7 @@
             font-size: 15px;
             display: flex;
             align-items:center;
+            margin-bottom: 0px;
             img 
             {
                 margin-right: 5px;
@@ -95,10 +96,10 @@
         }
         .rating
         {
-            font-size: 11px;
+            font-size: 13px;
+            margin-bottom: 0px;
             font-family: "ComfortaaRegular";
-            margin-left: 10px !important;
-            margin-top: -10px !important;
+            margin-left: 5px !important;
         }
         .job
         {

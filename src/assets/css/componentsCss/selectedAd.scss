@@ -18,6 +18,15 @@
             margin: 0;
         }
     }
+    .btnHeart
+    {
+        background-color: transparent;
+        border: none;
+        svg
+        {
+            color: gray;
+        }
+    }
 }
 
 
@@ -89,7 +98,6 @@
                 justify-content: center;
                 align-items: center;
                 color: #000000;
-                opacity: 0.5;
                 font-size: 14px;
                 margin-bottom: 0px;
                 .date
@@ -166,19 +174,49 @@
         .aboutAd
         {
             margin-top: 10px !important;
+            .subTitle
+            {
+                margin-bottom: 10px;
+            }
             .aboutLinks
             {
-                flex-direction: column;
+                flex-direction: column-reverse;
+                align-items: flex-start;
                 margin-top: 0px !important;
                 row-gap: 10px;
+                p 
+                {
+                    display: flex;
+                    align-items: center;
+                }
+                span 
+                {
+                    width: 300px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
                 a 
                 {
                     border: none !important;
+                    margin-left: 0px;
                 }
             }
             .aboutButtons
             {
                 flex-direction: column;
+                align-items: flex-start;
+                .btnHeart
+                {
+                    padding: 0px;
+                    margin: 0px;
+                    margin-right: 10px;
+                }
+                .button
+                {
+                    align-self: flex-end;
+                    margin-top: 10px;
+                }
             }
         }
         .bottomLines

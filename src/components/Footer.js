@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 import Button from './Button'
 import Input from './Input';
 import { useMediaQuery } from '@material-ui/core'
-
+import jedaiLogo from '../assets/images/component/element/JedaiLogo.png'
 function Footer() {
     const buttonEdit = {
         width: "71px",
@@ -25,32 +25,32 @@ function Footer() {
             <div className="upSide">
                 <div className="number">
                     {titles && <p className="title">Əlaqə</p>}
-                    <p> <a href="tel:+994 55 XXX XX XX"> <img src={phone} alt="" />+994 55 XXX XX XX</a></p>
-                    <p> <a href="tel:+994 55 XXX XX XX"><img src={phone2} alt="" />+994 70 XXX XX XX</a></p>
-                    <p> <a href="mailto:info@ustatap.net"></a><img src={mail} alt="" />info@ustatap.net</p>
-                    <p> <a href="https://www.google.com/maps/place/Disneyland+Park/@33.8120962,-117.9211629,17z/data=!3m1!4b1!4m5!3m4!1s0x80dcd7d12b3b5e6b:0x2ef62f8418225cfa!8m2!3d33.8120918!4d-117.9189742"><img src={location} alt="" />Bakı ş., Nəsimi rayonu, Azadlıq prospekti 110A</a></p>
+                    <p> <a href="tel:+994505486947"> <img src={phone} alt="" />+994 50 548 69 47</a></p>
+                    <p> <a href="tel:+994124246804"><img src={phone2} alt="" />+994 12 424 68 04</a></p>
+                    <p> <a href="mailto:info@ustatap.net"><img src={mail} alt="" />info@ustatap.net</a></p>
+                    <p> <a href="https://www.google.com/maps/place/Nariman+Narimanov/@40.4028339,49.8684909,17z/data=!3m1!4b1!4m5!3m4!1s0x40307d4ee9253a65:0x29160f1a81905e71!8m2!3d40.4028298!4d49.8706796"><img src={location} alt="" />N.Nərimanov pr., 127, Bakı , Azərbaycan, AZ1006</a></p>
                 </div>
-                <hr className='mainHr' />
+                {titles && <hr className='mainHr' />}
                 <div className="elements1">
                     {titles && <p className="title">Keçidlər</p>}
-                    <Link to="masters/"><p>Santexnik</p></Link>
-                    <Link to="masters/"><p>Elektirik</p></Link>
-                    <Link to="masters/"><p>Divar kağızı</p></Link>
-                    <Link to="masters/"><p>Qapı pəncərə</p></Link>
-                    <Link to="masters/"><p>Qaynaqçı</p></Link>
-                    <Link to="masters/"><p>Suvaqçı</p></Link>
-                    <Link to="masters/"><p>Metlaq</p></Link>
+                    <Link to="ustalar"><p>Santexnik</p></Link>
+                    <Link to="ustalar"><p>Elektirik</p></Link>
+                    <Link to="ustalar"><p>Divar kağızı</p></Link>
+                    <Link to="ustalar"><p>Qapı pəncərə</p></Link>
+                    <Link to="ustalar"><p>Qaynaqçı</p></Link>
+                    <Link to="ustalar"><p>Suvaqçı</p></Link>
+                    <Link to="ustalar"><p>Metlaq</p></Link>
                 </div>
                 <div className="elements2">
-                    <Link to="masters/"><p>Bənna</p></Link>
-                    <Link to="masters/"> <p>Malyar</p></Link>
-                    <Link to="masters/"> <p>Pol-Parket</p></Link>
-                    <Link to="masters/">  <p>Şüşə-Güzgü</p></Link>
-                    <Link to="masters/">  <p>Dülgər</p></Link>
-                    <Link to="masters/">  <p>Döşəmə</p></Link>
-                    <Link to="masters/">  <p>Digər</p></Link>
+                    <Link to="ustalar"><p>Bənna</p></Link>
+                    <Link to="ustalar"> <p>Malyar</p></Link>
+                    <Link to="ustalar"> <p>Pol-Parket</p></Link>
+                    <Link to="ustalar">  <p>Şüşə-Güzgü</p></Link>
+                    <Link to="ustalar">  <p>Dülgər</p></Link>
+                    <Link to="ustalar">  <p>Döşəmə</p></Link>
+                    <Link to="ustalar">  <p>Digər</p></Link>
                 </div>
-                <hr className='mainHr' />
+                {titles &&<hr className='mainHr' />}
 
                 <div className="social">
                     <div className="mailSubs">
@@ -61,12 +61,15 @@ function Footer() {
                         </div>
                     </div>
                     {titles && <p className="title1">Sosial Şəbəkələrdə bizi izləyin</p>}
-                    <div className="socialImgs"> <img src={facebook} alt="facebook" />  <img src={instagram} alt="instagram" />  <img src={linkedin} alt="linkedin" />  <img src={twitter} alt="twitter" /> </div>
+                    <div className="socialImgs"> <a href="https://m.facebook.com/funn.zonee.1232?ref=bookmarks"><img src={facebook} alt="facebook" /></a>  <a href="https://www.instagram.com/ustatap.net.2021/"><img src={instagram} alt="instagram" /></a>  <a href="https://www.linkedin.com/in/usta-tap-66335320a"><img src={linkedin} alt="linkedin" /></a>  <a href="https://mobile.twitter.com/tap_usta"><img src={twitter} alt="twitter" /></a> </div>
                 </div>
             </div>
             <div className="downSide">
                 <hr className='mainHr' />
-                <p className="text">© Ustatap.net. Müəllif Hüquqları Qorunur.</p>
+                <div className="downDown">
+                    <p className="text">© Ustatap.net. Müəllif Hüquqları Qorunur.</p>
+                    <a target="_blank" className="textCreator" href='https://jedai.az/saytlarin-hazirlanmasi'>Site  by <img src={jedaiLogo} width='auto' height='20px' alt="Jedai Logo"/></a>
+                </div>
             </div>
         </footer>
     )

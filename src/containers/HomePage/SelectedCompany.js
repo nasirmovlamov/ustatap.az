@@ -32,7 +32,28 @@ import Comments from '../../components/Comments';
 import Frame from '../../components/Frame';
 import OurSlider from '../../components/OurSlider';
 import Ad3 from '../../components/Ad3'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 function SelectedCompany(props) {
+    const [UserData, setUserData] = useState(0)
+    useEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+    } )
+
+    useEffect(() => {
+        if (JSON.parse(sessionStorage.getItem('secilmishElan')) !== null) {
+            var selecteds = JSON.parse(sessionStorage.getItem('secilmishElan'))
+            var index = selecteds.findIndex(x=> x.id === props.id)
+            if (index !== -1) {
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:red;')
+            }
+        }
+    }, [])
+
     const stars = []
     const numberStar = 5
     if ((numberStar - Math.floor(numberStar)) === 0) {
@@ -74,6 +95,50 @@ function SelectedCompany(props) {
             .then((res) =>  (setSelectedCompany(res.data)))
 
     } , [])
+
+
+
+    const selectItem = (num) => {
+        const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+        const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+        if(UserData?.user?.id !== undefined)
+        {
+            if(sessionStorage.getItem('secilmishElan') === null)
+            {
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                var selecteds = []
+                selecteds = [...selecteds , {id:num , name: props.name ,  desc: props.desc , image:props.image,  address:props.address , date: props.date, view: props.view  }]
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:red;')
+                notify1()
+                return 0 
+            }        
+            else 
+            {
+                var selecteds = JSON.parse(sessionStorage.getItem('secilmishElan'))
+            }
+
+            var index = selecteds.findIndex(x=> x.id === num)
+            console.log(index);
+            if (index === -1) {
+                selecteds = [...selecteds , {id:num , name: props.name ,  desc: props.desc  , image:props.image, address:props.address , date: props.date, view: props.view}]
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:red;')
+                notify1()
+            }
+            else 
+            {
+                var newArr = selecteds.filter((item) => item.id !== num)
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(newArr))
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:gray;')
+                notify2()
+            }
+        }
+        else 
+        {
+            window.location.href = "/login"
+        }
+    }
     return (
         <div className="selectedCompany">
             <div className="generalCont">
@@ -90,11 +155,11 @@ function SelectedCompany(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame overlayImg={overlay} image={0} mainImg={"https://ustatap.net/" + SelectedCompany.image} height="420px" heightImg="282px" widthImg="458px"/>
+                    <Frame noBullet={false} overlayImg={overlay} image={0} mainImg={"https://ustatap.net/" + SelectedCompany.image} height="420px" heightImg="282px" widthImg="458px"/>
                     <div className="aboutAd">
                         <p className="title">{SelectedCompany.name}</p>
                         <div className="subTitle">
-                            <p>{SelectedCompany.description} Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai Jedai </p>
+                            <p>{SelectedCompany.description}</p>
                         </div>
                         <div className="aboutLinks">
                             <a href="#"><p className="imgAndText"><img width="18" src={locationCity} alt=""/> <p>Şəhər: {SelectedCompany.adres}</p></p></a>
@@ -104,12 +169,12 @@ function SelectedCompany(props) {
                         <div className="bottomPart">
                             <div  className="phoneOfMaster"><p><img src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedCompany}`}>{SelectedCompany.phone}</a> </div></p></div>   
                             <div  className="mailOfMaster"><p><img src={mail} alt=""/> <div className="mail"><a href={`mailto:${SelectedCompany}`}> {SelectedCompany.email}</a></div></p></div>   
-                            <div  className="social"><img width="15" src={facebookForMaster} alt=""/> <img  width="25" src={instagramForMaster} alt=""/>  <img width="25" src={linkedinForMaster} alt=""/> <img width="25" src={twitterForMaster} alt=""/></div>   
+                            {/* <div  className="social"><img width="15" src={facebookForMaster} alt=""/> <img  width="25" src={instagramForMaster} alt=""/>  <img width="25" src={linkedinForMaster} alt=""/> <img width="25" src={twitterForMaster} alt=""/></div>    */}
                         </div>
                         <div className="aboutButtons">
-                            <div className="stars">{stars}</div>
+                            {/* <div className="stars">{stars}</div> */}
                             <p><img width="20" src={selectedAdEye} alt=""/> <span>53</span></p> 
-                            <p><img src={heart} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
+                            <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlave et</span></p> 
                             <Button name="Elanı VIP-et" image2={diamond} color="#58BC40"/>
                         </div>
                         

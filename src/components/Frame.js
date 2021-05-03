@@ -9,7 +9,22 @@ function Frame(props) {
             document?.getElementById("btn" + i)?.setAttribute("style", "background-color:white")
             document?.getElementById("btn" + nmb)?.setAttribute("style", "background-color:#F97922")
         }
-        document.getElementById("imgCont").style.background = `url(${props.image[nmb - 1]})`
+        if (nmb === 1) {
+            document.getElementById("imgCont").style.background =  `url(${props.mainImg})`
+        }
+        else if(nmb === 2)
+        {
+            document.getElementById("imgCont").style.background =  `url(${props.image2})`
+        }
+        else if(nmb === 3)
+        {
+            document.getElementById("imgCont").style.background =  `url(${props.image3})`
+        }
+        else if(nmb === 4)
+        {
+            document.getElementById("imgCont").style.background =  `url(${props.image4})`
+        }
+        
     }
     const styleOverlay = {
         width: props.width,
@@ -19,12 +34,12 @@ function Frame(props) {
     const styleImg = {
 
     }
-    console.log(props.image);
 
     const overlayForİmage = {
         backgroundColor: "white",
-        background: `url(${props.mainImg}) no-repeat`,
-        backgroundPosition: 'top center',
+        backgroundImage: `url(${props.mainImg}) `,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top center !important',
         backgroundSize: 'cover',
         width: props.widthImg,
         height: props.heightImg,
@@ -36,28 +51,28 @@ function Frame(props) {
         backgroundPosition: 'top center',
         backgroundSize: 'cover !important',
     }
-    // const image2 = {
-    //     backgroundColor: "white",
-    //     backgroundImage:`url(${props.image?.indexOf(0) !== -1 && props?.image[0] })`,
-    //     backgroundRepeat: 'norepeat !important',
-    //     backgroundPosition: 'top center',
-    //     backgroundSize: 'cover !important',
-    // }
-    // const image3 = {
-    //     backgroundColor: "white",
-    //     backgroundImage:`url(${props.image?.indexOf(1) !== -1 && props?.image[1]})`,
-    //     backgroundRepeat: 'norepeat !important',
-    //     backgroundPosition: 'top center',
-    //     backgroundSize: 'cover !important',
-    // }
-    // const image4 = {
-    //     backgroundColor: "white",
-    //     backgroundImage:`url(${props.image?.indexOf(2) !== -1 && props?.image[2]})`,
-    //     backgroundRepeat: 'norepeat !important',
-    //     backgroundPosition: 'top center',
-    //     backgroundSize: 'cover !important',
-    // }
-    // console.log( props.image?.indexOf(0));
+    const image2 = {
+        backgroundColor: "white",
+        backgroundImage:`url(${props.image2 !== null && props?.image2 })`,
+        backgroundRepeat: 'norepeat !important',
+        backgroundPosition: 'top center',
+        backgroundSize: 'cover !important',
+    }
+    const image3 = {
+        backgroundColor: "white",
+        backgroundImage:`url(${props.image3 !== null && props?.image3})`,
+        backgroundRepeat: 'norepeat !important',
+        backgroundPosition: 'top center',
+        backgroundSize: 'cover !important',
+    }
+    const image4 = {
+        backgroundColor: "white",
+        backgroundImage:`url(${props.image4 !== null && props?.image4})`,
+        backgroundRepeat: 'norepeat !important',
+        backgroundPosition: 'top center',
+        backgroundSize: 'cover !important',
+    }
+    console.log(props.image2)
     return (
         <div className="FrameCont">
             <img alt="" />
@@ -65,20 +80,24 @@ function Frame(props) {
                 <div className="overlay" style={styleOverlay}></div>
                 <div className="imgAndBullet">
                     <div id="imgCont" className="imgCont" style={overlayForİmage} ></div>
-                    {/* {props.image !== 0 && ( <div className="bullets">
-                        { props.image?.indexOf(0) !== -1 && <button  id="btn1"  onClick={() => subButtonHandler(1)}></button>  }
-                        { props.image?.indexOf(0) !== -1 && <button  id="btn2"  onClick={() => subButtonHandler(2)}></button>  }
-                        { props.image?.indexOf(1) !== -1 && <button  id="btn3"  onClick={() => subButtonHandler(3)}></button>  }
-                        { props.image?.indexOf(2) !== -1 && <button  id="btn4"  onClick={() => subButtonHandler(4)}></button>  }
-                    </div>)} */}
+                    { 
+                    props.noBullet && 
+                    props.mainImg !== 0 && ( <div className="bullets">
+                        { props.image2  !== null && <button  id="btn1"  onClick={() => subButtonHandler(1)}></button>  }
+                        { props.image2 !== null && <button  id="btn2"  onClick={() => subButtonHandler(2)}></button>  }
+                        { props.image3 !== null  && <button  id="btn3"  onClick={() => subButtonHandler(3)}></button>  }
+                        { props.image4 !== null &&  <button  id="btn4"  onClick={() => subButtonHandler(4)}></button>  }
+                    </div>)}
                 </div>
             </div>
-            {/* {props.image !== 0 && (<div className="subImgCont">
-                { props.image?.indexOf(0) !== -1  && <button id="subBtn1"  onClick={() => subButtonHandler(1)}> <div  style={image1} className="imgCont imgContDiv"> </div></button>}
-                { props.image?.indexOf(0) !== -1  && <button id="subBtn2"  onClick={() => subButtonHandler(2)}> <div  style={image2} className="imgCont imgContDiv"> </div></button>}
-                { props.image?.indexOf(1) !== -1  && <button id="subBtn3"  onClick={() => subButtonHandler(3)}><div  style={image3} className="imgCont imgContDiv"> </div></button>}
-                { props.image?.indexOf(2) !== -1  && <button id="subBtn4"  onClick={() => subButtonHandler(4)}><div  style={image4} className="imgCont imgContDiv"> </div></button>}
-            </div>)} */}
+            { props.noBullet && 
+                props.mainImg !== 0 && (<div className="subImgCont">
+                { props.image2  !== null &&  <button id="subBtn1"  onClick={() => subButtonHandler(1)}> <div  style={image1} className="imgCont imgContDiv"> </div></button>}
+                { props.image2 !== null  &&  <button id="subBtn2"  onClick={() => subButtonHandler(2)}> <div  style={image2} className="imgCont imgContDiv"> </div></button>}
+                { props.image3 !== null  &&  <button id="subBtn3"  onClick={() => subButtonHandler(3)}><div  style={image3} className="imgCont imgContDiv"> </div></button>}
+                { props.image4 !== null  &&  <button id="subBtn4"  onClick={() => subButtonHandler(4)}><div  style={image4} className="imgCont imgContDiv"> </div></button>}
+                </div>)
+            }
         </div>
     )
 }

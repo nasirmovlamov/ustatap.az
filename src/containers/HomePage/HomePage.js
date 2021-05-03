@@ -170,7 +170,7 @@ function HomePage(props) {
         axios.get("https://ustatap.net/public/api/banners") 
              .then((res) =>  (setBanners(res.data) ))
     },[] )
-    latestAdApi.map((ad) => latestAd.push(<Ad name={ ad.title} desc={ad.user_name} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
+    latestAdApi.map((ad) => (ad?.category_id?.id !== 11 && ad?.category_id?.id !== 4 && ad.id !== undefined) && latestAd.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
@@ -206,14 +206,13 @@ function HomePage(props) {
         </button>
     ))
         
-    latestAdApi.map((ad, index ) => {if(ad.category_id == 3){santexnika.push(<Ad name={ ad.title} desc={ad.user_name} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
-    latestAdApi.map((ad, index ) => {if(ad.category_id == 4){electric.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)}}) 
-    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.email} address={master.city?.name} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating_count}/>)}})
-    MasterApi.map(master =>  {if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.job} address={master.city?.name} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating_count}/> )}})
-    CompanyApi.map( company =>  { if(company.vip !== 1){ companies.push(<Ad3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
-    CompanyApi.map( company =>  {if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
+    latestAdApi.map((ad, index ) => {if(ad?.category_id?.id === 11 && ad?.id !== undefined){santexnika.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)}}) 
+    latestAdApi.map((ad, index ) => {if(ad?.category_id?.id === 4  && ad?.id !== undefined){electric.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)}}) 
+    MasterApi.map(master =>  {if(master.vip !== 1 &&  master.id !== undefined){ masters.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>)}})
+    MasterApi.map(master =>  {if(master.vip === 1 && master.id !== undefined){ vipMasters.push(<VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} /> )}})
+    CompanyApi.map( company =>  { if(company.vip !== 1 && company.id !== undefined){ companies.push(<Ad3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
+    CompanyApi.map( company =>  {if(company.vip === 1 && company.id !== undefined){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
 
-    
     const  clickHandler = (number) => {
         if (document.getElementById("wD" + number).style.display === "block") {
             document.getElementById("wD" + number).setAttribute("style" , "display:nonne")
@@ -266,7 +265,7 @@ function HomePage(props) {
                         <p><Link to={`/elanlar/${category.id}`}>Elanlar <span>({category.post_count})</span></Link></p>
                     </ListItem>
                     <ListItem button >
-                        <p><Link to={`/ustalar/${category.id}`}>Ustalar <span>({category.hand_count})</span></Link> </p>
+                        <p><Link to={`/masters/${category.id}`}>Ustalar <span>({category.hand_count})</span></Link> </p>
                     </ListItem>
                     <ListItem button >
                         <p><Link to={`/shirketler/${category.id}`}>Şirkətlər <span>({category.comp_count})</span></Link></p>    
@@ -302,6 +301,7 @@ function HomePage(props) {
                                 {
                                     asideMQ && 
                                     <>
+                                        <h1 className='categories'>Kategoriyalar</h1>
                                         {jobCategory1.length > 1 &&
                                          <div className='sliderCont1'>
                                             <Slider1 jobCategory={jobCategory1}/>
@@ -353,6 +353,7 @@ function HomePage(props) {
                         </>
                     }
 
+                        <SubBanner banner={Banners.bannertwo} marginTop="60px" marginBottom="78px"/>
 
 
                         <div className="typeAddContainer"> 
@@ -367,7 +368,7 @@ function HomePage(props) {
                         </div>
                         <Link to="/ustalar"><Button name="Bütün ustalara bax" color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/></Link>
 
-                        <SubBanner banner={Banners.bannertwo} marginTop="60px" marginBottom="78px"/>
+                        <SubBanner banner={Banners.bannerone} marginTop="60px" marginBottom="78px"/>
                     
                         {
                             props.hideVip &&
@@ -387,6 +388,8 @@ function HomePage(props) {
                             </>
                         }
 
+                        <SubBanner banner={Banners.bannertwo} marginTop="60px" marginBottom="78px"/>
+
                         <div className="typeAddContainer"> 
                             <p className="title">Şirkətlər</p>
                             {!lineRM && <div className="line3"></div>}
@@ -400,6 +403,8 @@ function HomePage(props) {
                         </div>
                         <Link to="/shirketler"><Button name="Bütün şirkətlərə bax"/></Link>
 
+                        <SubBanner banner={Banners.bannerone} marginTop="60px" marginBottom="78px"/>
+                        
                         <div className="typeAddContainer"> 
                             <p className="title">Santexnika elanları</p>
                             {!lineRM && <div className="line4"></div>}
@@ -412,6 +417,8 @@ function HomePage(props) {
                             </div>      
                         </div>
                         <Link to="/elanlar"><Button name="Bütün elanlara bax"/></Link>
+
+                        <SubBanner banner={Banners.bannertwo} marginTop="60px" marginBottom="78px"/>
 
                         <div className="typeAddContainer"> 
                             <p className="title">Elektrik elanları</p>

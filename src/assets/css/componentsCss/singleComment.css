@@ -53,9 +53,15 @@
   color: #616161;
   opacity: 0.83;
   margin-top: 7px;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .singleCommentCont .singleCommentAbout .mainComment p {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
   margin-bottom: 0px;
 }
 

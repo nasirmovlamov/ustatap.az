@@ -3,8 +3,8 @@
   width: 264px;
   font-family: "ComfortaaRegular";
   color: black;
-  -webkit-box-shadow: 0px 0px 20px 5px lightgray;
-          box-shadow: 0px 0px 20px 5px lightgray;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 5px;
   overflow: hidden;
   -webkit-transition: 1s -webkit-box-shadow;
@@ -14,12 +14,12 @@
 }
 
 .Vipad:hover {
-  -webkit-box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
-          box-shadow: 0px 4px 102px 9px rgba(0, 0, 0, 0.55);
-  -webkit-transition: 1s -webkit-box-shadow;
-  transition: 1s -webkit-box-shadow;
-  transition: 1s box-shadow;
-  transition: 1s box-shadow, 1s -webkit-box-shadow;
+  -webkit-box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+          box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  -webkit-transition: 0.5s -webkit-box-shadow;
+  transition: 0.5s -webkit-box-shadow;
+  transition: 0.5s box-shadow;
+  transition: 0.5s box-shadow, 0.5s -webkit-box-shadow;
 }
 
 .Vipad .crown {
@@ -73,17 +73,12 @@
 
 .Vipad .jobTitle {
   color: #F97922;
-  margin-top: 10px;
 }
 
 .Vipad .address {
   color: black;
   opacity: 0.5;
   font-size: 15px;
-}
-
-.Vipad .stars {
-  margin-top: 10px;
 }
 
 .Vipad .stars img {

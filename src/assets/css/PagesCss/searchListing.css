@@ -17,16 +17,6 @@
   width: 600px;
 }
 
-.searchPage .mastersCont {
-  width: 378px;
-  height: 214px;
-}
-
-.searchPage .mastersCont .aboutText {
-  width: 165px;
-  height: 185px;
-}
-
 .searchPage .linkAndButton {
   width: 1185px;
   height: 130px;
@@ -118,31 +108,5 @@
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
-}
-
-.searchPage .adsContainer .ad {
-  width: 376px;
-  height: 445px;
-}
-
-.searchPage .adsContainer .ad .mainImg {
-  height: 264px;
-}
-
-.searchPage .adsContainer .ad .flexCont1 {
-  font-size: 19px;
-}
-
-.searchPage .adsContainer .ad .nameCostumer {
-  font-size: 12px;
-  margin-top: -16px;
-}
-
-.searchPage .adsContainer .ad .flexCont2 {
-  margin-top: 30px;
-}
-
-.searchPage .adsContainer .ad .flexCont2 p:nth-child(1) {
-  font-size: 10px;
 }
 /*# sourceMappingURL=searchListing.css.map */

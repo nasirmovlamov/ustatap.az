@@ -25,8 +25,27 @@ import Comments from '../../components/Comments';
 import Frame from '../../components/Frame';
 import OurSlider from '../../components/OurSlider';
 import Ad2 from "../../components/Ad2"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 function SelectedMaster(props) {
-    
+    const [UserData, setUserData] = useState(0)
+    useEffect(() => {
+        if (UserData?.user?.id === undefined) 
+        {
+            setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
+        }
+    } )
+
+    useEffect(() => {
+        if (JSON.parse(sessionStorage.getItem('secilmishElan')) !== null) {
+            var selecteds = JSON.parse(sessionStorage.getItem('secilmishElan'))
+            var index = selecteds.findIndex(x=> x.id === props.id)
+            if (index !== -1) {
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:red;')
+            }
+        }
+    }, [])
 
 
     var url = window.location.href;
@@ -42,7 +61,6 @@ function SelectedMaster(props) {
     {
         axios.get(`https://ustatap.net/public/api/handyman/${mainId}`) 
              .then((res) =>  (setSelectedMaster(res.data)))
-
         axios.get("https://ustatap.net/public/api/handymen") 
             .then((res) =>  (setMasterApi(res.data) ))
     } , [])
@@ -72,6 +90,51 @@ function SelectedMaster(props) {
             stars.push(<img src={emptyStar} alt="ulduz" /> )
           }
     }
+
+
+
+    const selectItem = (num) => {
+        const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+        const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+        if(UserData?.user?.id !== undefined)
+        {
+            if(sessionStorage.getItem('secilmishElan') === null)
+            {
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                var selecteds = []
+                selecteds = [...selecteds , {id:num , name: props.name ,  desc: props.desc , image:props.image,  address:props.address , date: props.date, view: props.view  }]
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:red;')
+                notify1()
+                return 0 
+            }        
+            else 
+            {
+                var selecteds = JSON.parse(sessionStorage.getItem('secilmishElan'))
+            }
+
+            var index = selecteds.findIndex(x=> x.id === num)
+            console.log(index);
+            if (index === -1) {
+                selecteds = [...selecteds , {id:num , name: props.name ,  desc: props.desc  , image:props.image, address:props.address , date: props.date, view: props.view}]
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:red;')
+                notify1()
+            }
+            else 
+            {
+                var newArr = selecteds.filter((item) => item.id !== num)
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(newArr))
+                document.getElementById(`icon${props.id}`).setAttribute('style' , 'color:gray;')
+                notify2()
+            }
+        }
+        else 
+        {
+            window.location.href = "/login"
+        }
+    }
+    console.log(SelectedMaster)
     return (
         <div className="selectedMaster">
             <div className="generalCont">
@@ -88,29 +151,27 @@ function SelectedMaster(props) {
                     </p>
                 </div>
                 <div className="frameAndText">
-                    <Frame mainImg={`https://ustatap.net/${SelectedMaster.image}`} image={0} color="#F27B29" height="550px" heightImg="382px" widthImg="458px"/>
+                    <Frame noBullet={false} mainImg={`https://ustatap.net/${SelectedMaster.image}`} image={0} color="#F27B29" height="550px" heightImg="382px" widthImg="458px"/>
                     <div className="aboutAd">
                         <p className="title">{SelectedMaster.name}</p>
                         <div className="subTitle">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <p>{SelectedMaster.description}</p>
                         </div>
-                        <div className="aboutLinks">
-                            <a ><p><img width="16px" src={locationCity} alt=""/> <span>Şəhər: Bakı{SelectedMaster.city}</span></p></a>
-                            <a ><p><img width="18px" src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: Bənna , Elektrik , Santexnik{SelectedMaster.categories}</span></p></a>   
+                         <div className="aboutLinks">
+                            <a ><p><img width="16px" src={locationCity} alt=""/> <span>Şəhər: {SelectedMaster?.city?.name}</span></p></a>
+                            <a ><p><img width="18px" src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür:{SelectedMaster?.category_data?.name}</span></p></a>   
                         </div>
                         <div href="#" className="phoneOfMaster"><p><img width="24px" src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a> <a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a></div></p></div>   
 
                         <div className="aboutButtons">
-                            <div className="stars">{stars}</div>
                             <p><img src={selectedAdEye} alt=""/> <span>53</span></p> 
-                            <p><img src={heart} alt=""/> <span>Seçilmişlərə əlave et</span></p> 
+                            <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlave et</span></p> 
                             <Button name="Elanı VIP-et" image2={diamond} color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
                         </div>
                         
                     </div>
                 </div>
-                <Comments/>
+                <Comments id={mainId}/>
 
             </div>
 

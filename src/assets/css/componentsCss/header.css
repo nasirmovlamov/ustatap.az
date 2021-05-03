@@ -36,7 +36,17 @@
           justify-content: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-family: "ComfortaaRegular";
+}
+
+.swiperTitle .nameL {
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .swiperTitle p {
@@ -165,6 +175,11 @@
           justify-content: center !important;
   justify-items: start !important;
   width: 100% !important;
+}
+
+.iconSwiper:nth-child(1) svg {
+  width: 30px;
+  height: 50px !important;
 }
 
 .iconSwiper svg {

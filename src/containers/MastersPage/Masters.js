@@ -53,8 +53,12 @@ function Masters(props) {
     const [MasterApi, setMasterApi] = useState([0])
     var masters = []
     var vipMasters = []
-    
-    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}else{}})
+    const [Banners, setBanners] = useState([0])
+    useEffect(() => {
+      axios.get("https://ustatap.net/public/api/banners") 
+             .then((res) =>  (setBanners(res.data) ))
+    }, [])
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} />)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} /> )}else{}})
     MasterApi.map(master =>  {})
     useEffect(() => 
     {  
@@ -66,7 +70,7 @@ function Masters(props) {
         }
         else 
         {
-            axios.get(`https://ustatap.net/public/api/ustalar/${asideId}`) 
+            axios.get(`https://ustatap.net/public/api/usta/${asideId}`) 
             .then((res) =>  (setMasterApi(res.data) ))
         }
     } , [])
@@ -80,7 +84,7 @@ function Masters(props) {
         setfilter(0)
         axios.post("https://ustatap.net/public/api/ustafilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip } ) 
         .then((res) =>  (setMasterApi(res.data) ))
-        MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id } /> )}else{}})
+        MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master?.category_id?.name} address={master.city.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.category_id.name} address={master.city} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id } /> )}else{}})
 
     }
 
@@ -120,14 +124,13 @@ function Masters(props) {
                 <div className="linkAndButton">
                     <div className="link">
                         <p>
-                        <Link to="/">
-                            <a href=""> ustaTap.net</a> 
-                        </Link>
-                            -&gt;
-                        <Link to="/ustalar">
-                            <a href="#">ustalar</a> 
-                        </Link>
-                            
+                          <Link to="/">
+                              <a href=""> ustaTap.net</a> 
+                          </Link>
+                              -&gt;
+                          <Link to="/ustalar">
+                              <a href="#">ustalar</a> 
+                          </Link>
                         </p>
                     </div>
                     { btnFilter && 
@@ -148,22 +151,22 @@ function Masters(props) {
                     {!btnFilter && <Category setfilter={setfilter}  type3={0}  type4={1}  color="#F27B29" btnCollor="green"/>}
                         <div className="adsContainer">
                         { props.hideVip &&
-                                    (
-                                        vipMasters.length > 0 ?
-                                        <>
-                                            {!crownTopPart && <img src={vipTopImg} alt=""/>}
-                                            {crownTopPart && <img src={vipTopImg1} alt=""/>}
-                                            <div className="Vipmasters"> {vipMasters} </div>
-                                        </>
-                                        : ""
-                                    )
+                                (
+                                    vipMasters.length > 0 ?
+                                    <>
+                                        {!crownTopPart && <img src={vipTopImg} alt=""/>}
+                                        {crownTopPart && <img src={vipTopImg1} alt=""/>}
+                                        <div className="Vipmasters"> {vipMasters} </div>
+                                    </>
+                                    : ""
+                                )
                         }
-                        <SubBanner/>
+                        <SubBanner banner={Banners.bannerone} marginTop="60px" marginBottom="78px"/>
                         {
-                            masters.length > 0 ?
-                            <>
-                                <div className="masters"> {masters} </div>
-                            </> : ""
+                          masters.length > 0 ?
+                          <>
+                              <div className="masters"> {masters} </div>
+                          </> : ""
                         }
                     </div>    
 

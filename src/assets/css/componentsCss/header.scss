@@ -40,7 +40,17 @@
     display: flex;
     justify-content: center;
     justify-content: space-around;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     font-family: "ComfortaaRegular";
+    .nameL 
+    {
+        display: block;
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     p {
         margin: 0px;
         display: flex;
@@ -135,6 +145,14 @@
     justify-content:  center !important;
     justify-items: start !important;
     width: 100% !important;
+    &:nth-child(1)
+    {
+        svg 
+        {
+            width: 30px;
+            height: 50px !important;
+        }
+    }
     svg 
     {
         height: 40px !important;
@@ -265,7 +283,8 @@
                 text-decoration: none !important;
                 color: white;
             }
-            .login {
+            .login 
+            {
                 img 
                 {
                     margin-right: 14.5px;

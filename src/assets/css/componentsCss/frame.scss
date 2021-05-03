@@ -101,3 +101,36 @@
 
 
 }
+
+
+@media screen and (max-width:700px) {
+    .FrameCont
+    {
+        width: 100%;
+
+        .frame
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            img 
+            {
+                width: 95%;
+            }
+            
+        }
+
+        .overlay
+        {
+            width: 95%;
+        }
+        .imgAndBullet
+        {
+            margin-left: 0px;
+        }
+        .imgCont
+        {
+            background-position:  top  center!important;
+        }
+    }
+}

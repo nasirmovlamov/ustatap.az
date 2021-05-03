@@ -87,6 +87,8 @@
             position: absolute;
             margin-top: 90px;
             margin-left: 130px;
+            width: 180px !important;
+
             width: auto;
             padding-left: 15px;
             padding-right: 15px;
@@ -98,6 +100,10 @@
             color: white;
             p 
             {
+                width: 180px !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 margin: 0px;
             }
         }      

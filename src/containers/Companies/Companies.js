@@ -53,29 +53,32 @@ function Companies(props) {
     var url = window.location.href;
     var numId = url.substring(url.lastIndexOf('/') + 1 );
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
-
+    const [Banners, setBanners] = useState([0])
+    useEffect(() => {
+      axios.get("https://ustatap.net/public/api/banners") 
+             .then((res) =>  (setBanners(res.data) ))
+    }, [])
     var companies = []
     var vipCompanies = []
     const [CompanyApi, setCompanyApi] = useState([0])
     useEffect(() => 
     {
-        if(asideId === undefined)
-        {
-            axios.get("https://ustatap.net/public/api/company") 
-            .then((res) =>  (setCompanyApi(res.data) )) 
-           
-            axios.get("https://ustatap.net/public/api/jobcategory") 
-            .then((res) =>  (setJobCategoryApi(res.data) )) 
-        }
-        else 
-        {
-            axios.get(`httpss://ustatap.net/public/api/shirket/${asideId}`) 
-            .then((res) =>  (setCompanyApi(res.data) )) 
-        }
-
+      axios.get("https://ustatap.net/public/api/jobcategory") 
+          .then((res) =>  (setJobCategoryApi(res.data) )) 
+      if(asideId === undefined)
+      {
+        axios.get("https://ustatap.net/public/api/company") 
+        .then((res) =>  (setCompanyApi(res.data) )) 
+      }
+      else 
+      {
+        axios.get(`https://ustatap.net/public/api/shirket/${asideId}`) 
+        .then((res) =>  (setCompanyApi(res.data) )) 
+      }
     } , [])
     console.log(numId);
-    CompanyApi.map(  company => { if(company.vip !== 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)}else{}} )
+    CompanyApi.map(  company => { if(company.vip === 0 || company.vip === null){companies.push(<Ad3 id={company.id} numberStar={company.rating} rating={company.rating_count} image={company.image} name={company.name} location={company?.city?.name} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} rating={company.rating_count} numberStar={company.rating} image={company.image} name={company.name} location={company?.city?.name} description={company.description}/>)}else{}} )
+    console.log(companies);
     const [filter, setfilter] = useState(0)
     const ListingResult = JSON.parse(localStorage.getItem("ListingResult"))
 
@@ -163,7 +166,7 @@ function Companies(props) {
                                     </div>
                             </>
                         }
-                        <SubBanner/>
+                        <SubBanner banner={Banners.bannerone} marginTop="60px" marginBottom="78px"/>
                         <div className="companiesCont">
                             {companies}
                         </div>

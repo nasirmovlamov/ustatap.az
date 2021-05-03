@@ -84,7 +84,29 @@ function Header() {
   var SelectedThings = ['salam']
   Cookies.set('SelectedThings', SelectedThings)
   const [UserData, setUserData] = useState(0)
-
+  useEffect(() => {
+    var selecteds = []
+    if(sessionStorage.getItem('secilmishElan') === null)
+    {
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+    }
+    if(sessionStorage.getItem('secilmishUsta') === null)
+    {
+                sessionStorage.setItem('secilmishUsta' , JSON.stringify(selecteds))
+    }
+    if(sessionStorage.getItem('secilmishShirket') === null)
+    {
+                sessionStorage.setItem('secilmishShirket' , JSON.stringify(selecteds))
+    }
+    if(sessionStorage.getItem('secilmishVipUsta') === null)
+    {
+                sessionStorage.setItem('secilmishVipUsta' , JSON.stringify(selecteds))
+    }
+    if(sessionStorage.getItem('secilmishVipShirket') === null)
+    {
+                sessionStorage.setItem('secilmishVipShirket' , JSON.stringify(selecteds))
+    }
+  }, [])
   useEffect(() => {
     if (UserData?.user?.id === undefined) {
       setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
@@ -174,25 +196,25 @@ function Header() {
       <Divider />
       <List>
         <ListItem button >
-          <Link to="/"><p className="iconSwiper" > <HomeIcon /> Əsas Səhifə</p></Link>
+          <Link to="/"><p className="iconSwiper" > <HomeIcon style={{ color: 'orange' }} /> Əsas Səhifə</p></Link>
         </ListItem>
         <ListItem button >
-          <a href="/elanlar"><p className="iconSwiper" > <NoteIcon /> Elanlar</p> </a>
+          <a href="/elanlar"><p className="iconSwiper" > <NoteIcon  style={{ color: '#77c4be' }} /> Elanlar</p> </a>
         </ListItem>
         <ListItem button >
-          <a href="/ustalar"><p className="iconSwiper" ><BuildIcon /> Ustalar</p> </a>
+          <a href="/ustalar"><p className="iconSwiper" ><BuildIcon style={{ color: '#b5b4b9' }}/> Ustalar</p> </a>
         </ListItem>
         <ListItem button >
-          <a href="/shirketler"> <p className="iconSwiper" ><BusinessIcon /> Şirkətlər</p> </a>
+          <a href="/shirketler"> <p className="iconSwiper" ><BusinessIcon style={{ color: '#c17147' }}/> Şirkətlər</p> </a>
         </ListItem>
         <ListItem button >
-          <Link to="/haqqimizda"><p className="iconSwiper" ><InfoIcon /> Haqqımızda</p> </Link>
+          <Link to="/haqqimizda"><p className="iconSwiper" ><InfoIcon style={{ color: '#1770cb' }}/> Haqqımızda</p> </Link>
         </ListItem>
         <ListItem button >
-          <Link to="/reklam"><p className="iconSwiper" > <WorkIcon /> Reklam</p> </Link>
+          <Link to="/reklam"><p className="iconSwiper" > <WorkIcon style={{ color: '#b08e7c' }}/> Reklam</p> </Link>
         </ListItem>
         <ListItem button >
-          <Link to="/elaqe"><p className="iconSwiper" > <ContactPhoneIcon /> Əlaqə</p> </Link>
+          <Link to="/elaqe"><p className="iconSwiper" > <ContactPhoneIcon style={{ color: '#1a6fe0' }}/> Əlaqə</p> </Link>
         </ListItem>
         {UserData?.user?.image === undefined ? "" :
           <ListItem button >
@@ -326,14 +348,17 @@ function Header() {
         <Route path="/search">
           <SearchListing type={type} jobcategory={jobcategory} city={city} />
         </Route>
-        <Route path="/ustalar">
-          <Masters hideVip={hideVip} />
-        </Route>
         <Route path="/ustalar/:asideId">
-          <Masters hideVip={hideVip} />
+          <Masters hideVip={1} />
+        </Route>
+        <Route path="/shirketler/:asideId">
+          <Companies hideVip={1} />
+        </Route>
+        <Route path="/ustalar">
+          <Masters hideVip={1} />
         </Route>
         <Route path="/shirketler">
-          <Companies hideVip={hideVip} />
+          <Companies hideVip={1} />
         </Route>
         <Route path="/haqqimizda">
           <AboutUs />

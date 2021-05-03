@@ -105,4 +105,31 @@
   background-position: top center;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 700px) {
+  .FrameCont {
+    width: 100%;
+  }
+  .FrameCont .frame {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .FrameCont .frame img {
+    width: 95%;
+  }
+  .FrameCont .overlay {
+    width: 95%;
+  }
+  .FrameCont .imgAndBullet {
+    margin-left: 0px;
+  }
+  .FrameCont .imgCont {
+    background-position: top center !important;
+  }
+}
 /*# sourceMappingURL=frame.css.map */

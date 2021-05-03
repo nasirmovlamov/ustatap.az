@@ -23,13 +23,13 @@ import Rating from '@material-ui/lab/Rating';
 
 function VipAd2(props) {
     const [UserData, setUserData] = useState(0)
-    useEffect(() => {
-        if(props.userId !== undefined)
-        {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
-             .then(res => setChecker(res.data))
-             .catch(err => console.log(err))
-             console.log(checker);}
-    }, [])
+    // useEffect(() => {
+    //     if(props.userId !== undefined)
+    //     {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
+    //          .then(res => setChecker(res.data))
+    //          .catch(err => console.log(err))
+    //          console.log(checker);}
+    // }, [])
     useEffect(() => {
         if (UserData?.user?.id === undefined) 
         {
@@ -43,32 +43,77 @@ function VipAd2(props) {
     
 
     const backgroundImgHuman = {
-        background: `url(https://ustatap.net/storage/app/public/${props.image})  no-repeat top center`
+        background: `url(https://ustatap.net/${props.image})  no-repeat top center`
 
     }
 
-
-    const [checker , setChecker] = useState(false)
-    
-    const heartPost = () => {
-        if(UserData?.user?.id !== undefined)
-        {    
-            if(!checker)
+    const viewHandler = () => {
+        axios.post('https://ustatap.net/public/api/increment', {id:props.id})
+             .then(res => console.log(res))
+             .catch(err => console.log(err))
+    }
+    const ratingHandler = (value) => {
+        if (UserData?.user?.id === undefined) {
+            window.location.href = "/login"
+        }
+        else 
+        {
+            if(value===null)
             {
-                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-                axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId })
-                .then(res => (console.log(res) ))
+                value = props.numberStar
+            }
+            axios.post('https://ustatap.net/public/api/rate', {user_id:props.id , rate:value} )
+                .then(res => ( console.log(res.data) ,res.status === 200 && notify(value) ))
                 .catch(err => console.log(err))
-                setChecker(true)
+        }
+    }
+
+
+    useEffect(() => {
+        if (JSON.parse(sessionStorage.getItem('secilmishVipCompany')) !== null)
+        {
+            console.log(props.id);
+            var selecteds = JSON.parse(sessionStorage.getItem('secilmishVipUsta'))
+            var index = selecteds.findIndex(x=> x.id === props.id)
+            if (index !== -1) {
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+            }
+        }
+    }, [])
+
+    const selectItem = (num) => {
+        const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+        const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
+        if(UserData?.user?.id !== undefined)
+        {  
+            if(sessionStorage.getItem('secilmishVipUsta') === null)
+            {
+                sessionStorage.setItem('secilmishVipUsta' , JSON.stringify(selecteds))
+                var selecteds = []
+                selecteds = [...selecteds , {id:num, name:props.name, address: props.address , image:props.image , numberStar: props.numberStar}]
+                sessionStorage.setItem('secilmishVipUsta' , JSON.stringify(selecteds))
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
+                notify1()
+                return 0 
+            }        
+            else 
+            {
+                var selecteds = JSON.parse(sessionStorage.getItem('secilmishVipUsta'))
+            }
+
+            var index = selecteds.findIndex(x=> x.id === num)
+            console.log(index);
+            if (index === -1) {
+                selecteds = [...selecteds , {id:num, name:props.name, address: props.address , image:props.image , numberStar: props.numberStar}]
+                sessionStorage.setItem('secilmishVipUsta' , JSON.stringify(selecteds))
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
                 notify1()
             }
             else 
             {
+                var newArr = selecteds.filter((item) => item.id !== num)
+                sessionStorage.setItem('secilmishVipUsta' , JSON.stringify(newArr))
                 document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-                axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId })
-                .then(res => (console.log(res) ))
-                .catch(err => console.log(err))
-                setChecker(false)
                 notify2()
             }
         }
@@ -76,39 +121,19 @@ function VipAd2(props) {
         {
             window.location.href = "/login"
         }
-        
     }
-    const viewHandler = () => {
-        axios.post('https://ustatap.net/public/api/increment', {id:props.id})
-             .then(res => console.log(res))
-             .catch(err => console.log(err))
-    }
-    const ratingHandler = (rate) => {
-        if(rate===null)
-            {
-                rate = props.numberStar
-            }
-        if (UserData?.user?.id === undefined) {
-            window.location.href = "/login"
-        }
-        else 
-        {
-            axios.post('https://ustatap.net/public/api/rate', {user_id:UserData?.user?.id ,rate:rate} )
-                .then(res => (console.log(res) , res.status === 200 && notify(rate) ))
-                .catch(err => console.log(err))
-        }
-        
-    }
+    const [valueR, setvalueR] = useState(props.numberStar)
+
     return (
         
-            <div className="Vipad">
+            <div className="Vipad" key={props.id}>
                 <img src={carona} alt="" className="crown"/>
                 <Link to={"/masters/" + props.id}><button className="mainImg" style={backgroundImgHuman}></button></Link>
                 <div className="subCont">
-                    <div className="flexCont1">  <p className="name">{props.name}</p>  <button onClick={() => heartPost()} className="heartBtn"><FavoriteIcon id={props.id}/></button></div>
+                    <div className="flexCont1">  <Link to={"/masters/" + props.id}><p className="name">{props.name}</p></Link>  <button onClick={() => selectItem(props.id)} className="heartBtn"><FavoriteIcon id={props.id}/></button></div>
                     <p className="jobTitle">{props.job}</p>
                     <div className="flexCont2">  <img src={location} width="15" alt="location"/> <p className="address">{props.address}</p></div>
-                    <div className="stars"><Rating name="read-only"   value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
+                    <div className="stars"><Rating  value={valueR} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
                     <p className="rating">Reyting sayı {props.rating} </p>
                 </div>
             </div>

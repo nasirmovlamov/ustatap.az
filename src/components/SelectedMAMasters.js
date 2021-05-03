@@ -2,19 +2,16 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import "../assets/css/PagesCss/MyAds.css"
 import Ad2 from './Ad2'
+import VipAd2 from './VipAd2'
 function SelectedMAMasters(props) {
-    const [Masters, setMasters] = useState([0])
-    const MastersArr = []
-    useEffect(() => 
-    {
-        axios.post("https://ustatap.net/public/api/getselecteds" , {user_id:props.UserData.user.id}) 
-             .then((res) =>  (setMasters(res.data)  ))
-    }, [])
-    Masters?.map((master) => MastersArr.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)  ) 
     
+    var selectedMasters = JSON.parse(sessionStorage.getItem('secilmishUsta'))
+    var selectedVipMasters = JSON.parse(sessionStorage.getItem('secilmishVipUsta'))
+
     return (
         <div className="myAds">
-            {MastersArr}
+                {selectedMasters?.map((master) =>  <Ad2 name={master.name} job={master.job} address={master.address} image={master.image} numberStar={master.numberStar} id={master.id} rating={master.rating}/>  ) }
+                {selectedVipMasters?.map((master) =>  <VipAd2 id={master.id} name={master?.name} job={master?.job} address={master?.address} image={master.image} numberStar={master.numberStar} rating={master.rating}  />  ) }
         </div>
     )
 }

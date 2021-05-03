@@ -102,6 +102,15 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    .categories
+    {margin-bottom: 20px;
+    font-size: 25px;}
+
+    .button
+    {
+        width: 230px;
+        height: 45px ;
+    }
     .sliderCont1
     {
         width: 80%;
@@ -148,11 +157,19 @@
             column-gap: 10px;
             border: none;
             align-items: center;
+            width: 250px;
+            justify-content: center;
+            column-gap: 20px;
+            padding-top: 4px;
             p 
             {
                 display: flex;
                 align-items: center;
                 font-family: "ComfortaaRegular";
+                white-space:nowrap ;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 120px;
             }
             button 
             {
@@ -178,7 +195,7 @@
 
     .button 
     {
-        margin-top: 10px;
+        margin-top: 30px;
     }
     .main
     {
@@ -334,6 +351,7 @@
                 align-items: flex-start;
                 align-items: center;
                 padding-bottom: 30px;
+                margin-top: 50px;
                 .goToAll
                 {
                     align-self: center;
@@ -358,7 +376,6 @@
                 width: 110px;
                 height:2px;
                 background-color:#5ABA42;
-                margin-left: 65px;
                 margin-top: 2px;
                 align-self: flex-start;
 
@@ -369,7 +386,6 @@
                 height:2px;
                 background-color:#F97922;
                 margin-top: 2px;
-                margin-left: 45px;
                 align-self: flex-start;
 
             }
@@ -379,7 +395,6 @@
                 height:2px;
                 background-color:#F97922;
                 margin-top: 2px;
-                margin-left: 60px;
                 align-self: flex-start;
 
             }
@@ -388,7 +403,6 @@
                 width: 220px;
                 height:2px;
                 background-color:#5ABA42;
-                margin-left: 65px;
                 align-self: flex-start;
 
             }
@@ -397,7 +411,6 @@
                 width: 175px;
                 height:2px;
                 background-color: #F97922;
-                margin-left: 65px;
                 align-self: flex-start;
 
             }
@@ -435,7 +448,7 @@
 
                     }
                     width: 100%;
-                    margin-top: 30px;
+                    margin-top: 40px;
                 }
             }
         }
@@ -469,7 +482,7 @@
                         row-gap: 10px;
                     }
                     width: 100%;
-                    margin-top: 30px;
+                    margin-top: 50px;
                 }
             }
         }

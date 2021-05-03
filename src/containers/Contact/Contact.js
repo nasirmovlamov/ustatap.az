@@ -36,6 +36,7 @@ function Contact(props) {
     
     return (
         <div className="contact">
+                <h1>Əlaqə</h1>
                 <div className="contactCont">
                     <div className="FrameCont2">
                         <img  alt=""/>
@@ -45,18 +46,18 @@ function Contact(props) {
 
                                 <div>
                                     <img className="phoneContact" src={phone} alt="" />
-                                    <p>+994 55 XXX XX XX</p>
-                                    <p>+994  70 XXX XX XX</p>
+                                    <p><a href="tel:+994505486947"> +994 50 548 69 47 </a></p>
+                                    <p><a href="tel:+994124246804"> +994 12 424 68 04 </a></p>
                                 </div>
 
                                 <div>
                                     <img className="mailContact" src={mail} alt=""/>
-                                    <p>info@ustatap.net</p>
+                                    <p><a href="mailto:info@ustatap.net"> info@ustatap.net</a></p>
                                 </div>
                                 
                                 <div>   
                                     <img className="locContact" src={location} alt=""/>
-                                    <p>N.Nərimanov pr., 127, Bakı,Azərbaycan, AZ1006</p>
+                                    <p><a href="">  N.Nərimanov pr., 127, Bakı , Azərbaycan, AZ1006 </a></p>
                                 </div>
                                 
                             </div>

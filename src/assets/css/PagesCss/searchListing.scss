@@ -10,16 +10,6 @@
     {
         width: 600px;
     }
-    .mastersCont
-    {
-        width: 378px;
-        height: 214px;
-        .aboutText
-        {
-            width: 165px;
-            height:185px;
-        }
-    }
     .linkAndButton
     {
         width: 1185px;
@@ -98,35 +88,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-gap: 50px;
             }
-            .ad
-            {
-                .mainImg
-                {
-                    height: 264px;
-                }
-                width: 376px;
-                height: 445px;
-                .flexCont1
-                {
-                    font-size: 19px;
-                }
-                .nameCostumer
-                {
-                    font-size: 12px;
-                    margin-top:-16px;
-                } 
-                .flexCont2
-                {
-                    margin-top: 30px; 
-                    p 
-                    {
-                        &:nth-child(1)
-                        {
-                            font-size: 10px;
-                        }
-                    }
-                }
-            }
+            
         }
     
 }

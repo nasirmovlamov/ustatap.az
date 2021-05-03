@@ -28,7 +28,7 @@ function CompanyMemberArea(props) {
                     <Profile UserData={props.UserData}/>
                 </Route>
                 <Route path={`${match.path}selected-ads`}>
-                    ads
+                    <MySelectedAds UserData={props.UserData}/>
                 </Route>
                 <Route path={`${match.path}sended-requests`}>
                     <RequestsToElans/>
@@ -42,9 +42,7 @@ function CompanyMemberArea(props) {
                 <Route path={`${match.path}security`}>
                     <Security UserData={props.UserData}/>
                 </Route>
-                <Route path={`${match.path}ad-website`}>
-                    ad website
-                </Route>
+                
                 <Route  path={`${match.path}`}>
                     <div className="gridCont">
                         <CardMemberArea img={aboutCompany} link={`${match.path}profile`} title="Şəxsi Məlumatlar"/>
@@ -52,7 +50,6 @@ function CompanyMemberArea(props) {
                         <CardMemberArea img={companySelectedAds} link={`${match.path}selected-ads`} title="Seçilmiş Elanlar"/>
                         <CardMemberArea img={companySelectedMasters} link={`${match.path}selected-masters`} title="Seçilmiş Ustalarım"/>
                         <CardMemberArea img={areaImg6} link={`${match.path}security`} title="Təhlükəsizlik"/>
-                        <CardMemberArea img={onlineAdvertising} link={`${match.path}selected-companies`} title="Saytda Reklam yerləşdir"/>
                         <CardMemberArea img={areaImg9} link={`${match.path}requests-ad`} title="Gələn Sorğular"/>
                         <CardMemberArea img={areaImg7} link={`/`} title="Hesabdan çıx"/>
                     </div>

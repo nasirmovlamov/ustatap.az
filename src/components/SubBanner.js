@@ -1,10 +1,10 @@
 import React from 'react'
 import "../assets/css/componentsCss/subBanner.css"
-import  bannerBg from "../assets/images/component/background/subBannerBg.jpg"
+import  bannerBg from "../assets/images/component/background/subbanner.jpg"
 function SubBanner(props) {
     
     const bgImg = {
-        backgroundImage: `url(https://ustatap.net/storage/app/public/${props?.banner?.image})`,
+        backgroundImage: `url(${bannerBg})`,
         backgroundRepeat: 'no-repeat',  
         backgroundSize: '100%',  
         backgroundPosition: 'center',  

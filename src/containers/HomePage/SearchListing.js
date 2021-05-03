@@ -12,6 +12,7 @@ import Ad2 from '../../components/Ad2';
 import Ad3 from '../../components/Ad3';
 import master from "../../assets/images/component/element/master.png"
 import vipTopImg from "../../assets/images/component/element/vipMastersTop.png"
+import vipTopImg2 from "../../assets/images/component/element/vipCompaniesTop.png"
 import VipAd2 from '../../components/VipAd2';
 import VipAd3 from '../../components/VipAd3';
 import SubBanner from '../../components/SubBanner';
@@ -32,7 +33,7 @@ function SearchListing(props) {
     
     if(SearchResult?.type === "elan")
     {
-        Elements?.map((ad, index ) => elements.push(<Ad name={ ad.title} desc={ad.user_name} address={"Baku"} date={ad.updated_at} view={ad.views} image={ad.images} id={ad.id}/>)) 
+        Elements?.map((ad, index ) => elements.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)) 
     }
     else if(SearchResult?.type === "handyman")
     {
@@ -57,11 +58,11 @@ function SearchListing(props) {
                     <div className="link">
                         <p>
                         <Link to="/">
-                            <a href=""> ustaTap.net </a> 
+                            <a href="/"> ustaTap.net </a> 
                         </Link>
                              -&gt; 
                         <Link to="/elanlar">
-                            <a href=""> axtarış </a> 
+                            <a href="#"> axtarış </a> 
                         </Link>
                             
                         </p>
@@ -70,7 +71,8 @@ function SearchListing(props) {
                 </div>
 
                 <div className="adsContainer">
-                                <img src={vipTopImg} alt=""/>
+                                {SearchResult?.type === 'handyman' && <img src={vipTopImg} alt=""/>}
+                                {SearchResult?.type === 'company' && <img src={vipTopImg2} alt=""/>}
                                 {vipElements.length > 0 ? "" : <p className="searchNresult">Axtarışınıza uyğun nəticə tapılmadı</p> }
                                 <div className="Vipmasters"> {vipElements.length >= 0 ? vipElements : "" } </div> 
                     <SubBanner/>

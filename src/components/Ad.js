@@ -20,22 +20,9 @@ function Ad(props) {
     const [checker , setChecker] = useState(0)
     const ad = useMediaQuery('(max-width:420px)');
 
-    useEffect(() => {
-        if(props.userId !== undefined)
-        {axios.post('https://ustatap.net/public/api/checkselected' , {dynamic_id:props.id , user_id:props.userId})
-             .then(res => setChecker(res.data))
-             .catch(err => console.log(err))
-             console.log(checker);}
-    }, [])
     
-    if(checker)
-    {
-        document?.getElementById(`${props.id}`)?.setAttribute('style' , 'color:red;')
-    }
-    else 
-    {
-        document?.getElementById(`${props.id}`)?.setAttribute('style' , 'color:gray;')
-    }
+    
+    
     useEffect(() => {
         if (UserData?.user?.id === undefined) 
         {
@@ -50,25 +37,57 @@ function Ad(props) {
         backgroundPosition: 'top center',  
     }
     
-    const heartPost = () => {
+    
+    const viewHandler = () => {
+        axios.post('https://ustatap.net/public/api/increment' , {id:props.id})
+             .then(res => console.log(res))
+             .catch(err => console.log(err))
+    }
+
+
+    useEffect(() => {
+        if (JSON.parse(sessionStorage.getItem('secilmishElan')) !== null) {
+            var selecteds = JSON.parse(sessionStorage.getItem('secilmishElan'))
+            var index = selecteds.findIndex(x=> x.id === props.id)
+            if (index !== -1) {
+                document?.getElementById(`${props.id}`)?.setAttribute('style' , 'color:red;')
+            }
+        }
+    }, [])
+
+    const selectItem = (num) => {
+        const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
+        const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
         if(UserData?.user?.id !== undefined)
-        {    
-            if(!checker)
+        {
+            if(sessionStorage.getItem('secilmishElan') === null)
             {
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                var selecteds = []
+                selecteds = [...selecteds , {id:num , name: props.name ,  desc: props.desc , image:props.image,  address:props.address , date: props.date, view: props.view  }]
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
                 document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
-                axios.post('https://ustatap.net/public/net', {dynamic_id:props.id , user_id:props.userId , type: 1 })
-                .then(res => (console.log(res)))
-                .catch(err => console.log(err))
-                setChecker(true)
+                notify1()
+                return 0 
+            }        
+            else 
+            {
+                var selecteds = JSON.parse(sessionStorage.getItem('secilmishElan'))
+            }
+
+            var index = selecteds.findIndex(x=> x.id === num)
+            console.log(index);
+            if (index === -1) {
+                selecteds = [...selecteds , {id:num , name: props.name ,  desc: props.desc  , image:props.image, address:props.address , date: props.date, view: props.view}]
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(selecteds))
+                document.getElementById(`${props.id}`).setAttribute('style' , 'color:red;')
                 notify1()
             }
             else 
             {
+                var newArr = selecteds.filter((item) => item.id !== num)
+                sessionStorage.setItem('secilmishElan' , JSON.stringify(newArr))
                 document.getElementById(`${props.id}`).setAttribute('style' , 'color:gray;')
-                axios.post('https://ustatap.net/public/api/select', {dynamic_id:props.id , user_id:props.userId  , type: 1})
-                .then(res => (console.log(res) ))
-                .catch(err => console.log(err))
-                setChecker(false)
                 notify2()
             }
         }
@@ -76,22 +95,17 @@ function Ad(props) {
         {
             window.location.href = "/login"
         }
-        
     }
-    const viewHandler = () => {
-        axios.post('https://ustatap.net/public/api/increment' , {id:props.id})
-             .then(res => console.log(res))
-             .catch(err => console.log(err))
-    }
+    
     return (
         
             <div className="ad">
                 <Link to={"/elanlar/secilmish-son-elan/" + props.id}>  <button  onClick={() => viewHandler()} style={bgImg} className="mainImg"> </button> </Link>
                 <div className="lineAd"></div>
                 <div className="subCont">
-                    <div className="flexCont1">  <p>{props.name}</p>  <button className="btnHeart" onClick={() => heartPost()}><FavoriteIcon  id={props.id}/></button> </div>
+                    <div className="flexCont1">  <p><Link to={"/elanlar/secilmish-son-elan/" + props.id}>{props.name}</Link></p>  <button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={props.id}/></button> </div>
                     <p className="nameCostumer">{!ad && "Sifarişçi"} {props.desc}</p>
-                    <div className="flexCont2">   <p>Ünvan: {props.address} </p>       {!ad && <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props?.date?.slice(0,10)} </pre></p> }   <p><img src={eye}  alt=""/>{props.view}</p> </div>
+                    <div className="flexCont2">   <p>Ünvan: {props.address} </p>       {!ad && <p ><img src={calendar} alt=""/> <pre className="dateAd"> {props?.date} </pre></p> }   <p><img src={eye}  alt=""/>{props.view}</p> </div>
                 </div>
             </div>
             

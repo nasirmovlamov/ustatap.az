@@ -167,6 +167,15 @@
       flex-wrap: wrap;
 }
 
+.selectedMaster .frameAndText .aboutAd .aboutButtons .btnHeart {
+  background-color: transparent;
+  border: none;
+}
+
+.selectedMaster .frameAndText .aboutAd .aboutButtons .btnHeart svg {
+  color: gray;
+}
+
 .selectedMaster .frameAndText .aboutAd .aboutButtons p {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -178,7 +187,6 @@
       -ms-flex-align: center;
           align-items: center;
   color: #000000;
-  opacity: 0.5;
   font-size: 15px;
 }
 
@@ -287,18 +295,37 @@
     width: 95% !important;
   }
   .selectedMaster .generalCont .aboutAd {
+    padding-left: 10px;
     margin: 0px;
     margin-top: 30px;
+  }
+  .selectedMaster .generalCont .aboutLinks {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 0px !important;
   }
   .selectedMaster .generalCont .aboutLinks a {
     border: none !important;
     margin-left: 0px !important;
   }
+  .selectedMaster .generalCont .aboutButtons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .selectedMaster .generalCont .aboutButtons .btnHeart {
+    padding-left: 0px;
+  }
   .selectedMaster .generalCont .numbers {
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: row !important;
-            flex-direction: row !important;
     -webkit-column-gap: 30px;
             column-gap: 30px;
   }

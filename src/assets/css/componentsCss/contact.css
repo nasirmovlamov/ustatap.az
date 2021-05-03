@@ -14,6 +14,10 @@
   margin-bottom: 50px;
 }
 
+.contact a {
+  color: gray;
+}
+
 .contact .contactCont {
   width: 100%;
   display: -webkit-box;
@@ -54,6 +58,23 @@
   background-color: #58BC40;
   position: absolute;
   z-index: 1;
+}
+
+.contact .button {
+  margin-right: 0px !important;
+}
+
+.contact .button:hover {
+  background: #fff;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  border: 1px solid #58BC40;
+}
+
+.contact .button:hover .text {
+  color: #58BC40;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
 }
 
 .contact .contDetail {
@@ -161,6 +182,8 @@
 
 .contact .formCont form input:focus {
   outline: none;
+  border-bottom: 2px solid black !important;
+  color: black !important;
 }
 
 .contact .formCont form input::-webkit-input-placeholder {
@@ -227,6 +250,7 @@
 
 .contact .formCont form textarea:focus {
   outline: none;
+  border: 2px solid black !important;
 }
 
 .contact .formCont form .button {

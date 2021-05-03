@@ -37,6 +37,9 @@ a
     .dateAd
     {
         width: 69px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
         font-size: 12px;
         overflow: hidden;
         margin: 0px;
@@ -77,6 +80,10 @@ a
         justify-content: space-between;
         padding-left: 10px;
         padding-right: 10px;
+        a 
+        {
+            color: black;
+        }
         .flexCont1
         {
             display: flex;
@@ -100,7 +107,6 @@ a
         .nameCostumer
         {
             font-family: "ComfortaaRegular";
-
             color: rgba(150,150,150,0.83) ;
             font-size: 14px;
             height: 300px !important; 

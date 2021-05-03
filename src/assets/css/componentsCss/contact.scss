@@ -6,6 +6,10 @@
     align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    a 
+    {
+        color: gray;
+    }
     .contactCont
     {
         width: 100%;
@@ -43,7 +47,22 @@
         position: absolute;
         z-index: 1;
     }
-
+    .button
+    {
+        margin-right: 0px !important;
+        
+        &:hover 
+        {
+            background: #fff ;
+            transition:  0.5s all;
+            border: 1px solid #58BC40;
+            .text 
+            {
+                color: #58BC40;
+                transition: 0.5s all;
+            }
+        }
+    }
     .contDetail
     {
         margin-left: 99px;
@@ -120,6 +139,8 @@
                 &:focus 
                 {
                     outline: none;
+                    border-bottom: 2px solid black !important;
+                    color: black !important;
                 }
                 &::placeholder
                 {
@@ -150,6 +171,8 @@
                 &:focus 
                 {
                     outline: none;
+                    border: 2px solid black !important;
+
                 }
             }
             .button 
