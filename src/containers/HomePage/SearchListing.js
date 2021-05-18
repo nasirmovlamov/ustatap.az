@@ -33,17 +33,17 @@ function SearchListing(props) {
     
     if(SearchResult?.type === "elan")
     {
-        Elements?.map((ad, index ) => elements.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)) 
+        Elements?.map((ad, index ) => elements.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)) 
     }
     else if(SearchResult?.type === "handyman")
     {
-        Elements?.map(master =>  {if(master.vip !== 1){ elements.push(<Ad2 name={master.name} job={master.email} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating}/>)}})
-        Elements?.map(master =>  {if(master.vip === 1){ vipElements.push(<VipAd2 name={master.name} job={master.job} address={master.city} image={master.image} numberStar={master.rating} id={master.id } rating={master.rating}/> )}})
+        Elements?.map(master =>  {if(master.vip !== 1){ elements.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>)}})
+        Elements?.map(master =>  {if(master.vip === 1){ vipElements.push(<VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/> )}})
     }
     else if(SearchResult?.type === "company")
     {
-        Elements?.map( company => {if(company.vip !== 1 ){elements.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)}})
-        Elements?.map( company => {if(company.vip === 1 ){vipElements.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city} description={company.description}/>)}})
+        Elements?.map( company => {if(company.vip !== 1 ){elements.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}})
+        Elements?.map( company => {if(company.vip === 1 ){vipElements.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}})
     }
 
 
@@ -73,7 +73,7 @@ function SearchListing(props) {
                 <div className="adsContainer">
                                 {SearchResult?.type === 'handyman' && <img src={vipTopImg} alt=""/>}
                                 {SearchResult?.type === 'company' && <img src={vipTopImg2} alt=""/>}
-                                {vipElements.length > 0 ? "" : <p className="searchNresult">Axtarışınıza uyğun nəticə tapılmadı</p> }
+                                {vipElements.length > 0 ? "" : <p className="searchNresult">Axtarışınıza uyğun Vip nəticə tapılmadı</p> }
                                 <div className="Vipmasters"> {vipElements.length >= 0 ? vipElements : "" } </div> 
                     <SubBanner/>
                     {elements.length > 0 ? "" : <p className="searchNresult">Axtarışınıza uyğun nəticə tapılmadı</p> }

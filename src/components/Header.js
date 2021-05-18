@@ -322,8 +322,8 @@ function Header() {
 
 
 
-            {!loginMQ && <button className="login" onClick={() => handleOpen()}><p>{UserData?.user?.image === undefined ? <img src={human} alt="" /> : <div className="userImgCont" style={userImg}></div>}   {UserData?.user?.id !== undefined ? <p className="nameL">{UserData?.user?.name}</p> : <p >Daxil ol</p>}</p></button>}
-            {!elanAddBtnMQ && <button className="putAd" onClick={putAd}><span>+</span> Elan Yerləşdir</button>}
+            {!loginMQ && <button className="login" onClick={() => handleOpen()}><p> {UserData?.user?.image === undefined ? <img src={human} alt="" /> : <div className="userImgCont" style={userImg}></div>}   {UserData?.user?.id !== undefined ? <p className="nameL">{UserData?.user?.name}</p> : <p >Daxil ol</p>}</p></button>}
+            {!elanAddBtnMQ && (UserData?.user?.user_type !== 'elan' && <button className="putAd" onClick={putAd}><span>+</span> Elan Yerləşdir</button>)}
           </div>
         </navbar>
         {!searchMQ && <SearchBox settype={settype} setjobcategory={setjobcategory} setcity={setcity} type={type} jobcategory={jobcategory} city={city} />}

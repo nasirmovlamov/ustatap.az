@@ -10,12 +10,22 @@
     {
         width: 600px;
     }
+    .generalCont 
+    {
+        width: 90%;
+    }
     .linkAndButton
     {
-        width: 1185px;
+        width: 95%;
         height: 130px;
         display: grid;
         grid-template-columns: repeat(3,1fr);
+        @media screen and(max-width:900px) {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: auto;
+        }
         .link
         {
             margin-top: 52.5px;
@@ -51,7 +61,7 @@
     }
     .subBanner
     {
-        width: 887px;
+        width: 90%;
         margin-top: 100px;
     }
         .adsContainer
@@ -87,6 +97,11 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-gap: 50px;
+                @media screen and (max-width:1200px) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
             }
             
         }

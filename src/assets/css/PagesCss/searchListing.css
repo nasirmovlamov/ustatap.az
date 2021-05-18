@@ -17,13 +17,33 @@
   width: 600px;
 }
 
+.searchPage .generalCont {
+  width: 90%;
+}
+
 .searchPage .linkAndButton {
-  width: 1185px;
+  width: 95%;
   height: 130px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 900px) {
+  .searchPage .linkAndButton {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+  }
 }
 
 .searchPage .linkAndButton .link {
@@ -62,7 +82,7 @@
 }
 
 .searchPage .subBanner {
-  width: 887px;
+  width: 90%;
   margin-top: 100px;
 }
 
@@ -108,5 +128,18 @@
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .searchPage .adsContainer .masters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 /*# sourceMappingURL=searchListing.css.map */

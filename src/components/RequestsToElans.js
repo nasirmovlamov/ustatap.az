@@ -7,7 +7,7 @@ import Ad from './Ad'
 import Ad2 from './Ad2'
 import Ad3 from './Ad3'
 
-function RequestsToElans() {
+function RequestsToElans(props) {
     const [UserData, setUserData] = useState(0)
     const [UserAds, setUserAds] = useState([0])
     const UserAdsArr = []
@@ -31,7 +31,7 @@ function RequestsToElans() {
         }
     })
 
-    UserAds?.map((user) => {if(user){UserAdsArr.push(<Ad name={ user.title} desc={user.description}   view={user.views} image={user.images} id={user.id} userId={UserData?.id}/>)}else{}}) 
+    UserAds?.map((ad) => {if(ad){UserAdsArr.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={UserData?.id}/>)}else{}}) 
     return (
         <div className="myAds">
             {UserAdsArr}

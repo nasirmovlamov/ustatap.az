@@ -8,7 +8,7 @@ function MySelectedAds(props) {
     
     return (
         <div className="myAds">
-            {selectedAds?.map((ad) => (<Ad name={ ad.name} desc={ad.desc}  date={ad.date} view={ad.view} image={ad.image} id={ad.id} userId={props.id}/>)  )}
+            {selectedAds?.map((ad) => (<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id} />)  )}
         </div>
     )
 }

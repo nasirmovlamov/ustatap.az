@@ -10,8 +10,8 @@ function SelectedMAMasters(props) {
 
     return (
         <div className="myAds">
-                {selectedMasters?.map((master) =>  <Ad2 name={master.name} job={master.job} address={master.address} image={master.image} numberStar={master.numberStar} id={master.id} rating={master.rating}/>  ) }
-                {selectedVipMasters?.map((master) =>  <VipAd2 id={master.id} name={master?.name} job={master?.job} address={master?.address} image={master.image} numberStar={master.numberStar} rating={master.rating}  />  ) }
+                {selectedMasters?.map((master) =>  <Ad2 name={master?.name} job={master?.category_id?.name} address={master?.address} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>  ) }
+                {selectedVipMasters?.map((master) =>  <VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.address} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} />  ) }
         </div>
     )
 }

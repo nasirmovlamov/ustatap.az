@@ -9,8 +9,8 @@ function SelectedMACompaies(props) {
     
     return (
         <div className="myAds">
-            {    selectedCompanies?.map((company) => (<Ad3 id={company.id} numberStar={company.numberStar} image={company.image} name={company.name} location={company.location} description={company.description}/>)  ) }
-            {    selectedVipCompanies?.map((company) => (<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.location} description={company.description} rating={company.rating}/>)  ) }
+            {    selectedCompanies?.map((company) => (<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count} />)  ) }
+            {    selectedVipCompanies?.map((company) => (<VipAd3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count} />)  ) }
         </div>
     )
 }
