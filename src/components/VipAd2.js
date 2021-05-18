@@ -41,7 +41,6 @@ function VipAd2(props) {
     const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
     const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
     
-
     const backgroundImgHuman = {
         background: `url(https://ustatap.net/${props.image})  no-repeat top center`
 

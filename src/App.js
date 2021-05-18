@@ -18,20 +18,15 @@ function App() {
     
         <Router>
             <ScrolltoTop />
-
           <Switch>
-            
-              
             <Route  path="/">
               <div className="topContainer">
                     <Header/>
               </div>
             </Route>
-              
             <Route path="*">
               404
             </Route>
-            
           </Switch>
         </Router>
   );

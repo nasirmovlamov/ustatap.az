@@ -162,7 +162,7 @@ function Header() {
   const [jobcategory, setjobcategory] = useState('12');
   const [city, setcity] = useState('1');
 
-
+  
   const userImg = {
     backgroundImage: `url(https://ustatap.net/${UserData?.user?.image})`,
     backgroundRepeat: 'no-repeat',

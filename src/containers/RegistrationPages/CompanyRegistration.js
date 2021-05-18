@@ -43,13 +43,17 @@ function CompanyRegistration() {
                 FD.append('name' , values.name)
                 FD.append('email' , values.email)
                 FD.append('phone' , values.phone)
+                FD.append('description' , values.description)
                 FD.append('password' , values.password)
                 FD.append('voen' , values.voen)
-                FD.append('categories' , values.selectedTag)
+                FD.append('categories1' , selectedTag[0])
+                FD.append('categories2' , selectedTag[1])
+                FD.append('categories3' , selectedTag[2])
                 FD.append('address' , values.address)
                 FD.append('city' , 1)
                 FD.append('district' , 1)
                 FD.append('profilePhoto' , profilePhoto)
+                console.log(selectedTag)
                 axios.post('https://ustatap.net/public/api/regcompany',  FD, headers)
                 .then(res => (res.status == 200 && (console.log(res) ,  data.user = res.data , localStorage.setItem("LoginUserData" , JSON.stringify(data))  , window.location.href = "/" ) , setloader(false)))
                 .catch(err => (setUserExistError(err.response.data.message[0]) ,  setloader(false)))
@@ -71,6 +75,7 @@ function CompanyRegistration() {
         name:'',
         email:'',
         address:'',
+        description:'',
         phone:'',
         password:'',
         confirmPassword:'',
@@ -81,6 +86,7 @@ function CompanyRegistration() {
       
     const validationSchema = Yup.object({
         name: Yup.string().required('Şirkət adını daxil edin'),
+        description: Yup.string().required('Haqqınızda qeyd edin'),
         address: Yup.string().required('Ünvanı daxil edin'),
         voen: Yup.string().required('Voen daxil edin'),
         email: Yup.string().email('Elektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
@@ -112,32 +118,33 @@ function CompanyRegistration() {
 
 
     const selectHandler = (num) => {
-        
-        if(selectedTag.includes(num))
+        var myArray = selectedTag
+        if(myArray.includes(num))
         {
             document.getElementById(`btn${num}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
-            for( let i = 0; i < selectedTag.length; i++){ 
-                if ( selectedTag[i] === num) { 
-                    selectedTag.splice(i, 1); 
+            for( let i = 0; i < myArray.length; i++){ 
+                if ( myArray[i] === num) { 
+                    myArray.splice(i, 1); 
+                    setSelectedTag(myArray)
                 }
             } 
-            if(selectedTag.length >= 4)
+            if(myArray.length >= 4)
             {
-                document.getElementById(`btn${selectedTag[0]}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
-                selectedTag.shift()
+                document.getElementById(`btn${myArray[0]}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
+                myArray.shift()
+                setSelectedTag(myArray)
             }
-
         }
         else
         {
             document.getElementById(`btn${num}`).setAttribute('style' , 'background-color: #58BC40;color: white;')
-            selectedTag.push(num)
-            if(selectedTag.length >= 4)
+            myArray.push(num)
+            if(myArray.length >= 4)
             {
-                document.getElementById(`btn${selectedTag[0]}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
-                selectedTag.shift()
+                document.getElementById(`btn${myArray[0]}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
+                myArray.shift()
+                setSelectedTag(myArray)
             }
-            console.log(selectedTag)
         }
 
 
@@ -189,6 +196,11 @@ function CompanyRegistration() {
                             <div className="errors">
                                 <Field type="text" name="address" placeholder="Ünvanı"/>
                                 <ErrorMessage name="address"/>
+                            </div>
+                            
+                            <div className="errors">
+                                <Field type="text" name="description" placeholder="Haqqınızda"/>
+                                <ErrorMessage name="description"/>
                             </div>
 
                             <div className="errors">

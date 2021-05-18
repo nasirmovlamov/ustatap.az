@@ -28,8 +28,8 @@ function Ad(props) {
         {
             setUserData(JSON.parse(localStorage.getItem('LoginUserData')))
       }
-      
     })
+
     const bgImg = {
         backgroundImage: `url(https://ustatap.net/${props.image})`,
         backgroundRepeat: 'no-repeat',  

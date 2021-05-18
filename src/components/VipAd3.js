@@ -118,7 +118,7 @@ function VipAd3(props) {
         }
     }
     const bgImg = {
-        backgroundImage: `url(https://ustatap.net/storage/app/public/${props.image})`,
+        backgroundImage: `url(https://ustatap.net/${props.image})`,
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         backgroundRepeat: 'no-repeat',
@@ -179,16 +179,17 @@ function VipAd3(props) {
     }
 
     const [valueR, setvalueR] = useState(parseInt(props.numberStar))
+
     return (
 
-            <div className="vipCompany" key={props.id}>
+            <div className="vipCompany" key={props.id} >
                 <img className="crown" src={crown} alt=""/>
                 <Link to={"/companies/" + props.id}>   <div className="logoCont" style={bgImg}></div> </Link>
                 <div className="aboutTextMaster"> 
                 <Link to={"/companies/" + props.id}> <p className="name">{props.name}</p> </Link>
                     <div className="bottomImgCont"> 
                         <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
-                        <div className="stars"><Rating  value={valueR} onClick={(event , newValue) => ratingHandler(newValue) }   /></div>  
+                        <div className="stars"><Rating  value={valueR} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>  
                         <button className="heartBtn" onClick={() => selectItem(props.id)}><FavoriteIcon id={props.id}/></button>
                     </div>
                 </div>

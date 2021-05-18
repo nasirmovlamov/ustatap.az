@@ -91,7 +91,7 @@ function SelectedCompany(props) {
         axios.get("https://ustatap.net/public/api/company") 
             .then((res) =>  (setCompanyApi1(res.data) )) 
 
-        axios.get(`https://ustatap.net/public/api/company/${mainId}`) 
+        axios.get(`https://ustatap.net/public/api/shirketler/${mainId}`) 
             .then((res) =>  (setSelectedCompany(res.data)))
 
     } , [])
@@ -139,6 +139,8 @@ function SelectedCompany(props) {
             window.location.href = "/login"
         }
     }
+
+    
     return (
         <div className="selectedCompany">
             <div className="generalCont">
@@ -162,8 +164,8 @@ function SelectedCompany(props) {
                             <p>{SelectedCompany.description}</p>
                         </div>
                         <div className="aboutLinks">
-                            <a href="#"><p className="imgAndText"><img width="18" src={locationCity} alt=""/> <p>Şəhər: {SelectedCompany.adres}</p></p></a>
-                            <a href="#"><p className="imgAndText"><img width="22" src={tools} alt=""/> <p className="worksCanDo">Hansı işləri görür: Malyar , Dülgər{SelectedCompany.categories}</p></p></a>   
+                            <a href="#"><p className="imgAndText"><img width="18" src={locationCity} alt=""/> <p>Şəhər: {SelectedCompany?.city_data?.name}</p></p></a>
+                            <a href="#"><p className="imgAndText"><img width="22" src={tools} alt=""/> <p className="worksCanDo">Hansı işləri görür: {SelectedCompany?.category_data?.name} {(SelectedCompany?.subcategory_id?.name !== undefined && SelectedCompany?.subcategory_id?.name !== null) && " , "} {SelectedCompany?.subcategory_id?.name} {(SelectedCompany?.additionalcategory_id?.name !== undefined && SelectedCompany?.subcategory_id?.name !== null) && " , "} {SelectedCompany?.additionalcategory_id?.name}</p></p></a>   
                         </div>
                         
                         <div className="bottomPart">
@@ -173,7 +175,7 @@ function SelectedCompany(props) {
                         </div>
                         <div className="aboutButtons">
                             {/* <div className="stars">{stars}</div> */}
-                            <p><img width="20" src={selectedAdEye} alt=""/> <span>53</span></p> 
+                            <p><img width="20" src={selectedAdEye} alt=""/> <span>{SelectedCompany.views}</span></p> 
                             <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlave et</span></p> 
                             <Button name="Elanı VIP-et" image2={diamond} color="#58BC40"/>
                         </div>

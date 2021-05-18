@@ -77,7 +77,7 @@ function Companies(props) {
       }
     } , [])
     console.log(numId);
-    CompanyApi.map(  company => { if(company.vip === 0 || company.vip === null){companies.push(<Ad3 id={company.id} numberStar={company.rating} rating={company.rating_count} image={company.image} name={company.name} location={company?.city?.name} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} rating={company.rating_count} numberStar={company.rating} image={company.image} name={company.name} location={company?.city?.name} description={company.description}/>)}else{}} )
+    CompanyApi.map(  company => { if(company.vip === 0 || company.vip === null){companies.push(<Ad3  id={company.id} numberStar={company.rating_count} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating_count} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating}/>)}else{}} )
     console.log(companies);
     const [filter, setfilter] = useState(0)
     const ListingResult = JSON.parse(localStorage.getItem("ListingResult"))

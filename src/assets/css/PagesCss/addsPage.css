@@ -199,9 +199,9 @@
     width: 98%;
   }
   .addsPage .adsContainer {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     grid-gap: 3%;
     row-gap: 10px;
   }

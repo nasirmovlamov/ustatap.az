@@ -56,7 +56,10 @@ function MasterRegistration() {
                 FD.append('email' , values.email)
                 FD.append('phone' , values.phone)
                 FD.append('password' , values.password)
-                FD.append('categories' , values.selectedTag)
+                FD.append('description' , values.description)
+                FD.append('categories1' , selectedTag[0])
+                FD.append('categories2' , selectedTag[1])
+                FD.append('categories3' , selectedTag[2])
                 FD.append('city' , city)
                 FD.append('district' , 1)
                 FD.append('profilePhoto' , profilePhoto)
@@ -78,6 +81,7 @@ function MasterRegistration() {
         name:'',
         email:'',
         phone:'',
+        description:'',
         password:'',
         confirmPassword:'',
         city:'',
@@ -85,6 +89,7 @@ function MasterRegistration() {
     }
     const validationSchema = Yup.object({
         name: Yup.string().required('Adınızı daxil edin'),
+        description: Yup.string().required('Haqqınızda qeyd edin'),
         email: Yup.string().email('E-lektron poçtunuzu düzgün daxil edin').required('Elektron poçtunuzu daxil edin'),
         phone:  Yup.string().matches(phoneRegExp, 'Telefon nömrənizi düzgün daxil edin').required('Telefon nömrənizi daxil edin'),
         password: Yup.string().matches(passRegex ,'Şifrəniz ən az 8 simvol 1 böyük hərf 1 kiçik hərf və 1 rəqəm təşkil etməlidir').required('Şifrənizi daxil edin'),
@@ -106,6 +111,7 @@ function MasterRegistration() {
     tagsApi.map((tag) => tags.push(<button  type="button" onClick={() => selectHandler(tag.id)} id={`btn${tag.id}`}>{tag.name}</button>)) 
     
     const selectHandler = (num) => {
+        var myArray = selectedTag
         if (selectedTag.length >= 1) {
             settagError(false)
         }
@@ -113,24 +119,27 @@ function MasterRegistration() {
         {
             settagError(true)
         }
-        if(selectedTag.includes(num))
+        if(myArray.includes(num))
         {
             document.getElementById(`btn${num}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
-            for( let i = 0; i < selectedTag.length; i++){ 
-                if ( selectedTag[i] === num) { 
-                    selectedTag.splice(i, 1); 
+            for( let i = 0; i < myArray.length; i++){ 
+                if ( myArray[i] === num) { 
+                    myArray.splice(i, 1); 
+                    setSelectedTag(myArray)
                 }
             } 
-            if(selectedTag.length >= 4)
+            if(myArray.length >= 4)
             {
-                document.getElementById(`btn${selectedTag[0]}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
-                selectedTag.shift()
+                document.getElementById(`btn${myArray[0]}`).setAttribute('style' , 'background-color: transparent;color: black;border: 1px solid #58BC40;')
+                myArray.shift()
+                setSelectedTag(myArray)
             }
         }
         else
         {
             document.getElementById(`btn${num}`).setAttribute('style' , 'background-color: #58BC40;color: white;')
-            selectedTag.push(num)
+            myArray.push(num)
+            setSelectedTag(myArray)
             console.log(selectedTag)
             if(selectedTag.length >= 4)
             {
@@ -196,6 +205,11 @@ function MasterRegistration() {
                             <div className="errors">
                                 <Field placeholder="Elektron poçt ünvanı" name="email" />
                                 <ErrorMessage name="email"/>
+                            </div>
+                            
+                            <div className="errors">
+                                <Field placeholder="Haqqınızda" name="description" />
+                                <ErrorMessage name="description"/>
                             </div>
 
                             <div className="errors">

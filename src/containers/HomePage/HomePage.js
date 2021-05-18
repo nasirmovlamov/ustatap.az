@@ -170,7 +170,7 @@ function HomePage(props) {
         axios.get("https://ustatap.net/public/api/banners") 
              .then((res) =>  (setBanners(res.data) ))
     },[] )
-    latestAdApi.map((ad) => (ad?.category_id?.id !== 11 && ad?.category_id?.id !== 4 && ad.id !== undefined) && latestAd.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
+    latestAdApi.map((ad) => (ad?.category_id?.id !== 11 && ad?.category_id?.id !== 4 && ad.id !== undefined) && latestAd.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad?.tarix} view={ad?.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
@@ -206,12 +206,12 @@ function HomePage(props) {
         </button>
     ))
         
-    latestAdApi.map((ad, index ) => {if(ad?.category_id?.id === 11 && ad?.id !== undefined){santexnika.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)}}) 
-    latestAdApi.map((ad, index ) => {if(ad?.category_id?.id === 4  && ad?.id !== undefined){electric.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)}}) 
+    latestAdApi.map((ad, index ) => {if(ad?.category_id?.id === 11 && ad?.id !== undefined){santexnika.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)}}) 
+    latestAdApi.map((ad, index ) => {if(ad?.category_id?.id === 4  && ad?.id !== undefined){electric.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)}}) 
     MasterApi.map(master =>  {if(master.vip !== 1 &&  master.id !== undefined){ masters.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>)}})
     MasterApi.map(master =>  {if(master.vip === 1 && master.id !== undefined){ vipMasters.push(<VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} /> )}})
     CompanyApi.map( company =>  { if(company.vip !== 1 && company.id !== undefined){ companies.push(<Ad3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
-    CompanyApi.map( company =>  {if(company.vip === 1 && company.id !== undefined){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
+    CompanyApi.map( company =>  {if(company.vip === 1 && company.id !== undefined){ vipCompanies.push(<VipAd3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}} )
 
     const  clickHandler = (number) => {
         if (document.getElementById("wD" + number).style.display === "block") {

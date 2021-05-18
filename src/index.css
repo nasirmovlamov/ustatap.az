@@ -23,3 +23,9 @@ button , a
 {
     cursor: pointer;
 }
+
+a 
+{
+  text-decoration: none !important;
+  color: black;
+}

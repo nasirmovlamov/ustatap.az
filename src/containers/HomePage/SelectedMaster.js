@@ -61,8 +61,7 @@ function SelectedMaster(props) {
     {
         axios.get(`https://ustatap.net/public/api/handyman/${mainId}`) 
              .then((res) =>  (setSelectedMaster(res.data)))
-        axios.get("https://ustatap.net/public/api/handymen") 
-            .then((res) =>  (setMasterApi(res.data) ))
+       
     } , [])
 
 
@@ -159,13 +158,13 @@ function SelectedMaster(props) {
                         </div>
                          <div className="aboutLinks">
                             <a ><p><img width="16px" src={locationCity} alt=""/> <span>Şəhər: {SelectedMaster?.city?.name}</span></p></a>
-                            <a ><p><img width="18px" src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür:{SelectedMaster?.category_data?.name}</span></p></a>   
+                            <a ><p><img width="18px" src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: {SelectedMaster?.category_id?.name} {(SelectedMaster?.subcategory_id?.name !== undefined && SelectedMaster?.subcategory_id?.name !== null) && " , "} {SelectedMaster?.subcategory_id?.name} {(SelectedMaster?.additionalcategory_id?.name !== undefined && SelectedMaster?.subcategory_id?.name !== null) && " , "} {SelectedMaster?.additionalcategory_id?.name} </span></p></a>   
                         </div>
-                        <div href="#" className="phoneOfMaster"><p><img width="24px" src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a> <a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a></div></p></div>   
+                        <div href="#" className="phoneOfMaster"><p><img width="15px" src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a> <a href={`tel:${SelectedMaster.phone}`}></a></div></p></div>   
 
                         <div className="aboutButtons">
-                            <p><img src={selectedAdEye} alt=""/> <span>53</span></p> 
-                            <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlave et</span></p> 
+                            <p><img src={selectedAdEye} alt=""/> <span>{SelectedMaster?.views}</span></p> 
+                            <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlavə et</span></p> 
                             <Button name="Elanı VIP-et" image2={diamond} color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
                         </div>
                         

@@ -317,7 +317,6 @@
 }
 
 .selectedCompany .frameAndText .aboutAd .aboutLinks a:nth-child(1) p {
-  width: 300px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

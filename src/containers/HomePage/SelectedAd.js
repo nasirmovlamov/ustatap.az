@@ -61,7 +61,6 @@ function SelectedAd(props) {
     const [SelectedAd, setSelectedAd] = useState(0)
     const [latestAdApi, setlatestAdApi] = useState([0])
     const latestAd = []
-    latestAd.push( latestAdApi.map(ad => <Ad name={ ad.title} costumer={ad.description} address={ad.city} date={ad.updated_at} view="1258" image={ad.images} id={ad.id}/>)  ) 
     const [UserData, setUserData] = useState(0)
     useEffect(() => {
         if (UserData?.user?.id === undefined) 

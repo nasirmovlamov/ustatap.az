@@ -142,7 +142,7 @@ function Ad3(props) {
             window.location.href = "/login"
         }
     }
-    const [valueR, setvalueR] = useState(props.numberStar)
+    const [valueR, setvalueR] = useState(parseInt(props.numberStar))
 
     return (
 
@@ -152,7 +152,7 @@ function Ad3(props) {
                     <Link to={"/companies/" + props.id}><p className="name">{props.name} </p></Link>
                     <div className="bottomImgCont"> 
                         <p className="address"><img src={whiteLocation} alt="Adress" /> {props.location}</p>  
-                        <div className="stars"><Rating     value={parseInt(props.numberStar)} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
+                        <div className="stars"><Rating     value={valueR} onChange={(event , newValue) => ratingHandler(newValue) }   /></div>
                         <button className="heartBtn" onClick={() => selectItem(props.id)}><FavoriteIcon id={props.id}/></button>
                     </div>
                 </div>
