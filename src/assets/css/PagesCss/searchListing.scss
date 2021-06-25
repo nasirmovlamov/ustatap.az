@@ -72,6 +72,12 @@
             justify-items: center;
             display: grid;
             grid-template-columns: repeat(1, 1fr);
+            .topThing 
+            {
+                @media screen and (max-width:500px) {
+                    width: 100% !important;
+                }
+            }
             .searchNresult
             {
                 margin-top: 50px;
@@ -87,6 +93,11 @@
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 grid-gap: 50px;
+                @media screen and (max-width:750px) {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                }
             }
             .masters
             {

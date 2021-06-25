@@ -52,7 +52,8 @@ img: {
 
 
 function SelectedAd(props) {
-    const notify1 = (rate) => toast.success(`Sorğunuz Göndərilmişdir` , {draggable: true,});
+    const notify1 = (rate) => toast.success(rate , {draggable: true,});
+    const notifyErr = (rate) => toast.error(`Sorğunuz artıq göndərilmişdir` , {draggable: true,});
 
     const frameContMQ = useMediaQuery('(min-width:566px)');
     const [image, setimage] = useState([selectedAd1,selectedAd2,selectedAd3,selectedAd4,selectedAd5 ])
@@ -80,7 +81,7 @@ function SelectedAd(props) {
     
     const functionApply = () => {
         axios.post("https://ustatap.net/public/api/offer" , {user_id : UserData?.user?.id , vacancy_id:SelectedAd.id} ,  ) 
-        .then((res) =>  (console.log(res.data) , notify1() ))  
+        .then((res) =>  (console.log(res.data) , notify1(res.data) ))  
     }   
     useEffect(() => {
         if (JSON.parse(sessionStorage.getItem('secilmishElan')) !== null) {
@@ -237,7 +238,8 @@ function SelectedAd(props) {
                             <p>Elan yerləşdirilib: <pre className="date"> {SelectedAd?.tarix}</pre></p> 
                             <p><img src={selectedAdEye} alt=""/> <span> {SelectedAd.views}</span></p> 
                             <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlave et</span></p> 
-                            <Button type="button" function={() => functionApply()} name="Mən bu işi Görərəm"/> 
+                            {console.log(UserData?.user?.user_type)}
+                            {(UserData?.user?.user_type !== 'user' && UserData?.user?.user_type !== undefined) &&<Button type="button" function={() => functionApply()} name="Mən bu işi Görərəm"/> }
                         </div>
                         <div className="bottomLines"><hr/> <img src={mainLogo} alt="" /> <hr/></div>
                     </div>

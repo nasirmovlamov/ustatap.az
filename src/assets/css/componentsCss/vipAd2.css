@@ -39,6 +39,11 @@
   font-size: 14px;
   width: 255px;
   overflow: hidden;
+  color: black;
+}
+
+.Vipad .name a {
+  color: black;
 }
 
 .Vipad p {

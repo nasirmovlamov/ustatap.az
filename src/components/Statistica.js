@@ -6,7 +6,7 @@ import www from "../assets/images/component/element/wwwWhite.svg"
 import homePhoneWhite from "../assets/images/component/element/homePhoneWhite.svg"
 import mainLogo from "../assets/images/component/element/mainLogo.svg"
 import { useMediaQuery } from '@material-ui/core'
-function Statistica() {
+function Statistica(props) {
     const gridItemMQ = useMediaQuery('(max-width:1170px)');
 
     return (
@@ -14,23 +14,23 @@ function Statistica() {
                 <p className="title"> Statistika</p>
                 <div className="gridCont1">
                     <p>Elanların sayı</p>
-                    {gridItemMQ && <p>1547</p>}
+                    {gridItemMQ && <p>{props.latestAdApi}</p>}
                     <p>Ustaların sayı</p>
-                    {gridItemMQ && <p>1547</p>}
+                    {gridItemMQ && <p>{props.MasterApi}</p>}
 
                     <p>Şirkətlərin sayı</p>
-                    {gridItemMQ && <p>1547</p>}
+                    {gridItemMQ && <p>{props.CompanyApi}</p>}
 
                     <p>Günlük Ziyarətçi Sayı</p>
-                    {gridItemMQ && <p>1547</p>}
+                    {gridItemMQ && <p>{219}</p>}
 
                     {
                     !gridItemMQ &&
                         <>
-                        <p>1547</p>
-                        <p>754</p>
-                        <p>129</p>
-                        <p>754</p>
+                        <p>{props.latestAdApi}</p>
+                        <p>{props.MasterApi}</p>
+                        <p>{props.CompanyApi}</p>
+                        <p>{219}</p>
                         </>
                     }
                 </div>
@@ -38,9 +38,9 @@ function Statistica() {
                 <hr className="underLine"/>
                 
                 <div className="gridCont2">
-                    <p><img className="whiteImg1" src={phoneWhite} alt=""/> <span> +994 55 XXX XX XX</span>  </p>
+                    <p><img className="whiteImg1" src={phoneWhite} alt=""/> <span>+994 50 548 69 47</span>  </p>
                     <p><img className="whiteImg2" src={mailWhite} alt=""/> <span> info@ustatap.net</span> </p>
-                    <p><img className="whiteImg3" src={homePhoneWhite} alt=""/> <span> +994 70 XXX XX XX</span>  </p>
+                    <p><img className="whiteImg3" src={homePhoneWhite} alt=""/> <span>+994 12 424 68 04</span>  </p>
                     <p><img className="whiteImg4" src={www} alt=""/> <span> www.ustatap.net</span> </p>
                 </div>
                 <img className="mainLogo" src={mainLogo} alt=""/>

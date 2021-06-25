@@ -76,9 +76,8 @@ function Companies(props) {
         .then((res) =>  (setCompanyApi(res.data) )) 
       }
     } , [])
-    console.log(numId);
-    CompanyApi.map(  company => { if(company.vip === 0 || company.vip === null){companies.push(<Ad3  id={company.id} numberStar={company.rating_count} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating_count} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating}/>)}else{}} )
-    console.log(companies);
+
+    CompanyApi.map(  company => { if(company.vip === 0 || company.vip === null){companies.push(<Ad3   id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}else{}} )
     const [filter, setfilter] = useState(0)
     const ListingResult = JSON.parse(localStorage.getItem("ListingResult"))
 
@@ -88,7 +87,7 @@ function Companies(props) {
         setfilter(0)
         axios.post("https://ustatap.net/public/api/sirketfilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip , } ) 
         .then((res) =>  (setCompanyApi(res.data) ))
-        CompanyApi.map(  company => { if(company.vip === 0){companies.push(<Ad3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3 id={company.id} numberStar={company.rating} image={company.image} name={company.company_name} location={company.company_adress} description={company.description}/>)}else{}} )
+        CompanyApi.map(  company => { if(company.vip === 0){companies.push(<Ad3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)} else if(company.vip === 1){ vipCompanies.push(<VipAd3  id={company.id} numberStar={company.rating} image={company.image} name={company.name} location={company.city?.name} description={company.description} rating={company.rating_count}/>)}else{}} )
     }
            
     
@@ -158,14 +157,16 @@ function Companies(props) {
 
                     <div className="adsContainer">
                         {
-                            props.hideVip && <>
-                                    {!crownTopPart && <img src={vipCompaniesTop} alt=""/>}
-                                    {crownTopPart && <img className="vipCompanyTopMobile" src={vipTopImg1} alt=""/>}
-                                    <div className="companiesVipCont">
-                                        {vipCompanies}
-                                    </div>
-                            </>
-                        }
+                          vipCompanies.length > 0 && 
+                          (
+                              props.hideVip && <>
+                                      {!crownTopPart && <img src={vipCompaniesTop} alt=""/>}
+                                      {crownTopPart && <img className="vipCompanyTopMobile" src={vipTopImg1} alt=""/>}
+                                      <div className="companiesVipCont">
+                                          {vipCompanies}
+                                      </div>
+                              </>
+                          )}
                         <SubBanner banner={Banners.bannerone} marginTop="60px" marginBottom="78px"/>
                         <div className="companiesCont">
                             {companies}

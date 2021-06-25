@@ -61,7 +61,7 @@ function UserMemberArea(props) {
                         <CardMemberArea img={areaImg5} link={`${match.path}selected-companies`} title="Seçilmiş Şirkətlərim"/>
                         <CardMemberArea img={areaImg6} link={`${match.path}security`} title="Təhlükəsizlik"/>
                         <CardMemberArea img={areaImg8} link={`${match.path}elan-add`} title="Elan əlavə et"/>
-                        <CardMemberArea img={areaImg9} link={`${match.path}requests-ad`} title="Gedən Sorğular"/>
+                        <CardMemberArea img={areaImg9} link={`${match.path}requests-ad`} title="Gələn Sorğular"/>
                         <CardMemberArea img={areaImg7} link={`/`} func={logout} title="Hesabdan çıx"/>
                     </div>
                 </Route>

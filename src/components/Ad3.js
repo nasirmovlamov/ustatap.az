@@ -73,23 +73,8 @@ function Ad3(props) {
              .then(res => console.log(res))
              .catch(err => console.log(err))
     }
-    const ratingHandler = (value) => {
-        if (UserData?.user?.id === undefined) {
-            window.location.href = "/login"
-        }
-        else 
-        {
-            if(value===null)
-            {
-                value = props.numberStar
-            }
-            axios.post('https://ustatap.net/public/api/rate', {user_id:props.id , rate:value} )
-                .then(res => ( console.log(res.data) ,res.status === 200 && notify(value) ))
-                .catch(err => console.log(err))
-        }
-    }
-
-
+    
+    
     useEffect(() => {
         if (JSON.parse(sessionStorage.getItem('secilmishShirket') ) !== null )
         {
@@ -100,7 +85,7 @@ function Ad3(props) {
             }
         }
     }, [])
-
+    
     const selectItem = (num) => {
         const notify2 = (rate) => toast.success(`Seçilmişlərdən çıxarıldı` , {draggable: true,});
         const notify1 = (rate) => toast.success(`Seçilmişlərə Əlavə olundu` , {draggable: true,});
@@ -120,7 +105,7 @@ function Ad3(props) {
             {
                 var selecteds = JSON.parse(sessionStorage.getItem('secilmishShirket'))
             }
-
+            
             var index = selecteds.findIndex(x=> x.id === num)
             console.log(index);
             if (index === -1) {
@@ -142,11 +127,26 @@ function Ad3(props) {
             window.location.href = "/login"
         }
     }
+    const ratingHandler = (value) => {
+        if (UserData?.user?.id === undefined) {
+            window.location.href = "/login"
+        }
+        else 
+        {
+            if(value===null)
+            {
+                value = props.numberStar
+            }
+            axios.post('https://ustatap.net/public/api/rate', {user_id:props.id , rate:value} )
+                .then(res => ( console.log(res.data) ,res.status === 200 && notify(value) ))
+                .catch(err => console.log(err))
+        }
+    }
     const [valueR, setvalueR] = useState(parseInt(props.numberStar))
-
+    
     return (
-
-            <div key={props.id} className="companies">
+        
+        <div key={props.id} className="companies">
                 <Link to={"/companies/" + props.id}>    <div className="logoCont" style={bgImg}></div></Link>
                 <div className="aboutTextMaster"> 
                     <Link to={"/companies/" + props.id}><p className="name">{props.name} </p></Link>
@@ -159,7 +159,7 @@ function Ad3(props) {
             </div>
 
 
-    )
+)
 }
 
 export default Ad3

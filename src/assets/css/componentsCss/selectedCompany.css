@@ -257,14 +257,26 @@
   opacity: 0.83;
 }
 
+.selectedCompany .frameAndText .aboutAd .ratingCont {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 5px;
+}
+
 .selectedCompany .frameAndText .aboutAd .aboutLinks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 29px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: auto;
+  margin-top: 0px;
 }
 
 .selectedCompany .frameAndText .aboutAd .aboutLinks .worksCanDo {
@@ -348,7 +360,6 @@
   display: -ms-flexbox;
   display: flex;
   font-size: 10px;
-  margin-top: 26px;
   width: 100%;
 }
 
@@ -489,7 +500,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 120px;
+  margin-top: 40px;
 }
 
 .selectedCompany .frameAndText .aboutAd .bottomLines img {

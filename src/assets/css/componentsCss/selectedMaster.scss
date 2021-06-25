@@ -68,8 +68,7 @@
             display: flex;
             height: 46px;
             align-items: center;
-            margin-top: 15px;
-
+            margin-top: 5px;
             p
             {
                 display: flex;
@@ -95,8 +94,8 @@
         .aboutLinks
         {
             display: flex;  
-            margin-top: 29px;
             flex-wrap: wrap;
+            margin-top: 0px;
             a
             {
                 display: flex;
@@ -132,7 +131,7 @@
         {
             display: flex;
             font-size: 10px;
-            margin-top: 16px;
+            margin-top: 10px;
             width: 100%;
             flex-wrap: wrap;
             .btnHeart
@@ -172,7 +171,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 120px;
+            margin-top: 30px;
             img 
             {
                 width: 86px;

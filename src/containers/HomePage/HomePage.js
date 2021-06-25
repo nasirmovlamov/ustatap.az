@@ -170,7 +170,7 @@ function HomePage(props) {
         axios.get("https://ustatap.net/public/api/banners") 
              .then((res) =>  (setBanners(res.data) ))
     },[] )
-    latestAdApi.map((ad) => (ad?.category_id?.id !== 11 && ad?.category_id?.id !== 4 && ad.id !== undefined) && latestAd.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad?.tarix} view={ad?.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
+    latestAdApi.map((ad) => (ad.id !== undefined) && latestAd.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad?.tarix} view={ad?.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)  ) 
     jobCategoryApi.map((category) => jobCategory.push(
         <button className="contForAside" onClick={() => clickHandler(category.id)}>
             <div className="workTypeCont">
@@ -339,7 +339,7 @@ function HomePage(props) {
                         props.hideVip &&
                         <>
                         <div className="typeAddContainer"> 
-                            <p className="title">Vip Ustalar</p>
+                            <p className="title">Populyar Ustalar</p>
                             {!lineRM && <div className="line2"></div>}
                             <div className="adsContainer">
                             {
@@ -374,7 +374,7 @@ function HomePage(props) {
                             props.hideVip &&
                             <>
                             <div className="typeAddContainer"> 
-                                <p className="title">Vip Şirkətlər</p>
+                                <p className="title">Populyar  Şirkətlər</p>
                                 {!lineRM && <div className="line3"></div>}
                                 <div className="adsContainer">
                                     {

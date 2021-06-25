@@ -243,13 +243,21 @@
                 opacity: 0.83;
             }
         }
+        .ratingCont
+        {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+        }
         
         .aboutLinks
         {
             display: flex;  
-            margin-top: 29px;
+            // margin-top: 29px;
             flex-wrap: wrap;
             width: auto;
+            margin-top: 0px;
             .worksCanDo
             {
                 width: auto;
@@ -322,7 +330,6 @@
         {
             display: flex;
             font-size: 10px;
-            margin-top: 26px;
             width: 100%;
             .btnHeart
             {
@@ -429,7 +436,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 120px;
+            margin-top: 40px;
             img 
             {
                 width: 86px;

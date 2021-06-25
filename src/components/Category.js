@@ -51,14 +51,11 @@ function Category(props) {
     }
     
     const searchClick = () => {
-        if(date !== undefined || vip !== undefined )
-        {
             console.log(city);
             console.log(jobcategory);
             props.setfilter(1)
             const obj =  {date:date , jobcategory:jobcategory , city:city , vip:vip  } 
             localStorage.setItem("ListingResult" , JSON.stringify(obj))
-        }
     }
     const [jobCategoryApi, setJobCategoryApi] = useState([0])
     const [cityCategoryApi, setCityCategoryApi] = useState([0])

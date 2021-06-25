@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../../assets/css/componentsCss/aboutUs.css"
 import {
     Link
@@ -6,7 +6,25 @@ import {
 
 import Footer from '../../components/Footer';
 import Statistica from '../../components/Statistica';
-function aboutUs() {
+import axios from 'axios';
+function AboutUs() {
+    const [latestAdApi, setlatestAdApi] = useState([0])
+    const [MasterApi, setMasterApi] = useState([0])
+    const [CompanyApi, setCompanyApi] = useState([0])
+    
+    useEffect(() => 
+    {
+        axios.get("https://ustatap.net/public/api/ad") 
+             .then((res) =>  (setlatestAdApi(res.data)  ))
+        axios.get("https://ustatap.net/public/api/handymen") 
+             .then((res) =>  (setMasterApi(res.data) ))
+        axios.get("https://ustatap.net/public/api/company") 
+             .then((res) =>  (setCompanyApi(res.data) ))
+    },[] )
+
+
+
+
     return (
         <div className="aboutUs">
             <div className="generalCont">
@@ -35,9 +53,9 @@ function aboutUs() {
 
             </div>
                 
-                <Statistica/>        
+                <Statistica latestAdApi={latestAdApi.length} CompanyApi={CompanyApi.length} MasterApi={MasterApi.length}/>        
         </div>
     )
 }
 
-export default aboutUs
+export default AboutUs

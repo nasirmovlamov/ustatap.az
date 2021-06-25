@@ -44,7 +44,7 @@ function Comments(props) {
     return (
         <div className="commentsCont">
             <p className="titleComments">Rəylər </p>
-            {CommentsUser.map((name, index) => <SingleComment image={name.user_image} nameMainComment={name.user_name} id={name.id} mainComment={name.text} subComments={name.subcomments} date={name?.created_at?.slice(0, 10)} />)}
+            {CommentsUser.length > 0 &&  <>{CommentsUser.map((name, index) => <SingleComment image={name.user_image} nameMainComment={name.user_name} id={name.id} mainComment={name.text} subComments={name.subcomments} date={name?.created_at?.slice(0, 10)} />)}</>}
             <div className="replyForm">
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={true}>
                     <Form action="" method="post" >

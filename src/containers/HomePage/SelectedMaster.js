@@ -28,6 +28,9 @@ import Ad2 from "../../components/Ad2"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import Rating from '@material-ui/lab/Rating';
+import StarIcon from '@material-ui/icons/Star';
+
 function SelectedMaster(props) {
     const [UserData, setUserData] = useState(0)
     useEffect(() => {
@@ -60,7 +63,7 @@ function SelectedMaster(props) {
     useEffect(() => 
     {
         axios.get(`https://ustatap.net/public/api/handyman/${mainId}`) 
-             .then((res) =>  (setSelectedMaster(res.data)))
+             .then((res) =>  (setSelectedMaster(res.data) , setvalueR(res.data?.rating)))
        
     } , [])
 
@@ -133,7 +136,31 @@ function SelectedMaster(props) {
             window.location.href = "/login"
         }
     }
-    console.log(SelectedMaster)
+
+
+
+    //TODO: 
+
+    const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
+    const ratingHandler = (value) => {
+        if (UserData?.user?.id === undefined) {
+            window.location.href = "/login"
+        }
+        else 
+        {
+            if(value===null)
+            {
+                value = props.numberStar
+            }
+            axios.post('https://ustatap.net/public/api/rate', {user_id:SelectedMaster?.id , rate:value} )
+                .then(res => ( console.log(res.data) , res.status === 200 && notify(value) ))
+                .catch(err => console.log(err))
+        }
+    }
+    console.log(SelectedMaster);
+    const [valueR, setvalueR] = useState(1)
+
+
     return (
         <div className="selectedMaster">
             <div className="generalCont">
@@ -160,14 +187,15 @@ function SelectedMaster(props) {
                             <a ><p><img width="16px" src={locationCity} alt=""/> <span>Şəhər: {SelectedMaster?.city?.name}</span></p></a>
                             <a ><p><img width="18px" src={tools} alt=""/> <span className="worksCanDo">Hansı işləri görür: {SelectedMaster?.category_id?.name} {(SelectedMaster?.subcategory_id?.name !== undefined && SelectedMaster?.subcategory_id?.name !== null) && " , "} {SelectedMaster?.subcategory_id?.name} {(SelectedMaster?.additionalcategory_id?.name !== undefined && SelectedMaster?.subcategory_id?.name !== null) && " , "} {SelectedMaster?.additionalcategory_id?.name} </span></p></a>   
                         </div>
-                        <div href="#" className="phoneOfMaster"><p><img width="15px" src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a> <a href={`tel:${SelectedMaster.phone}`}></a></div></p></div>   
-
+                        <div href="#" className="phoneOfMaster"><p><img width="15px" src={phone} alt=""/> <div className="numbers"><a href={`tel:${SelectedMaster.phone}`}>{SelectedMaster.phone}</a> <a href={`tel:${SelectedMaster.phone}`}></a> </div> </p></div>   
+                        <Rating value={valueR} onChange={(event , newValue) => ratingHandler(newValue)}    />
+                        <p className="rating">Reyting sayı {SelectedMaster?.rating_count} </p>
                         <div className="aboutButtons">
                             <p><img src={selectedAdEye} alt=""/> <span>{SelectedMaster?.views}</span></p> 
                             <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlavə et</span></p> 
-                            <Button name="Elanı VIP-et" image2={diamond} color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/>
+                            {/* <Button name="Elanı VIP-et" image2={diamond} color="linear-gradient(90deg, #F37B29 0%, #F97922 100%)"/> */}
                         </div>
-                        
+                        <div className="bottomLines"><hr/> <img src={mainLogo} alt="" /> <hr/></div>
                     </div>
                 </div>
                 <Comments id={mainId}/>

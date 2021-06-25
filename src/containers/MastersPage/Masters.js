@@ -58,7 +58,7 @@ function Masters(props) {
       axios.get("https://ustatap.net/public/api/banners") 
              .then((res) =>  (setBanners(res.data) ))
     }, [])
-    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} />)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} /> )}else{}})
+    MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} />)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/> )}else{}})
     MasterApi.map(master =>  {})
     useEffect(() => 
     {  
@@ -84,7 +84,7 @@ function Masters(props) {
         setfilter(0)
         axios.post("https://ustatap.net/public/api/ustafilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , vip:ListingResult.vip } ) 
         .then((res) =>  (setMasterApi(res.data) ))
-        MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master.name} job={master?.category_id?.name} address={master.city.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master.name} job={master.category_id.name} address={master.city} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id } /> )}else{}})
+        MasterApi.map(master =>  {if(master.vip !== 1){ masters.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>)}else if(master.vip === 1){ vipMasters.push(<VipAd2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id} /> )}else{}})
 
     }
 
@@ -155,7 +155,7 @@ function Masters(props) {
                                     vipMasters.length > 0 ?
                                     <>
                                         {!crownTopPart && <img src={vipTopImg} alt=""/>}
-                                        {crownTopPart && <img src={vipTopImg1} alt=""/>}
+                                        {crownTopPart && <img src={vipTopImg1} width='250px'  alt=""/>}
                                         <div className="Vipmasters"> {vipMasters} </div>
                                     </>
                                     : ""

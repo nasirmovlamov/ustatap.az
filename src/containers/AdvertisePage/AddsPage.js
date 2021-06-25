@@ -46,7 +46,6 @@ function AddsPage(props) {
 
     var AllAd = []
     jobCategoryApi.map((category) => jobCategory.push(category.category_id))
-    console.log(asideId);
     useEffect(() => 
     {
         if(asideId === undefined)
@@ -62,7 +61,7 @@ function AddsPage(props) {
           url = window.location.href;
         }
     } , [])
-    latestAdApi.map(ad => { AllAd.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)   } ) 
+    latestAdApi.map(ad => { AllAd.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)   } ) 
     const [filterCategory, setFilterCategory] = useState(0)
     const [filterCity, setFilterCity] = useState(0)
     const [filterDistrict, setFilterDistrict] = useState(0)
@@ -75,7 +74,7 @@ function AddsPage(props) {
         setfilter(0)
         axios.post("https://ustatap.net/public/api/elanfilter" , {category_id:ListingResult.jobcategory , city_id:ListingResult.city  , date:ListingResult.date , } ) 
         .then((res) =>  (setlatestAdApi(res.data) ))
-        latestAdApi.map(ad => { AllAd.push(<Ad name={ ad.title} desc={ad.user_name} address={ad.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)   } ) 
+        latestAdApi.map(ad => { AllAd.push(<Ad  name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)   } ) 
     }
 
     const searchDrawer = stylesForSwiper();

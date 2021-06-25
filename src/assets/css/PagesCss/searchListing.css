@@ -98,6 +98,12 @@
       grid-template-columns: repeat(1, 1fr);
 }
 
+@media screen and (max-width: 500px) {
+  .searchPage .adsContainer .topThing {
+    width: 100% !important;
+  }
+}
+
 .searchPage .adsContainer .searchNresult {
   margin-top: 50px;
   margin-bottom: -60px;
@@ -115,6 +121,21 @@
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 50px;
+}
+
+@media screen and (max-width: 750px) {
+  .searchPage .adsContainer .Vipmasters {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
 }
 
 .searchPage .adsContainer .masters {

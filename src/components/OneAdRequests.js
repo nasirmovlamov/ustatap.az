@@ -7,14 +7,16 @@ import "../assets/css/PagesCss/MyAds.css"
 import Ad2 from './Ad2'
 
 function OneAdRequests(props) {
-    const [UserAds, setUserAds] = useState([0])
+    const [UserAds, setUserAds] = useState([    ])
     const UserAdsArr = []
     let { id } = useParams();
     useEffect(() => {
         axios.post("https://ustatap.net/public/api/gethandysorgu", { elan_id: id })
             .then((res) => (setUserAds(res.data)))
     }, [])
-    UserAds?.map((master) => UserAdsArr.push(<Ad2 name={master.name} job={master.surname} address={master.city} image={master.image} numberStar={master.rating} id={master.id} rating={master.rating} />))
+    if (UserAds.length > 0 ) {
+        UserAds?.map((master) => UserAdsArr.push(<Ad2 name={master?.name} job={master?.category_id?.name} address={master?.city?.name} image={master.image} numberStar={master.rating} rating={master.rating_count} id={master.id}/>))
+    }
     return (
         <div className="myAds">
             {UserAdsArr}

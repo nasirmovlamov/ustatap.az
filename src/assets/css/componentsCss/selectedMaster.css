@@ -76,7 +76,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .selectedMaster .frameAndText .aboutAd .phoneOfMaster p {
@@ -112,9 +112,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 29px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-top: 0px;
 }
 
 .selectedMaster .frameAndText .aboutAd .aboutLinks a {
@@ -160,7 +160,7 @@
   display: -ms-flexbox;
   display: flex;
   font-size: 10px;
-  margin-top: 16px;
+  margin-top: 10px;
   width: 100%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -209,7 +209,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 120px;
+  margin-top: 30px;
 }
 
 .selectedMaster .frameAndText .aboutAd .bottomLines img {

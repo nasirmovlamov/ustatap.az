@@ -10,10 +10,10 @@ import axios from 'axios'
 import location from "../assets/images/component/element/location.svg"
 import heart from "../assets/images/component/element/heart.svg"
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import Rating from '@material-ui/lab/Rating';
 import { useLayoutEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Rating from '@material-ui/lab/Rating';
 import StarIcon from '@material-ui/icons/Star';
 
 function Ad2(props) {

@@ -47,7 +47,6 @@ function MasterMemberArea(props) {
                         <CardMemberArea img={areaImg6} link={`${match.path}security`} title="Təhlükəsizlik"/>
                         <CardMemberArea img={companySelectedAds} link={`${match.path}selected-ads`} title="Seçilmiş Elanlar"/>
                         <CardMemberArea img={areaImg5} link={`${match.path}selected-companies`} title="Seçilmiş Şirkətlər"/>
-                        <CardMemberArea img={areaImg9} link={`${match.path}requests-ad`} title="Gələn Sorğular"/>
                         <CardMemberArea img={areaImg7} link={`/`} title="Hesabdan çıx"/>
                     </div>
                 </Route>

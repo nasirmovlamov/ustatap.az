@@ -101,6 +101,10 @@
   font-family: "ComfortaaRegular";
 }
 
+.mastersCont .aboutText .name a {
+  color: black !important;
+}
+
 .mastersCont .aboutText .job {
   width: 195px;
   font-size: 18px !important;

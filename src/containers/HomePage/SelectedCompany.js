@@ -35,6 +35,11 @@ import Ad3 from '../../components/Ad3'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import Rating from '@material-ui/lab/Rating';
+
+
+
+
 function SelectedCompany(props) {
     const [UserData, setUserData] = useState(0)
     useEffect(() => {
@@ -92,7 +97,7 @@ function SelectedCompany(props) {
             .then((res) =>  (setCompanyApi1(res.data) )) 
 
         axios.get(`https://ustatap.net/public/api/shirketler/${mainId}`) 
-            .then((res) =>  (setSelectedCompany(res.data)))
+            .then((res) =>  (setSelectedCompany(res.data) , setvalueR(res.data.rating)))
 
     } , [])
 
@@ -140,7 +145,26 @@ function SelectedCompany(props) {
         }
     }
 
-    
+    // TODO:
+    const notify = (rate) => toast.success(`${rate === null ? 5 : rate}   Ulduz göndərildi` , {draggable: true,});
+    const ratingHandler = (value) => {
+        if (UserData?.user?.id === undefined) {
+            window.location.href = "/login"
+        }
+        else 
+        {
+            if(value===null)
+            {
+                value = props.numberStar
+            }
+            axios.post('https://ustatap.net/public/api/rate', {user_id:SelectedCompany?.id , rate:value} )
+                .then(res => ( console.log(res.data) ,res.status === 200 && notify(value) ))
+                .catch(err => console.log(err))
+        }
+    }
+    const [valueR, setvalueR] = useState(2)
+
+
     return (
         <div className="selectedCompany">
             <div className="generalCont">
@@ -173,13 +197,17 @@ function SelectedCompany(props) {
                             <div  className="mailOfMaster"><p><img src={mail} alt=""/> <div className="mail"><a href={`mailto:${SelectedCompany}`}> {SelectedCompany.email}</a></div></p></div>   
                             {/* <div  className="social"><img width="15" src={facebookForMaster} alt=""/> <img  width="25" src={instagramForMaster} alt=""/>  <img width="25" src={linkedinForMaster} alt=""/> <img width="25" src={twitterForMaster} alt=""/></div>    */}
                         </div>
+                        <div className="ratingCont">
+                            <Rating     value={valueR} onChange={(event , newValue) => ratingHandler(newValue) }   />
+                            Reyting Sayı: {SelectedCompany.rating_count}
+                        </div>
                         <div className="aboutButtons">
                             {/* <div className="stars">{stars}</div> */}
                             <p><img width="20" src={selectedAdEye} alt=""/> <span>{SelectedCompany.views}</span></p> 
                             <p><button className="btnHeart" onClick={() => selectItem(props.id)}><FavoriteIcon  id={`icon${props.id}`}/></button> <span>Seçilmişlərə əlave et</span></p> 
-                            <Button name="Elanı VIP-et" image2={diamond} color="#58BC40"/>
+                            {/* <Button name="Elanı VIP-et" image2={diamond} color="#58BC40"/> */}
                         </div>
-                        
+                        <div className="bottomLines"><hr/> <img src={mainLogo} alt="" /> <hr/></div>
                     </div>
                 </div>
                 

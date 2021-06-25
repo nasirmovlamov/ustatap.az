@@ -31,7 +31,7 @@ function RequestsToElans(props) {
         }
     })
 
-    UserAds?.map((ad) => {if(ad){UserAdsArr.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad.tarix} view={ad.views} image={ad.images} id={ad?.id} userId={UserData?.id}/>)}else{}}) 
+    UserAds?.map((ad) => {if(ad){UserAdsArr.push(<Ad name={ ad.title} desc={ad?.user_name} address={ad?.city_id?.name} date={ad?.tarix} view={ad?.views} image={ad.images} id={ad?.id} userId={props.UserData?.id}/>)}else{}}) 
     return (
         <div className="myAds">
             {UserAdsArr}

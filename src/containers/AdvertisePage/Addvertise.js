@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Formik , Form , Field, ErrorMessage} from "formik"
 import axios from 'axios'
 
@@ -15,6 +15,25 @@ import Button from '../../components/Button';
 import img from '../../assets/images/component/element/manForReklam.jpg'
 import { useMediaQuery } from '@material-ui/core'
 function Addvertise() {
+    const [latestAdApi, setlatestAdApi] = useState([0])
+    const [MasterApi, setMasterApi] = useState([0])
+    const [CompanyApi, setCompanyApi] = useState([0])
+    
+    useEffect(() => 
+    {
+        axios.get("https://ustatap.net/public/api/ad") 
+             .then((res) =>  (setlatestAdApi(res.data)  ))
+        axios.get("https://ustatap.net/public/api/handymen") 
+             .then((res) =>  (setMasterApi(res.data) ))
+        axios.get("https://ustatap.net/public/api/company") 
+             .then((res) =>  (setCompanyApi(res.data) ))
+    },[] )
+
+
+
+
+
+
     const controlImgMQ = useMediaQuery('(max-width:1170px)');
 
 
@@ -79,7 +98,7 @@ function Addvertise() {
                 
             </div>
             
-                <Statistica/>  
+                <Statistica latestAdApi={latestAdApi.length} CompanyApi={CompanyApi.length} MasterApi={MasterApi.length}/>        
 
                 <div className="formCont">
                     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} validateOnChange={true} validateOnBlur={false}> 
